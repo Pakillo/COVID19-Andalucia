@@ -1,0 +1,173 @@
+---
+title: "Evolución del coronavirus (COVID-19) en Andalucía"
+output: 
+  html_document: 
+    fig_caption: yes
+    fig_height: 5
+    fig_width: 7
+    theme: flatly
+    toc: no
+    self_contained: no
+---
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46538450-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-46538450-3');
+</script>
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
+                      filename = 'render_toc.R')
+```
+
+```{r pkgs, include=FALSE}
+library(dplyr)
+library(ggplot2)
+#library(plotly)
+
+mytheme <- theme_minimal(base_size = 12) +
+  theme(panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank())
+theme_set(mytheme)
+```
+
+
+Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). 
+
+Los datos se actualizan diariamente. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
+
+Última actualización: `r Sys.Date()`
+
+```{r}
+render_toc("evolucion-coronavirus-andalucia.Rmd")
+```
+
+
+
+
+```{r}
+datos <- readxl::read_excel("datos_brutos.xlsx", sheet = "datos")
+```
+
+```{r}
+datos <- datos %>%
+  group_by(Provincia) %>%
+  mutate(Positivos.dia = Positivos.acum - lag(Positivos.acum),
+         Fallecimientos.dia = Fallecimientos.acum - lag(Fallecimientos.acum))
+```
+
+
+```{r}
+andal <- datos %>%
+  group_by(Fecha) %>%
+  summarise(Positivos.dia = sum(Positivos.dia),
+            Ingresados = sum(Ingresados),
+            Fallecimientos.dia = sum(Fallecimientos.dia))
+```
+
+
+## Casos detectados
+
+<br>
+
+```{r casos_Andalucía, fig.height=3, out.width='100%'}
+
+ggplot(andal) +
+  geom_line(aes(x = Fecha, y = Positivos.dia), 
+            size = 2, colour = "#ff7f00") +
+  ylim(0, max(andal$Positivos.dia)) +
+  labs(x = "", y = "Nuevas detecciones\n",
+       title = "Nuevos casos de COVID-19 detectados diariamente en Andalucía")
+
+```
+
+
+<br>
+<br>
+
+
+```{r casos_provincias, out.width = '100%'}
+
+ggplot(datos) +
+  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
+  geom_line(aes(x = Fecha, y = Positivos.dia), 
+            size = 1.5, colour = "#ff7f00") +
+  ylim(0, max(datos$Positivos.dia)) +
+  labs(x = "", y = "Nuevas detecciones\n",
+       title = "Nuevos casos detectados diariamente por provincia") 
+
+```
+
+
+
+
+## Personas ingresadas en centros sanitarios
+
+<br>
+
+```{r ingresados_Andalucía, fig.height=3, out.width='100%'}
+
+ggplot(andal) +
+  geom_line(aes(x = Fecha, y = Ingresados), 
+            size = 2, colour = "#e41a1c") +
+  ylim(0, max(andal$Ingresados)) +
+  labs(x = "", y = "Nº Personas\n",
+       title = "Personas ingresadas por COVID-19 en Andalucía")
+
+```
+
+
+<br>
+<br>
+
+
+```{r ingresados_provincias, out.width='100%'}
+
+ggplot(datos) +
+  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
+  geom_line(aes(x = Fecha, y = Ingresados), 
+            size = 1.5, colour = "#e41a1c") +
+  ylim(0, max(datos$Ingresados)) +
+  labs(x = "", y = "Nº Personas\n",
+       title = "Personas ingresadas por provincia")
+
+```
+
+
+
+## Fallecimientos
+
+<br>
+
+```{r fallecidos_Andalucia, fig.height=3, out.width='100%'}
+
+ggplot(andal) +
+  geom_line(aes(x = Fecha, y = Fallecimientos.dia), size = 2) +
+  ylim(0, max(andal$Fallecimientos.dia)) +
+  labs(x = "", y = "Nº Fallecidos\n",
+       title = "Fallecimientos diarios por COVID-19 en Andalucía")
+
+```
+
+<br>
+<br>
+
+```{r fallecidos_provincias, eval = FALSE}
+         
+ggplot(datos) +
+  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
+  geom_line(aes(x = Fecha, y = Fallecimientos.dia), size = 1.5) +
+  ylim(0, max(datos$Fallecimientos.dia)) +
+  labs(x = "", y = "Nº Fallecidos\n",
+       title = "Fallecimientos diarios por COVID-19 por provincia")
+```
+
+
