@@ -8,6 +8,8 @@ output:
     theme: flatly
     toc: no
     self_contained: no
+    includes: 
+      in_header: header.html
 ---
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -39,6 +41,8 @@ mytheme <- theme_minimal(base_size = 12) +
 theme_set(mytheme)
 ```
 
+<br>
+<br>
 
 Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). 
 
