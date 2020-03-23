@@ -44,7 +44,6 @@ theme_set(mytheme)
 ```
 
 <br>
-<br>
 
 Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). A diferencia de las visualizaciones más divulgadas, que representan datos acumulados en el tiempo, aquí se enfatizan las variaciones **diarias** en número de casos detectados, personas ingresadas y fallecimientos.
 
@@ -79,6 +78,7 @@ andal <- datos %>%
             Fallecimientos.dia = sum(Fallecimientos.dia))
 ```
 
+<br>
 
 ## Casos detectados
 
@@ -117,7 +117,7 @@ ggplot(datos) +
 ```
 
 
-
+<br>
 
 ## Personas ingresadas en centros sanitarios
 
@@ -156,7 +156,7 @@ ggplot(datos) +
 
 ```
 
-
+<br>
 
 ## Fallecimientos
 
