@@ -26,6 +26,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+
+# Garrick Adenbuie's gist to place TOC anywhere
 devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
                       filename = 'render_toc.R')
 ```
@@ -82,6 +84,10 @@ andal <- datos %>%
 
 <br>
 
+Debe tenerse en cuenta que el número de casos detectados depende en gran medida del número de tests realizados. Por tanto, un aumento o disminución en el número de casos detectados cada día puede deberse a un mayor o menor esfuerzo en la realización de tests, no a variaciones en la incidencia de la enfermedad.
+
+<br>
+
 ```{r casos_Andalucía, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
@@ -116,6 +122,11 @@ ggplot(datos) +
 ## Personas ingresadas en centros sanitarios
 
 <br>
+
+Número neto de personas ingresadas en centros sanitarios de Andalucía cada día, teniendo en cuenta los nuevos ingresos así como las altas hospitalarias.
+
+<br>
+
 
 ```{r ingresados_Andalucía, fig.height=3, out.width='100%'}
 
