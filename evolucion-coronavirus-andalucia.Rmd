@@ -85,7 +85,7 @@ andal <- datos %>%
 
 <br>
 
-Debe tenerse en cuenta que el número de casos detectados depende en gran medida del número de tests realizados. Por tanto, un aumento o disminución en el número de casos detectados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.
+Debe tenerse en cuenta que el número de casos detectados depende en gran medida del número de test realizados. Por tanto, un aumento o disminución en el número de casos detectados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.
 
 <br>
 
@@ -173,9 +173,9 @@ ggplot(andal) +
             size = 2, colour = "grey20") +
   labs(x = "", y = "Nº Fallecidos\n",
        title = "Fallecimientos diarios por COVID-19 en Andalucía") +
-  scale_y_continuous(limits = c(0, max(andal$Fallecimientos.dia, na.rm = TRUE)),
-                     breaks = seq(0, max(andal$Fallecimientos.dia, na.rm = TRUE),
-                                  by = 2)) +
+  scale_y_continuous(limits = c(0, max(andal$Fallecimientos.dia, na.rm = TRUE))) +
+                     # breaks = seq(0, max(andal$Fallecimientos.dia, na.rm = TRUE),
+                     #              by = 2)) +
   scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Fallecimientos.dia)]),
                           max(andal$Fecha)))
 
@@ -192,7 +192,7 @@ ggplot(datos) +
             size = 1.5, colour = "grey20") +
   scale_y_continuous(limits = c(0, max(datos$Fallecimientos.dia, na.rm = TRUE)),
                      breaks = seq(0, max(datos$Fallecimientos.dia, na.rm = TRUE),
-                                  by = 1)) +
+                                  by = 2)) +
   scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Fallecimientos.dia)]),
                           max(andal$Fecha))) +
   labs(x = "", y = "Nº Fallecidos\n",
