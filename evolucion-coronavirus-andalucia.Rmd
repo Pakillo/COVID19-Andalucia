@@ -40,7 +40,9 @@ library(ggplot2)
 mytheme <- theme_minimal(base_size = 12) +
   theme(panel.grid.minor = element_blank(),
         panel.grid.major.x = element_blank(),
-        plot.caption = element_text(size = 7, face = "italic", colour = "grey60"))
+        plot.caption = element_text(size = 7, face = "italic", colour = "grey60"),
+        axis.ticks = element_line(colour = "grey80"),
+        axis.ticks.length = unit(3, "pt"))
 theme_set(mytheme)
 ```
 
@@ -95,6 +97,8 @@ ggplot(andal) +
   geom_line(aes(x = Fecha, y = Positivos.dia), 
             size = 2, colour = "#ff7f00") +
   ylim(0, max(andal$Positivos.dia)) +
+  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Positivos.dia)]),
+                          max(andal$Fecha))) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Nuevos casos de COVID-19 detectados diariamente en Andalucía")
 
@@ -112,9 +116,12 @@ ggplot(datos) +
   geom_line(aes(x = Fecha, y = Positivos.dia), 
             size = 1.5, colour = "#ff7f00") +
   ylim(0, max(datos$Positivos.dia)) +
+  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Positivos.dia)]),
+                          max(datos$Fecha))) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Nuevos casos detectados diariamente en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") 
+       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+  theme(axis.text.x = element_text(size = 8))
 
 ```
 
@@ -136,6 +143,8 @@ ggplot(andal) +
   geom_line(aes(x = Fecha, y = Ingresados), 
             size = 2, colour = "#e41a1c") +
   ylim(0, max(andal$Ingresados)) +
+  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Ingresados)]),
+                          max(andal$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
        title = "Personas ingresadas por COVID-19 en Andalucía")
 
@@ -153,9 +162,12 @@ ggplot(datos) +
   geom_line(aes(x = Fecha, y = Ingresados), 
             size = 1.5, colour = "#e41a1c") +
   ylim(0, max(datos$Ingresados)) +
+  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Ingresados)]),
+                          max(datos$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
        title = "Personas ingresadas en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia")
+       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+  theme(axis.text.x = element_text(size = 8))
 
 ```
 
@@ -174,8 +186,6 @@ ggplot(andal) +
   labs(x = "", y = "Nº Fallecidos\n",
        title = "Fallecimientos diarios por COVID-19 en Andalucía") +
   scale_y_continuous(limits = c(0, max(andal$Fallecimientos.dia, na.rm = TRUE))) +
-                     # breaks = seq(0, max(andal$Fallecimientos.dia, na.rm = TRUE),
-                     #              by = 2)) +
   scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Fallecimientos.dia)]),
                           max(andal$Fecha)))
 
@@ -187,18 +197,19 @@ ggplot(andal) +
 ```{r fallecidos_provincias, eval = TRUE, out.width='100%'}
          
 ggplot(datos) +
-  facet_wrap(~Provincia, ncol = 2) + # scales = "free_y", 
+  facet_wrap(~Provincia, ncol = 2, scales = "free_y") +  
   geom_line(aes(x = Fecha, y = Fallecimientos.dia), 
             size = 1.5, colour = "grey20") +
-  scale_y_continuous(limits = c(0, max(datos$Fallecimientos.dia, na.rm = TRUE)),
-                     breaks = seq(0, max(datos$Fallecimientos.dia, na.rm = TRUE),
-                                  by = 2)) +
+  scale_y_continuous(limits = c(0, max(datos$Fallecimientos.dia, na.rm = TRUE))) +
   scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Fallecimientos.dia)]),
-                          max(andal$Fecha))) +
+                          max(datos$Fecha))) +
   labs(x = "", y = "Nº Fallecidos\n",
-       title = "Fallecimientos diarios por COVID-19 en cada provincia")
-       # caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia")
+       title = "Fallecimientos diarios por COVID-19 en cada provincia",
+       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+  theme(axis.text.x = element_text(size = 8))
 ```
+
+<br>
 
 
 Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos]((https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html)) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía.
