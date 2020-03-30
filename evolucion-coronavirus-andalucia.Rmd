@@ -124,7 +124,7 @@ ggplot(datos) +
   scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Positivos.dia)]),
                           max(datos$Fecha))) +
   labs(x = "", y = "Nuevas detecciones\n",
-       title = "Nuevos casos detectados diariamente en cada provincia",
+       title = "Nuevos casos de COVID-19 detectados diariamente en cada provincia",
        caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
   theme(axis.text.x = element_text(size = 8))
 
@@ -230,7 +230,7 @@ ggplot(datos) +
 
 <br>
 
-Número de personas que han recibido el alta tras estar ingresadas en centros hospitalarios por COVID-19.
+Número de personas que reciben el alta tras estar ingresadas en centros hospitalarios por COVID-19.
 
 <br>
 
@@ -327,7 +327,7 @@ ggplot(andal) +
   geom_line(aes(x = Fecha, y = Fallecimientos.dia), 
             size = 2, colour = "grey20") +
   labs(x = "", y = "Nº Fallecidos\n",
-       title = "Fallecimientos diarios por COVID-19 en Andalucía") +
+       title = "Fallecimientos diarios relacionados con COVID-19 en Andalucía") +
   scale_y_continuous(limits = c(0, max(andal$Fallecimientos.dia, na.rm = TRUE))) +
   scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Fallecimientos.dia)]),
                           max(andal$Fecha)))
@@ -347,7 +347,7 @@ ggplot(datos) +
   scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Fallecimientos.dia)]),
                           max(datos$Fecha))) +
   labs(x = "", y = "Nº Fallecidos\n",
-       title = "Fallecimientos diarios por COVID-19 en cada provincia",
+       title = "Fallecimientos diarios relacionados con COVID-19 en cada provincia",
        caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
   theme(axis.text.x = element_text(size = 8))
 ```
