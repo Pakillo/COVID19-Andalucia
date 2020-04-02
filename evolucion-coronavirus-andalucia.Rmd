@@ -48,7 +48,7 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos detectados, personas en seguimiento activo, ingresadas, dadas de alta y curadas, y número de fallecimientos.
+Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos detectados, personas ingresadas, curadas y número de fallecimientos.
 
 Los datos se actualizan diariamente. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
 
@@ -133,16 +133,8 @@ ggplot(datos) +
 
 <br>
 
-## Personas en seguimiento activo
 
-<br>
-
-Número neto de personas en seguimiento activo domiciliario por COVID-19.
-
-<br>
-
-
-```{r seguimiento_Andalucía, fig.height=3, out.width='100%'}
+```{r seguimiento_Andalucía, fig.height=3, out.width='100%',eval=FALSE}
 
 ggplot(andal) +
   geom_line(aes(x = Fecha, y = Seguimiento), 
@@ -156,11 +148,7 @@ ggplot(andal) +
 ```
 
 
-<br>
-<br>
-
-
-```{r seguimiento_provincias, out.width='100%'}
+```{r seguimiento_provincias, out.width='100%', eval=FALSE}
 
 ggplot(datos) +
   facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
@@ -226,16 +214,8 @@ ggplot(datos) +
 
 <br>
 
-## Altas hospitalarias
 
-<br>
-
-Número de personas que reciben el alta tras estar ingresadas en centros hospitalarios por COVID-19.
-
-<br>
-
-
-```{r altas_Andalucía, fig.height=3, out.width='100%'}
+```{r altas_Andalucía, fig.height=3, out.width='100%', eval=FALSE}
 
 ggplot(andal) +
   geom_line(aes(x = Fecha, y = Altas.dia), 
@@ -248,9 +228,6 @@ ggplot(andal) +
 
 ```
 
-
-<br>
-<br>
 
 
 ```{r altas_provincias, out.width='100%', eval=FALSE}
