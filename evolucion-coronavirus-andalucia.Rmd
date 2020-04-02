@@ -80,6 +80,7 @@ andal <- datos %>%
   group_by(Fecha) %>%
   summarise(Positivos.dia = sum(Positivos.dia),
             Ingresados = sum(Ingresados),
+            UCI = sum(UCI),
             Seguimiento = sum(Seguimiento),
             Fallecimientos.dia = sum(Fallecimientos.dia),
             Altas.dia = sum(Altas.dia),
@@ -206,6 +207,55 @@ ggplot(datos) +
                           max(datos$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
        title = "Personas ingresadas en cada provincia",
+       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+  theme(axis.text.x = element_text(size = 8))
+
+```
+
+
+<br>
+
+
+```{r eval=FALSE}
+## Personas ingresadas en cuidados intensivos (UCI)
+
+<br>
+
+Número neto de personas que permanecen ingresadas en cuidados intensivos (UCI). 
+
+<br>
+```
+
+
+```{r uci_Andalucía, fig.height=3, out.width='100%', eval=FALSE}
+
+ggplot(andal) +
+  geom_line(aes(x = Fecha, y = UCI), 
+            size = 2, colour = "#a65628") +
+  ylim(0, max(andal$UCI)) +
+  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$UCI)]),
+                          max(andal$Fecha))) +
+  labs(x = "", y = "Nº Personas\n",
+       title = "Personas ingresadas en cuidados intensivos con COVID-19 en Andalucía")
+
+```
+
+
+<br>
+<br>
+
+
+```{r uci_provincias, out.width='100%', eval=FALSE}
+
+ggplot(datos) +
+  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
+  geom_line(aes(x = Fecha, y = UCI), 
+            size = 1.5, colour = "#a65628") +
+  ylim(0, max(datos$UCI)) +
+  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$UCI)]),
+                          max(datos$Fecha))) +
+  labs(x = "", y = "Nº Personas\n",
+       title = "Personas ingresadas en cuidados intensivos en cada provincia",
        caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
   theme(axis.text.x = element_text(size = 8))
 
