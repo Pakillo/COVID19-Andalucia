@@ -25,7 +25,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, cache = TRUE)
 
 # Garrick Adenbuie's gist to place TOC anywhere
 devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
@@ -85,6 +85,8 @@ andal <- datos %>%
             Fallecimientos.dia = sum(Fallecimientos.dia),
             Altas.dia = sum(Altas.dia),
             Curadas.dia = sum(Curadas.dia))
+
+
 ```
 
 <br>
@@ -135,38 +137,42 @@ ggplot(datos) +
 <br>
 <br>
 
-```{r prop.positivos, out.width = '100%', eval=FALSE}
+```{r prop.positivos, fig.height=3.2, out.width = '100%'}
 
 prop.ci <- function(pos, n) {
   # from Gelman & Hill book, p. 18
   estimate <- pos/n
   se <- sqrt(estimate * (1 - estimate) / n)
-  int.95 <- estimate + qnorm(c(.025,.975)) * se
+  int.95 <- estimate + qnorm(c(.005,.995)) * se
   int.95
 
 }
+
 
 test.andal <- readxl::read_excel("datos_brutos.xlsx", sheet = "test-Andal")
 
 andal <- andal %>%
   left_join(test.andal[, c("Fecha", "Ntest.dia")], by = "Fecha") %>%
   group_by(Fecha) %>%
-  mutate(Prop.positivos = Positivos.dia / Ntest.dia,
-         prop.ci.low = prop.ci(Positivos.dia, Ntest.dia)[1],
-         prop.ci.up = prop.ci(Positivos.dia, Ntest.dia)[2])
+  mutate(Prop.positivos = 100 * (Positivos.dia / Ntest.dia),
+         prop.ci.low = 100 * prop.ci(Positivos.dia, Ntest.dia)[1],
+         prop.ci.up = 100 * prop.ci(Positivos.dia, Ntest.dia)[2])
 
 
 ggplot(andal) +
   geom_ribbon(aes(x = Fecha, ymin = prop.ci.low, ymax = prop.ci.up),
-              fill = "steelblue", alpha = 0.3) +
+              fill = "#ff7f00", alpha = 0.3) +
   geom_line(aes(x = Fecha, y = Prop.positivos), 
-            size = 2, colour = "steelblue") +
-  ylim(0, max(andal$Prop.positivos)) +
+            size = 1.5, colour = "#ff7f00") +
+  geom_text(aes(x = Fecha, y = 5, label = Ntest.dia), 
+            colour = "#ff7f00", alpha = 0.8) +
+  ylim(0, 100) +
   scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Prop.positivos)]),
                           max(andal$Fecha))) +
-  labs(x = "", y = "Proporción de tests positivos\n",
-       title = "Proporción de tests que dan positivo")
-
+  labs(x = "", y = "Porcentaje de tests positivos\n",
+       title = "Porcentaje de tests que dan positivo en Andalucía",
+       caption = "Los números indican el número de test realizados cada día. \nEl sombreado representa el intervalo de confianza al 99%") +
+  theme(plot.caption = element_text(size = 9, colour = "grey60"))
 
 
 ```
