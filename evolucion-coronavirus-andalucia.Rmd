@@ -25,7 +25,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, cache = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 
 # Garrick Adenbuie's gist to place TOC anywhere
 devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
@@ -87,58 +87,6 @@ andal <- datos %>%
             Curadas.dia = sum(Curadas.dia))
 
 
-```
-
-<br>
-
-## Casos detectados
-
-<br>
-
-Debe tenerse en cuenta que el número de casos detectados depende en gran medida del número de test realizados. Por tanto, un aumento o disminución en el número de casos detectados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.
-
-<br>
-
-```{r casos_Andalucía, fig.height=3, out.width='100%'}
-
-ggplot(andal) +
-  geom_line(aes(x = Fecha, y = Positivos.dia), 
-            size = 2, colour = "#ff7f00") +
-  ylim(0, max(andal$Positivos.dia)) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Positivos.dia)]),
-                          max(andal$Fecha))) +
-  labs(x = "", y = "Nuevas detecciones\n",
-       title = "Nuevos casos de COVID-19 detectados diariamente en Andalucía")
-
-```
-
-
-<br>
-<br>
-
-
-```{r casos_provincias, out.width = '100%'}
-
-ggplot(datos) +
-  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_line(aes(x = Fecha, y = Positivos.dia), 
-            size = 1.5, colour = "#ff7f00") +
-  ylim(0, max(datos$Positivos.dia)) +
-  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Positivos.dia)]),
-                          max(datos$Fecha))) +
-  labs(x = "", y = "Nuevas detecciones\n",
-       title = "Nuevos casos de COVID-19 detectados diariamente en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
-  theme(axis.text.x = element_text(size = 8))
-
-```
-
-
-<br>
-<br>
-
-```{r prop.positivos, fig.height=3.2, out.width = '100%'}
-
 prop.ci <- function(pos, n) {
   # from Gelman & Hill book, p. 18
   estimate <- pos/n
@@ -158,6 +106,43 @@ andal <- andal %>%
          prop.ci.low = 100 * prop.ci(Positivos.dia, Ntest.dia)[1],
          prop.ci.up = 100 * prop.ci(Positivos.dia, Ntest.dia)[2])
 
+```
+
+<br>
+
+## Casos detectados
+
+<br>
+
+Debe tenerse en cuenta que el número de casos detectados depende en gran medida del número de test realizados. Por tanto, un aumento o disminución en el número de casos detectados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.
+
+<br>
+
+```{r casos_Andalucía, fig.height=4, out.width='100%'}
+
+ggplot(andal) +
+  geom_line(aes(x = Fecha, y = Positivos.dia), 
+            size = 2, colour = "#ff7f00") +
+  geom_line(aes(x = Fecha, y = Ntest.dia), 
+            size = 1, colour = "grey70") + 
+  scale_y_continuous(limits = c(0, max(andal$Ntest.dia)),
+                     n.breaks = 6) +
+  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Positivos.dia)]),
+                          max(andal$Fecha))) +
+  labs(x = "", y = "Nuevas detecciones\n",
+       title = "Nuevos casos de COVID-19 detectados diariamente en Andalucía",
+       caption = "La línea gris representa el número de test realizados diariamente") +
+    theme(plot.caption = element_text(size = 9, colour = "grey60", face = "plain")) +
+  theme(panel.grid.minor.y = element_line(size = rel(0.5)))
+
+```
+
+
+<br>
+<br>
+
+
+```{r prop.positivos, fig.height=3.2, out.width = '100%'}
 
 ggplot(andal) +
   geom_ribbon(aes(x = Fecha, ymin = prop.ci.low, ymax = prop.ci.up),
@@ -171,13 +156,35 @@ ggplot(andal) +
                           max(andal$Fecha))) +
   labs(x = "", y = "Porcentaje de tests positivos\n",
        title = "Porcentaje de tests que dan positivo en Andalucía",
-       caption = "Los números indican el número de test realizados cada día. \nEl sombreado representa el intervalo de confianza al 99%") +
-  theme(plot.caption = element_text(size = 9, colour = "grey60"))
+       caption = "Los números indican el número de test realizados cada día\nEl sombreado representa el intervalo de confianza al 99%") +
+  theme(plot.caption = element_text(size = 9, colour = "grey60", face = "plain"))
 
 
 ```
 
+
 <br>
+<br>
+
+```{r casos_provincias, out.width = '100%'}
+
+ggplot(datos) +
+  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
+  geom_line(aes(x = Fecha, y = Positivos.dia), 
+            size = 1.5, colour = "#ff7f00") +
+  ylim(0, max(datos$Positivos.dia)) +
+  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Positivos.dia)]),
+                          max(datos$Fecha))) +
+  labs(x = "", y = "Nuevas detecciones\n",
+       title = "Nuevos casos de COVID-19 detectados diariamente en cada provincia",
+       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+  theme(axis.text.x = element_text(size = 8))
+
+```
+
+
+<br>
+
 
 ```{r seguimiento_Andalucía, fig.height=3, out.width='100%',eval=FALSE}
 
