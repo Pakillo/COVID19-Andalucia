@@ -133,7 +133,45 @@ ggplot(datos) +
 
 
 <br>
+<br>
 
+```{r prop.positivos, out.width = '100%', eval=FALSE}
+
+prop.ci <- function(pos, n) {
+  # from Gelman & Hill book, p. 18
+  estimate <- pos/n
+  se <- sqrt(estimate * (1 - estimate) / n)
+  int.95 <- estimate + qnorm(c(.025,.975)) * se
+  int.95
+
+}
+
+test.andal <- readxl::read_excel("datos_brutos.xlsx", sheet = "test-Andal")
+
+andal <- andal %>%
+  left_join(test.andal[, c("Fecha", "Ntest.dia")], by = "Fecha") %>%
+  group_by(Fecha) %>%
+  mutate(Prop.positivos = Positivos.dia / Ntest.dia,
+         prop.ci.low = prop.ci(Positivos.dia, Ntest.dia)[1],
+         prop.ci.up = prop.ci(Positivos.dia, Ntest.dia)[2])
+
+
+ggplot(andal) +
+  geom_ribbon(aes(x = Fecha, ymin = prop.ci.low, ymax = prop.ci.up),
+              fill = "steelblue", alpha = 0.3) +
+  geom_line(aes(x = Fecha, y = Prop.positivos), 
+            size = 2, colour = "steelblue") +
+  ylim(0, max(andal$Prop.positivos)) +
+  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Prop.positivos)]),
+                          max(andal$Fecha))) +
+  labs(x = "", y = "Proporción de tests positivos\n",
+       title = "Proporción de tests que dan positivo")
+
+
+
+```
+
+<br>
 
 ```{r seguimiento_Andalucía, fig.height=3, out.width='100%',eval=FALSE}
 
@@ -216,7 +254,6 @@ ggplot(datos) +
 <br>
 
 
-```{r eval=FALSE}
 ## Personas ingresadas en cuidados intensivos (UCI)
 
 <br>
@@ -224,10 +261,10 @@ ggplot(datos) +
 Número neto de personas que permanecen ingresadas en cuidados intensivos (UCI). 
 
 <br>
-```
 
 
-```{r uci_Andalucía, fig.height=3, out.width='100%', eval=FALSE}
+
+```{r uci_Andalucía, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
   geom_line(aes(x = Fecha, y = UCI), 
@@ -236,7 +273,7 @@ ggplot(andal) +
   scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$UCI)]),
                           max(andal$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas ingresadas en cuidados intensivos con COVID-19 en Andalucía")
+       title = "Personas en cuidados intensivos con COVID-19 en Andalucía")
 
 ```
 
@@ -245,7 +282,7 @@ ggplot(andal) +
 <br>
 
 
-```{r uci_provincias, out.width='100%', eval=FALSE}
+```{r uci_provincias, out.width='100%'}
 
 ggplot(datos) +
   facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
