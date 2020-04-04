@@ -271,11 +271,6 @@ ggplot(datos) +
 
 <br>
 
-Número neto de personas que permanecen ingresadas en cuidados intensivos (UCI). 
-
-<br>
-
-
 
 ```{r uci_Andalucía, fig.height=3, out.width='100%'}
 
