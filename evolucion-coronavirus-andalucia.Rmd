@@ -28,8 +28,9 @@ output:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 
 # Garrick Adenbuie's gist to place TOC anywhere
-devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
-                      filename = 'render_toc.R')
+# devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
+#                       filename = 'render_toc.R')
+source("render_toc.R")
 ```
 
 ```{r pkgs, include=FALSE}
@@ -69,9 +70,11 @@ datos <- readxl::read_excel("datos_brutos.xlsx", sheet = "datos")
 datos <- datos %>%
   group_by(Provincia) %>%
   mutate(Positivos.dia = Positivos.acum - lag(Positivos.acum),
+         Ingresos.dia = Ingresos.acum - lag(Ingresos.acum),
+         UCI.dia = UCI.acum - lag(UCI.acum),
          Fallecimientos.dia = Fallecimientos.acum - lag(Fallecimientos.acum),
-         Altas.dia = Altas - lag(Altas),
-         Curadas.dia = Curados - lag(Curados))
+         Altas.dia = Altas.acum - lag(Altas.acum),
+         Curadas.dia = Curadas.acum - lag(Curadas.acum))
 ```
 
 
@@ -79,8 +82,10 @@ datos <- datos %>%
 andal <- datos %>%
   group_by(Fecha) %>%
   summarise(Positivos.dia = sum(Positivos.dia),
-            Ingresados = sum(Ingresados),
-            UCI = sum(UCI),
+            Ingresos.acum = sum(Ingresos.acum),
+            Ingresos.dia = sum(Ingresos.dia),
+            UCI.acum = sum(UCI.acum),
+            UCI.dia = sum(UCI.dia),
             Seguimiento = sum(Seguimiento),
             Fallecimientos.dia = sum(Fallecimientos.dia),
             Altas.dia = sum(Altas.dia),
@@ -91,8 +96,8 @@ prop.ci <- function(pos, n) {
   # from Gelman & Hill book, p. 18
   estimate <- pos/n
   se <- sqrt(estimate * (1 - estimate) / n)
-  int.95 <- estimate + qnorm(c(.005,.995)) * se
-  int.95
+  int.99 <- estimate + qnorm(c(.005,.995)) * se
+  int.99
 
 }
 
@@ -220,25 +225,21 @@ ggplot(datos) +
 <br>
 
 
-## Personas ingresadas en centros sanitarios
-
-<br>
-
-Número neto de personas que permanecen ingresadas en centros sanitarios de Andalucía cada día, teniendo en cuenta tanto los nuevos ingresos como las altas hospitalarias.
+## Ingresos en centros hospitalarios
 
 <br>
 
 
-```{r ingresados_Andalucía, fig.height=3, out.width='100%'}
+```{r ingresos_Andalucía, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
-  geom_line(aes(x = Fecha, y = Ingresados), 
+  geom_line(aes(x = Fecha, y = Ingresos.dia), 
             size = 2, colour = "#e41a1c") +
-  ylim(0, max(andal$Ingresados)) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Ingresados)]),
+  ylim(0, max(andal$Ingresos.dia)) +
+  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Ingresos.dia)]),
                           max(andal$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas ingresadas por COVID-19 en Andalucía")
+       title = "Nuevos ingresos diarios con COVID-19 en Andalucía")
 
 ```
 
@@ -247,17 +248,17 @@ ggplot(andal) +
 <br>
 
 
-```{r ingresados_provincias, out.width='100%'}
+```{r ingresos_provincias, out.width='100%'}
 
 ggplot(datos) +
   facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_line(aes(x = Fecha, y = Ingresados), 
+  geom_line(aes(x = Fecha, y = Ingresos.dia), 
             size = 1.5, colour = "#e41a1c") +
-  ylim(0, max(datos$Ingresados)) +
-  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Ingresados)]),
+  ylim(0, max(datos$Ingresos.dia)) +
+  scale_x_datetime(limits = c(as.POSIXct("2020-03-23", tz = "UTC"),
                           max(datos$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas ingresadas en cada provincia",
+       title = "Nuevos ingresos diarios con COVID-19 en cada provincia",
        caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
   theme(axis.text.x = element_text(size = 8))
 
@@ -267,7 +268,7 @@ ggplot(datos) +
 <br>
 
 
-## Personas ingresadas en cuidados intensivos (UCI)
+## Ingresos en cuidados intensivos (UCI)
 
 <br>
 
@@ -275,13 +276,13 @@ ggplot(datos) +
 ```{r uci_Andalucía, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
-  geom_line(aes(x = Fecha, y = UCI), 
+  geom_line(aes(x = Fecha, y = UCI.dia), 
             size = 2, colour = "#a65628") +
-  ylim(0, max(andal$UCI)) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$UCI)]),
+  ylim(0, max(andal$UCI.dia)) +
+  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$UCI.dia)]),
                           max(andal$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas en cuidados intensivos con COVID-19 en Andalucía")
+       title = "Ingresos diarios en cuidados intensivos en Andalucía")
 
 ```
 
@@ -290,17 +291,17 @@ ggplot(andal) +
 <br>
 
 
-```{r uci_provincias, out.width='100%'}
+```{r uci_provincias, out.width='100%', eval=FALSE}
 
 ggplot(datos) +
   facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_line(aes(x = Fecha, y = UCI), 
+  geom_line(aes(x = Fecha, y = UCI.dia), 
             size = 1.5, colour = "#a65628") +
-  ylim(0, max(datos$UCI)) +
-  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$UCI)]),
+  ylim(0, max(datos$UCI.dia)) +
+  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$UCI.dia)]),
                           max(datos$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas ingresadas en cuidados intensivos en cada provincia",
+       title = "Ingresos diarios en cuidados intensivos en cada provincia",
        caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
   theme(axis.text.x = element_text(size = 8))
 
@@ -358,7 +359,7 @@ ggplot(andal) +
   scale_x_datetime(limits = c(andal$Fecha[13],
                           max(andal$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas curadas de COVID-19 en Andalucía")
+       title = "Personas curadas de COVID-19 diariamente en Andalucía")
 
 ```
 
@@ -377,7 +378,7 @@ ggplot(datos) +
   scale_x_datetime(limits = c(andal$Fecha[13],
                           max(datos$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas curadas en cada provincia",
+       title = "Personas curadas diariamente en cada provincia",
        caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
   theme(axis.text.x = element_text(size = 8))
 
