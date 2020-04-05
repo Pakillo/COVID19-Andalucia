@@ -157,7 +157,7 @@ ggplot(andal) +
   geom_text(aes(x = Fecha, y = 5, label = Ntest.dia), 
             colour = "#ff7f00", alpha = 0.8) +
   ylim(0, 100) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Prop.positivos)]),
+  scale_x_datetime(limits = c(as.POSIXct("2020-03-30", tz = "UTC"),
                           max(andal$Fecha))) +
   labs(x = "", y = "Porcentaje de tests positivos\n",
        title = "Porcentaje de tests que dan positivo en Andalucía",
