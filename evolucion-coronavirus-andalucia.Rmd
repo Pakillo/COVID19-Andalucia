@@ -25,7 +25,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 # Garrick Adenbuie's gist to place TOC anywhere
 # devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
@@ -56,7 +56,7 @@ Los datos se actualizan diariamente. Tanto los datos como el código empleado pa
 Última actualización: `r Sys.Date()`
 
 ```{r}
-render_toc("evolucion-coronavirus-andalucia.Rmd")
+render_toc("evolucion-coronavirus-andalucia.Rmd", base_level = 2, toc_depth = 1)
 ```
 
 
@@ -189,6 +189,43 @@ ggplot(datos) +
 
 
 <br>
+
+
+### Casos confirmados por Distrito Sanitario 
+
+```{r mapa_distritos, out.width='100%'}
+casos.dist <- readxl::read_excel("datos_brutos.xlsx", sheet = "distritos")
+
+library(sf)
+
+distritos <- st_read("Distritos/Distritos_2018.shp", 
+                     stringsAsFactors = FALSE, quiet = TRUE) %>%
+  mutate(CODIST = as.numeric(CODIST))
+
+casos.dist <- left_join(select(distritos, CODIST, nombre),
+                        select(casos.dist, CODIST, nombre, casos, fecha),
+                        by = c("CODIST", "nombre"))
+
+
+library(mapview)
+mapviewOptions(legend.pos = "bottomleft")
+
+mapview(casos.dist, zcol = "casos", 
+        col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "YlOrRd")),
+        alpha.regions = 0.9,
+        map.types = "CartoDB.Positron",
+        layer.name = "Casos",
+        popup = leafpop::popupTable(casos.dist, 
+                                    zcol = c("nombre", "casos", "fecha"), 
+                           row.numbers = FALSE, feature.id = FALSE)) 
+
+# ggplot(casos.dist) +
+#   geom_sf(aes(fill = casos)) +
+#   scale_fill_distiller(type = "seq", palette = "YlGnBu", direction = 1)
+        
+```
+
+
 
 
 ```{r seguimiento_Andalucía, fig.height=3, out.width='100%',eval=FALSE}
