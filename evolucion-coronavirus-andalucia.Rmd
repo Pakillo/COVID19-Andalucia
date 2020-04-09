@@ -156,7 +156,7 @@ ggplot(andal) +
             size = 1.5, colour = "#ff7f00") +
   geom_text(aes(x = Fecha, y = 5, label = Ntest.dia), 
             colour = "#ff7f00", alpha = 0.8) +
-  ylim(0, 100) +
+  ylim(0, max(andal$Prop.positivos)) +
   scale_x_datetime(limits = c(as.POSIXct("2020-03-30", tz = "UTC"),
                           max(andal$Fecha))) +
   labs(x = "", y = "Porcentaje de tests positivos\n",
