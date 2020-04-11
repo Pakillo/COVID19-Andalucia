@@ -149,19 +149,25 @@ ggplot(andal) +
 
 ```{r prop.positivos, fig.height=3.2, out.width = '100%'}
 
+sec.axis.factor = 30
+
 ggplot(andal) +
-  geom_ribbon(aes(x = Fecha, ymin = prop.ci.low, ymax = prop.ci.up),
-              fill = "#ff7f00", alpha = 0.3) +
+  # geom_ribbon(aes(x = Fecha, ymin = prop.ci.low, ymax = prop.ci.up),
+  #             fill = "#ff7f00", alpha = 0.3) +
   geom_line(aes(x = Fecha, y = Prop.positivos), 
-            size = 1.5, colour = "#ff7f00") +
-  geom_text(aes(x = Fecha, y = 5, label = Ntest.dia), 
-            colour = "#ff7f00", alpha = 0.8) +
-  ylim(0, max(andal$Prop.positivos)) +
+            size = 2, colour = "#ff7f00") +
+  geom_line(aes(x = Fecha, y = (Ntest.dia/sec.axis.factor)), colour = "grey70") +
+  # geom_text(aes(x = Fecha, y = 5, label = Ntest.dia), 
+  #           colour = "#ff7f00", alpha = 0.8) +
+  scale_y_continuous(limits = c(0, 100), #max(andal$Prop.positivos, na.rm = TRUE)),
+                     sec.axis = sec_axis(trans = ~ ((.*sec.axis.factor)), 
+                                         breaks = seq(0, 3000, by = 500),
+                                         name = "Número de test\n")) +
   scale_x_datetime(limits = c(as.POSIXct("2020-03-30", tz = "UTC"),
                           max(andal$Fecha))) +
   labs(x = "", y = "Porcentaje de tests positivos\n",
        title = "Porcentaje de tests que dan positivo en Andalucía",
-       caption = "Los números indican el número de test realizados cada día\nEl sombreado representa el intervalo de confianza al 99%") +
+       caption = "La línea gris representa el número de test realizados diariamente (eje derecho)") +
   theme(plot.caption = element_text(size = 9, colour = "grey60", face = "plain"))
 
 
