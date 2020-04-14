@@ -75,6 +75,21 @@ datos <- datos %>%
          Fallecimientos.dia = Fallecimientos.acum - lag(Fallecimientos.acum),
          Altas.dia = Altas.acum - lag(Altas.acum),
          Curadas.dia = Curadas.acum - lag(Curadas.acum))
+
+## Before 22 March, not clear if hospitalizations are accumulated or not (many negative variations in some provinces!)
+# Set them to NA seems the safest strategy by now
+datos <- datos %>%
+  mutate(Ingresos.dia = ifelse(Ingresos.dia < 0, NA, Ingresos.dia))
+
+
+# checks
+stopifnot(na.omit(datos$Positivos.dia >= 0))
+stopifnot(na.omit(datos$Ingresos.dia >= 0))
+stopifnot(na.omit(datos$UCI.dia >= 0))
+stopifnot(na.omit(datos$Curadas.dia >= 0))
+stopifnot(na.omit(datos$Fallecimientos.dia >= 0))
+
+
 ```
 
 
