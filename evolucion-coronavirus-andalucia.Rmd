@@ -86,7 +86,7 @@ datos <- datos %>%
 stopifnot(na.omit(datos$Positivos.dia >= 0))
 stopifnot(na.omit(datos$Ingresos.dia >= 0))
 stopifnot(na.omit(datos$UCI.dia >= 0))
-stopifnot(na.omit(datos$Curadas.dia >= 0))
+#stopifnot(na.omit(datos$Curadas.dia >= 0))
 stopifnot(na.omit(datos$Fallecimientos.dia >= 0))
 
 
