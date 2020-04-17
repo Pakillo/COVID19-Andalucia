@@ -256,21 +256,27 @@ ggplot(distritos) +
 ```
 
 ```{r out.width='100%', fig.height=7}
+
 distritos.data <- dplyr::filter(distritos, fecha > "2020-04-11")
 distritos.last <- dplyr::filter(distritos, fecha == max(fecha))
+
+set.seed(5)
 
 ggplot(distritos.data) +
   aes(x = fecha, y = casos.dia) +
   facet_wrap(~provincia, ncol = 2) +
-  geom_line(aes(group = nombre, colour = nombre)) +
-  geom_point(data = distritos.last, aes(colour = nombre)) +
+  geom_line(aes(group = nombre, colour = nombre), size = 1.5) +
+  geom_point(data = distritos.last, aes(colour = nombre), size = 1.5) +
+  scale_color_manual(values = sample(colorRampPalette(RColorBrewer::brewer.pal(n = 9, "Set1")[-6])(35))) +
   theme(legend.position = "none") +
   ggrepel::geom_text_repel(data = distritos.last,
-                           aes(label = nombre, colour = nombre), 
-                           size = 2, nudge_x = 0.4, 
+                           aes(label = nombre.corto, colour = nombre), 
+                           size = 3, nudge_x = 0.4, 
                            segment.size = 0.2, segment.alpha = 0.5) +
   scale_x_date(expand = expansion(mult = c(0, 0.5))) +
-  labs(x = "", y = "Casos confirmados\n")
+  labs(x = "", y = "Casos confirmados\n",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(strip.text = element_text(size = 12))
 
 ```
 
