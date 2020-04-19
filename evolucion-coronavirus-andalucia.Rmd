@@ -41,9 +41,11 @@ library(ggplot2)
 mytheme <- theme_minimal(base_size = 12) +
   theme(panel.grid.minor = element_blank(),
         panel.grid.major.x = element_blank(),
-        plot.caption = element_text(size = 7, face = "italic", colour = "grey60"),
+        plot.caption = element_text(size = 8, face = "italic", colour = "grey60"),
+        plot.subtitle = element_text(size = 9, face = "plain", colour = "grey50"),
         axis.ticks = element_line(colour = "grey80"),
-        axis.ticks.length = unit(3, "pt"))
+        axis.ticks.length = unit(3, "pt"),
+        strip.text = element_text(size = 12))
 theme_set(mytheme)
 ```
 
@@ -63,91 +65,105 @@ render_toc("evolucion-coronavirus-andalucia.Rmd", base_level = 2, toc_depth = 1)
 
 
 ```{r}
-datos <- readxl::read_excel("datos_brutos.xlsx", sheet = "datos")
-```
+library(readr)
 
-```{r}
-datos <- datos %>%
-  group_by(Provincia) %>%
-  mutate(Positivos.dia = Positivos.acum - lag(Positivos.acum),
-         Ingresos.dia = Ingresos.acum - lag(Ingresos.acum),
-         UCI.dia = UCI.acum - lag(UCI.acum),
-         Fallecimientos.dia = Fallecimientos.acum - lag(Fallecimientos.acum),
-         Altas.dia = Altas.acum - lag(Altas.acum),
-         Curadas.dia = Curadas.acum - lag(Curadas.acum))
+#datos <- readxl::read_excel("datos_brutos.xlsx", sheet = "datos")
 
-## Before 22 March, not clear if hospitalizations are accumulated or not (many negative variations in some provinces!)
-# Set them to NA seems the safest strategy by now
+# usando datos de la Junta
+# https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/38228?CodOper=b3_2314&codConsulta=38228
+
+datos <- readr::read_csv2("datos/datos_provincias_raw.csv", 
+                          col_types = "Dcci-",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = ".",
+                                          date_format = "%d/%m/%Y"))
+
+datos <- tidyr::pivot_wider(datos, names_from = "Medida", values_from = "Valor") %>%
+  rename(UCI = `Total UCI`)
+
+
 datos <- datos %>%
-  mutate(Ingresos.dia = ifelse(Ingresos.dia < 0, NA, Ingresos.dia))
+  arrange(Fecha) %>%
+  group_by(Territorio) %>%
+  mutate(Confirmados.new = Confirmados - lag(Confirmados),
+         Hospitalizados.new = Hospitalizados - lag(Hospitalizados),
+         UCI.new =  UCI - lag(UCI),
+         Fallecimientos.new = Fallecimientos - lag(Fallecimientos),
+         #Altas.dia = Altas.acum - lag(Altas.acum),
+         Curados.new = Curados - lag(Curados)) %>%
+  ungroup()
+
+datos <- dplyr::filter(datos, Territorio != "España")
 
 
 # checks
-stopifnot(na.omit(datos$Positivos.dia >= 0))
-stopifnot(na.omit(datos$Ingresos.dia >= 0))
-stopifnot(na.omit(datos$UCI.dia >= 0))
-stopifnot(na.omit(datos$Curadas.dia >= 0))
-stopifnot(na.omit(datos$Fallecimientos.dia >= 0))
+library(assertr)
 
+# datos %>%
+#   assert(within_bounds(0, Inf), Confirmados.new:Curados.new, 
+#          error_fun = error_report)  
+
+write_csv(datos, "datos/datos_provincias_clean.csv")
+
+```
+
+
+```{r include=FALSE}
+provs <- datos %>%
+  filter(Territorio != "Andalucía")
+
+provs %>%
+  verify(length(unique(Territorio)) == 8, success_fun = success_logical)
 
 ```
 
 
 ```{r}
+
+test.andal <- readxl::read_excel("datos/test_Andalucia.xlsx")
+test.andal$Fecha <- as.Date(test.andal$Fecha)
+
 andal <- datos %>%
-  group_by(Fecha) %>%
-  summarise(Positivos.dia = sum(Positivos.dia),
-            Ingresos.acum = sum(Ingresos.acum),
-            Ingresos.dia = sum(Ingresos.dia),
-            UCI.acum = sum(UCI.acum),
-            UCI.dia = sum(UCI.dia),
-            Seguimiento = sum(Seguimiento),
-            Fallecimientos.dia = sum(Fallecimientos.dia),
-            Altas.dia = sum(Altas.dia),
-            Curadas.dia = sum(Curadas.dia))
-
-
-prop.ci <- function(pos, n) {
-  # from Gelman & Hill book, p. 18
-  estimate <- pos/n
-  se <- sqrt(estimate * (1 - estimate) / n)
-  int.99 <- estimate + qnorm(c(.005,.995)) * se
-  int.99
-
-}
-
-
-test.andal <- readxl::read_excel("datos_brutos.xlsx", sheet = "test-Andal")
-
-andal <- andal %>%
+  filter(Territorio == "Andalucía") %>%
   left_join(test.andal[, c("Fecha", "Ntest.dia")], by = "Fecha") %>%
   group_by(Fecha) %>%
-  mutate(Prop.positivos = 100 * (Positivos.dia / Ntest.dia),
-         prop.ci.low = 100 * prop.ci(Positivos.dia, Ntest.dia)[1],
-         prop.ci.up = 100 * prop.ci(Positivos.dia, Ntest.dia)[2])
+  mutate(Prop.positivos = 100 * (Confirmados.new / Ntest.dia)) %>%
+  ungroup()
+
+
+# prop.ci <- function(pos, n) {
+#   # from Gelman & Hill book, p. 18
+#   estimate <- pos/n
+#   se <- sqrt(estimate * (1 - estimate) / n)
+#   int.99 <- estimate + qnorm(c(.005,.995)) * se
+#   int.99
+# }
+
 
 ```
 
 <br>
+
+
+
 
 ## Casos confirmados
 
 <br>
 
-```{r casos_Andalucía, fig.height=4, out.width='100%'}
+```{r casos_Andalucia, fig.height=4, out.width='100%'}
 
 ggplot(andal) +
-  geom_col(aes(x = Fecha, y = Positivos.dia), 
+  geom_col(aes(x = Fecha, y = Confirmados.new), 
             fill = "#ff7f00") +
   geom_line(aes(x = Fecha, y = Ntest.dia), 
             size = 1, colour = "grey70") + 
   scale_y_continuous(limits = c(0, NA), n.breaks = 6) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Positivos.dia)]),
-                          NA)) +
   labs(x = "", y = "Nuevas detecciones\n",
-       title = "Nuevos casos de COVID-19 confirmados diariamente en Andalucía",
-       caption = "La línea gris representa el número de test realizados diariamente") +
-    theme(plot.caption = element_text(size = 9, colour = "grey60", face = "plain")) +
+       title = "Casos de COVID-19 confirmados diariamente en Andalucía",
+       subtitle = "La línea gris representa el número de test realizados diariamente",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5)))
 
 ```
@@ -160,15 +176,16 @@ Debe tenerse en cuenta que el número de casos confirmados depende en gran medid
 
 
 
-```{r out.width='100%', fig.height=3}
+```{r out.width='100%', fig.height=4}
 ggplot(andal) +
-  geom_point(aes(Ntest.dia, Positivos.dia), 
+  geom_point(aes(Ntest.dia, Confirmados.new), 
              size = 3, colour = "#ff7f00") +
   scale_y_continuous(limits = c(0, NA), 
                      name = "Número de casos confirmados\n") +
   scale_x_continuous(limits = c(0, NA),
                      name = "\nNúmero de test realizados") +
-  labs(title = "Relación entre el número de casos confirmados\ny el número de test realizados diariamente")
+  labs(title = "Relación entre el número de casos confirmados\ny el número de test realizados diariamente",
+       caption = "https://tiny.cc/COVID19-Andalucia")
 ```
 
 <br>
@@ -178,7 +195,7 @@ La proporción de casos positivos respecto al total de test realizados también 
 
 <br>
 
-```{r prop.positivos, fig.height=3.2, out.width = '100%'}
+```{r prop.positivos, fig.height=4, out.width = '100%'}
 
 sec.axis.factor = 30
 
@@ -191,16 +208,15 @@ ggplot(andal) +
             colour = "grey70", size = 1.5) +
   # geom_text(aes(x = Fecha, y = 5, label = Ntest.dia), 
   #           colour = "#ff7f00", alpha = 0.8) +
-  scale_y_continuous(limits = c(0, 100), #max(andal$Prop.positivos, na.rm = TRUE)),
+  scale_y_continuous(limits = c(0, 100), 
                      sec.axis = sec_axis(trans = ~ ((.*sec.axis.factor)), 
                                          breaks = seq(0, 3000, by = 500),
                                          name = "Número de test\n")) +
-  scale_x_datetime(limits = c(as.POSIXct("2020-03-30", tz = "UTC"),
-                          NA)) +
+  scale_x_date(limits = c(as.Date("2020-03-26"), NA)) +
   labs(x = "", y = "Porcentaje de tests positivos\n",
        title = "Porcentaje de tests que dan positivo en Andalucía",
-       caption = "La línea gris representa el número de test realizados diariamente (eje derecho)") +
-  theme(plot.caption = element_text(size = 9, colour = "grey60", face = "plain"))
+       subtitle = "La línea gris representa el número de test realizados diariamente (eje derecho)",
+       caption = "https://tiny.cc/COVID19-Andalucia")
 
 
 ```
@@ -209,18 +225,17 @@ ggplot(andal) +
 <br>
 <br>
 
-```{r casos_provincias, out.width = '100%'}
+```{r casos_provincias, out.width = '100%', fig.height=6}
 
-ggplot(datos) +
-  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_col(aes(x = Fecha, y = Positivos.dia), 
+ggplot(provs) +
+  facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
+  geom_col(aes(x = Fecha, y = Confirmados.new), 
             size = 1.5, fill = "#ff7f00") +
   ylim(0, NA) +
-  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Positivos.dia)]),
-                          NA)) +
   labs(x = "", y = "Nuevas detecciones\n",
-       title = "Nuevos casos de COVID-19 confirmados diariamente por provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+       title = "Casos de COVID-19 confirmados diariamente en cada provincia",
+       subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente cada provincia",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8))
 
 ```
@@ -285,7 +300,7 @@ ggplot(distritos.data) +
 Este mapa muestra los casos confirmados con fecha 6 de Abril. La Junta de Andalucía ha comenzado a visualizar los datos diarios por Distrito Sanitario [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
 
 ```{r mapa_distritos, out.width='100%'}
-casos.dist <- readxl::read_excel("datos_brutos.xlsx", sheet = "distritos")
+casos.dist <- readxl::read_excel("datos/datos_brutos.xlsx", sheet = "distritos")
 
 library(sf)
 
@@ -358,16 +373,16 @@ ggplot(datos) +
 <br>
 
 
-```{r ingresos_Andalucía, fig.height=3, out.width='100%'}
+```{r ingresos_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
-  geom_line(aes(x = Fecha, y = Ingresos.dia), 
+  geom_line(aes(x = Fecha, y = Hospitalizados.new), 
             size = 2, colour = "#e41a1c") +
-  ylim(0, max(andal$Ingresos.dia)) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Ingresos.dia)]),
-                          max(andal$Fecha))) +
+  ylim(0, NA) +
+  scale_x_date(limits = c(as.Date("2020-03-15"), NA)) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Nuevos ingresos diarios con COVID-19 en Andalucía")
+       title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
+       caption = "https://tiny.cc/COVID19-Andalucia")
 
 ```
 
@@ -376,18 +391,20 @@ ggplot(andal) +
 <br>
 
 
-```{r ingresos_provincias, out.width='100%'}
+```{r ingresos_provincias, out.width='100%', fig.height=6}
 
-ggplot(datos) +
-  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_line(aes(x = Fecha, y = Ingresos.dia), 
+ggplot(provs) +
+  facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
+  geom_line(aes(x = Fecha, y = Hospitalizados.new), 
             size = 1.5, colour = "#e41a1c") +
-  ylim(0, max(datos$Ingresos.dia)) +
-  scale_x_datetime(limits = c(as.POSIXct("2020-03-23", tz = "UTC"),
-                          max(datos$Fecha))) +
+  ylim(0, NA) +
+  scale_x_date(limits = c(as.Date("2020-03-15"), NA)) +
+  # scale_x_datetime(limits = c(as.POSIXct("2020-03-23", tz = "UTC"),
+  #                         max(datos$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Nuevos ingresos diarios con COVID-19 en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+       title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
+       subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8))
 
 ```
@@ -401,16 +418,18 @@ ggplot(datos) +
 <br>
 
 
-```{r uci_Andalucía, fig.height=3, out.width='100%'}
+```{r uci_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
-  geom_line(aes(x = Fecha, y = UCI.dia), 
+  geom_line(aes(x = Fecha, y = UCI.new), 
             size = 2, colour = "#a65628") +
-  ylim(0, max(andal$UCI.dia)) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$UCI.dia)]),
-                          max(andal$Fecha))) +
+  ylim(0, max(andal$UCI.new)) +
+  scale_x_date(limits = c(as.Date("2020-03-27"), NA)) +
+  # scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$UCI.dia)]),
+  #                         max(andal$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Ingresos diarios en cuidados intensivos en Andalucía")
+       title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
+       caption = "https://tiny.cc/COVID19-Andalucia")
 
 ```
 
@@ -421,16 +440,18 @@ ggplot(andal) +
 
 ```{r uci_provincias, out.width='100%', eval=FALSE}
 
-ggplot(datos) +
-  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_line(aes(x = Fecha, y = UCI.dia), 
+ggplot(provs) +
+  facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
+  geom_line(aes(x = Fecha, y = UCI.new), 
             size = 1.5, colour = "#a65628") +
-  ylim(0, max(datos$UCI.dia)) +
-  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$UCI.dia)]),
-                          max(datos$Fecha))) +
+  ylim(0, NA) +
+  scale_x_date(limits = c(as.Date("2020-03-27"), NA)) +
+  # scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$UCI.dia)]),
+  #                         max(datos$Fecha))) +
   labs(x = "", y = "Nº Personas\n",
        title = "Ingresos diarios en cuidados intensivos en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+       subtitle = "Para facilitar la visualización de tendencias, la escala del eje vertical es diferente cada provincia",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8))
 
 ```
@@ -478,16 +499,16 @@ ggplot(datos) +
 <br>
 
 
-```{r curadas_Andalucía, fig.height=3, out.width='100%'}
+```{r curadas_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
-  geom_line(aes(x = Fecha, y = Curadas.dia), 
+  geom_line(aes(x = Fecha, y = Curados.new), 
             size = 2, colour = "#4daf4a") +
-  ylim(0, max(andal$Curadas.dia)) +
-  scale_x_datetime(limits = c(andal$Fecha[13],
-                          max(andal$Fecha))) +
+  ylim(0, NA) +
+  scale_x_date(limits = c(as.Date("2020-03-23"), NA)) +
   labs(x = "", y = "Nº Personas\n",
-       title = "Personas curadas de COVID-19 diariamente en Andalucía")
+       title = "Personas curadas de COVID-19 diariamente en Andalucía",
+       caption = "https://tiny.cc/COVID19-Andalucia")
 
 ```
 
@@ -524,31 +545,30 @@ ggplot(datos) +
 ```{r fallecidos_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(andal) +
-  geom_line(aes(x = Fecha, y = Fallecimientos.dia), 
+  geom_line(aes(x = Fecha, y = Fallecimientos.new), 
             size = 2, colour = "grey20") +
   labs(x = "", y = "Nº Fallecidos\n",
-       title = "Fallecimientos diarios relacionados con COVID-19 en Andalucía") +
-  scale_y_continuous(limits = c(0, max(andal$Fallecimientos.dia, na.rm = TRUE))) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Fallecimientos.dia)]),
-                          max(andal$Fecha)))
+       title = "Fallecimientos diarios relacionados con COVID-19 en Andalucía",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_y_continuous(limits = c(0, NA)) 
 
 ```
 
 <br>
 <br>
 
-```{r fallecidos_provincias, eval = TRUE, out.width='100%'}
+```{r fallecidos_provincias, eval = TRUE, out.width='100%', fig.height=6}
          
-ggplot(datos) +
-  facet_wrap(~Provincia, ncol = 2, scales = "free_y") +  
-  geom_line(aes(x = Fecha, y = Fallecimientos.dia), 
+ggplot(provs) +
+  facet_wrap(~Territorio, ncol = 2, scales = "free_y") +  
+  geom_line(aes(x = Fecha, y = Fallecimientos.new), 
             size = 1.5, colour = "grey20") +
-  scale_y_continuous(limits = c(0, max(datos$Fallecimientos.dia, na.rm = TRUE))) +
-  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Fallecimientos.dia)]),
-                          max(datos$Fecha))) +
+  scale_y_continuous(limits = c(0, NA)) +
+  scale_x_date(limits = c(as.Date("2020-03-10"), NA)) +
   labs(x = "", y = "Nº Fallecidos\n",
        title = "Fallecimientos diarios relacionados con COVID-19 en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
+       subtitle = "Para facilitar la visualización de tendencias, la escala del eje vertical es diferente en cada provincia",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8))
 ```
 
