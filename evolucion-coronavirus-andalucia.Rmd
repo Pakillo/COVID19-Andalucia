@@ -248,46 +248,95 @@ ggplot(provs) +
 ### Casos confirmados por Distrito Sanitario 
 
 
-```{r}
-
-distritos <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1vH3y_4bL9n1sXOQjA91m8eqfbpCI-a8KV3cWXfQY3cI")
-
-distritos <- distritos %>%
-  group_by(nombre) %>%
-  mutate(casos.dia = confirmados - lag(confirmados)) %>%
-  mutate(casos.dia = ifelse(fecha == as.Date("2020-04-11"), NA, casos.dia))
+```{r eval=FALSE}
+# 
+# distritos.old <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1vH3y_4bL9n1sXOQjA91m8eqfbpCI-a8KV3cWXfQY3cI")
+# 
+# distritos <- distritos %>%
+#   group_by(nombre) %>%
+#   mutate(casos.dia = confirmados - lag(confirmados)) %>%
+#   mutate(casos.dia = ifelse(fecha == as.Date("2020-04-11"), NA, casos.dia))
 
 #stopifnot(distritos$casos.dia >=0)
 
 ```
 
 
-```{r eval=FALSE}
-ggplot(distritos) +
-  geom_line(aes(x = fecha, y = confirmados, 
-                group = nombre, colour = provincia)) +
-  theme(legend.position = "top", legend.title = element_blank()) +
-  scale_y_log10()
-  scale_x_datetime(limits = c(as.POSIXct("2020-04-11", tz = "UTC"), NA))
+```{r include = FALSE}
+
+distritos <- readxl::read_excel("datos/distritos_sanitarios.xlsx")
+
+distri.data <- read_csv("datos/datos_distritos_confirmados.csv",
+                        col_types = "Dccccci")
+
+if (!fecha.distri %in% distri.data$Fecha) {
+  
+  distri.data.new <- readr::read_csv2("datos/distritos_confirmados_dia.csv", 
+                                      col_types = "cccci-",
+                                      locale = locale(date_names = "es", 
+                                                      decimal_mark = ",",
+                                                      grouping_mark = ".",
+                                                      date_format = "%d/%m/%Y"),
+                                      skip_empty_rows = TRUE)
+  
+  distri.data.new <- distri.data.new %>%
+    mutate(Fecha = fecha.distri) %>%
+    rename(Casos = Valor) %>%
+    dplyr::select(-Medida) %>%
+    dplyr::select(Fecha, everything()) 
+  
+  
+  # checks
+  distri.data.new %>%
+    verify(names(.) == c("Fecha", "Territorio", "Edad", "Sexo", "Casos")) %>%
+    verify(sort(unique(.$Territorio)) == sort(distritos$Territorio)) %>%
+    assert(within_bounds(0, Inf), Casos)
+  
+  # join
+  distri.data.new <- distri.data.new %>%
+    left_join(distritos, by = "Territorio") %>%
+    dplyr::select(Fecha, Territorio, nombre.corto, provincia, everything()) %>%
+    arrange(Fecha, provincia, Territorio)
+  
+  
+  # add to former dataset
+  distri.data <- bind_rows(distri.data, distri.data.new)
+  
+  # save
+  write_csv(distri.data, "datos/datos_distritos_confirmados.csv")
+  
+}
 
 ```
 
+
+
 ```{r out.width='100%', fig.height=7}
 
-distritos.data <- dplyr::filter(distritos, fecha > "2020-04-11")
-distritos.last <- dplyr::filter(distritos, fecha == max(fecha))
+distri.data <- read_csv("datos/datos_distritos_confirmados.csv",
+                        col_types = "Dccccci")
+
+distri.data2plot <- distri.data %>%
+  filter(Edad == "TOTAL", Sexo == "Ambos sexos") %>%
+  filter(Fecha > as.Date("2020-04-11")) %>%
+  group_by(Territorio) %>%
+  mutate(Casos.new = Casos - lag(Casos)) %>%
+  ungroup() %>%
+  mutate(Casos.new = ifelse(Fecha == as.Date("2020-04-11"), NA, Casos.new))
+
+distri.last <- dplyr::filter(distri.data2plot, Fecha == max(Fecha))
 
 set.seed(5)
 
-ggplot(distritos.data) +
-  aes(x = fecha, y = casos.dia) +
+ggplot(distri.data2plot) +
+  aes(x = Fecha, y = Casos.new) +
   facet_wrap(~provincia, ncol = 2) +
-  geom_line(aes(group = nombre, colour = nombre), size = 1.5) +
-  geom_point(data = distritos.last, aes(colour = nombre), size = 1.5) +
-  scale_color_manual(values = sample(colorRampPalette(RColorBrewer::brewer.pal(n = 9, "Set1")[-6])(35))) +
+  geom_line(aes(group = Territorio, colour = Territorio), size = 1.5) +
   theme(legend.position = "none") +
-  ggrepel::geom_text_repel(data = distritos.last,
-                           aes(label = nombre.corto, colour = nombre), 
+  geom_point(data = distri.last, aes(colour = Territorio), size = 1.5) +
+  scale_color_manual(values = sample(colorRampPalette(RColorBrewer::brewer.pal(n = 9, "Set1")[-6])(45))) +
+  ggrepel::geom_text_repel(data = distri.last,
+                           aes(label = nombre.corto, colour = nombre.corto), 
                            size = 2.5, nudge_x = 0.4, 
                            segment.size = 0.2, segment.alpha = 0.5) +
   scale_x_date(expand = expansion(mult = c(0, 0.5))) +
