@@ -318,7 +318,7 @@ distri.data <- read_csv("datos/datos_distritos_confirmados.csv",
 
 distri.data2plot <- distri.data %>%
   filter(Edad == "TOTAL", Sexo == "Ambos sexos") %>%
-  filter(Fecha > as.Date("2020-04-11")) %>%
+  filter(Fecha > as.Date("2020-04-10")) %>%
   group_by(Territorio) %>%
   mutate(Casos.new = Casos - lag(Casos)) %>%
   ungroup() %>%
