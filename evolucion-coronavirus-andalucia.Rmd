@@ -77,7 +77,8 @@ datos <- readr::read_csv2("datos/datos_provincias_raw.csv",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = ".",
-                                          date_format = "%d/%m/%Y"))
+                                          date_format = "%d/%m/%Y"),
+                          skip_empty_rows = TRUE)
 
 datos <- tidyr::pivot_wider(datos, names_from = "Medida", values_from = "Valor") %>%
   rename(UCI = `Total UCI`)
