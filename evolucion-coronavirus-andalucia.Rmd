@@ -271,7 +271,7 @@ distri.data <- read_csv("datos/datos_distritos_confirmados.csv",
 
 if (!fecha.distri %in% distri.data$Fecha) {
   
-  distri.data.new <- readr::read_csv2("datos/distritos_confirmados_dia.csv", 
+  distri.data.new <- readr::read_csv2("datos/datos_distritos_confirmados_dia.csv", 
                                       col_types = "cccci-",
                                       locale = locale(date_names = "es", 
                                                       decimal_mark = ",",
