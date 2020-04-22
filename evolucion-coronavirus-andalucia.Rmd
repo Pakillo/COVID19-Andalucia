@@ -51,7 +51,7 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos, personas ingresadas, curadas y número de fallecimientos.
+Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos confirmados, personas ingresadas, curadas y fallecidas.
 
 Los datos se actualizan diariamente. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
 
@@ -69,7 +69,7 @@ library(readr)
 
 #datos <- readxl::read_excel("datos_brutos.xlsx", sheet = "datos")
 
-# usando datos de la Junta
+# A partir del 20 de Abril, usando datos de la Junta
 # https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/38228?CodOper=b3_2314&codConsulta=38228
 
 datos <- readr::read_csv2("datos/datos_provincias_raw.csv", 
@@ -171,7 +171,7 @@ ggplot(andal) +
 
 <br>
 
-Debe tenerse en cuenta que el número de casos confirmados depende en gran medida del número de test realizados. Por tanto, un aumento o disminución en el número de casos confirmados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.
+Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad. 
 
 <br>
 
@@ -192,7 +192,28 @@ ggplot(andal) +
 <br>
 <br>
 
-La proporción de casos positivos respecto al total de test realizados también puede informarnos sobre la incidencia de la enfermedad: 
+Andalucía es de las comunidades autónomas que menos test ha realizado en relación al tamaño de su población (al menos hasta mediados de Abril). Por tanto el número de casos de COVID-19 puede estar notablemente infraestimado. No debemos comparar el número de casos entre comunidades sin tener en cuenta la enorme variación en el número de test realizados.
+
+<br>
+
+```{r test.ccaa, out.width='100%'}
+test.ccaa <- readxl::read_excel("datos/ntest_casos_ccaa_14Apr.xlsx")
+
+ggplot(test.ccaa) +
+  geom_point(aes(Ntest.pop, Casos.pop), size = 2) +
+  ggrepel::geom_text_repel(aes(x = Ntest.pop, y = Casos.pop, label = CCAA),
+                           size = 3, nudge_x = 10, nudge_y = 30) +
+  scale_x_continuous(name = "\nNúmero de test por 100.000 habitantes",
+                     limits = c(0, NA)) +
+  scale_y_continuous(name = "Número de casos por 100.000 habitantes\n",
+                     limits = c(0, NA)) +
+  labs(title = "Número de casos detectados en relación al número de habitantes\ny test realizados por CC.AA.",
+       caption = "Datos a 14 de Abril (Fuente: https://datos.civio.es)\nhttps://tiny.cc/COVID19-Andalucia") 
+```
+
+<br>
+
+La proporción de casos positivos respecto al total de test realizados también [puede informarnos](https://www.theatlantic.com/technology/archive/2020/04/us-coronavirus-outbreak-out-control-test-positivity-rate/610132/) sobre la incidencia de la enfermedad: 
 
 <br>
 
