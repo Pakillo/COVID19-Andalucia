@@ -177,7 +177,7 @@ Debe tenerse en cuenta que el [número de casos confirmados depende en gran medi
 
 
 
-```{r out.width='100%', fig.height=4}
+```{r ncasos.ntest, out.width='100%', fig.height=4}
 ggplot(andal) +
   geom_point(aes(Ntest.dia, Confirmados.new), 
              size = 3, colour = "#ff7f00") +
@@ -283,6 +283,8 @@ ggplot(provs) +
 ```
 
 
+
+
 ```{r include = FALSE}
 
 distritos <- readxl::read_excel("datos/distritos_sanitarios.xlsx")
@@ -330,9 +332,29 @@ if (!fecha.distri %in% distri.data$Fecha) {
 
 ```
 
+```{r eval=FALSE}
+# ## 23-04-2020: La Junta cambia nombre de distritos con nombre == a provincia
+# distri.data <- distri.data %>%
+#   mutate(Territorio = case_when(
+#     Territorio == "Almería" ~ "Almería (distrito)",
+#     Territorio == "Córdoba" ~ "Córdoba (distrito)",
+#     Territorio == "Granada" ~ "Granada (distrito)",
+#     Territorio == "Jaén" ~ "Jaén (distrito)",
+#     Territorio == "Málaga" ~ "Málaga (distrito)",
+#     Territorio == "Sevilla" ~ "Sevilla (distrito)",
+#     TRUE ~ Territorio
+#   ))
+
+# distri.data <- distri.data %>%
+#   mutate(nombre.corto = ifelse(nombre.corto == "Axarquia", "Axarquía", nombre.corto))
+
+# distri.data <- distri.data %>%
+#   filter(Fecha != "2020-04-22")
+```
 
 
-```{r out.width='100%', fig.height=7}
+
+```{r casos.distri, out.width='100%', fig.height=7}
 
 distri.data <- read_csv("datos/datos_distritos_confirmados.csv",
                         col_types = "Dccccci")
@@ -352,10 +374,10 @@ set.seed(5)
 ggplot(distri.data2plot) +
   aes(x = Fecha, y = Casos.new) +
   facet_wrap(~provincia, ncol = 2) +
-  geom_line(aes(group = Territorio, colour = Territorio), size = 1.5) +
+  geom_line(aes(group = nombre.corto, colour = nombre.corto), size = 1.5) +
   theme(legend.position = "none") +
-  geom_point(data = distri.last, aes(colour = Territorio), size = 1.5) +
-  scale_color_manual(values = sample(colorRampPalette(RColorBrewer::brewer.pal(n = 9, "Set1")[-6])(45))) +
+  geom_point(data = distri.last, aes(colour = nombre.corto), size = 1.5) +
+  scale_color_manual(values = sample(colorRampPalette(RColorBrewer::brewer.pal(n = 9, "Set1")[-6])(100))) +
   ggrepel::geom_text_repel(data = distri.last,
                            aes(label = nombre.corto, colour = nombre.corto), 
                            size = 2.5, nudge_x = 0.4, 
