@@ -51,7 +51,7 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los [datos oficiales ofrecidos por la Consejería de Salud y Familias](https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos confirmados, personas ingresadas, curadas y fallecidas.
+Aquí se visualiza la evolución de la enfermedad del coronavirus (COVID-19) en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos confirmados, personas ingresadas, curadas y fallecidas.
 
 Los datos se actualizan diariamente. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
 
@@ -153,6 +153,39 @@ andal <- datos %>%
 
 <br>
 
+En primer lugar se muestra el número de casos confirmados diariamente mediante técnica PCR:
+
+<br>
+
+```{r casos.pcr, fig.height=4, out.width='100%'}
+
+download.file("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_datos_isciii.csv", destfile = "datos/datadista_ccaa_covid19_datos_isciii.csv")
+
+casos.pcr <- readr::read_csv("datos/datadista_ccaa_covid19_datos_isciii.csv", guess_max = 10000) %>%
+  dplyr::filter(CCAA == "Andalucía") %>%
+  rename(PCR = `PCR+`, TestAc = `TestAc+`) %>%
+  mutate(Casos = ifelse(is.na(Casos), PCR + TestAc, Casos)) %>%
+  mutate(PCR = ifelse(is.na(PCR), Casos, PCR)) %>% # assuming before 14 Abril all/most cases were PCR, no TestAc
+  mutate(PCR.new = PCR - lag(PCR))
+  
+
+ggplot(casos.pcr) +
+  geom_col(aes(x = Fecha, y = PCR.new), 
+            fill = "#ff7f00") +
+  scale_y_continuous(limits = c(0, NA), n.breaks = 6) +
+  labs(x = "", y = "Nuevas detecciones\n",
+       title = "Casos de COVID-19 confirmados diariamente mediante PCR en Andalucía",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(panel.grid.minor.y = element_line(size = rel(0.5)))
+
+```
+
+<br>
+
+Además de PCR, la Junta de Andalucía está realizando test de anticuerpos, que sirven para detectar personas que han sido probablemente contagiadas por el virus, aunque actualmente puedan no mostrar síntomas o no tener carga viral significativa. Las gráficas de abajo incluyen tanto los casos detectados mediante PCR como mediante test serológicos (anticuerpos).
+
+<br>
+
 ```{r casos_Andalucia, fig.height=4, out.width='100%'}
 
 ggplot(andal) +
@@ -163,7 +196,7 @@ ggplot(andal) +
   scale_y_continuous(limits = c(0, NA), n.breaks = 6) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos de COVID-19 confirmados diariamente en Andalucía",
-       subtitle = "La línea gris representa el número de test realizados diariamente",
+       subtitle = "La línea gris representa el número de test (PCR + serológicos) realizados diariamente",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5)))
 
@@ -192,7 +225,7 @@ ggplot(andal) +
 <br>
 <br>
 
-Andalucía es de las comunidades autónomas que menos test ha realizado en relación al tamaño de su población (al menos hasta mediados de Abril). Por tanto el número de casos de COVID-19 puede estar notablemente infraestimado. No debemos comparar el número de casos entre comunidades sin tener en cuenta la enorme variación en el número de test realizados.
+Andalucía es de las comunidades autónomas que [menos test ha realizado](https://elpais.com/sociedad/2020-04-27/la-rioja-hace-siete-veces-mas-pruebas-pcr-por-habitante-que-andalucia.html) en relación al tamaño de su población (al menos hasta mediados de Abril). Por tanto el número de casos de COVID-19 puede estar notablemente infraestimado. En general, no debemos comparar el número de casos entre comunidades sin tener en cuenta la enorme variación en el número de test realizados.
 
 <br>
 
