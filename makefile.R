@@ -1,5 +1,5 @@
 
-fecha.distri <- as.Date("2020-05-01")
+fecha.distri <- as.Date("2020-05-02")
 
 rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
 
