@@ -724,5 +724,22 @@ ggplot(datos.provs) +
 <br>
 
 
+## Datos por municipio
+
+Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
+
+<br>
+
+```{r tabla.muni, out.width='100%'}
+library(DT)
+
+muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
+#muni.data$Provincia <- as.factor(muni.data$Provincia)
+
+datatable(muni.data, rownames = FALSE, filter = "top")
+```
+
+<br>
+
 Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos]((https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html)) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía.
 
