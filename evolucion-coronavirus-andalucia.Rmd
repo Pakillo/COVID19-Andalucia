@@ -304,7 +304,6 @@ ggplot(provs) +
 <br>
 
 
-### Casos confirmados por Distrito Sanitario 
 
 
 ```{r eval=FALSE}
@@ -320,10 +319,7 @@ ggplot(provs) +
 
 ```
 
-
-
-
-```{r include = FALSE}
+```{r eval = FALSE}
 
 distritos <- readxl::read_excel("datos/distritos_sanitarios.xlsx")
 
@@ -390,9 +386,7 @@ if (!fecha.distri %in% distri.data$Fecha) {
 #   filter(Fecha != "2020-04-22")
 ```
 
-
-
-```{r casos.distri, out.width='100%', fig.height=7}
+```{r casos.distri, out.width='100%', fig.height=7, eval=FALSE}
 
 distri.data <- read_csv("datos/datos_distritos_confirmados.csv",
                         col_types = "Dccccci")
@@ -426,6 +420,7 @@ ggplot(distri.data2plot) +
   theme(strip.text = element_text(size = 12))
 
 ```
+
 
 
 Este mapa muestra los casos confirmados con fecha 6 de Abril. La Junta de Andalucía ha comenzado a visualizar los datos diarios por Distrito Sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
