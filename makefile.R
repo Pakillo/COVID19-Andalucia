@@ -1,5 +1,5 @@
 
-fecha.distri <- as.Date("2020-05-06")
+fecha.distri <- as.Date("2020-05-08")
 
 rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
 
@@ -8,31 +8,34 @@ rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
 
 library(dplyr)
 
-muni.data <- readr::read_csv("datos/municipios.csv")
+muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
 
-if (!fecha.distri %in% muni.data$Fecha) {
+munis <- readr::read_csv("datos/muni_prov_dist.csv")
+
+
+if (!fecha.distri %in% as.Date(muni.data$Fecha)) {
 
   munis.dia <- list.files("datos/municipios.dia/", pattern = ".csv", full.names = TRUE)
 
   muni.dia <- purrr::map_df(munis.dia, readr::read_csv2) %>%
-    rename(Lugar = `Lugar de residencia`) %>%
+    rename(Municipio = `Lugar de residencia`) %>%
     dplyr::select(-X4) %>%
-    dplyr::filter(!is.na(Lugar), Medida != "Población") %>%
-    #mutate(Medida = ifelse(Medida == "Confirmados total", "Confirmados", Medida)) %>%
-    #mutate(Medida = ifelse(Medida == "Defunciones total", "Defunciones", Medida)) %>%
+    dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$Municipio)) %>%
     mutate(Medida = ifelse(Medida == "Confirmado PCR", "Confirmados PCR", Medida)) %>%
-    mutate(Medida = ifelse(Medida == "Defunciones", "Defunciones total", Medida)) %>%
-    mutate(Medida = ifelse(Medida == "Confirmados Acumulados en 14 días",
-                           "Confirmados < 14 días", Medida)) %>%
+    mutate(Medida = ifelse(Medida == "Defunciones total", "Defunciones", Medida)) %>%
+    dplyr::filter(Medida == "Confirmados PCR" | Medida == "Confirmados total" | Medida == "Defunciones") %>%
     tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
+    rename(ConfirmadosPCR = `Confirmados PCR`, ConfirmadosTotal = `Confirmados total`) %>%
     mutate(Fecha = fecha.distri) %>%
-    dplyr::select(Fecha, Lugar, `Confirmados PCR`, `Confirmados PCR <14 días`,
-                  `Confirmados total`, `Confirmados < 14 días`, `Defunciones total`)
+    right_join(munis, by = "Municipio") %>%
+    dplyr::select(Fecha, Provincia, Distrito, Municipio, ConfirmadosPCR, ConfirmadosTotal, Defunciones)
+
 
   muni.dia %>%
     assertr::verify(all.equal(names(muni.dia), names(muni.data)))
 
   muni.data <- dplyr::bind_rows(muni.data, muni.dia) %>%
+    arrange(Fecha, Provincia, Distrito, Municipio) %>%
     readr::write_csv(path = "datos/municipios.csv")
 
 }
