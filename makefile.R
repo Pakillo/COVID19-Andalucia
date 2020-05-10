@@ -1,19 +1,16 @@
 
-fecha.datos <- as.Date("2020-05-08")
-
-rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
-
+library(dplyr)
 
 ## Datos municipios
 
-library(dplyr)
+fecha.munis <- as.Date("2020-05-09")
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
 
 munis <- readr::read_csv("datos/muni_prov_dist.csv")
 
 
-if (!fecha.datos %in% as.Date(muni.data$Fecha)) {
+if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
 
   munis.dia <- list.files("datos/municipios.dia/", pattern = ".csv", full.names = TRUE)
 
@@ -26,7 +23,7 @@ if (!fecha.datos %in% as.Date(muni.data$Fecha)) {
     dplyr::filter(Medida == "Confirmados PCR" | Medida == "Confirmados total" | Medida == "Defunciones") %>%
     tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
     rename(ConfirmadosPCR = `Confirmados PCR`, ConfirmadosTotal = `Confirmados total`) %>%
-    mutate(Fecha = fecha.datos) %>%
+    mutate(Fecha = fecha.munis) %>%
     right_join(munis, by = "Municipio") %>%
     dplyr::select(Fecha, Provincia, Distrito, Municipio, ConfirmadosPCR, ConfirmadosTotal, Defunciones)
 
@@ -39,4 +36,10 @@ if (!fecha.datos %in% as.Date(muni.data$Fecha)) {
     readr::write_csv(path = "datos/municipios.csv")
 
 }
+
+
+## Render
+
+rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
+
 

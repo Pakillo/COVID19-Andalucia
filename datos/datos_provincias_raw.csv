@@ -1,10 +1,64 @@
 Fecha declaración;Territorio;Medida;Valor;
-07/05/2020;Andalucía;Confirmados PCR;7;
+08/05/2020;Andalucía;Confirmados PCR;16;
+08/05/2020;Andalucía;Hospitalizados;9;
+08/05/2020;Andalucía;UCI;0;
+08/05/2020;Andalucía;Curados;41;
+08/05/2020;Andalucía;Defunciones;;
+08/05/2020;Andalucía;Total confirmados (PCR+test);98;
+08/05/2020;Almería;Confirmados PCR;2;
+08/05/2020;Almería;Hospitalizados;1;
+08/05/2020;Almería;UCI;;
+08/05/2020;Almería;Curados;5;
+08/05/2020;Almería;Defunciones;;
+08/05/2020;Almería;Total confirmados (PCR+test);12;
+08/05/2020;Cádiz;Confirmados PCR;2;
+08/05/2020;Cádiz;Hospitalizados;2;
+08/05/2020;Cádiz;UCI;0;
+08/05/2020;Cádiz;Curados;2;
+08/05/2020;Cádiz;Defunciones;;
+08/05/2020;Cádiz;Total confirmados (PCR+test);12;
+08/05/2020;Córdoba;Confirmados PCR;;
+08/05/2020;Córdoba;Hospitalizados;0;
+08/05/2020;Córdoba;UCI;;
+08/05/2020;Córdoba;Curados;6;
+08/05/2020;Córdoba;Defunciones;;
+08/05/2020;Córdoba;Total confirmados (PCR+test);11;
+08/05/2020;Granada;Confirmados PCR;5;
+08/05/2020;Granada;Hospitalizados;0;
+08/05/2020;Granada;UCI;;
+08/05/2020;Granada;Curados;12;
+08/05/2020;Granada;Defunciones;;
+08/05/2020;Granada;Total confirmados (PCR+test);18;
+08/05/2020;Huelva;Confirmados PCR;;
+08/05/2020;Huelva;Hospitalizados;0;
+08/05/2020;Huelva;UCI;;
+08/05/2020;Huelva;Curados;;
+08/05/2020;Huelva;Defunciones;;
+08/05/2020;Huelva;Total confirmados (PCR+test);2;
+08/05/2020;Jaén;Confirmados PCR;2;
+08/05/2020;Jaén;Hospitalizados;2;
+08/05/2020;Jaén;UCI;;
+08/05/2020;Jaén;Curados;;
+08/05/2020;Jaén;Defunciones;;
+08/05/2020;Jaén;Total confirmados (PCR+test);4;
+08/05/2020;Málaga;Confirmados PCR;2;
+08/05/2020;Málaga;Hospitalizados;4;
+08/05/2020;Málaga;UCI;0;
+08/05/2020;Málaga;Curados;13;
+08/05/2020;Málaga;Defunciones;;
+08/05/2020;Málaga;Total confirmados (PCR+test);31;
+08/05/2020;Sevilla;Confirmados PCR;3;
+08/05/2020;Sevilla;Hospitalizados;0;
+08/05/2020;Sevilla;UCI;0;
+08/05/2020;Sevilla;Curados;3;
+08/05/2020;Sevilla;Defunciones;;
+08/05/2020;Sevilla;Total confirmados (PCR+test);8;
+07/05/2020;Andalucía;Confirmados PCR;9;
 07/05/2020;Andalucía;Hospitalizados;9;
-07/05/2020;Andalucía;UCI;1;
-07/05/2020;Andalucía;Curados;51;
-07/05/2020;Andalucía;Defunciones;2;
-07/05/2020;Andalucía;Total confirmados (PCR+test);108;
+07/05/2020;Andalucía;UCI;0;
+07/05/2020;Andalucía;Curados;62;
+07/05/2020;Andalucía;Defunciones;1;
+07/05/2020;Andalucía;Total confirmados (PCR+test);124;
 07/05/2020;Almería;Confirmados PCR;;
 07/05/2020;Almería;Hospitalizados;0;
 07/05/2020;Almería;UCI;0;
@@ -14,51 +68,51 @@ Fecha declaración;Territorio;Medida;Valor;
 07/05/2020;Cádiz;Confirmados PCR;;
 07/05/2020;Cádiz;Hospitalizados;0;
 07/05/2020;Cádiz;UCI;;
-07/05/2020;Cádiz;Curados;3;
+07/05/2020;Cádiz;Curados;4;
 07/05/2020;Cádiz;Defunciones;;
-07/05/2020;Cádiz;Total confirmados (PCR+test);8;
+07/05/2020;Cádiz;Total confirmados (PCR+test);9;
 07/05/2020;Córdoba;Confirmados PCR;1;
 07/05/2020;Córdoba;Hospitalizados;1;
 07/05/2020;Córdoba;UCI;;
-07/05/2020;Córdoba;Curados;1;
+07/05/2020;Córdoba;Curados;5;
 07/05/2020;Córdoba;Defunciones;;
-07/05/2020;Córdoba;Total confirmados (PCR+test);12;
+07/05/2020;Córdoba;Total confirmados (PCR+test);16;
 07/05/2020;Granada;Confirmados PCR;1;
 07/05/2020;Granada;Hospitalizados;2;
 07/05/2020;Granada;UCI;0;
-07/05/2020;Granada;Curados;24;
+07/05/2020;Granada;Curados;26;
 07/05/2020;Granada;Defunciones;1;
-07/05/2020;Granada;Total confirmados (PCR+test);30;
+07/05/2020;Granada;Total confirmados (PCR+test);32;
 07/05/2020;Huelva;Confirmados PCR;;
 07/05/2020;Huelva;Hospitalizados;0;
 07/05/2020;Huelva;UCI;;
 07/05/2020;Huelva;Curados;1;
 07/05/2020;Huelva;Defunciones;;
 07/05/2020;Huelva;Total confirmados (PCR+test);3;
-07/05/2020;Jaén;Confirmados PCR;2;
+07/05/2020;Jaén;Confirmados PCR;3;
 07/05/2020;Jaén;Hospitalizados;4;
-07/05/2020;Jaén;UCI;1;
-07/05/2020;Jaén;Curados;;
-07/05/2020;Jaén;Defunciones;1;
-07/05/2020;Jaén;Total confirmados (PCR+test);13;
+07/05/2020;Jaén;UCI;0;
+07/05/2020;Jaén;Curados;1;
+07/05/2020;Jaén;Defunciones;;
+07/05/2020;Jaén;Total confirmados (PCR+test);14;
 07/05/2020;Málaga;Confirmados PCR;1;
 07/05/2020;Málaga;Hospitalizados;0;
 07/05/2020;Málaga;UCI;0;
-07/05/2020;Málaga;Curados;5;
+07/05/2020;Málaga;Curados;7;
 07/05/2020;Málaga;Defunciones;;
-07/05/2020;Málaga;Total confirmados (PCR+test);13;
-07/05/2020;Sevilla;Confirmados PCR;2;
+07/05/2020;Málaga;Total confirmados (PCR+test);20;
+07/05/2020;Sevilla;Confirmados PCR;3;
 07/05/2020;Sevilla;Hospitalizados;2;
 07/05/2020;Sevilla;UCI;0;
-07/05/2020;Sevilla;Curados;10;
+07/05/2020;Sevilla;Curados;11;
 07/05/2020;Sevilla;Defunciones;;
-07/05/2020;Sevilla;Total confirmados (PCR+test);18;
-06/05/2020;Andalucía;Confirmados PCR;26;
+07/05/2020;Sevilla;Total confirmados (PCR+test);19;
+06/05/2020;Andalucía;Confirmados PCR;28;
 06/05/2020;Andalucía;Hospitalizados;14;
 06/05/2020;Andalucía;UCI;0;
-06/05/2020;Andalucía;Curados;36;
+06/05/2020;Andalucía;Curados;42;
 06/05/2020;Andalucía;Defunciones;;
-06/05/2020;Andalucía;Total confirmados (PCR+test);131;
+06/05/2020;Andalucía;Total confirmados (PCR+test);138;
 06/05/2020;Almería;Confirmados PCR;1;
 06/05/2020;Almería;Hospitalizados;0;
 06/05/2020;Almería;UCI;;
@@ -68,21 +122,21 @@ Fecha declaración;Territorio;Medida;Valor;
 06/05/2020;Cádiz;Confirmados PCR;2;
 06/05/2020;Cádiz;Hospitalizados;0;
 06/05/2020;Cádiz;UCI;0;
-06/05/2020;Cádiz;Curados;3;
+06/05/2020;Cádiz;Curados;5;
 06/05/2020;Cádiz;Defunciones;;
 06/05/2020;Cádiz;Total confirmados (PCR+test);14;
 06/05/2020;Córdoba;Confirmados PCR;1;
 06/05/2020;Córdoba;Hospitalizados;2;
 06/05/2020;Córdoba;UCI;;
-06/05/2020;Córdoba;Curados;5;
+06/05/2020;Córdoba;Curados;6;
 06/05/2020;Córdoba;Defunciones;;
-06/05/2020;Córdoba;Total confirmados (PCR+test);13;
-06/05/2020;Granada;Confirmados PCR;2;
+06/05/2020;Córdoba;Total confirmados (PCR+test);16;
+06/05/2020;Granada;Confirmados PCR;3;
 06/05/2020;Granada;Hospitalizados;2;
 06/05/2020;Granada;UCI;;
-06/05/2020;Granada;Curados;9;
+06/05/2020;Granada;Curados;10;
 06/05/2020;Granada;Defunciones;;
-06/05/2020;Granada;Total confirmados (PCR+test);16;
+06/05/2020;Granada;Total confirmados (PCR+test);17;
 06/05/2020;Huelva;Confirmados PCR;;
 06/05/2020;Huelva;Hospitalizados;0;
 06/05/2020;Huelva;UCI;;
@@ -94,25 +148,25 @@ Fecha declaración;Territorio;Medida;Valor;
 06/05/2020;Jaén;UCI;;
 06/05/2020;Jaén;Curados;4;
 06/05/2020;Jaén;Defunciones;;
-06/05/2020;Jaén;Total confirmados (PCR+test);11;
+06/05/2020;Jaén;Total confirmados (PCR+test);12;
 06/05/2020;Málaga;Confirmados PCR;9;
 06/05/2020;Málaga;Hospitalizados;3;
 06/05/2020;Málaga;UCI;0;
-06/05/2020;Málaga;Curados;9;
+06/05/2020;Málaga;Curados;11;
 06/05/2020;Málaga;Defunciones;;
-06/05/2020;Málaga;Total confirmados (PCR+test);51;
-06/05/2020;Sevilla;Confirmados PCR;9;
+06/05/2020;Málaga;Total confirmados (PCR+test);52;
+06/05/2020;Sevilla;Confirmados PCR;10;
 06/05/2020;Sevilla;Hospitalizados;4;
 06/05/2020;Sevilla;UCI;0;
 06/05/2020;Sevilla;Curados;;
 06/05/2020;Sevilla;Defunciones;;
-06/05/2020;Sevilla;Total confirmados (PCR+test);14;
+06/05/2020;Sevilla;Total confirmados (PCR+test);15;
 05/05/2020;Andalucía;Confirmados PCR;16;
-05/05/2020;Andalucía;Hospitalizados;8;
+05/05/2020;Andalucía;Hospitalizados;7;
 05/05/2020;Andalucía;UCI;0;
-05/05/2020;Andalucía;Curados;53;
+05/05/2020;Andalucía;Curados;61;
 05/05/2020;Andalucía;Defunciones;1;
-05/05/2020;Andalucía;Total confirmados (PCR+test);146;
+05/05/2020;Andalucía;Total confirmados (PCR+test);154;
 05/05/2020;Almería;Confirmados PCR;;
 05/05/2020;Almería;Hospitalizados;1;
 05/05/2020;Almería;UCI;;
@@ -128,15 +182,15 @@ Fecha declaración;Territorio;Medida;Valor;
 05/05/2020;Córdoba;Confirmados PCR;;
 05/05/2020;Córdoba;Hospitalizados;0;
 05/05/2020;Córdoba;UCI;;
-05/05/2020;Córdoba;Curados;3;
+05/05/2020;Córdoba;Curados;6;
 05/05/2020;Córdoba;Defunciones;;
-05/05/2020;Córdoba;Total confirmados (PCR+test);3;
+05/05/2020;Córdoba;Total confirmados (PCR+test);6;
 05/05/2020;Granada;Confirmados PCR;5;
 05/05/2020;Granada;Hospitalizados;3;
 05/05/2020;Granada;UCI;;
-05/05/2020;Granada;Curados;20;
+05/05/2020;Granada;Curados;25;
 05/05/2020;Granada;Defunciones;1;
-05/05/2020;Granada;Total confirmados (PCR+test);36;
+05/05/2020;Granada;Total confirmados (PCR+test);39;
 05/05/2020;Huelva;Confirmados PCR;;
 05/05/2020;Huelva;Hospitalizados;0;
 05/05/2020;Huelva;UCI;;
@@ -144,7 +198,7 @@ Fecha declaración;Territorio;Medida;Valor;
 05/05/2020;Huelva;Defunciones;;
 05/05/2020;Huelva;Total confirmados (PCR+test);9;
 05/05/2020;Jaén;Confirmados PCR;3;
-05/05/2020;Jaén;Hospitalizados;1;
+05/05/2020;Jaén;Hospitalizados;0;
 05/05/2020;Jaén;UCI;;
 05/05/2020;Jaén;Curados;1;
 05/05/2020;Jaén;Defunciones;;
@@ -154,19 +208,19 @@ Fecha declaración;Territorio;Medida;Valor;
 05/05/2020;Málaga;UCI;;
 05/05/2020;Málaga;Curados;9;
 05/05/2020;Málaga;Defunciones;;
-05/05/2020;Málaga;Total confirmados (PCR+test);56;
+05/05/2020;Málaga;Total confirmados (PCR+test);57;
 05/05/2020;Sevilla;Confirmados PCR;1;
 05/05/2020;Sevilla;Hospitalizados;0;
 05/05/2020;Sevilla;UCI;0;
 05/05/2020;Sevilla;Curados;5;
 05/05/2020;Sevilla;Defunciones;;
-05/05/2020;Sevilla;Total confirmados (PCR+test);10;
-04/05/2020;Andalucía;Confirmados PCR;29;
+05/05/2020;Sevilla;Total confirmados (PCR+test);11;
+04/05/2020;Andalucía;Confirmados PCR;33;
 04/05/2020;Andalucía;Hospitalizados;15;
 04/05/2020;Andalucía;UCI;2;
-04/05/2020;Andalucía;Curados;57;
+04/05/2020;Andalucía;Curados;67;
 04/05/2020;Andalucía;Defunciones;;
-04/05/2020;Andalucía;Total confirmados (PCR+test);200;
+04/05/2020;Andalucía;Total confirmados (PCR+test);211;
 04/05/2020;Almería;Confirmados PCR;;
 04/05/2020;Almería;Hospitalizados;0;
 04/05/2020;Almería;UCI;0;
@@ -179,16 +233,16 @@ Fecha declaración;Territorio;Medida;Valor;
 04/05/2020;Cádiz;Curados;4;
 04/05/2020;Cádiz;Defunciones;;
 04/05/2020;Cádiz;Total confirmados (PCR+test);18;
-04/05/2020;Córdoba;Confirmados PCR;3;
+04/05/2020;Córdoba;Confirmados PCR;4;
 04/05/2020;Córdoba;Hospitalizados;0;
 04/05/2020;Córdoba;UCI;;
-04/05/2020;Córdoba;Curados;3;
+04/05/2020;Córdoba;Curados;6;
 04/05/2020;Córdoba;Defunciones;;
-04/05/2020;Córdoba;Total confirmados (PCR+test);12;
+04/05/2020;Córdoba;Total confirmados (PCR+test);18;
 04/05/2020;Granada;Confirmados PCR;2;
 04/05/2020;Granada;Hospitalizados;2;
 04/05/2020;Granada;UCI;;
-04/05/2020;Granada;Curados;16;
+04/05/2020;Granada;Curados;19;
 04/05/2020;Granada;Defunciones;;
 04/05/2020;Granada;Total confirmados (PCR+test);29;
 04/05/2020;Huelva;Confirmados PCR;;
@@ -197,30 +251,30 @@ Fecha declaración;Territorio;Medida;Valor;
 04/05/2020;Huelva;Curados;5;
 04/05/2020;Huelva;Defunciones;;
 04/05/2020;Huelva;Total confirmados (PCR+test);9;
-04/05/2020;Jaén;Confirmados PCR;6;
+04/05/2020;Jaén;Confirmados PCR;8;
 04/05/2020;Jaén;Hospitalizados;2;
 04/05/2020;Jaén;UCI;1;
 04/05/2020;Jaén;Curados;3;
 04/05/2020;Jaén;Defunciones;;
-04/05/2020;Jaén;Total confirmados (PCR+test);16;
+04/05/2020;Jaén;Total confirmados (PCR+test);19;
 04/05/2020;Málaga;Confirmados PCR;9;
 04/05/2020;Málaga;Hospitalizados;6;
 04/05/2020;Málaga;UCI;1;
-04/05/2020;Málaga;Curados;16;
+04/05/2020;Málaga;Curados;20;
 04/05/2020;Málaga;Defunciones;;
-04/05/2020;Málaga;Total confirmados (PCR+test);95;
-04/05/2020;Sevilla;Confirmados PCR;7;
+04/05/2020;Málaga;Total confirmados (PCR+test);96;
+04/05/2020;Sevilla;Confirmados PCR;8;
 04/05/2020;Sevilla;Hospitalizados;4;
 04/05/2020;Sevilla;UCI;0;
 04/05/2020;Sevilla;Curados;6;
 04/05/2020;Sevilla;Defunciones;;
-04/05/2020;Sevilla;Total confirmados (PCR+test);14;
+04/05/2020;Sevilla;Total confirmados (PCR+test);15;
 03/05/2020;Andalucía;Confirmados PCR;9;
 03/05/2020;Andalucía;Hospitalizados;7;
 03/05/2020;Andalucía;UCI;0;
-03/05/2020;Andalucía;Curados;3;
+03/05/2020;Andalucía;Curados;4;
 03/05/2020;Andalucía;Defunciones;;
-03/05/2020;Andalucía;Total confirmados (PCR+test);22;
+03/05/2020;Andalucía;Total confirmados (PCR+test);23;
 03/05/2020;Cádiz;Confirmados PCR;3;
 03/05/2020;Cádiz;Hospitalizados;1;
 03/05/2020;Cádiz;UCI;0;
@@ -236,7 +290,7 @@ Fecha declaración;Territorio;Medida;Valor;
 03/05/2020;Granada;Confirmados PCR;1;
 03/05/2020;Granada;Hospitalizados;1;
 03/05/2020;Granada;UCI;;
-03/05/2020;Granada;Curados;2;
+03/05/2020;Granada;Curados;3;
 03/05/2020;Granada;Defunciones;;
 03/05/2020;Granada;Total confirmados (PCR+test);4;
 03/05/2020;Málaga;Confirmados PCR;4;
@@ -250,31 +304,37 @@ Fecha declaración;Territorio;Medida;Valor;
 03/05/2020;Sevilla;UCI;;
 03/05/2020;Sevilla;Curados;;
 03/05/2020;Sevilla;Defunciones;;
-03/05/2020;Sevilla;Total confirmados (PCR+test);1;
-02/05/2020;Andalucía;Confirmados PCR;13;
+03/05/2020;Sevilla;Total confirmados (PCR+test);2;
+02/05/2020;Andalucía;Confirmados PCR;14;
 02/05/2020;Andalucía;Hospitalizados;7;
 02/05/2020;Andalucía;UCI;1;
-02/05/2020;Andalucía;Curados;17;
+02/05/2020;Andalucía;Curados;19;
 02/05/2020;Andalucía;Defunciones;1;
-02/05/2020;Andalucía;Total confirmados (PCR+test);40;
+02/05/2020;Andalucía;Total confirmados (PCR+test);43;
 02/05/2020;Cádiz;Confirmados PCR;2;
 02/05/2020;Cádiz;Hospitalizados;1;
 02/05/2020;Cádiz;UCI;0;
 02/05/2020;Cádiz;Curados;;
 02/05/2020;Cádiz;Defunciones;;
 02/05/2020;Cádiz;Total confirmados (PCR+test);5;
+02/05/2020;Córdoba;Confirmados PCR;;
+02/05/2020;Córdoba;Hospitalizados;0;
+02/05/2020;Córdoba;UCI;;
+02/05/2020;Córdoba;Curados;1;
+02/05/2020;Córdoba;Defunciones;;
+02/05/2020;Córdoba;Total confirmados (PCR+test);1;
 02/05/2020;Granada;Confirmados PCR;2;
 02/05/2020;Granada;Hospitalizados;0;
 02/05/2020;Granada;UCI;0;
-02/05/2020;Granada;Curados;2;
+02/05/2020;Granada;Curados;3;
 02/05/2020;Granada;Defunciones;;
 02/05/2020;Granada;Total confirmados (PCR+test);5;
-02/05/2020;Jaén;Confirmados PCR;5;
+02/05/2020;Jaén;Confirmados PCR;6;
 02/05/2020;Jaén;Hospitalizados;5;
 02/05/2020;Jaén;UCI;1;
 02/05/2020;Jaén;Curados;;
 02/05/2020;Jaén;Defunciones;1;
-02/05/2020;Jaén;Total confirmados (PCR+test);8;
+02/05/2020;Jaén;Total confirmados (PCR+test);9;
 02/05/2020;Málaga;Confirmados PCR;;
 02/05/2020;Málaga;Hospitalizados;0;
 02/05/2020;Málaga;UCI;0;
@@ -286,11 +346,11 @@ Fecha declaración;Territorio;Medida;Valor;
 02/05/2020;Sevilla;UCI;;
 02/05/2020;Sevilla;Curados;;
 02/05/2020;Sevilla;Defunciones;;
-02/05/2020;Sevilla;Total confirmados (PCR+test);6;
+02/05/2020;Sevilla;Total confirmados (PCR+test);7;
 01/05/2020;Andalucía;Confirmados PCR;12;
 01/05/2020;Andalucía;Hospitalizados;0;
 01/05/2020;Andalucía;UCI;0;
-01/05/2020;Andalucía;Curados;7;
+01/05/2020;Andalucía;Curados;8;
 01/05/2020;Andalucía;Defunciones;;
 01/05/2020;Andalucía;Total confirmados (PCR+test);54;
 01/05/2020;Almería;Confirmados PCR;1;
@@ -314,7 +374,7 @@ Fecha declaración;Territorio;Medida;Valor;
 01/05/2020;Granada;Confirmados PCR;4;
 01/05/2020;Granada;Hospitalizados;0;
 01/05/2020;Granada;UCI;0;
-01/05/2020;Granada;Curados;;
+01/05/2020;Granada;Curados;1;
 01/05/2020;Granada;Defunciones;;
 01/05/2020;Granada;Total confirmados (PCR+test);7;
 01/05/2020;Huelva;Confirmados PCR;;
@@ -335,12 +395,12 @@ Fecha declaración;Territorio;Medida;Valor;
 01/05/2020;Sevilla;Curados;;
 01/05/2020;Sevilla;Defunciones;;
 01/05/2020;Sevilla;Total confirmados (PCR+test);27;
-30/04/2020;Andalucía;Confirmados PCR;27;
-30/04/2020;Andalucía;Hospitalizados;15;
+30/04/2020;Andalucía;Confirmados PCR;30;
+30/04/2020;Andalucía;Hospitalizados;17;
 30/04/2020;Andalucía;UCI;1;
-30/04/2020;Andalucía;Curados;64;
+30/04/2020;Andalucía;Curados;73;
 30/04/2020;Andalucía;Defunciones;1;
-30/04/2020;Andalucía;Total confirmados (PCR+test);194;
+30/04/2020;Andalucía;Total confirmados (PCR+test);197;
 30/04/2020;Almería;Confirmados PCR;2;
 30/04/2020;Almería;Hospitalizados;2;
 30/04/2020;Almería;UCI;1;
@@ -348,21 +408,21 @@ Fecha declaración;Territorio;Medida;Valor;
 30/04/2020;Almería;Defunciones;;
 30/04/2020;Almería;Total confirmados (PCR+test);14;
 30/04/2020;Cádiz;Confirmados PCR;3;
-30/04/2020;Cádiz;Hospitalizados;0;
+30/04/2020;Cádiz;Hospitalizados;1;
 30/04/2020;Cádiz;UCI;;
 30/04/2020;Cádiz;Curados;3;
 30/04/2020;Cádiz;Defunciones;;
-30/04/2020;Cádiz;Total confirmados (PCR+test);12;
+30/04/2020;Cádiz;Total confirmados (PCR+test);13;
 30/04/2020;Córdoba;Confirmados PCR;;
 30/04/2020;Córdoba;Hospitalizados;2;
 30/04/2020;Córdoba;UCI;;
 30/04/2020;Córdoba;Curados;2;
 30/04/2020;Córdoba;Defunciones;;
 30/04/2020;Córdoba;Total confirmados (PCR+test);8;
-30/04/2020;Granada;Confirmados PCR;8;
+30/04/2020;Granada;Confirmados PCR;10;
 30/04/2020;Granada;Hospitalizados;3;
 30/04/2020;Granada;UCI;;
-30/04/2020;Granada;Curados;27;
+30/04/2020;Granada;Curados;33;
 30/04/2020;Granada;Defunciones;;
 30/04/2020;Granada;Total confirmados (PCR+test);43;
 30/04/2020;Huelva;Confirmados PCR;;
@@ -371,49 +431,49 @@ Fecha declaración;Territorio;Medida;Valor;
 30/04/2020;Huelva;Curados;5;
 30/04/2020;Huelva;Defunciones;;
 30/04/2020;Huelva;Total confirmados (PCR+test);19;
-30/04/2020;Jaén;Confirmados PCR;8;
-30/04/2020;Jaén;Hospitalizados;4;
+30/04/2020;Jaén;Confirmados PCR;9;
+30/04/2020;Jaén;Hospitalizados;5;
 30/04/2020;Jaén;UCI;0;
 30/04/2020;Jaén;Curados;;
 30/04/2020;Jaén;Defunciones;1;
-30/04/2020;Jaén;Total confirmados (PCR+test);17;
+30/04/2020;Jaén;Total confirmados (PCR+test);18;
 30/04/2020;Málaga;Confirmados PCR;5;
 30/04/2020;Málaga;Hospitalizados;3;
 30/04/2020;Málaga;UCI;0;
-30/04/2020;Málaga;Curados;21;
+30/04/2020;Málaga;Curados;24;
 30/04/2020;Málaga;Defunciones;;
-30/04/2020;Málaga;Total confirmados (PCR+test);63;
+30/04/2020;Málaga;Total confirmados (PCR+test);62;
 30/04/2020;Sevilla;Confirmados PCR;1;
 30/04/2020;Sevilla;Hospitalizados;1;
 30/04/2020;Sevilla;UCI;0;
 30/04/2020;Sevilla;Curados;2;
 30/04/2020;Sevilla;Defunciones;;
-30/04/2020;Sevilla;Total confirmados (PCR+test);18;
-29/04/2020;Andalucía;Confirmados PCR;68;
-29/04/2020;Andalucía;Hospitalizados;22;
+30/04/2020;Sevilla;Total confirmados (PCR+test);20;
+29/04/2020;Andalucía;Confirmados PCR;52;
+29/04/2020;Andalucía;Hospitalizados;21;
 29/04/2020;Andalucía;UCI;3;
-29/04/2020;Andalucía;Curados;96;
+29/04/2020;Andalucía;Curados;95;
 29/04/2020;Andalucía;Defunciones;6;
-29/04/2020;Andalucía;Total confirmados (PCR+test);274;
+29/04/2020;Andalucía;Total confirmados (PCR+test);275;
 29/04/2020;Almería;Confirmados PCR;;
 29/04/2020;Almería;Hospitalizados;0;
-29/04/2020;Almería;UCI;;
+29/04/2020;Almería;UCI;0;
 29/04/2020;Almería;Curados;12;
 29/04/2020;Almería;Defunciones;;
 29/04/2020;Almería;Total confirmados (PCR+test);24;
-29/04/2020;Cádiz;Confirmados PCR;16;
+29/04/2020;Cádiz;Confirmados PCR;17;
 29/04/2020;Cádiz;Hospitalizados;5;
 29/04/2020;Cádiz;UCI;0;
 29/04/2020;Cádiz;Curados;4;
 29/04/2020;Cádiz;Defunciones;;
-29/04/2020;Cádiz;Total confirmados (PCR+test);26;
+29/04/2020;Cádiz;Total confirmados (PCR+test);28;
 29/04/2020;Córdoba;Confirmados PCR;5;
 29/04/2020;Córdoba;Hospitalizados;0;
-29/04/2020;Córdoba;UCI;;
+29/04/2020;Córdoba;UCI;0;
 29/04/2020;Córdoba;Curados;7;
 29/04/2020;Córdoba;Defunciones;;
-29/04/2020;Córdoba;Total confirmados (PCR+test);17;
-29/04/2020;Granada;Confirmados PCR;25;
+29/04/2020;Córdoba;Total confirmados (PCR+test);18;
+29/04/2020;Granada;Confirmados PCR;9;
 29/04/2020;Granada;Hospitalizados;10;
 29/04/2020;Granada;UCI;2;
 29/04/2020;Granada;Curados;41;
@@ -425,30 +485,30 @@ Fecha declaración;Territorio;Medida;Valor;
 29/04/2020;Huelva;Curados;8;
 29/04/2020;Huelva;Defunciones;;
 29/04/2020;Huelva;Total confirmados (PCR+test);18;
-29/04/2020;Jaén;Confirmados PCR;12;
-29/04/2020;Jaén;Hospitalizados;1;
+29/04/2020;Jaén;Confirmados PCR;11;
+29/04/2020;Jaén;Hospitalizados;0;
 29/04/2020;Jaén;UCI;0;
 29/04/2020;Jaén;Curados;2;
 29/04/2020;Jaén;Defunciones;;
-29/04/2020;Jaén;Total confirmados (PCR+test);30;
+29/04/2020;Jaén;Total confirmados (PCR+test);29;
 29/04/2020;Málaga;Confirmados PCR;6;
 29/04/2020;Málaga;Hospitalizados;4;
 29/04/2020;Málaga;UCI;1;
-29/04/2020;Málaga;Curados;17;
+29/04/2020;Málaga;Curados;16;
 29/04/2020;Málaga;Defunciones;;
-29/04/2020;Málaga;Total confirmados (PCR+test);73;
+29/04/2020;Málaga;Total confirmados (PCR+test);72;
 29/04/2020;Sevilla;Confirmados PCR;4;
 29/04/2020;Sevilla;Hospitalizados;2;
 29/04/2020;Sevilla;UCI;0;
 29/04/2020;Sevilla;Curados;5;
 29/04/2020;Sevilla;Defunciones;1;
 29/04/2020;Sevilla;Total confirmados (PCR+test);29;
-28/04/2020;Andalucía;Confirmados PCR;48;
+28/04/2020;Andalucía;Confirmados PCR;46;
 28/04/2020;Andalucía;Hospitalizados;29;
 28/04/2020;Andalucía;UCI;2;
-28/04/2020;Andalucía;Curados;69;
+28/04/2020;Andalucía;Curados;74;
 28/04/2020;Andalucía;Defunciones;2;
-28/04/2020;Andalucía;Total confirmados (PCR+test);190;
+28/04/2020;Andalucía;Total confirmados (PCR+test);197;
 28/04/2020;Almería;Confirmados PCR;2;
 28/04/2020;Almería;Hospitalizados;1;
 28/04/2020;Almería;UCI;0;
@@ -464,13 +524,13 @@ Fecha declaración;Territorio;Medida;Valor;
 28/04/2020;Córdoba;Confirmados PCR;5;
 28/04/2020;Córdoba;Hospitalizados;4;
 28/04/2020;Córdoba;UCI;0;
-28/04/2020;Córdoba;Curados;16;
+28/04/2020;Córdoba;Curados;19;
 28/04/2020;Córdoba;Defunciones;;
-28/04/2020;Córdoba;Total confirmados (PCR+test);26;
-28/04/2020;Granada;Confirmados PCR;15;
+28/04/2020;Córdoba;Total confirmados (PCR+test);29;
+28/04/2020;Granada;Confirmados PCR;12;
 28/04/2020;Granada;Hospitalizados;5;
 28/04/2020;Granada;UCI;1;
-28/04/2020;Granada;Curados;18;
+28/04/2020;Granada;Curados;19;
 28/04/2020;Granada;Defunciones;1;
 28/04/2020;Granada;Total confirmados (PCR+test);31;
 28/04/2020;Huelva;Confirmados PCR;;
@@ -484,13 +544,13 @@ Fecha declaración;Territorio;Medida;Valor;
 28/04/2020;Jaén;UCI;1;
 28/04/2020;Jaén;Curados;2;
 28/04/2020;Jaén;Defunciones;1;
-28/04/2020;Jaén;Total confirmados (PCR+test);17;
-28/04/2020;Málaga;Confirmados PCR;8;
+28/04/2020;Jaén;Total confirmados (PCR+test);19;
+28/04/2020;Málaga;Confirmados PCR;9;
 28/04/2020;Málaga;Hospitalizados;3;
 28/04/2020;Málaga;UCI;0;
-28/04/2020;Málaga;Curados;19;
+28/04/2020;Málaga;Curados;20;
 28/04/2020;Málaga;Defunciones;;
-28/04/2020;Málaga;Total confirmados (PCR+test);63;
+28/04/2020;Málaga;Total confirmados (PCR+test);65;
 28/04/2020;Sevilla;Confirmados PCR;7;
 28/04/2020;Sevilla;Hospitalizados;9;
 28/04/2020;Sevilla;UCI;0;
@@ -500,7 +560,7 @@ Fecha declaración;Territorio;Medida;Valor;
 27/04/2020;Andalucía;Confirmados PCR;53;
 27/04/2020;Andalucía;Hospitalizados;14;
 27/04/2020;Andalucía;UCI;0;
-27/04/2020;Andalucía;Curados;76;
+27/04/2020;Andalucía;Curados;78;
 27/04/2020;Andalucía;Defunciones;3;
 27/04/2020;Andalucía;Total confirmados (PCR+test);188;
 27/04/2020;Almería;Confirmados PCR;1;
@@ -524,7 +584,7 @@ Fecha declaración;Territorio;Medida;Valor;
 27/04/2020;Granada;Confirmados PCR;12;
 27/04/2020;Granada;Hospitalizados;2;
 27/04/2020;Granada;UCI;0;
-27/04/2020;Granada;Curados;23;
+27/04/2020;Granada;Curados;24;
 27/04/2020;Granada;Defunciones;;
 27/04/2020;Granada;Total confirmados (PCR+test);33;
 27/04/2020;Huelva;Confirmados PCR;4;
@@ -533,18 +593,18 @@ Fecha declaración;Territorio;Medida;Valor;
 27/04/2020;Huelva;Curados;;
 27/04/2020;Huelva;Defunciones;;
 27/04/2020;Huelva;Total confirmados (PCR+test);4;
-27/04/2020;Jaén;Confirmados PCR;4;
+27/04/2020;Jaén;Confirmados PCR;5;
 27/04/2020;Jaén;Hospitalizados;1;
 27/04/2020;Jaén;UCI;0;
 27/04/2020;Jaén;Curados;1;
 27/04/2020;Jaén;Defunciones;;
-27/04/2020;Jaén;Total confirmados (PCR+test);10;
-27/04/2020;Málaga;Confirmados PCR;15;
+27/04/2020;Jaén;Total confirmados (PCR+test);11;
+27/04/2020;Málaga;Confirmados PCR;14;
 27/04/2020;Málaga;Hospitalizados;2;
 27/04/2020;Málaga;UCI;0;
-27/04/2020;Málaga;Curados;23;
+27/04/2020;Málaga;Curados;24;
 27/04/2020;Málaga;Defunciones;3;
-27/04/2020;Málaga;Total confirmados (PCR+test);81;
+27/04/2020;Málaga;Total confirmados (PCR+test);80;
 27/04/2020;Sevilla;Confirmados PCR;11;
 27/04/2020;Sevilla;Hospitalizados;4;
 27/04/2020;Sevilla;UCI;0;
@@ -583,7 +643,7 @@ Fecha declaración;Territorio;Medida;Valor;
 26/04/2020;Granada;Total confirmados (PCR+test);21;
 26/04/2020;Huelva;Confirmados PCR;2;
 26/04/2020;Huelva;Hospitalizados;2;
-26/04/2020;Huelva;UCI;;
+26/04/2020;Huelva;UCI;0;
 26/04/2020;Huelva;Curados;;
 26/04/2020;Huelva;Defunciones;1;
 26/04/2020;Huelva;Total confirmados (PCR+test);2;
@@ -608,13 +668,13 @@ Fecha declaración;Territorio;Medida;Valor;
 25/04/2020;Andalucía;Confirmados PCR;26;
 25/04/2020;Andalucía;Hospitalizados;20;
 25/04/2020;Andalucía;UCI;2;
-25/04/2020;Andalucía;Curados;40;
+25/04/2020;Andalucía;Curados;41;
 25/04/2020;Andalucía;Defunciones;2;
 25/04/2020;Andalucía;Total confirmados (PCR+test);81;
 25/04/2020;Cádiz;Confirmados PCR;3;
 25/04/2020;Cádiz;Hospitalizados;2;
 25/04/2020;Cádiz;UCI;0;
-25/04/2020;Cádiz;Curados;;
+25/04/2020;Cádiz;Curados;1;
 25/04/2020;Cádiz;Defunciones;1;
 25/04/2020;Cádiz;Total confirmados (PCR+test);5;
 25/04/2020;Córdoba;Confirmados PCR;1;
@@ -653,10 +713,10 @@ Fecha declaración;Territorio;Medida;Valor;
 25/04/2020;Sevilla;Curados;3;
 25/04/2020;Sevilla;Defunciones;;
 25/04/2020;Sevilla;Total confirmados (PCR+test);10;
-24/04/2020;Andalucía;Confirmados PCR;68;
+24/04/2020;Andalucía;Confirmados PCR;71;
 24/04/2020;Andalucía;Hospitalizados;20;
 24/04/2020;Andalucía;UCI;0;
-24/04/2020;Andalucía;Curados;89;
+24/04/2020;Andalucía;Curados;94;
 24/04/2020;Andalucía;Defunciones;2;
 24/04/2020;Andalucía;Total confirmados (PCR+test);222;
 24/04/2020;Almería;Confirmados PCR;2;
@@ -677,10 +737,10 @@ Fecha declaración;Territorio;Medida;Valor;
 24/04/2020;Córdoba;Curados;5;
 24/04/2020;Córdoba;Defunciones;1;
 24/04/2020;Córdoba;Total confirmados (PCR+test);21;
-24/04/2020;Granada;Confirmados PCR;32;
+24/04/2020;Granada;Confirmados PCR;33;
 24/04/2020;Granada;Hospitalizados;8;
 24/04/2020;Granada;UCI;0;
-24/04/2020;Granada;Curados;37;
+24/04/2020;Granada;Curados;42;
 24/04/2020;Granada;Defunciones;;
 24/04/2020;Granada;Total confirmados (PCR+test);58;
 24/04/2020;Huelva;Confirmados PCR;2;
@@ -689,7 +749,7 @@ Fecha declaración;Territorio;Medida;Valor;
 24/04/2020;Huelva;Curados;2;
 24/04/2020;Huelva;Defunciones;;
 24/04/2020;Huelva;Total confirmados (PCR+test);4;
-24/04/2020;Jaén;Confirmados PCR;1;
+24/04/2020;Jaén;Confirmados PCR;3;
 24/04/2020;Jaén;Hospitalizados;0;
 24/04/2020;Jaén;UCI;;
 24/04/2020;Jaén;Curados;1;
@@ -710,9 +770,9 @@ Fecha declaración;Territorio;Medida;Valor;
 23/04/2020;Andalucía;Confirmados PCR;85;
 23/04/2020;Andalucía;Hospitalizados;15;
 23/04/2020;Andalucía;UCI;2;
-23/04/2020;Andalucía;Curados;75;
+23/04/2020;Andalucía;Curados;77;
 23/04/2020;Andalucía;Defunciones;4;
-23/04/2020;Andalucía;Total confirmados (PCR+test);225;
+23/04/2020;Andalucía;Total confirmados (PCR+test);226;
 23/04/2020;Almería;Confirmados PCR;1;
 23/04/2020;Almería;Hospitalizados;2;
 23/04/2020;Almería;UCI;0;
@@ -728,13 +788,13 @@ Fecha declaración;Territorio;Medida;Valor;
 23/04/2020;Córdoba;Confirmados PCR;4;
 23/04/2020;Córdoba;Hospitalizados;0;
 23/04/2020;Córdoba;UCI;0;
-23/04/2020;Córdoba;Curados;5;
+23/04/2020;Córdoba;Curados;6;
 23/04/2020;Córdoba;Defunciones;;
-23/04/2020;Córdoba;Total confirmados (PCR+test);16;
-23/04/2020;Granada;Confirmados PCR;32;
+23/04/2020;Córdoba;Total confirmados (PCR+test);17;
+23/04/2020;Granada;Confirmados PCR;30;
 23/04/2020;Granada;Hospitalizados;10;
 23/04/2020;Granada;UCI;1;
-23/04/2020;Granada;Curados;37;
+23/04/2020;Granada;Curados;38;
 23/04/2020;Granada;Defunciones;4;
 23/04/2020;Granada;Total confirmados (PCR+test);57;
 23/04/2020;Huelva;Confirmados PCR;1;
@@ -743,13 +803,13 @@ Fecha declaración;Territorio;Medida;Valor;
 23/04/2020;Huelva;Curados;1;
 23/04/2020;Huelva;Defunciones;;
 23/04/2020;Huelva;Total confirmados (PCR+test);3;
-23/04/2020;Jaén;Confirmados PCR;5;
+23/04/2020;Jaén;Confirmados PCR;6;
 23/04/2020;Jaén;Hospitalizados;0;
 23/04/2020;Jaén;UCI;;
 23/04/2020;Jaén;Curados;;
 23/04/2020;Jaén;Defunciones;;
 23/04/2020;Jaén;Total confirmados (PCR+test);20;
-23/04/2020;Málaga;Confirmados PCR;24;
+23/04/2020;Málaga;Confirmados PCR;25;
 23/04/2020;Málaga;Hospitalizados;1;
 23/04/2020;Málaga;UCI;1;
 23/04/2020;Málaga;Curados;27;
@@ -761,12 +821,12 @@ Fecha declaración;Territorio;Medida;Valor;
 23/04/2020;Sevilla;Curados;3;
 23/04/2020;Sevilla;Defunciones;;
 23/04/2020;Sevilla;Total confirmados (PCR+test);20;
-22/04/2020;Andalucía;Confirmados PCR;85;
-22/04/2020;Andalucía;Hospitalizados;20;
+22/04/2020;Andalucía;Confirmados PCR;86;
+22/04/2020;Andalucía;Hospitalizados;21;
 22/04/2020;Andalucía;UCI;0;
-22/04/2020;Andalucía;Curados;73;
+22/04/2020;Andalucía;Curados;75;
 22/04/2020;Andalucía;Defunciones;3;
-22/04/2020;Andalucía;Total confirmados (PCR+test);188;
+22/04/2020;Andalucía;Total confirmados (PCR+test);189;
 22/04/2020;Almería;Confirmados PCR;2;
 22/04/2020;Almería;Hospitalizados;1;
 22/04/2020;Almería;UCI;0;
@@ -785,12 +845,12 @@ Fecha declaración;Territorio;Medida;Valor;
 22/04/2020;Córdoba;Curados;4;
 22/04/2020;Córdoba;Defunciones;;
 22/04/2020;Córdoba;Total confirmados (PCR+test);16;
-22/04/2020;Granada;Confirmados PCR;23;
-22/04/2020;Granada;Hospitalizados;4;
+22/04/2020;Granada;Confirmados PCR;24;
+22/04/2020;Granada;Hospitalizados;5;
 22/04/2020;Granada;UCI;0;
-22/04/2020;Granada;Curados;33;
+22/04/2020;Granada;Curados;35;
 22/04/2020;Granada;Defunciones;1;
-22/04/2020;Granada;Total confirmados (PCR+test);49;
+22/04/2020;Granada;Total confirmados (PCR+test);50;
 22/04/2020;Huelva;Confirmados PCR;1;
 22/04/2020;Huelva;Hospitalizados;1;
 22/04/2020;Huelva;UCI;;
@@ -815,10 +875,10 @@ Fecha declaración;Territorio;Medida;Valor;
 22/04/2020;Sevilla;Curados;5;
 22/04/2020;Sevilla;Defunciones;1;
 22/04/2020;Sevilla;Total confirmados (PCR+test);25;
-21/04/2020;Andalucía;Confirmados PCR;90;
+21/04/2020;Andalucía;Confirmados PCR;88;
 21/04/2020;Andalucía;Hospitalizados;36;
 21/04/2020;Andalucía;UCI;3;
-21/04/2020;Andalucía;Curados;114;
+21/04/2020;Andalucía;Curados;118;
 21/04/2020;Andalucía;Defunciones;5;
 21/04/2020;Andalucía;Total confirmados (PCR+test);247;
 21/04/2020;Almería;Confirmados PCR;3;
@@ -836,13 +896,13 @@ Fecha declaración;Territorio;Medida;Valor;
 21/04/2020;Córdoba;Confirmados PCR;7;
 21/04/2020;Córdoba;Hospitalizados;3;
 21/04/2020;Córdoba;UCI;0;
-21/04/2020;Córdoba;Curados;3;
+21/04/2020;Córdoba;Curados;4;
 21/04/2020;Córdoba;Defunciones;;
 21/04/2020;Córdoba;Total confirmados (PCR+test);31;
-21/04/2020;Granada;Confirmados PCR;18;
+21/04/2020;Granada;Confirmados PCR;16;
 21/04/2020;Granada;Hospitalizados;10;
 21/04/2020;Granada;UCI;2;
-21/04/2020;Granada;Curados;33;
+21/04/2020;Granada;Curados;34;
 21/04/2020;Granada;Defunciones;1;
 21/04/2020;Granada;Total confirmados (PCR+test);48;
 21/04/2020;Huelva;Confirmados PCR;4;
@@ -866,13 +926,13 @@ Fecha declaración;Territorio;Medida;Valor;
 21/04/2020;Sevilla;Confirmados PCR;9;
 21/04/2020;Sevilla;Hospitalizados;12;
 21/04/2020;Sevilla;UCI;1;
-21/04/2020;Sevilla;Curados;11;
+21/04/2020;Sevilla;Curados;13;
 21/04/2020;Sevilla;Defunciones;1;
 21/04/2020;Sevilla;Total confirmados (PCR+test);27;
-20/04/2020;Andalucía;Confirmados PCR;81;
+20/04/2020;Andalucía;Confirmados PCR;80;
 20/04/2020;Andalucía;Hospitalizados;23;
 20/04/2020;Andalucía;UCI;4;
-20/04/2020;Andalucía;Curados;64;
+20/04/2020;Andalucía;Curados;74;
 20/04/2020;Andalucía;Defunciones;3;
 20/04/2020;Andalucía;Total confirmados (PCR+test);193;
 20/04/2020;Almería;Confirmados PCR;2;
@@ -890,13 +950,13 @@ Fecha declaración;Territorio;Medida;Valor;
 20/04/2020;Córdoba;Confirmados PCR;13;
 20/04/2020;Córdoba;Hospitalizados;1;
 20/04/2020;Córdoba;UCI;;
-20/04/2020;Córdoba;Curados;3;
+20/04/2020;Córdoba;Curados;6;
 20/04/2020;Córdoba;Defunciones;;
 20/04/2020;Córdoba;Total confirmados (PCR+test);19;
-20/04/2020;Granada;Confirmados PCR;17;
+20/04/2020;Granada;Confirmados PCR;16;
 20/04/2020;Granada;Hospitalizados;4;
 20/04/2020;Granada;UCI;1;
-20/04/2020;Granada;Curados;15;
+20/04/2020;Granada;Curados;19;
 20/04/2020;Granada;Defunciones;1;
 20/04/2020;Granada;Total confirmados (PCR+test);26;
 20/04/2020;Huelva;Confirmados PCR;;
@@ -920,13 +980,13 @@ Fecha declaración;Territorio;Medida;Valor;
 20/04/2020;Sevilla;Confirmados PCR;13;
 20/04/2020;Sevilla;Hospitalizados;10;
 20/04/2020;Sevilla;UCI;2;
-20/04/2020;Sevilla;Curados;9;
+20/04/2020;Sevilla;Curados;12;
 20/04/2020;Sevilla;Defunciones;;
 20/04/2020;Sevilla;Total confirmados (PCR+test);30;
 19/04/2020;Andalucía;Confirmados PCR;33;
 19/04/2020;Andalucía;Hospitalizados;17;
 19/04/2020;Andalucía;UCI;1;
-19/04/2020;Andalucía;Curados;22;
+19/04/2020;Andalucía;Curados;23;
 19/04/2020;Andalucía;Defunciones;4;
 19/04/2020;Andalucía;Total confirmados (PCR+test);53;
 19/04/2020;Cádiz;Confirmados PCR;9;
@@ -962,13 +1022,13 @@ Fecha declaración;Territorio;Medida;Valor;
 19/04/2020;Sevilla;Confirmados PCR;8;
 19/04/2020;Sevilla;Hospitalizados;6;
 19/04/2020;Sevilla;UCI;0;
-19/04/2020;Sevilla;Curados;6;
+19/04/2020;Sevilla;Curados;7;
 19/04/2020;Sevilla;Defunciones;;
 19/04/2020;Sevilla;Total confirmados (PCR+test);14;
 18/04/2020;Andalucía;Confirmados PCR;46;
 18/04/2020;Andalucía;Hospitalizados;30;
 18/04/2020;Andalucía;UCI;1;
-18/04/2020;Andalucía;Curados;36;
+18/04/2020;Andalucía;Curados;38;
 18/04/2020;Andalucía;Defunciones;4;
 18/04/2020;Andalucía;Total confirmados (PCR+test);86;
 18/04/2020;Almería;Confirmados PCR;3;
@@ -992,7 +1052,7 @@ Fecha declaración;Territorio;Medida;Valor;
 18/04/2020;Granada;Confirmados PCR;14;
 18/04/2020;Granada;Hospitalizados;7;
 18/04/2020;Granada;UCI;0;
-18/04/2020;Granada;Curados;24;
+18/04/2020;Granada;Curados;25;
 18/04/2020;Granada;Defunciones;1;
 18/04/2020;Granada;Total confirmados (PCR+test);31;
 18/04/2020;Huelva;Confirmados PCR;7;
@@ -1016,15 +1076,15 @@ Fecha declaración;Territorio;Medida;Valor;
 18/04/2020;Sevilla;Confirmados PCR;5;
 18/04/2020;Sevilla;Hospitalizados;0;
 18/04/2020;Sevilla;UCI;;
-18/04/2020;Sevilla;Curados;1;
+18/04/2020;Sevilla;Curados;2;
 18/04/2020;Sevilla;Defunciones;;
 18/04/2020;Sevilla;Total confirmados (PCR+test);6;
 17/04/2020;Andalucía;Confirmados PCR;112;
-17/04/2020;Andalucía;Hospitalizados;34;
+17/04/2020;Andalucía;Hospitalizados;35;
 17/04/2020;Andalucía;UCI;1;
-17/04/2020;Andalucía;Curados;55;
+17/04/2020;Andalucía;Curados;57;
 17/04/2020;Andalucía;Defunciones;8;
-17/04/2020;Andalucía;Total confirmados (PCR+test);169;
+17/04/2020;Andalucía;Total confirmados (PCR+test);170;
 17/04/2020;Almería;Confirmados PCR;8;
 17/04/2020;Almería;Hospitalizados;2;
 17/04/2020;Almería;UCI;0;
@@ -1044,11 +1104,11 @@ Fecha declaración;Territorio;Medida;Valor;
 17/04/2020;Córdoba;Defunciones;;
 17/04/2020;Córdoba;Total confirmados (PCR+test);6;
 17/04/2020;Granada;Confirmados PCR;31;
-17/04/2020;Granada;Hospitalizados;12;
+17/04/2020;Granada;Hospitalizados;13;
 17/04/2020;Granada;UCI;0;
-17/04/2020;Granada;Curados;23;
+17/04/2020;Granada;Curados;25;
 17/04/2020;Granada;Defunciones;3;
-17/04/2020;Granada;Total confirmados (PCR+test);41;
+17/04/2020;Granada;Total confirmados (PCR+test);42;
 17/04/2020;Huelva;Confirmados PCR;4;
 17/04/2020;Huelva;Hospitalizados;1;
 17/04/2020;Huelva;UCI;;
@@ -1074,9 +1134,9 @@ Fecha declaración;Territorio;Medida;Valor;
 17/04/2020;Sevilla;Defunciones;1;
 17/04/2020;Sevilla;Total confirmados (PCR+test);29;
 16/04/2020;Andalucía;Confirmados PCR;64;
-16/04/2020;Andalucía;Hospitalizados;31;
+16/04/2020;Andalucía;Hospitalizados;32;
 16/04/2020;Andalucía;UCI;1;
-16/04/2020;Andalucía;Curados;47;
+16/04/2020;Andalucía;Curados;51;
 16/04/2020;Andalucía;Defunciones;4;
 16/04/2020;Andalucía;Total confirmados (PCR+test);125;
 16/04/2020;Almería;Confirmados PCR;2;
@@ -1112,13 +1172,13 @@ Fecha declaración;Territorio;Medida;Valor;
 16/04/2020;Jaén;Confirmados PCR;4;
 16/04/2020;Jaén;Hospitalizados;5;
 16/04/2020;Jaén;UCI;0;
-16/04/2020;Jaén;Curados;6;
+16/04/2020;Jaén;Curados;8;
 16/04/2020;Jaén;Defunciones;1;
 16/04/2020;Jaén;Total confirmados (PCR+test);17;
 16/04/2020;Málaga;Confirmados PCR;13;
-16/04/2020;Málaga;Hospitalizados;8;
+16/04/2020;Málaga;Hospitalizados;9;
 16/04/2020;Málaga;UCI;0;
-16/04/2020;Málaga;Curados;10;
+16/04/2020;Málaga;Curados;12;
 16/04/2020;Málaga;Defunciones;1;
 16/04/2020;Málaga;Total confirmados (PCR+test);36;
 16/04/2020;Sevilla;Confirmados PCR;7;
@@ -1127,10 +1187,10 @@ Fecha declaración;Territorio;Medida;Valor;
 16/04/2020;Sevilla;Curados;9;
 16/04/2020;Sevilla;Defunciones;;
 16/04/2020;Sevilla;Total confirmados (PCR+test);18;
-15/04/2020;Andalucía;Confirmados PCR;117;
+15/04/2020;Andalucía;Confirmados PCR;118;
 15/04/2020;Andalucía;Hospitalizados;41;
 15/04/2020;Andalucía;UCI;0;
-15/04/2020;Andalucía;Curados;84;
+15/04/2020;Andalucía;Curados;85;
 15/04/2020;Andalucía;Defunciones;8;
 15/04/2020;Andalucía;Total confirmados (PCR+test);176;
 15/04/2020;Almería;Confirmados PCR;4;
@@ -1142,7 +1202,7 @@ Fecha declaración;Territorio;Medida;Valor;
 15/04/2020;Cádiz;Confirmados PCR;33;
 15/04/2020;Cádiz;Hospitalizados;9;
 15/04/2020;Cádiz;UCI;0;
-15/04/2020;Cádiz;Curados;3;
+15/04/2020;Cádiz;Curados;4;
 15/04/2020;Cádiz;Defunciones;3;
 15/04/2020;Cádiz;Total confirmados (PCR+test);35;
 15/04/2020;Córdoba;Confirmados PCR;7;
@@ -1163,7 +1223,7 @@ Fecha declaración;Territorio;Medida;Valor;
 15/04/2020;Huelva;Curados;;
 15/04/2020;Huelva;Defunciones;;
 15/04/2020;Huelva;Total confirmados (PCR+test);1;
-15/04/2020;Jaén;Confirmados PCR;9;
+15/04/2020;Jaén;Confirmados PCR;10;
 15/04/2020;Jaén;Hospitalizados;4;
 15/04/2020;Jaén;UCI;0;
 15/04/2020;Jaén;Curados;16;
@@ -1181,22 +1241,22 @@ Fecha declaración;Territorio;Medida;Valor;
 15/04/2020;Sevilla;Curados;13;
 15/04/2020;Sevilla;Defunciones;3;
 15/04/2020;Sevilla;Total confirmados (PCR+test);39;
-14/04/2020;Andalucía;Confirmados PCR;106;
-14/04/2020;Andalucía;Hospitalizados;51;
+14/04/2020;Andalucía;Confirmados PCR;107;
+14/04/2020;Andalucía;Hospitalizados;52;
 14/04/2020;Andalucía;UCI;5;
-14/04/2020;Andalucía;Curados;87;
+14/04/2020;Andalucía;Curados;93;
 14/04/2020;Andalucía;Defunciones;8;
 14/04/2020;Andalucía;Total confirmados (PCR+test);207;
 14/04/2020;Almería;Confirmados PCR;6;
 14/04/2020;Almería;Hospitalizados;4;
 14/04/2020;Almería;UCI;1;
-14/04/2020;Almería;Curados;2;
+14/04/2020;Almería;Curados;3;
 14/04/2020;Almería;Defunciones;;
 14/04/2020;Almería;Total confirmados (PCR+test);8;
 14/04/2020;Cádiz;Confirmados PCR;18;
 14/04/2020;Cádiz;Hospitalizados;9;
 14/04/2020;Cádiz;UCI;1;
-14/04/2020;Cádiz;Curados;2;
+14/04/2020;Cádiz;Curados;3;
 14/04/2020;Cádiz;Defunciones;2;
 14/04/2020;Cádiz;Total confirmados (PCR+test);22;
 14/04/2020;Córdoba;Confirmados PCR;7;
@@ -1223,24 +1283,24 @@ Fecha declaración;Territorio;Medida;Valor;
 14/04/2020;Jaén;Curados;10;
 14/04/2020;Jaén;Defunciones;1;
 14/04/2020;Jaén;Total confirmados (PCR+test);16;
-14/04/2020;Málaga;Confirmados PCR;12;
-14/04/2020;Málaga;Hospitalizados;7;
+14/04/2020;Málaga;Confirmados PCR;13;
+14/04/2020;Málaga;Hospitalizados;8;
 14/04/2020;Málaga;UCI;0;
-14/04/2020;Málaga;Curados;14;
+14/04/2020;Málaga;Curados;15;
 14/04/2020;Málaga;Defunciones;2;
 14/04/2020;Málaga;Total confirmados (PCR+test);41;
 14/04/2020;Sevilla;Confirmados PCR;33;
 14/04/2020;Sevilla;Hospitalizados;15;
 14/04/2020;Sevilla;UCI;1;
-14/04/2020;Sevilla;Curados;28;
+14/04/2020;Sevilla;Curados;31;
 14/04/2020;Sevilla;Defunciones;2;
 14/04/2020;Sevilla;Total confirmados (PCR+test);66;
-13/04/2020;Andalucía;Confirmados PCR;136;
+13/04/2020;Andalucía;Confirmados PCR;137;
 13/04/2020;Andalucía;Hospitalizados;56;
 13/04/2020;Andalucía;UCI;4;
-13/04/2020;Andalucía;Curados;140;
+13/04/2020;Andalucía;Curados;147;
 13/04/2020;Andalucía;Defunciones;14;
-13/04/2020;Andalucía;Total confirmados (PCR+test);240;
+13/04/2020;Andalucía;Total confirmados (PCR+test);241;
 13/04/2020;Almería;Confirmados PCR;1;
 13/04/2020;Almería;Hospitalizados;1;
 13/04/2020;Almería;UCI;;
@@ -1262,7 +1322,7 @@ Fecha declaración;Territorio;Medida;Valor;
 13/04/2020;Granada;Confirmados PCR;32;
 13/04/2020;Granada;Hospitalizados;13;
 13/04/2020;Granada;UCI;2;
-13/04/2020;Granada;Curados;24;
+13/04/2020;Granada;Curados;26;
 13/04/2020;Granada;Defunciones;4;
 13/04/2020;Granada;Total confirmados (PCR+test);34;
 13/04/2020;Huelva;Confirmados PCR;6;
@@ -1280,19 +1340,19 @@ Fecha declaración;Territorio;Medida;Valor;
 13/04/2020;Málaga;Confirmados PCR;23;
 13/04/2020;Málaga;Hospitalizados;11;
 13/04/2020;Málaga;UCI;2;
-13/04/2020;Málaga;Curados;54;
+13/04/2020;Málaga;Curados;55;
 13/04/2020;Málaga;Defunciones;3;
 13/04/2020;Málaga;Total confirmados (PCR+test);74;
-13/04/2020;Sevilla;Confirmados PCR;41;
+13/04/2020;Sevilla;Confirmados PCR;42;
 13/04/2020;Sevilla;Hospitalizados;13;
 13/04/2020;Sevilla;UCI;0;
-13/04/2020;Sevilla;Curados;29;
+13/04/2020;Sevilla;Curados;33;
 13/04/2020;Sevilla;Defunciones;1;
-13/04/2020;Sevilla;Total confirmados (PCR+test);67;
+13/04/2020;Sevilla;Total confirmados (PCR+test);68;
 12/04/2020;Andalucía;Confirmados PCR;75;
 12/04/2020;Andalucía;Hospitalizados;41;
 12/04/2020;Andalucía;UCI;2;
-12/04/2020;Andalucía;Curados;64;
+12/04/2020;Andalucía;Curados;65;
 12/04/2020;Andalucía;Defunciones;7;
 12/04/2020;Andalucía;Total confirmados (PCR+test);113;
 12/04/2020;Almería;Confirmados PCR;2;
@@ -1313,7 +1373,7 @@ Fecha declaración;Territorio;Medida;Valor;
 12/04/2020;Córdoba;Curados;9;
 12/04/2020;Córdoba;Defunciones;;
 12/04/2020;Córdoba;Total confirmados (PCR+test);15;
-12/04/2020;Granada;Confirmados PCR;16;
+12/04/2020;Granada;Confirmados PCR;15;
 12/04/2020;Granada;Hospitalizados;11;
 12/04/2020;Granada;UCI;1;
 12/04/2020;Granada;Curados;16;
@@ -1325,7 +1385,7 @@ Fecha declaración;Territorio;Medida;Valor;
 12/04/2020;Huelva;Curados;;
 12/04/2020;Huelva;Defunciones;;
 12/04/2020;Huelva;Total confirmados (PCR+test);5;
-12/04/2020;Jaén;Confirmados PCR;17;
+12/04/2020;Jaén;Confirmados PCR;18;
 12/04/2020;Jaén;Hospitalizados;8;
 12/04/2020;Jaén;UCI;0;
 12/04/2020;Jaén;Curados;15;
@@ -1340,37 +1400,37 @@ Fecha declaración;Territorio;Medida;Valor;
 12/04/2020;Sevilla;Confirmados PCR;6;
 12/04/2020;Sevilla;Hospitalizados;2;
 12/04/2020;Sevilla;UCI;0;
-12/04/2020;Sevilla;Curados;7;
+12/04/2020;Sevilla;Curados;8;
 12/04/2020;Sevilla;Defunciones;1;
 12/04/2020;Sevilla;Total confirmados (PCR+test);17;
-11/04/2020;Andalucía;Confirmados PCR;91;
-11/04/2020;Andalucía;Hospitalizados;51;
+11/04/2020;Andalucía;Confirmados PCR;93;
+11/04/2020;Andalucía;Hospitalizados;50;
 11/04/2020;Andalucía;UCI;3;
-11/04/2020;Andalucía;Curados;85;
+11/04/2020;Andalucía;Curados;87;
 11/04/2020;Andalucía;Defunciones;12;
-11/04/2020;Andalucía;Total confirmados (PCR+test);154;
+11/04/2020;Andalucía;Total confirmados (PCR+test);153;
 11/04/2020;Almería;Confirmados PCR;2;
 11/04/2020;Almería;Hospitalizados;1;
 11/04/2020;Almería;UCI;;
 11/04/2020;Almería;Curados;2;
 11/04/2020;Almería;Defunciones;;
 11/04/2020;Almería;Total confirmados (PCR+test);5;
-11/04/2020;Cádiz;Confirmados PCR;7;
-11/04/2020;Cádiz;Hospitalizados;7;
+11/04/2020;Cádiz;Confirmados PCR;6;
+11/04/2020;Cádiz;Hospitalizados;6;
 11/04/2020;Cádiz;UCI;0;
 11/04/2020;Cádiz;Curados;2;
 11/04/2020;Cádiz;Defunciones;4;
-11/04/2020;Cádiz;Total confirmados (PCR+test);17;
+11/04/2020;Cádiz;Total confirmados (PCR+test);16;
 11/04/2020;Córdoba;Confirmados PCR;13;
 11/04/2020;Córdoba;Hospitalizados;5;
 11/04/2020;Córdoba;UCI;0;
 11/04/2020;Córdoba;Curados;13;
 11/04/2020;Córdoba;Defunciones;1;
 11/04/2020;Córdoba;Total confirmados (PCR+test);18;
-11/04/2020;Granada;Confirmados PCR;28;
+11/04/2020;Granada;Confirmados PCR;31;
 11/04/2020;Granada;Hospitalizados;15;
 11/04/2020;Granada;UCI;2;
-11/04/2020;Granada;Curados;44;
+11/04/2020;Granada;Curados;43;
 11/04/2020;Granada;Defunciones;4;
 11/04/2020;Granada;Total confirmados (PCR+test);60;
 11/04/2020;Huelva;Confirmados PCR;1;
@@ -1388,20 +1448,20 @@ Fecha declaración;Territorio;Medida;Valor;
 11/04/2020;Málaga;Confirmados PCR;18;
 11/04/2020;Málaga;Hospitalizados;10;
 11/04/2020;Málaga;UCI;0;
-11/04/2020;Málaga;Curados;10;
+11/04/2020;Málaga;Curados;11;
 11/04/2020;Málaga;Defunciones;1;
 11/04/2020;Málaga;Total confirmados (PCR+test);18;
 11/04/2020;Sevilla;Confirmados PCR;16;
 11/04/2020;Sevilla;Hospitalizados;9;
 11/04/2020;Sevilla;UCI;0;
-11/04/2020;Sevilla;Curados;4;
+11/04/2020;Sevilla;Curados;6;
 11/04/2020;Sevilla;Defunciones;2;
 11/04/2020;Sevilla;Total confirmados (PCR+test);19;
-10/04/2020;Andalucía;Confirmados PCR;137;
+10/04/2020;Andalucía;Confirmados PCR;136;
 10/04/2020;Andalucía;Hospitalizados;67;
 10/04/2020;Andalucía;UCI;3;
-10/04/2020;Andalucía;Curados;100;
-10/04/2020;Andalucía;Defunciones;15;
+10/04/2020;Andalucía;Curados;105;
+10/04/2020;Andalucía;Defunciones;14;
 10/04/2020;Andalucía;Total confirmados (PCR+test);207;
 10/04/2020;Almería;Confirmados PCR;4;
 10/04/2020;Almería;Hospitalizados;1;
@@ -1418,13 +1478,13 @@ Fecha declaración;Territorio;Medida;Valor;
 10/04/2020;Córdoba;Confirmados PCR;8;
 10/04/2020;Córdoba;Hospitalizados;2;
 10/04/2020;Córdoba;UCI;0;
-10/04/2020;Córdoba;Curados;3;
+10/04/2020;Córdoba;Curados;4;
 10/04/2020;Córdoba;Defunciones;;
 10/04/2020;Córdoba;Total confirmados (PCR+test);8;
 10/04/2020;Granada;Confirmados PCR;49;
 10/04/2020;Granada;Hospitalizados;14;
 10/04/2020;Granada;UCI;1;
-10/04/2020;Granada;Curados;36;
+10/04/2020;Granada;Curados;37;
 10/04/2020;Granada;Defunciones;3;
 10/04/2020;Granada;Total confirmados (PCR+test);54;
 10/04/2020;Huelva;Confirmados PCR;4;
@@ -1442,21 +1502,21 @@ Fecha declaración;Territorio;Medida;Valor;
 10/04/2020;Málaga;Confirmados PCR;15;
 10/04/2020;Málaga;Hospitalizados;10;
 10/04/2020;Málaga;UCI;0;
-10/04/2020;Málaga;Curados;10;
+10/04/2020;Málaga;Curados;12;
 10/04/2020;Málaga;Defunciones;2;
 10/04/2020;Málaga;Total confirmados (PCR+test);23;
-10/04/2020;Sevilla;Confirmados PCR;24;
+10/04/2020;Sevilla;Confirmados PCR;23;
 10/04/2020;Sevilla;Hospitalizados;13;
 10/04/2020;Sevilla;UCI;0;
-10/04/2020;Sevilla;Curados;23;
-10/04/2020;Sevilla;Defunciones;2;
+10/04/2020;Sevilla;Curados;24;
+10/04/2020;Sevilla;Defunciones;1;
 10/04/2020;Sevilla;Total confirmados (PCR+test);44;
-09/04/2020;Andalucía;Confirmados PCR;166;
-09/04/2020;Andalucía;Hospitalizados;67;
+09/04/2020;Andalucía;Confirmados PCR;168;
+09/04/2020;Andalucía;Hospitalizados;68;
 09/04/2020;Andalucía;UCI;7;
-09/04/2020;Andalucía;Curados;78;
-09/04/2020;Andalucía;Defunciones;11;
-09/04/2020;Andalucía;Total confirmados (PCR+test);183;
+09/04/2020;Andalucía;Curados;79;
+09/04/2020;Andalucía;Defunciones;12;
+09/04/2020;Andalucía;Total confirmados (PCR+test);185;
 09/04/2020;Almería;Confirmados PCR;3;
 09/04/2020;Almería;Hospitalizados;0;
 09/04/2020;Almería;UCI;;
@@ -1470,7 +1530,7 @@ Fecha declaración;Territorio;Medida;Valor;
 09/04/2020;Cádiz;Defunciones;;
 09/04/2020;Cádiz;Total confirmados (PCR+test);17;
 09/04/2020;Córdoba;Confirmados PCR;25;
-09/04/2020;Córdoba;Hospitalizados;7;
+09/04/2020;Córdoba;Hospitalizados;8;
 09/04/2020;Córdoba;UCI;0;
 09/04/2020;Córdoba;Curados;17;
 09/04/2020;Córdoba;Defunciones;2;
@@ -1478,7 +1538,7 @@ Fecha declaración;Territorio;Medida;Valor;
 09/04/2020;Granada;Confirmados PCR;20;
 09/04/2020;Granada;Hospitalizados;10;
 09/04/2020;Granada;UCI;0;
-09/04/2020;Granada;Curados;15;
+09/04/2020;Granada;Curados;16;
 09/04/2020;Granada;Defunciones;2;
 09/04/2020;Granada;Total confirmados (PCR+test);22;
 09/04/2020;Huelva;Confirmados PCR;4;
@@ -1487,18 +1547,18 @@ Fecha declaración;Territorio;Medida;Valor;
 09/04/2020;Huelva;Curados;1;
 09/04/2020;Huelva;Defunciones;;
 09/04/2020;Huelva;Total confirmados (PCR+test);4;
-09/04/2020;Jaén;Confirmados PCR;15;
+09/04/2020;Jaén;Confirmados PCR;16;
 09/04/2020;Jaén;Hospitalizados;6;
 09/04/2020;Jaén;UCI;0;
 09/04/2020;Jaén;Curados;11;
 09/04/2020;Jaén;Defunciones;;
-09/04/2020;Jaén;Total confirmados (PCR+test);16;
-09/04/2020;Málaga;Confirmados PCR;15;
+09/04/2020;Jaén;Total confirmados (PCR+test);17;
+09/04/2020;Málaga;Confirmados PCR;16;
 09/04/2020;Málaga;Hospitalizados;10;
 09/04/2020;Málaga;UCI;1;
 09/04/2020;Málaga;Curados;7;
-09/04/2020;Málaga;Defunciones;2;
-09/04/2020;Málaga;Total confirmados (PCR+test);15;
+09/04/2020;Málaga;Defunciones;3;
+09/04/2020;Málaga;Total confirmados (PCR+test);16;
 09/04/2020;Sevilla;Confirmados PCR;68;
 09/04/2020;Sevilla;Hospitalizados;23;
 09/04/2020;Sevilla;UCI;4;
@@ -1508,7 +1568,7 @@ Fecha declaración;Territorio;Medida;Valor;
 08/04/2020;Andalucía;Confirmados PCR;216;
 08/04/2020;Andalucía;Hospitalizados;105;
 08/04/2020;Andalucía;UCI;7;
-08/04/2020;Andalucía;Curados;130;
+08/04/2020;Andalucía;Curados;134;
 08/04/2020;Andalucía;Defunciones;15;
 08/04/2020;Andalucía;Total confirmados (PCR+test);254;
 08/04/2020;Almería;Confirmados PCR;7;
@@ -1532,13 +1592,13 @@ Fecha declaración;Territorio;Medida;Valor;
 08/04/2020;Granada;Confirmados PCR;51;
 08/04/2020;Granada;Hospitalizados;29;
 08/04/2020;Granada;UCI;0;
-08/04/2020;Granada;Curados;33;
+08/04/2020;Granada;Curados;35;
 08/04/2020;Granada;Defunciones;4;
 08/04/2020;Granada;Total confirmados (PCR+test);52;
 08/04/2020;Huelva;Confirmados PCR;12;
 08/04/2020;Huelva;Hospitalizados;6;
 08/04/2020;Huelva;UCI;0;
-08/04/2020;Huelva;Curados;5;
+08/04/2020;Huelva;Curados;6;
 08/04/2020;Huelva;Defunciones;1;
 08/04/2020;Huelva;Total confirmados (PCR+test);13;
 08/04/2020;Jaén;Confirmados PCR;20;
@@ -1550,7 +1610,7 @@ Fecha declaración;Territorio;Medida;Valor;
 08/04/2020;Málaga;Confirmados PCR;44;
 08/04/2020;Málaga;Hospitalizados;19;
 08/04/2020;Málaga;UCI;3;
-08/04/2020;Málaga;Curados;28;
+08/04/2020;Málaga;Curados;29;
 08/04/2020;Málaga;Defunciones;2;
 08/04/2020;Málaga;Total confirmados (PCR+test);53;
 08/04/2020;Sevilla;Confirmados PCR;41;
@@ -1559,10 +1619,10 @@ Fecha declaración;Territorio;Medida;Valor;
 08/04/2020;Sevilla;Curados;24;
 08/04/2020;Sevilla;Defunciones;2;
 08/04/2020;Sevilla;Total confirmados (PCR+test);60;
-07/04/2020;Andalucía;Confirmados PCR;215;
-07/04/2020;Andalucía;Hospitalizados;94;
+07/04/2020;Andalucía;Confirmados PCR;216;
+07/04/2020;Andalucía;Hospitalizados;93;
 07/04/2020;Andalucía;UCI;10;
-07/04/2020;Andalucía;Curados;119;
+07/04/2020;Andalucía;Curados;120;
 07/04/2020;Andalucía;Defunciones;21;
 07/04/2020;Andalucía;Total confirmados (PCR+test);234;
 07/04/2020;Almería;Confirmados PCR;8;
@@ -1583,7 +1643,7 @@ Fecha declaración;Territorio;Medida;Valor;
 07/04/2020;Córdoba;Curados;20;
 07/04/2020;Córdoba;Defunciones;2;
 07/04/2020;Córdoba;Total confirmados (PCR+test);31;
-07/04/2020;Granada;Confirmados PCR;47;
+07/04/2020;Granada;Confirmados PCR;48;
 07/04/2020;Granada;Hospitalizados;23;
 07/04/2020;Granada;UCI;0;
 07/04/2020;Granada;Curados;33;
@@ -1602,9 +1662,9 @@ Fecha declaración;Territorio;Medida;Valor;
 07/04/2020;Jaén;Defunciones;4;
 07/04/2020;Jaén;Total confirmados (PCR+test);42;
 07/04/2020;Málaga;Confirmados PCR;27;
-07/04/2020;Málaga;Hospitalizados;15;
+07/04/2020;Málaga;Hospitalizados;14;
 07/04/2020;Málaga;UCI;0;
-07/04/2020;Málaga;Curados;15;
+07/04/2020;Málaga;Curados;16;
 07/04/2020;Málaga;Defunciones;3;
 07/04/2020;Málaga;Total confirmados (PCR+test);33;
 07/04/2020;Sevilla;Confirmados PCR;39;
@@ -1616,9 +1676,9 @@ Fecha declaración;Territorio;Medida;Valor;
 06/04/2020;Andalucía;Confirmados PCR;246;
 06/04/2020;Andalucía;Hospitalizados;91;
 06/04/2020;Andalucía;UCI;8;
-06/04/2020;Andalucía;Curados;150;
+06/04/2020;Andalucía;Curados;156;
 06/04/2020;Andalucía;Defunciones;16;
-06/04/2020;Andalucía;Total confirmados (PCR+test);264;
+06/04/2020;Andalucía;Total confirmados (PCR+test);266;
 06/04/2020;Almería;Confirmados PCR;5;
 06/04/2020;Almería;Hospitalizados;2;
 06/04/2020;Almería;UCI;;
@@ -1628,19 +1688,19 @@ Fecha declaración;Territorio;Medida;Valor;
 06/04/2020;Cádiz;Confirmados PCR;15;
 06/04/2020;Cádiz;Hospitalizados;3;
 06/04/2020;Cádiz;UCI;0;
-06/04/2020;Cádiz;Curados;2;
+06/04/2020;Cádiz;Curados;3;
 06/04/2020;Cádiz;Defunciones;;
 06/04/2020;Cádiz;Total confirmados (PCR+test);17;
 06/04/2020;Córdoba;Confirmados PCR;17;
 06/04/2020;Córdoba;Hospitalizados;6;
 06/04/2020;Córdoba;UCI;0;
-06/04/2020;Córdoba;Curados;12;
+06/04/2020;Córdoba;Curados;13;
 06/04/2020;Córdoba;Defunciones;;
-06/04/2020;Córdoba;Total confirmados (PCR+test);17;
+06/04/2020;Córdoba;Total confirmados (PCR+test);19;
 06/04/2020;Granada;Confirmados PCR;38;
 06/04/2020;Granada;Hospitalizados;22;
 06/04/2020;Granada;UCI;1;
-06/04/2020;Granada;Curados;28;
+06/04/2020;Granada;Curados;29;
 06/04/2020;Granada;Defunciones;4;
 06/04/2020;Granada;Total confirmados (PCR+test);40;
 06/04/2020;Huelva;Confirmados PCR;7;
@@ -1652,25 +1712,25 @@ Fecha declaración;Territorio;Medida;Valor;
 06/04/2020;Jaén;Confirmados PCR;46;
 06/04/2020;Jaén;Hospitalizados;14;
 06/04/2020;Jaén;UCI;2;
-06/04/2020;Jaén;Curados;37;
+06/04/2020;Jaén;Curados;38;
 06/04/2020;Jaén;Defunciones;2;
 06/04/2020;Jaén;Total confirmados (PCR+test);50;
 06/04/2020;Málaga;Confirmados PCR;53;
 06/04/2020;Málaga;Hospitalizados;22;
 06/04/2020;Málaga;UCI;3;
-06/04/2020;Málaga;Curados;32;
+06/04/2020;Málaga;Curados;33;
 06/04/2020;Málaga;Defunciones;5;
 06/04/2020;Málaga;Total confirmados (PCR+test);57;
 06/04/2020;Sevilla;Confirmados PCR;65;
 06/04/2020;Sevilla;Hospitalizados;22;
 06/04/2020;Sevilla;UCI;2;
-06/04/2020;Sevilla;Curados;27;
+06/04/2020;Sevilla;Curados;28;
 06/04/2020;Sevilla;Defunciones;5;
 06/04/2020;Sevilla;Total confirmados (PCR+test);70;
 05/04/2020;Andalucía;Confirmados PCR;150;
 05/04/2020;Andalucía;Hospitalizados;81;
 05/04/2020;Andalucía;UCI;11;
-05/04/2020;Andalucía;Curados;85;
+05/04/2020;Andalucía;Curados;91;
 05/04/2020;Andalucía;Defunciones;25;
 05/04/2020;Andalucía;Total confirmados (PCR+test);155;
 05/04/2020;Almería;Confirmados PCR;6;
@@ -1682,19 +1742,19 @@ Fecha declaración;Territorio;Medida;Valor;
 05/04/2020;Cádiz;Confirmados PCR;10;
 05/04/2020;Cádiz;Hospitalizados;4;
 05/04/2020;Cádiz;UCI;1;
-05/04/2020;Cádiz;Curados;4;
+05/04/2020;Cádiz;Curados;5;
 05/04/2020;Cádiz;Defunciones;;
 05/04/2020;Cádiz;Total confirmados (PCR+test);11;
 05/04/2020;Córdoba;Confirmados PCR;12;
 05/04/2020;Córdoba;Hospitalizados;3;
 05/04/2020;Córdoba;UCI;0;
-05/04/2020;Córdoba;Curados;8;
+05/04/2020;Córdoba;Curados;9;
 05/04/2020;Córdoba;Defunciones;3;
 05/04/2020;Córdoba;Total confirmados (PCR+test);12;
 05/04/2020;Granada;Confirmados PCR;44;
 05/04/2020;Granada;Hospitalizados;17;
 05/04/2020;Granada;UCI;5;
-05/04/2020;Granada;Curados;31;
+05/04/2020;Granada;Curados;33;
 05/04/2020;Granada;Defunciones;6;
 05/04/2020;Granada;Total confirmados (PCR+test);45;
 05/04/2020;Huelva;Confirmados PCR;6;
@@ -1706,7 +1766,7 @@ Fecha declaración;Territorio;Medida;Valor;
 05/04/2020;Jaén;Confirmados PCR;24;
 05/04/2020;Jaén;Hospitalizados;22;
 05/04/2020;Jaén;UCI;2;
-05/04/2020;Jaén;Curados;18;
+05/04/2020;Jaén;Curados;19;
 05/04/2020;Jaén;Defunciones;4;
 05/04/2020;Jaén;Total confirmados (PCR+test);25;
 05/04/2020;Málaga;Confirmados PCR;21;
@@ -1718,19 +1778,19 @@ Fecha declaración;Territorio;Medida;Valor;
 05/04/2020;Sevilla;Confirmados PCR;27;
 05/04/2020;Sevilla;Hospitalizados;18;
 05/04/2020;Sevilla;UCI;2;
-05/04/2020;Sevilla;Curados;7;
+05/04/2020;Sevilla;Curados;8;
 05/04/2020;Sevilla;Defunciones;7;
 05/04/2020;Sevilla;Total confirmados (PCR+test);27;
 04/04/2020;Andalucía;Confirmados PCR;219;
 04/04/2020;Andalucía;Hospitalizados;104;
 04/04/2020;Andalucía;UCI;7;
-04/04/2020;Andalucía;Curados;135;
-04/04/2020;Andalucía;Defunciones;15;
+04/04/2020;Andalucía;Curados;139;
+04/04/2020;Andalucía;Defunciones;16;
 04/04/2020;Andalucía;Total confirmados (PCR+test);235;
 04/04/2020;Almería;Confirmados PCR;7;
 04/04/2020;Almería;Hospitalizados;3;
 04/04/2020;Almería;UCI;0;
-04/04/2020;Almería;Curados;3;
+04/04/2020;Almería;Curados;4;
 04/04/2020;Almería;Defunciones;;
 04/04/2020;Almería;Total confirmados (PCR+test);8;
 04/04/2020;Cádiz;Confirmados PCR;12;
@@ -1742,7 +1802,7 @@ Fecha declaración;Territorio;Medida;Valor;
 04/04/2020;Córdoba;Confirmados PCR;14;
 04/04/2020;Córdoba;Hospitalizados;7;
 04/04/2020;Córdoba;UCI;0;
-04/04/2020;Córdoba;Curados;12;
+04/04/2020;Córdoba;Curados;13;
 04/04/2020;Córdoba;Defunciones;;
 04/04/2020;Córdoba;Total confirmados (PCR+test);14;
 04/04/2020;Granada;Confirmados PCR;71;
@@ -1755,7 +1815,7 @@ Fecha declaración;Territorio;Medida;Valor;
 04/04/2020;Huelva;Hospitalizados;4;
 04/04/2020;Huelva;UCI;1;
 04/04/2020;Huelva;Curados;2;
-04/04/2020;Huelva;Defunciones;;
+04/04/2020;Huelva;Defunciones;1;
 04/04/2020;Huelva;Total confirmados (PCR+test);4;
 04/04/2020;Jaén;Confirmados PCR;18;
 04/04/2020;Jaén;Hospitalizados;15;
@@ -1766,7 +1826,7 @@ Fecha declaración;Territorio;Medida;Valor;
 04/04/2020;Málaga;Confirmados PCR;40;
 04/04/2020;Málaga;Hospitalizados;22;
 04/04/2020;Málaga;UCI;0;
-04/04/2020;Málaga;Curados;24;
+04/04/2020;Málaga;Curados;26;
 04/04/2020;Málaga;Defunciones;4;
 04/04/2020;Málaga;Total confirmados (PCR+test);51;
 04/04/2020;Sevilla;Confirmados PCR;53;
@@ -1778,7 +1838,7 @@ Fecha declaración;Territorio;Medida;Valor;
 03/04/2020;Andalucía;Confirmados PCR;351;
 03/04/2020;Andalucía;Hospitalizados;143;
 03/04/2020;Andalucía;UCI;14;
-03/04/2020;Andalucía;Curados;189;
+03/04/2020;Andalucía;Curados;193;
 03/04/2020;Andalucía;Defunciones;43;
 03/04/2020;Andalucía;Total confirmados (PCR+test);366;
 03/04/2020;Almería;Confirmados PCR;22;
@@ -1796,7 +1856,7 @@ Fecha declaración;Territorio;Medida;Valor;
 03/04/2020;Córdoba;Confirmados PCR;73;
 03/04/2020;Córdoba;Hospitalizados;17;
 03/04/2020;Córdoba;UCI;5;
-03/04/2020;Córdoba;Curados;51;
+03/04/2020;Córdoba;Curados;53;
 03/04/2020;Córdoba;Defunciones;5;
 03/04/2020;Córdoba;Total confirmados (PCR+test);78;
 03/04/2020;Granada;Confirmados PCR;87;
@@ -1808,7 +1868,7 @@ Fecha declaración;Territorio;Medida;Valor;
 03/04/2020;Huelva;Confirmados PCR;7;
 03/04/2020;Huelva;Hospitalizados;4;
 03/04/2020;Huelva;UCI;0;
-03/04/2020;Huelva;Curados;3;
+03/04/2020;Huelva;Curados;4;
 03/04/2020;Huelva;Defunciones;1;
 03/04/2020;Huelva;Total confirmados (PCR+test);7;
 03/04/2020;Jaén;Confirmados PCR;32;
@@ -1820,7 +1880,7 @@ Fecha declaración;Territorio;Medida;Valor;
 03/04/2020;Málaga;Confirmados PCR;56;
 03/04/2020;Málaga;Hospitalizados;28;
 03/04/2020;Málaga;UCI;2;
-03/04/2020;Málaga;Curados;18;
+03/04/2020;Málaga;Curados;19;
 03/04/2020;Málaga;Defunciones;8;
 03/04/2020;Málaga;Total confirmados (PCR+test);57;
 03/04/2020;Sevilla;Confirmados PCR;47;
@@ -1832,8 +1892,8 @@ Fecha declaración;Territorio;Medida;Valor;
 02/04/2020;Andalucía;Confirmados PCR;412;
 02/04/2020;Andalucía;Hospitalizados;187;
 02/04/2020;Andalucía;UCI;14;
-02/04/2020;Andalucía;Curados;245;
-02/04/2020;Andalucía;Defunciones;53;
+02/04/2020;Andalucía;Curados;249;
+02/04/2020;Andalucía;Defunciones;54;
 02/04/2020;Andalucía;Total confirmados (PCR+test);435;
 02/04/2020;Almería;Confirmados PCR;24;
 02/04/2020;Almería;Hospitalizados;3;
@@ -1850,19 +1910,19 @@ Fecha declaración;Territorio;Medida;Valor;
 02/04/2020;Córdoba;Confirmados PCR;58;
 02/04/2020;Córdoba;Hospitalizados;19;
 02/04/2020;Córdoba;UCI;1;
-02/04/2020;Córdoba;Curados;43;
+02/04/2020;Córdoba;Curados;46;
 02/04/2020;Córdoba;Defunciones;9;
 02/04/2020;Córdoba;Total confirmados (PCR+test);62;
 02/04/2020;Granada;Confirmados PCR;99;
 02/04/2020;Granada;Hospitalizados;34;
 02/04/2020;Granada;UCI;4;
-02/04/2020;Granada;Curados;78;
+02/04/2020;Granada;Curados;77;
 02/04/2020;Granada;Defunciones;9;
 02/04/2020;Granada;Total confirmados (PCR+test);99;
 02/04/2020;Huelva;Confirmados PCR;15;
 02/04/2020;Huelva;Hospitalizados;13;
 02/04/2020;Huelva;UCI;0;
-02/04/2020;Huelva;Curados;8;
+02/04/2020;Huelva;Curados;9;
 02/04/2020;Huelva;Defunciones;2;
 02/04/2020;Huelva;Total confirmados (PCR+test);15;
 02/04/2020;Jaén;Confirmados PCR;34;
@@ -1874,21 +1934,21 @@ Fecha declaración;Territorio;Medida;Valor;
 02/04/2020;Málaga;Confirmados PCR;63;
 02/04/2020;Málaga;Hospitalizados;35;
 02/04/2020;Málaga;UCI;1;
-02/04/2020;Málaga;Curados;30;
+02/04/2020;Málaga;Curados;31;
 02/04/2020;Málaga;Defunciones;11;
 02/04/2020;Málaga;Total confirmados (PCR+test);73;
 02/04/2020;Sevilla;Confirmados PCR;74;
 02/04/2020;Sevilla;Hospitalizados;50;
 02/04/2020;Sevilla;UCI;4;
 02/04/2020;Sevilla;Curados;33;
-02/04/2020;Sevilla;Defunciones;14;
+02/04/2020;Sevilla;Defunciones;15;
 02/04/2020;Sevilla;Total confirmados (PCR+test);75;
 01/04/2020;Andalucía;Confirmados PCR;423;
 01/04/2020;Andalucía;Hospitalizados;221;
 01/04/2020;Andalucía;UCI;16;
-01/04/2020;Andalucía;Curados;244;
+01/04/2020;Andalucía;Curados;249;
 01/04/2020;Andalucía;Defunciones;61;
-01/04/2020;Andalucía;Total confirmados (PCR+test);442;
+01/04/2020;Andalucía;Total confirmados (PCR+test);444;
 01/04/2020;Almería;Confirmados PCR;18;
 01/04/2020;Almería;Hospitalizados;7;
 01/04/2020;Almería;UCI;0;
@@ -1898,7 +1958,7 @@ Fecha declaración;Territorio;Medida;Valor;
 01/04/2020;Cádiz;Confirmados PCR;39;
 01/04/2020;Cádiz;Hospitalizados;17;
 01/04/2020;Cádiz;UCI;0;
-01/04/2020;Cádiz;Curados;6;
+01/04/2020;Cádiz;Curados;7;
 01/04/2020;Cádiz;Defunciones;4;
 01/04/2020;Cádiz;Total confirmados (PCR+test);40;
 01/04/2020;Córdoba;Confirmados PCR;77;
@@ -1906,17 +1966,17 @@ Fecha declaración;Territorio;Medida;Valor;
 01/04/2020;Córdoba;UCI;1;
 01/04/2020;Córdoba;Curados;54;
 01/04/2020;Córdoba;Defunciones;12;
-01/04/2020;Córdoba;Total confirmados (PCR+test);79;
+01/04/2020;Córdoba;Total confirmados (PCR+test);80;
 01/04/2020;Granada;Confirmados PCR;69;
 01/04/2020;Granada;Hospitalizados;42;
 01/04/2020;Granada;UCI;4;
-01/04/2020;Granada;Curados;50;
+01/04/2020;Granada;Curados;51;
 01/04/2020;Granada;Defunciones;14;
-01/04/2020;Granada;Total confirmados (PCR+test);69;
+01/04/2020;Granada;Total confirmados (PCR+test);70;
 01/04/2020;Huelva;Confirmados PCR;6;
 01/04/2020;Huelva;Hospitalizados;3;
 01/04/2020;Huelva;UCI;0;
-01/04/2020;Huelva;Curados;3;
+01/04/2020;Huelva;Curados;4;
 01/04/2020;Huelva;Defunciones;;
 01/04/2020;Huelva;Total confirmados (PCR+test);6;
 01/04/2020;Jaén;Confirmados PCR;52;
@@ -1928,7 +1988,7 @@ Fecha declaración;Territorio;Medida;Valor;
 01/04/2020;Málaga;Confirmados PCR;74;
 01/04/2020;Málaga;Hospitalizados;46;
 01/04/2020;Málaga;UCI;6;
-01/04/2020;Málaga;Curados;36;
+01/04/2020;Málaga;Curados;38;
 01/04/2020;Málaga;Defunciones;8;
 01/04/2020;Málaga;Total confirmados (PCR+test);76;
 01/04/2020;Sevilla;Confirmados PCR;88;
@@ -1940,13 +2000,13 @@ Fecha declaración;Territorio;Medida;Valor;
 31/03/2020;Andalucía;Confirmados PCR;492;
 31/03/2020;Andalucía;Hospitalizados;219;
 31/03/2020;Andalucía;UCI;15;
-31/03/2020;Andalucía;Curados;323;
+31/03/2020;Andalucía;Curados;330;
 31/03/2020;Andalucía;Defunciones;48;
-31/03/2020;Andalucía;Total confirmados (PCR+test);523;
+31/03/2020;Andalucía;Total confirmados (PCR+test);525;
 31/03/2020;Almería;Confirmados PCR;28;
 31/03/2020;Almería;Hospitalizados;8;
 31/03/2020;Almería;UCI;2;
-31/03/2020;Almería;Curados;18;
+31/03/2020;Almería;Curados;19;
 31/03/2020;Almería;Defunciones;3;
 31/03/2020;Almería;Total confirmados (PCR+test);28;
 31/03/2020;Cádiz;Confirmados PCR;42;
@@ -1960,19 +2020,19 @@ Fecha declaración;Territorio;Medida;Valor;
 31/03/2020;Córdoba;UCI;0;
 31/03/2020;Córdoba;Curados;55;
 31/03/2020;Córdoba;Defunciones;5;
-31/03/2020;Córdoba;Total confirmados (PCR+test);70;
+31/03/2020;Córdoba;Total confirmados (PCR+test);71;
 31/03/2020;Granada;Confirmados PCR;98;
 31/03/2020;Granada;Hospitalizados;38;
 31/03/2020;Granada;UCI;3;
-31/03/2020;Granada;Curados;77;
+31/03/2020;Granada;Curados;78;
 31/03/2020;Granada;Defunciones;16;
 31/03/2020;Granada;Total confirmados (PCR+test);99;
 31/03/2020;Huelva;Confirmados PCR;36;
 31/03/2020;Huelva;Hospitalizados;12;
 31/03/2020;Huelva;UCI;2;
-31/03/2020;Huelva;Curados;33;
+31/03/2020;Huelva;Curados;36;
 31/03/2020;Huelva;Defunciones;4;
-31/03/2020;Huelva;Total confirmados (PCR+test);44;
+31/03/2020;Huelva;Total confirmados (PCR+test);45;
 31/03/2020;Jaén;Confirmados PCR;54;
 31/03/2020;Jaén;Hospitalizados;34;
 31/03/2020;Jaén;UCI;2;
@@ -1982,7 +2042,7 @@ Fecha declaración;Territorio;Medida;Valor;
 31/03/2020;Málaga;Confirmados PCR;70;
 31/03/2020;Málaga;Hospitalizados;39;
 31/03/2020;Málaga;UCI;2;
-31/03/2020;Málaga;Curados;28;
+31/03/2020;Málaga;Curados;30;
 31/03/2020;Málaga;Defunciones;3;
 31/03/2020;Málaga;Total confirmados (PCR+test);72;
 31/03/2020;Sevilla;Confirmados PCR;97;
@@ -1991,7 +2051,7 @@ Fecha declaración;Territorio;Medida;Valor;
 31/03/2020;Sevilla;Curados;48;
 31/03/2020;Sevilla;Defunciones;10;
 31/03/2020;Sevilla;Total confirmados (PCR+test);97;
-30/03/2020;Andalucía;Confirmados PCR;501;
+30/03/2020;Andalucía;Confirmados PCR;500;
 30/03/2020;Andalucía;Hospitalizados;233;
 30/03/2020;Andalucía;UCI;22;
 30/03/2020;Andalucía;Curados;305;
@@ -2015,7 +2075,7 @@ Fecha declaración;Territorio;Medida;Valor;
 30/03/2020;Córdoba;Curados;54;
 30/03/2020;Córdoba;Defunciones;3;
 30/03/2020;Córdoba;Total confirmados (PCR+test);74;
-30/03/2020;Granada;Confirmados PCR;64;
+30/03/2020;Granada;Confirmados PCR;63;
 30/03/2020;Granada;Hospitalizados;40;
 30/03/2020;Granada;UCI;7;
 30/03/2020;Granada;Curados;54;
@@ -2048,19 +2108,19 @@ Fecha declaración;Territorio;Medida;Valor;
 29/03/2020;Andalucía;Confirmados PCR;326;
 29/03/2020;Andalucía;Hospitalizados;226;
 29/03/2020;Andalucía;UCI;35;
-29/03/2020;Andalucía;Curados;170;
+29/03/2020;Andalucía;Curados;173;
 29/03/2020;Andalucía;Defunciones;53;
 29/03/2020;Andalucía;Total confirmados (PCR+test);334;
 29/03/2020;Almería;Confirmados PCR;18;
 29/03/2020;Almería;Hospitalizados;11;
 29/03/2020;Almería;UCI;2;
-29/03/2020;Almería;Curados;13;
+29/03/2020;Almería;Curados;14;
 29/03/2020;Almería;Defunciones;3;
 29/03/2020;Almería;Total confirmados (PCR+test);20;
 29/03/2020;Cádiz;Confirmados PCR;60;
 29/03/2020;Cádiz;Hospitalizados;32;
 29/03/2020;Cádiz;UCI;5;
-29/03/2020;Cádiz;Curados;13;
+29/03/2020;Cádiz;Curados;14;
 29/03/2020;Cádiz;Defunciones;9;
 29/03/2020;Cádiz;Total confirmados (PCR+test);62;
 29/03/2020;Córdoba;Confirmados PCR;29;
@@ -2090,7 +2150,7 @@ Fecha declaración;Territorio;Medida;Valor;
 29/03/2020;Málaga;Confirmados PCR;44;
 29/03/2020;Málaga;Hospitalizados;42;
 29/03/2020;Málaga;UCI;5;
-29/03/2020;Málaga;Curados;16;
+29/03/2020;Málaga;Curados;17;
 29/03/2020;Málaga;Defunciones;8;
 29/03/2020;Málaga;Total confirmados (PCR+test);46;
 29/03/2020;Sevilla;Confirmados PCR;63;
@@ -2102,19 +2162,19 @@ Fecha declaración;Territorio;Medida;Valor;
 28/03/2020;Andalucía;Confirmados PCR;383;
 28/03/2020;Andalucía;Hospitalizados;259;
 28/03/2020;Andalucía;UCI;30;
-28/03/2020;Andalucía;Curados;239;
+28/03/2020;Andalucía;Curados;243;
 28/03/2020;Andalucía;Defunciones;57;
 28/03/2020;Andalucía;Total confirmados (PCR+test);394;
 28/03/2020;Almería;Confirmados PCR;9;
 28/03/2020;Almería;Hospitalizados;6;
 28/03/2020;Almería;UCI;1;
-28/03/2020;Almería;Curados;7;
+28/03/2020;Almería;Curados;8;
 28/03/2020;Almería;Defunciones;;
 28/03/2020;Almería;Total confirmados (PCR+test);11;
 28/03/2020;Cádiz;Confirmados PCR;40;
 28/03/2020;Cádiz;Hospitalizados;34;
 28/03/2020;Cádiz;UCI;5;
-28/03/2020;Cádiz;Curados;10;
+28/03/2020;Cádiz;Curados;11;
 28/03/2020;Cádiz;Defunciones;6;
 28/03/2020;Cádiz;Total confirmados (PCR+test);40;
 28/03/2020;Córdoba;Confirmados PCR;48;
@@ -2144,7 +2204,7 @@ Fecha declaración;Territorio;Medida;Valor;
 28/03/2020;Málaga;Confirmados PCR;105;
 28/03/2020;Málaga;Hospitalizados;69;
 28/03/2020;Málaga;UCI;5;
-28/03/2020;Málaga;Curados;66;
+28/03/2020;Málaga;Curados;68;
 28/03/2020;Málaga;Defunciones;15;
 28/03/2020;Málaga;Total confirmados (PCR+test);107;
 28/03/2020;Sevilla;Confirmados PCR;65;
@@ -2153,34 +2213,34 @@ Fecha declaración;Territorio;Medida;Valor;
 28/03/2020;Sevilla;Curados;35;
 28/03/2020;Sevilla;Defunciones;5;
 28/03/2020;Sevilla;Total confirmados (PCR+test);67;
-27/03/2020;Andalucía;Confirmados PCR;769;
+27/03/2020;Andalucía;Confirmados PCR;770;
 27/03/2020;Andalucía;Hospitalizados;379;
 27/03/2020;Andalucía;UCI;40;
-27/03/2020;Andalucía;Curados;523;
+27/03/2020;Andalucía;Curados;530;
 27/03/2020;Andalucía;Defunciones;74;
-27/03/2020;Andalucía;Total confirmados (PCR+test);783;
+27/03/2020;Andalucía;Total confirmados (PCR+test);784;
 27/03/2020;Almería;Confirmados PCR;24;
 27/03/2020;Almería;Hospitalizados;11;
 27/03/2020;Almería;UCI;1;
 27/03/2020;Almería;Curados;16;
 27/03/2020;Almería;Defunciones;1;
 27/03/2020;Almería;Total confirmados (PCR+test);24;
-27/03/2020;Cádiz;Confirmados PCR;69;
+27/03/2020;Cádiz;Confirmados PCR;70;
 27/03/2020;Cádiz;Hospitalizados;38;
 27/03/2020;Cádiz;UCI;7;
-27/03/2020;Cádiz;Curados;15;
+27/03/2020;Cádiz;Curados;17;
 27/03/2020;Cádiz;Defunciones;14;
-27/03/2020;Cádiz;Total confirmados (PCR+test);69;
+27/03/2020;Cádiz;Total confirmados (PCR+test);70;
 27/03/2020;Córdoba;Confirmados PCR;112;
 27/03/2020;Córdoba;Hospitalizados;48;
 27/03/2020;Córdoba;UCI;6;
-27/03/2020;Córdoba;Curados;87;
+27/03/2020;Córdoba;Curados;88;
 27/03/2020;Córdoba;Defunciones;14;
 27/03/2020;Córdoba;Total confirmados (PCR+test);112;
 27/03/2020;Granada;Confirmados PCR;156;
 27/03/2020;Granada;Hospitalizados;71;
 27/03/2020;Granada;UCI;5;
-27/03/2020;Granada;Curados;135;
+27/03/2020;Granada;Curados;137;
 27/03/2020;Granada;Defunciones;8;
 27/03/2020;Granada;Total confirmados (PCR+test);159;
 27/03/2020;Huelva;Confirmados PCR;22;
@@ -2198,7 +2258,7 @@ Fecha declaración;Territorio;Medida;Valor;
 27/03/2020;Málaga;Confirmados PCR;172;
 27/03/2020;Málaga;Hospitalizados;98;
 27/03/2020;Málaga;UCI;7;
-27/03/2020;Málaga;Curados;99;
+27/03/2020;Málaga;Curados;101;
 27/03/2020;Málaga;Defunciones;11;
 27/03/2020;Málaga;Total confirmados (PCR+test);173;
 27/03/2020;Sevilla;Confirmados PCR;148;
@@ -2210,13 +2270,13 @@ Fecha declaración;Territorio;Medida;Valor;
 26/03/2020;Andalucía;Confirmados PCR;666;
 26/03/2020;Andalucía;Hospitalizados;372;
 26/03/2020;Andalucía;UCI;43;
-26/03/2020;Andalucía;Curados;442;
+26/03/2020;Andalucía;Curados;448;
 26/03/2020;Andalucía;Defunciones;66;
-26/03/2020;Andalucía;Total confirmados (PCR+test);673;
+26/03/2020;Andalucía;Total confirmados (PCR+test);674;
 26/03/2020;Almería;Confirmados PCR;22;
 26/03/2020;Almería;Hospitalizados;14;
 26/03/2020;Almería;UCI;5;
-26/03/2020;Almería;Curados;10;
+26/03/2020;Almería;Curados;11;
 26/03/2020;Almería;Defunciones;5;
 26/03/2020;Almería;Total confirmados (PCR+test);22;
 26/03/2020;Cádiz;Confirmados PCR;57;
@@ -2230,11 +2290,11 @@ Fecha declaración;Territorio;Medida;Valor;
 26/03/2020;Córdoba;UCI;3;
 26/03/2020;Córdoba;Curados;66;
 26/03/2020;Córdoba;Defunciones;6;
-26/03/2020;Córdoba;Total confirmados (PCR+test);77;
+26/03/2020;Córdoba;Total confirmados (PCR+test);78;
 26/03/2020;Granada;Confirmados PCR;122;
 26/03/2020;Granada;Hospitalizados;64;
 26/03/2020;Granada;UCI;1;
-26/03/2020;Granada;Curados;102;
+26/03/2020;Granada;Curados;105;
 26/03/2020;Granada;Defunciones;12;
 26/03/2020;Granada;Total confirmados (PCR+test);123;
 26/03/2020;Huelva;Confirmados PCR;17;
@@ -2246,13 +2306,13 @@ Fecha declaración;Territorio;Medida;Valor;
 26/03/2020;Jaén;Confirmados PCR;78;
 26/03/2020;Jaén;Hospitalizados;47;
 26/03/2020;Jaén;UCI;5;
-26/03/2020;Jaén;Curados;54;
+26/03/2020;Jaén;Curados;53;
 26/03/2020;Jaén;Defunciones;11;
 26/03/2020;Jaén;Total confirmados (PCR+test);80;
 26/03/2020;Málaga;Confirmados PCR;162;
 26/03/2020;Málaga;Hospitalizados;90;
 26/03/2020;Málaga;UCI;9;
-26/03/2020;Málaga;Curados;100;
+26/03/2020;Málaga;Curados;103;
 26/03/2020;Málaga;Defunciones;13;
 26/03/2020;Málaga;Total confirmados (PCR+test);163;
 26/03/2020;Sevilla;Confirmados PCR;132;
@@ -2264,19 +2324,19 @@ Fecha declaración;Territorio;Medida;Valor;
 25/03/2020;Andalucía;Confirmados PCR;689;
 25/03/2020;Andalucía;Hospitalizados;375;
 25/03/2020;Andalucía;UCI;39;
-25/03/2020;Andalucía;Curados;477;
-25/03/2020;Andalucía;Defunciones;62;
-25/03/2020;Andalucía;Total confirmados (PCR+test);699;
+25/03/2020;Andalucía;Curados;485;
+25/03/2020;Andalucía;Defunciones;63;
+25/03/2020;Andalucía;Total confirmados (PCR+test);700;
 25/03/2020;Almería;Confirmados PCR;32;
 25/03/2020;Almería;Hospitalizados;23;
 25/03/2020;Almería;UCI;3;
 25/03/2020;Almería;Curados;22;
-25/03/2020;Almería;Defunciones;3;
+25/03/2020;Almería;Defunciones;4;
 25/03/2020;Almería;Total confirmados (PCR+test);32;
 25/03/2020;Cádiz;Confirmados PCR;53;
 25/03/2020;Cádiz;Hospitalizados;40;
 25/03/2020;Cádiz;UCI;7;
-25/03/2020;Cádiz;Curados;14;
+25/03/2020;Cádiz;Curados;15;
 25/03/2020;Cádiz;Defunciones;6;
 25/03/2020;Cádiz;Total confirmados (PCR+test);53;
 25/03/2020;Córdoba;Confirmados PCR;56;
@@ -2284,11 +2344,11 @@ Fecha declaración;Territorio;Medida;Valor;
 25/03/2020;Córdoba;UCI;3;
 25/03/2020;Córdoba;Curados;50;
 25/03/2020;Córdoba;Defunciones;4;
-25/03/2020;Córdoba;Total confirmados (PCR+test);56;
+25/03/2020;Córdoba;Total confirmados (PCR+test);57;
 25/03/2020;Granada;Confirmados PCR;136;
 25/03/2020;Granada;Hospitalizados;85;
 25/03/2020;Granada;UCI;9;
-25/03/2020;Granada;Curados;116;
+25/03/2020;Granada;Curados;118;
 25/03/2020;Granada;Defunciones;13;
 25/03/2020;Granada;Total confirmados (PCR+test);137;
 25/03/2020;Huelva;Confirmados PCR;29;
@@ -2306,21 +2366,21 @@ Fecha declaración;Territorio;Medida;Valor;
 25/03/2020;Málaga;Confirmados PCR;136;
 25/03/2020;Málaga;Hospitalizados;70;
 25/03/2020;Málaga;UCI;4;
-25/03/2020;Málaga;Curados;87;
+25/03/2020;Málaga;Curados;89;
 25/03/2020;Málaga;Defunciones;8;
 25/03/2020;Málaga;Total confirmados (PCR+test);136;
 25/03/2020;Sevilla;Confirmados PCR;173;
 25/03/2020;Sevilla;Hospitalizados;65;
 25/03/2020;Sevilla;UCI;7;
-25/03/2020;Sevilla;Curados;114;
+25/03/2020;Sevilla;Curados;117;
 25/03/2020;Sevilla;Defunciones;17;
 25/03/2020;Sevilla;Total confirmados (PCR+test);180;
 24/03/2020;Andalucía;Confirmados PCR;635;
 24/03/2020;Andalucía;Hospitalizados;380;
 24/03/2020;Andalucía;UCI;48;
-24/03/2020;Andalucía;Curados;411;
-24/03/2020;Andalucía;Defunciones;76;
-24/03/2020;Andalucía;Total confirmados (PCR+test);647;
+24/03/2020;Andalucía;Curados;415;
+24/03/2020;Andalucía;Defunciones;77;
+24/03/2020;Andalucía;Total confirmados (PCR+test);649;
 24/03/2020;Almería;Confirmados PCR;22;
 24/03/2020;Almería;Hospitalizados;12;
 24/03/2020;Almería;UCI;2;
@@ -2331,14 +2391,14 @@ Fecha declaración;Territorio;Medida;Valor;
 24/03/2020;Cádiz;Hospitalizados;29;
 24/03/2020;Cádiz;UCI;9;
 24/03/2020;Cádiz;Curados;21;
-24/03/2020;Cádiz;Defunciones;3;
+24/03/2020;Cádiz;Defunciones;4;
 24/03/2020;Cádiz;Total confirmados (PCR+test);51;
 24/03/2020;Córdoba;Confirmados PCR;68;
 24/03/2020;Córdoba;Hospitalizados;35;
 24/03/2020;Córdoba;UCI;3;
-24/03/2020;Córdoba;Curados;57;
+24/03/2020;Córdoba;Curados;58;
 24/03/2020;Córdoba;Defunciones;4;
-24/03/2020;Córdoba;Total confirmados (PCR+test);68;
+24/03/2020;Córdoba;Total confirmados (PCR+test);69;
 24/03/2020;Granada;Confirmados PCR;105;
 24/03/2020;Granada;Hospitalizados;65;
 24/03/2020;Granada;UCI;5;
@@ -2354,25 +2414,25 @@ Fecha declaración;Territorio;Medida;Valor;
 24/03/2020;Jaén;Confirmados PCR;88;
 24/03/2020;Jaén;Hospitalizados;63;
 24/03/2020;Jaén;UCI;6;
-24/03/2020;Jaén;Curados;60;
+24/03/2020;Jaén;Curados;59;
 24/03/2020;Jaén;Defunciones;20;
 24/03/2020;Jaén;Total confirmados (PCR+test);93;
 24/03/2020;Málaga;Confirmados PCR;155;
 24/03/2020;Málaga;Hospitalizados;93;
 24/03/2020;Málaga;UCI;8;
-24/03/2020;Málaga;Curados;84;
+24/03/2020;Málaga;Curados;86;
 24/03/2020;Málaga;Defunciones;12;
-24/03/2020;Málaga;Total confirmados (PCR+test);159;
+24/03/2020;Málaga;Total confirmados (PCR+test);160;
 24/03/2020;Sevilla;Confirmados PCR;128;
 24/03/2020;Sevilla;Hospitalizados;71;
 24/03/2020;Sevilla;UCI;13;
-24/03/2020;Sevilla;Curados;82;
+24/03/2020;Sevilla;Curados;84;
 24/03/2020;Sevilla;Defunciones;13;
 24/03/2020;Sevilla;Total confirmados (PCR+test);130;
-23/03/2020;Andalucía;Confirmados PCR;655;
+23/03/2020;Andalucía;Confirmados PCR;653;
 23/03/2020;Andalucía;Hospitalizados;337;
 23/03/2020;Andalucía;UCI;59;
-23/03/2020;Andalucía;Curados;461;
+23/03/2020;Andalucía;Curados;463;
 23/03/2020;Andalucía;Defunciones;72;
 23/03/2020;Andalucía;Total confirmados (PCR+test);662;
 23/03/2020;Almería;Confirmados PCR;38;
@@ -2396,7 +2456,7 @@ Fecha declaración;Territorio;Medida;Valor;
 23/03/2020;Granada;Confirmados PCR;115;
 23/03/2020;Granada;Hospitalizados;54;
 23/03/2020;Granada;UCI;10;
-23/03/2020;Granada;Curados;91;
+23/03/2020;Granada;Curados;92;
 23/03/2020;Granada;Defunciones;12;
 23/03/2020;Granada;Total confirmados (PCR+test);115;
 23/03/2020;Huelva;Confirmados PCR;12;
@@ -2410,23 +2470,23 @@ Fecha declaración;Territorio;Medida;Valor;
 23/03/2020;Jaén;UCI;7;
 23/03/2020;Jaén;Curados;70;
 23/03/2020;Jaén;Defunciones;7;
-23/03/2020;Jaén;Total confirmados (PCR+test);82;
+23/03/2020;Jaén;Total confirmados (PCR+test);84;
 23/03/2020;Málaga;Confirmados PCR;114;
 23/03/2020;Málaga;Hospitalizados;69;
 23/03/2020;Málaga;UCI;11;
-23/03/2020;Málaga;Curados;64;
+23/03/2020;Málaga;Curados;65;
 23/03/2020;Málaga;Defunciones;13;
 23/03/2020;Málaga;Total confirmados (PCR+test);115;
-23/03/2020;Sevilla;Confirmados PCR;166;
+23/03/2020;Sevilla;Confirmados PCR;164;
 23/03/2020;Sevilla;Hospitalizados;68;
 23/03/2020;Sevilla;UCI;12;
 23/03/2020;Sevilla;Curados;108;
 23/03/2020;Sevilla;Defunciones;25;
-23/03/2020;Sevilla;Total confirmados (PCR+test);168;
+23/03/2020;Sevilla;Total confirmados (PCR+test);166;
 22/03/2020;Andalucía;Confirmados PCR;352;
 22/03/2020;Andalucía;Hospitalizados;202;
 22/03/2020;Andalucía;UCI;33;
-22/03/2020;Andalucía;Curados;226;
+22/03/2020;Andalucía;Curados;228;
 22/03/2020;Andalucía;Defunciones;59;
 22/03/2020;Andalucía;Total confirmados (PCR+test);356;
 22/03/2020;Almería;Confirmados PCR;18;
@@ -2474,23 +2534,23 @@ Fecha declaración;Territorio;Medida;Valor;
 22/03/2020;Sevilla;Confirmados PCR;111;
 22/03/2020;Sevilla;Hospitalizados;43;
 22/03/2020;Sevilla;UCI;6;
-22/03/2020;Sevilla;Curados;64;
+22/03/2020;Sevilla;Curados;66;
 22/03/2020;Sevilla;Defunciones;20;
 22/03/2020;Sevilla;Total confirmados (PCR+test);114;
-21/03/2020;Andalucía;Confirmados PCR;331;
-21/03/2020;Andalucía;Hospitalizados;225;
+21/03/2020;Andalucía;Confirmados PCR;330;
+21/03/2020;Andalucía;Hospitalizados;224;
 21/03/2020;Andalucía;UCI;36;
-21/03/2020;Andalucía;Curados;214;
+21/03/2020;Andalucía;Curados;215;
 21/03/2020;Andalucía;Defunciones;60;
 21/03/2020;Andalucía;Total confirmados (PCR+test);332;
 21/03/2020;Almería;Confirmados PCR;11;
 21/03/2020;Almería;Hospitalizados;8;
 21/03/2020;Almería;UCI;1;
-21/03/2020;Almería;Curados;7;
+21/03/2020;Almería;Curados;8;
 21/03/2020;Almería;Defunciones;2;
 21/03/2020;Almería;Total confirmados (PCR+test);11;
-21/03/2020;Cádiz;Confirmados PCR;66;
-21/03/2020;Cádiz;Hospitalizados;30;
+21/03/2020;Cádiz;Confirmados PCR;65;
+21/03/2020;Cádiz;Hospitalizados;29;
 21/03/2020;Cádiz;UCI;3;
 21/03/2020;Cádiz;Curados;39;
 21/03/2020;Cádiz;Defunciones;15;
@@ -2534,7 +2594,7 @@ Fecha declaración;Territorio;Medida;Valor;
 20/03/2020;Andalucía;Confirmados PCR;441;
 20/03/2020;Andalucía;Hospitalizados;212;
 20/03/2020;Andalucía;UCI;37;
-20/03/2020;Andalucía;Curados;303;
+20/03/2020;Andalucía;Curados;307;
 20/03/2020;Andalucía;Defunciones;53;
 20/03/2020;Andalucía;Total confirmados (PCR+test);451;
 20/03/2020;Almería;Confirmados PCR;16;
@@ -2546,7 +2606,7 @@ Fecha declaración;Territorio;Medida;Valor;
 20/03/2020;Cádiz;Confirmados PCR;40;
 20/03/2020;Cádiz;Hospitalizados;18;
 20/03/2020;Cádiz;UCI;5;
-20/03/2020;Cádiz;Curados;19;
+20/03/2020;Cádiz;Curados;21;
 20/03/2020;Cádiz;Defunciones;4;
 20/03/2020;Cádiz;Total confirmados (PCR+test);43;
 20/03/2020;Córdoba;Confirmados PCR;35;
@@ -2576,7 +2636,7 @@ Fecha declaración;Territorio;Medida;Valor;
 20/03/2020;Málaga;Confirmados PCR;135;
 20/03/2020;Málaga;Hospitalizados;64;
 20/03/2020;Málaga;UCI;10;
-20/03/2020;Málaga;Curados;87;
+20/03/2020;Málaga;Curados;89;
 20/03/2020;Málaga;Defunciones;13;
 20/03/2020;Málaga;Total confirmados (PCR+test);138;
 20/03/2020;Sevilla;Confirmados PCR;75;
@@ -2588,9 +2648,9 @@ Fecha declaración;Territorio;Medida;Valor;
 19/03/2020;Andalucía;Confirmados PCR;384;
 19/03/2020;Andalucía;Hospitalizados;163;
 19/03/2020;Andalucía;UCI;23;
-19/03/2020;Andalucía;Curados;312;
+19/03/2020;Andalucía;Curados;315;
 19/03/2020;Andalucía;Defunciones;29;
-19/03/2020;Andalucía;Total confirmados (PCR+test);390;
+19/03/2020;Andalucía;Total confirmados (PCR+test);392;
 19/03/2020;Almería;Confirmados PCR;8;
 19/03/2020;Almería;Hospitalizados;2;
 19/03/2020;Almería;UCI;0;
@@ -2606,9 +2666,9 @@ Fecha declaración;Territorio;Medida;Valor;
 19/03/2020;Córdoba;Confirmados PCR;34;
 19/03/2020;Córdoba;Hospitalizados;16;
 19/03/2020;Córdoba;UCI;4;
-19/03/2020;Córdoba;Curados;32;
+19/03/2020;Córdoba;Curados;33;
 19/03/2020;Córdoba;Defunciones;;
-19/03/2020;Córdoba;Total confirmados (PCR+test);34;
+19/03/2020;Córdoba;Total confirmados (PCR+test);36;
 19/03/2020;Granada;Confirmados PCR;73;
 19/03/2020;Granada;Hospitalizados;30;
 19/03/2020;Granada;UCI;7;
@@ -2636,27 +2696,27 @@ Fecha declaración;Territorio;Medida;Valor;
 19/03/2020;Sevilla;Confirmados PCR;64;
 19/03/2020;Sevilla;Hospitalizados;36;
 19/03/2020;Sevilla;UCI;2;
-19/03/2020;Sevilla;Curados;48;
+19/03/2020;Sevilla;Curados;50;
 19/03/2020;Sevilla;Defunciones;6;
 19/03/2020;Sevilla;Total confirmados (PCR+test);65;
-18/03/2020;Andalucía;Confirmados PCR;327;
+18/03/2020;Andalucía;Confirmados PCR;329;
 18/03/2020;Andalucía;Hospitalizados;126;
 18/03/2020;Andalucía;UCI;27;
-18/03/2020;Andalucía;Curados;251;
+18/03/2020;Andalucía;Curados;253;
 18/03/2020;Andalucía;Defunciones;32;
-18/03/2020;Andalucía;Total confirmados (PCR+test);332;
+18/03/2020;Andalucía;Total confirmados (PCR+test);334;
 18/03/2020;Almería;Confirmados PCR;9;
 18/03/2020;Almería;Hospitalizados;5;
 18/03/2020;Almería;UCI;3;
 18/03/2020;Almería;Curados;6;
 18/03/2020;Almería;Defunciones;2;
 18/03/2020;Almería;Total confirmados (PCR+test);9;
-18/03/2020;Cádiz;Confirmados PCR;22;
+18/03/2020;Cádiz;Confirmados PCR;24;
 18/03/2020;Cádiz;Hospitalizados;6;
 18/03/2020;Cádiz;UCI;0;
-18/03/2020;Cádiz;Curados;14;
+18/03/2020;Cádiz;Curados;16;
 18/03/2020;Cádiz;Defunciones;;
-18/03/2020;Cádiz;Total confirmados (PCR+test);22;
+18/03/2020;Cádiz;Total confirmados (PCR+test);24;
 18/03/2020;Córdoba;Confirmados PCR;26;
 18/03/2020;Córdoba;Hospitalizados;12;
 18/03/2020;Córdoba;UCI;5;
@@ -2696,7 +2756,7 @@ Fecha declaración;Territorio;Medida;Valor;
 17/03/2020;Andalucía;Confirmados PCR;268;
 17/03/2020;Andalucía;Hospitalizados;124;
 17/03/2020;Andalucía;UCI;30;
-17/03/2020;Andalucía;Curados;192;
+17/03/2020;Andalucía;Curados;193;
 17/03/2020;Andalucía;Defunciones;36;
 17/03/2020;Andalucía;Total confirmados (PCR+test);269;
 17/03/2020;Almería;Confirmados PCR;8;
@@ -2744,7 +2804,7 @@ Fecha declaración;Territorio;Medida;Valor;
 17/03/2020;Sevilla;Confirmados PCR;34;
 17/03/2020;Sevilla;Hospitalizados;15;
 17/03/2020;Sevilla;UCI;3;
-17/03/2020;Sevilla;Curados;27;
+17/03/2020;Sevilla;Curados;28;
 17/03/2020;Sevilla;Defunciones;3;
 17/03/2020;Sevilla;Total confirmados (PCR+test);34;
 16/03/2020;Andalucía;Confirmados PCR;216;
@@ -2804,7 +2864,7 @@ Fecha declaración;Territorio;Medida;Valor;
 15/03/2020;Andalucía;Confirmados PCR;121;
 15/03/2020;Andalucía;Hospitalizados;64;
 15/03/2020;Andalucía;UCI;10;
-15/03/2020;Andalucía;Curados;101;
+15/03/2020;Andalucía;Curados;102;
 15/03/2020;Andalucía;Defunciones;13;
 15/03/2020;Andalucía;Total confirmados (PCR+test);122;
 15/03/2020;Almería;Confirmados PCR;4;
@@ -2828,7 +2888,7 @@ Fecha declaración;Territorio;Medida;Valor;
 15/03/2020;Granada;Confirmados PCR;29;
 15/03/2020;Granada;Hospitalizados;13;
 15/03/2020;Granada;UCI;4;
-15/03/2020;Granada;Curados;27;
+15/03/2020;Granada;Curados;28;
 15/03/2020;Granada;Defunciones;2;
 15/03/2020;Granada;Total confirmados (PCR+test);30;
 15/03/2020;Huelva;Confirmados PCR;1;
@@ -2858,7 +2918,7 @@ Fecha declaración;Territorio;Medida;Valor;
 14/03/2020;Andalucía;Confirmados PCR;118;
 14/03/2020;Andalucía;Hospitalizados;48;
 14/03/2020;Andalucía;UCI;14;
-14/03/2020;Andalucía;Curados;96;
+14/03/2020;Andalucía;Curados;97;
 14/03/2020;Andalucía;Defunciones;10;
 14/03/2020;Andalucía;Total confirmados (PCR+test);118;
 14/03/2020;Almería;Confirmados PCR;5;
@@ -2906,7 +2966,7 @@ Fecha declaración;Territorio;Medida;Valor;
 14/03/2020;Sevilla;Confirmados PCR;11;
 14/03/2020;Sevilla;Hospitalizados;7;
 14/03/2020;Sevilla;UCI;2;
-14/03/2020;Sevilla;Curados;8;
+14/03/2020;Sevilla;Curados;9;
 14/03/2020;Sevilla;Defunciones;2;
 14/03/2020;Sevilla;Total confirmados (PCR+test);11;
 13/03/2020;Andalucía;Confirmados PCR;182;
@@ -3347,3 +3407,6469 @@ Fecha declaración;Territorio;Medida;Valor;
 25/02/2020;Sevilla;Curados;1;
 25/02/2020;Sevilla;Defunciones;;
 25/02/2020;Sevilla;Total confirmados (PCR+test);1;
+
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+     
