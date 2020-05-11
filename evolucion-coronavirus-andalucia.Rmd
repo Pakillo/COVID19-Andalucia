@@ -118,7 +118,7 @@ write_csv(datos, "datos/datos_provincias_clean.csv")
 
 ```{r datos.provs, include=FALSE}
 datos.provs <- datos %>%
-  filter(Territorio != "Andalucía")
+  filter(Territorio != "Andalucía", Territorio != "Provincia sin especificar")
 
 datos.provs %>%
   verify(length(unique(Territorio)) == 8, success_fun = success_logical)
