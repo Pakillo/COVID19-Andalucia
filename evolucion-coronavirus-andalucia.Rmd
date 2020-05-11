@@ -1,5 +1,5 @@
 ---
-title: "Evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía"
+title: "Evolución de la enfermedad por coronavirus (COVID-19) en Andalucía"
 output: 
   html_document: 
     fig_caption: yes
@@ -730,7 +730,7 @@ ggplot(datos.provs) +
 
 ```{r dist.edad.sexo, out.width='100%', fig.height=4}
 
-casos.edad.sexo <- read_csv2("datos/datos_casos_edad_sexo.csv",
+casos.edad.sexo <- read_csv2("datos/edad.sexo/datos_casos_edad_sexo.csv",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = "."),
@@ -740,7 +740,7 @@ casos.edad.sexo <- read_csv2("datos/datos_casos_edad_sexo.csv",
   filter(!is.na(Edad))
 
 
-hosp.edad.sexo <- read_csv2("datos/datos_hosp_edad_sexo.csv",
+hosp.edad.sexo <- read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = "."),
@@ -750,7 +750,7 @@ hosp.edad.sexo <- read_csv2("datos/datos_hosp_edad_sexo.csv",
   filter(!is.na(Edad))
 
 
-uci.edad.sexo <- read_csv2("datos/datos_uci_edad_sexo.csv",
+uci.edad.sexo <- read_csv2("datos/edad.sexo/datos_uci_edad_sexo.csv",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = "."),
@@ -760,7 +760,7 @@ uci.edad.sexo <- read_csv2("datos/datos_uci_edad_sexo.csv",
   filter(!is.na(Edad))
 
 
-def.edad.sexo <- read_csv2("datos/datos_def_edad_sexo.csv",
+def.edad.sexo <- read_csv2("datos/edad.sexo/datos_def_edad_sexo.csv",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = "."),
@@ -772,7 +772,7 @@ def.edad.sexo <- read_csv2("datos/datos_def_edad_sexo.csv",
   mutate(Medida = "% Defunciones")
 
 
-recup.edad.sexo <- read_csv2("datos/datos_curados_edad_sexo.csv",
+recup.edad.sexo <- read_csv2("datos/edad.sexo/datos_curados_edad_sexo.csv",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = "."),
