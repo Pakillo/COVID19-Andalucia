@@ -25,6 +25,7 @@ output:
 
 
 ```{r setup, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 # Garrick Adenbuie's gist to place TOC anywhere
@@ -77,7 +78,8 @@ datos <- readr::read_csv2("datos/datos_provincias_raw.csv",
                                           decimal_mark = ",",
                                           grouping_mark = ".",
                                           date_format = "%d/%m/%Y"),
-                          skip_empty_rows = TRUE)
+                          skip_empty_rows = TRUE) %>%
+  filter(!is.na(Medida))
 
 datos <- datos %>%
   tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
@@ -153,6 +155,76 @@ datos.andal <- datos %>%
 
 <br>
 
+
+## Resumen
+
+<br>
+
+```{r fig.resumen, out.width='100%', fig.height=6}
+
+datos.andal.long <- datos.andal %>%
+  select(Fecha:Defunciones, -ConfirmadosTotal) %>%
+  tidyr::pivot_longer(cols = ConfirmadosPCR:Defunciones, names_to = "indic") %>%
+  filter(indic != "Curados") %>%
+  mutate(indic = ifelse(indic == "Hospitalizados", "Hospitalizaciones", indic)) %>%
+  mutate(indic = ifelse(indic == "UCI", "Ingresos UCI", indic)) %>%
+  mutate(indic = ifelse(indic == "ConfirmadosPCR", "Confirmados PCR", indic)) %>%
+  mutate(indic = factor(indic, 
+                        levels = c("Confirmados PCR", "Hospitalizaciones", 
+                                   "Ingresos UCI", "Defunciones")))
+
+ggplot(datos.andal.long) +
+  facet_wrap(~indic, ncol = 1, scales = "free_y") + 
+  geom_col(aes(x = Fecha, y = value, fill = indic)) +
+  scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey20")) +
+  labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(legend.position = "none")
+
+```
+
+
+<br>
+
+**DATOS DEL DÍA:** `r Sys.Date()`
+
+```{r datos.last}
+datos.minist <- read_csv2("datos/ultimos_datos.csv", 
+                        col_types = "Dcci-",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = ".",
+                                          date_format = "%d/%m/%Y"),
+                          skip_empty_rows = TRUE) %>%
+  filter(Medida != "Confirmados PCR <14días", Medida != "Confirmados total") %>%
+  mutate(Medida = ifelse(Medida == "Confirmados PCR", "ConfirmadosPCR", Medida),
+         Medida = ifelse(Medida == "Total UCI", "UCI", Medida),
+         Medida = ifelse(Medida == "Fallecimientos", "Defunciones", Medida),
+         Medida = ifelse(Medida == "Curados", "Recuperados", Medida)) %>%
+  tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
+  arrange(Fecha)
+
+datos.last <- datos.minist %>%
+  group_by(Territorio) %>%
+  mutate_at(3:7, function(x) {x - lag(x)}) %>%
+  filter(Fecha == max(Fecha)) %>%
+  ungroup()
+
+kable(datos.last[, -1])
+```
+
+<br>
+
+**DATOS ACUMULADOS:**
+
+```{r datos.acum}
+datos.minist %>%
+  filter(Fecha == max(Fecha)) %>%
+  select(-Fecha) %>%
+  kable()
+```
+
+
+<br>
 
 
 
@@ -533,7 +605,7 @@ ggplot(datos) +
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
-            size = 1.5, fill = "#e41a1c") +
+            size = 1.5, fill = "#377eb8") +
   ylim(0, NA) +
   #scale_x_date(limits = c(as.Date("2020-03-15"), NA)) +
   labs(x = "", y = "Nº Personas\n",
@@ -552,7 +624,7 @@ ggplot(datos.andal) +
 ggplot(datos.provs) +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
-            size = 1.5, fill = "#e41a1c") +
+            size = 1.5, fill = "#377eb8") +
   ylim(0, NA) +
   #scale_x_date(limits = c(as.Date("2020-03-15"), NA)) +
   labs(x = "", y = "Nº Personas\n",
@@ -576,7 +648,7 @@ ggplot(datos.provs) +
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = UCI), 
-            size = 1.5, fill = "#a65628") +
+            size = 1.5, fill = "#e41a1c") +
   ylim(0, NA) +
   #scale_x_date(limits = c(as.Date("2020-03-27"), NA)) +
   labs(x = "", y = "Nº Personas\n",
@@ -595,7 +667,7 @@ ggplot(datos.andal) +
 ggplot(datos.provs) +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
   geom_col(aes(x = Fecha, y = UCI), 
-            size = 1.5, fill = "#a65628") +
+            size = 1.5, fill = "#e41a1c") +
   ylim(0, NA) +
   #scale_x_date(limits = c(as.Date("2020-03-27"), NA)) +
   labs(x = "", y = "Nº Personas\n",
