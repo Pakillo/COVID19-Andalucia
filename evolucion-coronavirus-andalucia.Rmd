@@ -176,7 +176,7 @@ datos.andal.long <- datos.andal %>%
 ggplot(datos.andal.long) +
   facet_wrap(~indic, ncol = 1, scales = "free_y") + 
   geom_col(aes(x = Fecha, y = value, fill = indic)) +
-  scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey20")) +
+  scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none")
 
@@ -185,7 +185,7 @@ ggplot(datos.andal.long) +
 
 <br>
 
-**DATOS DEL DÍA:** `r Sys.Date()`
+**DATOS DEL DÍA:** `r Sys.Date() - 1`
 
 ```{r datos.last}
 datos.minist <- read_csv2("datos/ultimos_datos.csv", 
@@ -211,6 +211,8 @@ datos.last <- datos.minist %>%
 
 kable(datos.last[, -1])
 ```
+
+(Valores negativos significan que se han eliminado casos respecto al día anterior)
 
 <br>
 
@@ -766,7 +768,7 @@ ggplot(datos.provs) +
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Defunciones), 
-            size = 1.5, fill = "grey20") +
+            size = 1.5, fill = "grey40") +
   labs(x = "", y = "Nº Defunciones\n",
        title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
@@ -782,7 +784,7 @@ ggplot(datos.andal) +
 ggplot(datos.provs) +
   facet_wrap(~Territorio, ncol = 2) +  
   geom_col(aes(x = Fecha, y = Defunciones), 
-            size = 1.5, fill = "grey20") +
+            size = 1.5, fill = "grey40") +
   scale_y_continuous(limits = c(0, NA)) +
   #scale_x_date(limits = c(as.Date("2020-03-10"), NA)) +
   labs(x = "", y = "Nº Defunciones\n",

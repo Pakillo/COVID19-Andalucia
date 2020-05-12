@@ -1,4 +1,67 @@
 Fecha;Territorio;Medida;Valor;
+11/05/2020;Andalucía;Confirmados PCR;12293;
+11/05/2020;Andalucía;Confirmados PCR <14días;351;
+11/05/2020;Andalucía;Hospitalizados;6101;
+11/05/2020;Andalucía;Total UCI;745;
+11/05/2020;Andalucía;Fallecimientos;1326;
+11/05/2020;Andalucía;Curados;9297;
+11/05/2020;Andalucía;Confirmados total;15522;
+11/05/2020;Almería;Confirmados PCR;483;
+11/05/2020;Almería;Confirmados PCR <14días;13;
+11/05/2020;Almería;Hospitalizados;213;
+11/05/2020;Almería;Total UCI;38;
+11/05/2020;Almería;Fallecimientos;50;
+11/05/2020;Almería;Curados;427;
+11/05/2020;Almería;Confirmados total;652;
+11/05/2020;Cádiz;Confirmados PCR;1232;
+11/05/2020;Cádiz;Confirmados PCR <14días;45;
+11/05/2020;Cádiz;Hospitalizados;566;
+11/05/2020;Cádiz;Total UCI;79;
+11/05/2020;Cádiz;Fallecimientos;142;
+11/05/2020;Cádiz;Curados;473;
+11/05/2020;Cádiz;Confirmados total;1449;
+11/05/2020;Córdoba;Confirmados PCR;1324;
+11/05/2020;Córdoba;Confirmados PCR <14días;22;
+11/05/2020;Córdoba;Hospitalizados;546;
+11/05/2020;Córdoba;Total UCI;73;
+11/05/2020;Córdoba;Fallecimientos;104;
+11/05/2020;Córdoba;Curados;1147;
+11/05/2020;Córdoba;Confirmados total;1600;
+11/05/2020;Granada;Confirmados PCR;2378;
+11/05/2020;Granada;Confirmados PCR <14días;71;
+11/05/2020;Granada;Hospitalizados;1178;
+11/05/2020;Granada;Total UCI;132;
+11/05/2020;Granada;Fallecimientos;274;
+11/05/2020;Granada;Curados;2315;
+11/05/2020;Granada;Confirmados total;3002;
+11/05/2020;Huelva;Confirmados PCR;398;
+11/05/2020;Huelva;Confirmados PCR <14días;4;
+11/05/2020;Huelva;Hospitalizados;219;
+11/05/2020;Huelva;Total UCI;30;
+11/05/2020;Huelva;Fallecimientos;47;
+11/05/2020;Huelva;Curados;309;
+11/05/2020;Huelva;Confirmados total;510;
+11/05/2020;Jaén;Confirmados PCR;1355;
+11/05/2020;Jaén;Confirmados PCR <14días;64;
+11/05/2020;Jaén;Hospitalizados;742;
+11/05/2020;Jaén;Total UCI;81;
+11/05/2020;Jaén;Fallecimientos;166;
+11/05/2020;Jaén;Curados;1082;
+11/05/2020;Jaén;Confirmados total;1669;
+11/05/2020;Málaga;Confirmados PCR;2714;
+11/05/2020;Málaga;Confirmados PCR <14días;64;
+11/05/2020;Málaga;Hospitalizados;1449;
+11/05/2020;Málaga;Total UCI;165;
+11/05/2020;Málaga;Fallecimientos;271;
+11/05/2020;Málaga;Curados;1960;
+11/05/2020;Málaga;Confirmados total;3790;
+11/05/2020;Sevilla;Confirmados PCR;2409;
+11/05/2020;Sevilla;Confirmados PCR <14días;68;
+11/05/2020;Sevilla;Hospitalizados;1188;
+11/05/2020;Sevilla;Total UCI;147;
+11/05/2020;Sevilla;Fallecimientos;272;
+11/05/2020;Sevilla;Curados;1584;
+11/05/2020;Sevilla;Confirmados total;2850;
 10/05/2020;Andalucía;Confirmados PCR;12341;
 10/05/2020;Andalucía;Confirmados PCR <14días;359;
 10/05/2020;Andalucía;Hospitalizados;6092;
@@ -251,244 +314,7 @@ Fecha;Territorio;Medida;Valor;
 07/05/2020;Sevilla;Fallecimientos;264;
 07/05/2020;Sevilla;Curados;1341;
 07/05/2020;Sevilla;Confirmados total;2782;
-06/05/2020;Andalucía;Confirmados PCR;12268;
-06/05/2020;Andalucía;Confirmados PCR <14días;0;
-06/05/2020;Andalucía;Hospitalizados;6027;
-06/05/2020;Andalucía;Total UCI;744;
-06/05/2020;Andalucía;Fallecimientos;1294;
-06/05/2020;Andalucía;Curados;8076;
-06/05/2020;Andalucía;Confirmados total;14870;
-06/05/2020;Almería;Confirmados PCR;476;
-06/05/2020;Almería;Confirmados PCR <14días;0;
-06/05/2020;Almería;Hospitalizados;209;
-06/05/2020;Almería;Total UCI;37;
-06/05/2020;Almería;Fallecimientos;49;
-06/05/2020;Almería;Curados;367;
-06/05/2020;Almería;Confirmados total;612;
-06/05/2020;Cádiz;Confirmados PCR;1218;
-06/05/2020;Cádiz;Confirmados PCR <14días;0;
-06/05/2020;Cádiz;Hospitalizados;557;
-06/05/2020;Cádiz;Total UCI;78;
-06/05/2020;Cádiz;Fallecimientos;138;
-06/05/2020;Cádiz;Curados;400;
-06/05/2020;Cádiz;Confirmados total;1386;
-06/05/2020;Córdoba;Confirmados PCR;1319;
-06/05/2020;Córdoba;Confirmados PCR <14días;0;
-06/05/2020;Córdoba;Hospitalizados;540;
-06/05/2020;Córdoba;Total UCI;73;
-06/05/2020;Córdoba;Fallecimientos;103;
-06/05/2020;Córdoba;Curados;1027;
-06/05/2020;Córdoba;Confirmados total;1508;
-06/05/2020;Granada;Confirmados PCR;2488;
-06/05/2020;Granada;Confirmados PCR <14días;0;
-06/05/2020;Granada;Hospitalizados;1164;
-06/05/2020;Granada;Total UCI;133;
-06/05/2020;Granada;Fallecimientos;270;
-06/05/2020;Granada;Curados;2072;
-06/05/2020;Granada;Confirmados total;2888;
-06/05/2020;Huelva;Confirmados PCR;399;
-06/05/2020;Huelva;Confirmados PCR <14días;0;
-06/05/2020;Huelva;Hospitalizados;220;
-06/05/2020;Huelva;Total UCI;30;
-06/05/2020;Huelva;Fallecimientos;44;
-06/05/2020;Huelva;Curados;236;
-06/05/2020;Huelva;Confirmados total;487;
-06/05/2020;Jaén;Confirmados PCR;1315;
-06/05/2020;Jaén;Confirmados PCR <14días;0;
-06/05/2020;Jaén;Hospitalizados;737;
-06/05/2020;Jaén;Total UCI;82;
-06/05/2020;Jaén;Fallecimientos;164;
-06/05/2020;Jaén;Curados;962;
-06/05/2020;Jaén;Confirmados total;1600;
-06/05/2020;Málaga;Confirmados PCR;2683;
-06/05/2020;Málaga;Confirmados PCR <14días;0;
-06/05/2020;Málaga;Hospitalizados;1432;
-06/05/2020;Málaga;Total UCI;165;
-06/05/2020;Málaga;Fallecimientos;264;
-06/05/2020;Málaga;Curados;1752;
-06/05/2020;Málaga;Confirmados total;3638;
-06/05/2020;Sevilla;Confirmados PCR;2370;
-06/05/2020;Sevilla;Confirmados PCR <14días;0;
-06/05/2020;Sevilla;Hospitalizados;1168;
-06/05/2020;Sevilla;Total UCI;146;
-06/05/2020;Sevilla;Fallecimientos;262;
-06/05/2020;Sevilla;Curados;1260;
-06/05/2020;Sevilla;Confirmados total;2751;
-05/05/2020;Andalucía;Confirmados PCR;12236;
-05/05/2020;Andalucía;Confirmados PCR <14días;0;
-05/05/2020;Andalucía;Hospitalizados;6012;
-05/05/2020;Andalucía;Total UCI;740;
-05/05/2020;Andalucía;Fallecimientos;1281;
-05/05/2020;Andalucía;Curados;7679;
-05/05/2020;Andalucía;Confirmados total;14639;
-05/05/2020;Almería;Confirmados PCR;476;
-05/05/2020;Almería;Confirmados PCR <14días;0;
-05/05/2020;Almería;Hospitalizados;208;
-05/05/2020;Almería;Total UCI;37;
-05/05/2020;Almería;Fallecimientos;49;
-05/05/2020;Almería;Curados;353;
-05/05/2020;Almería;Confirmados total;600;
-05/05/2020;Cádiz;Confirmados PCR;1216;
-05/05/2020;Cádiz;Confirmados PCR <14días;0;
-05/05/2020;Cádiz;Hospitalizados;557;
-05/05/2020;Cádiz;Total UCI;78;
-05/05/2020;Cádiz;Fallecimientos;138;
-05/05/2020;Cádiz;Curados;392;
-05/05/2020;Cádiz;Confirmados total;1365;
-05/05/2020;Córdoba;Confirmados PCR;1315;
-05/05/2020;Córdoba;Confirmados PCR <14días;0;
-05/05/2020;Córdoba;Hospitalizados;538;
-05/05/2020;Córdoba;Total UCI;73;
-05/05/2020;Córdoba;Fallecimientos;102;
-05/05/2020;Córdoba;Curados;960;
-05/05/2020;Córdoba;Confirmados total;1495;
-05/05/2020;Granada;Confirmados PCR;2480;
-05/05/2020;Granada;Confirmados PCR <14días;0;
-05/05/2020;Granada;Hospitalizados;1159;
-05/05/2020;Granada;Total UCI;131;
-05/05/2020;Granada;Fallecimientos;261;
-05/05/2020;Granada;Curados;2006;
-05/05/2020;Granada;Confirmados total;2823;
-05/05/2020;Huelva;Confirmados PCR;399;
-05/05/2020;Huelva;Confirmados PCR <14días;0;
-05/05/2020;Huelva;Hospitalizados;220;
-05/05/2020;Huelva;Total UCI;30;
-05/05/2020;Huelva;Fallecimientos;44;
-05/05/2020;Huelva;Curados;226;
-05/05/2020;Huelva;Confirmados total;474;
-05/05/2020;Jaén;Confirmados PCR;1306;
-05/05/2020;Jaén;Confirmados PCR <14días;0;
-05/05/2020;Jaén;Hospitalizados;734;
-05/05/2020;Jaén;Total UCI;80;
-05/05/2020;Jaén;Fallecimientos;164;
-05/05/2020;Jaén;Curados;934;
-05/05/2020;Jaén;Confirmados total;1584;
-05/05/2020;Málaga;Confirmados PCR;2678;
-05/05/2020;Málaga;Confirmados PCR <14días;0;
-05/05/2020;Málaga;Hospitalizados;1429;
-05/05/2020;Málaga;Total UCI;165;
-05/05/2020;Málaga;Fallecimientos;263;
-05/05/2020;Málaga;Curados;1707;
-05/05/2020;Málaga;Confirmados total;3565;
-05/05/2020;Sevilla;Confirmados PCR;2366;
-05/05/2020;Sevilla;Confirmados PCR <14días;0;
-05/05/2020;Sevilla;Hospitalizados;1167;
-05/05/2020;Sevilla;Total UCI;146;
-05/05/2020;Sevilla;Fallecimientos;260;
-05/05/2020;Sevilla;Curados;1101;
-05/05/2020;Sevilla;Confirmados total;2733;
 
-          
-               
-                    
-               
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
           
                
                     
