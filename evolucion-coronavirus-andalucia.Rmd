@@ -810,6 +810,7 @@ casos.edad.sexo <- read_csv2("datos/edad.sexo/datos_casos_edad_sexo.csv",
                                           grouping_mark = "."),
                           skip_empty_rows = TRUE) %>%
   select(-X5) %>%
+  filter(Medida == "% pirámide") %>%
   mutate(Medida = "% Casos") %>%
   filter(!is.na(Edad))
 
@@ -820,6 +821,7 @@ hosp.edad.sexo <- read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
                                           grouping_mark = "."),
                           skip_empty_rows = TRUE) %>%
   select(-X5) %>%
+  filter(Medida == "% pirámide") %>%
   mutate(Medida = "% Hospitalizaciones") %>%
   filter(!is.na(Edad))
 
@@ -830,6 +832,7 @@ uci.edad.sexo <- read_csv2("datos/edad.sexo/datos_uci_edad_sexo.csv",
                                           grouping_mark = "."),
                           skip_empty_rows = TRUE) %>%
   select(-X5) %>%
+  filter(Medida == "% pirámide") %>%
   mutate(Medida = "% UCI") %>%
   filter(!is.na(Edad))
 
@@ -840,6 +843,7 @@ def.edad.sexo <- read_csv2("datos/edad.sexo/datos_def_edad_sexo.csv",
                                           grouping_mark = "."),
                           skip_empty_rows = TRUE) %>%
   select(-X5) %>%
+  filter(Medida == "% pirámide") %>%
   mutate(Medida = "% Defunciones") %>%
   filter(!is.na(Edad)) %>%
   right_join(casos.edad.sexo[, c("Edad", "Sexo")], by = c("Edad", "Sexo")) %>%
@@ -852,6 +856,7 @@ recup.edad.sexo <- read_csv2("datos/edad.sexo/datos_curados_edad_sexo.csv",
                                           grouping_mark = "."),
                           skip_empty_rows = TRUE) %>%
   select(-X5) %>%
+  filter(Medida == "% pirámide") %>%
   mutate(Medida = "% Recuperados") %>%
   filter(!is.na(Edad))
 

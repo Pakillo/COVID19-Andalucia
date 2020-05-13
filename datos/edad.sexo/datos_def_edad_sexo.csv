@@ -1,40 +1,76 @@
-Edad;Medida;Sexo;Valor;
-De 100 y más años; ;Hombres;0,07593014426727411;
-De 100 y más años; ;Mujeres;0,22779043280182232;
-De 95 a 99 años; ;Hombres;1,29081245254366;
-De 95 a 99 años; ;Mujeres;3,037205770690964;
-De 90 a 94 años; ;Hombres;4,328018223234624;
-De 90 a 94 años; ;Mujeres;8,200455580865604;
-De 85 a 89 años; ;Hombres;8,580106302201974;
-De 85 a 89 años; ;Mujeres;10,250569476082005;
-De 80 a 84 años; ;Hombres;10,554290053151101;
-De 80 a 84 años; ;Mujeres;8,5041761579347;
-De 75 a 79 años; ;Hombres;10,782080485952923;
-De 75 a 79 años; ;Mujeres;5,087319665907366;
-De 70 a 74 años; ;Hombres;6,302201974183751;
-De 70 a 74 años; ;Mujeres;3,492786636294609;
-De 65 a 69 años; ;Hombres;4,328018223234624;
-De 65 a 69 años; ;Mujeres;1,8982536066818527;
-De 60 a 64 años; ;Hombres;3,7965072133637054;
-De 60 a 64 años; ;Mujeres;1,6704631738800304;
-De 55 a 59 años; ;Hombres;2,6575550493545936;
-De 55 a 59 años; ;Mujeres;0,9111617312072893;
-De 50 a 54 años; ;Hombres;1,6704631738800304;
-De 50 a 54 años; ;Mujeres;0,07593014426727411;
-De 45 a 49 años; ;Hombres;0,8352315869400152;
-De 45 a 49 años; ;Mujeres;0,30372057706909644;
-De 40 a 44 años; ;Hombres;0,15186028853454822;
-De 40 a 44 años; ;Mujeres;0,15186028853454822;
-De 35 a 39 años; ;Hombres;0,30372057706909644;
-De 35 a 39 años; ;Mujeres;0,07593014426727411;
-De 30 a 34 años; ;Hombres;0,07593014426727411;
-De 30 a 34 años; ;Mujeres;;
-De 25 a 29 años; ;Hombres;0,07593014426727411;
-De 25 a 29 años; ;Mujeres;0,07593014426727411;
-De 20 a 24 años; ;Hombres;0,07593014426727411;
-De 20 a 24 años; ;Mujeres;;
-De 15 a 19 años; ;Hombres;0,15186028853454822;
-De 15 a 19 años; ;Mujeres;;
+Edad;Sexo;Medida;Valor;
+De 100 y más años;Hombres;Fallecidos;;
+De 100 y más años;Hombres;% pirámide;;
+De 100 y más años;Mujeres;Fallecidos;3;
+De 100 y más años;Mujeres;% pirámide;0,22522522522522523;
+De 95 a 99 años;Hombres;Fallecidos;17;
+De 95 a 99 años;Hombres;% pirámide;1,2762762762762763;
+De 95 a 99 años;Mujeres;Fallecidos;42;
+De 95 a 99 años;Mujeres;% pirámide;3,153153153153153;
+De 90 a 94 años;Hombres;Fallecidos;58;
+De 90 a 94 años;Hombres;% pirámide;4,354354354354354;
+De 90 a 94 años;Mujeres;Fallecidos;109;
+De 90 a 94 años;Mujeres;% pirámide;8,183183183183184;
+De 85 a 89 años;Hombres;Fallecidos;115;
+De 85 a 89 años;Hombres;% pirámide;8,633633633633634;
+De 85 a 89 años;Mujeres;Fallecidos;136;
+De 85 a 89 años;Mujeres;% pirámide;10,21021021021021;
+De 80 a 84 años;Hombres;Fallecidos;140;
+De 80 a 84 años;Hombres;% pirámide;10,51051051051051;
+De 80 a 84 años;Mujeres;Fallecidos;112;
+De 80 a 84 años;Mujeres;% pirámide;8,408408408408409;
+De 75 a 79 años;Hombres;Fallecidos;144;
+De 75 a 79 años;Hombres;% pirámide;10,81081081081081;
+De 75 a 79 años;Mujeres;Fallecidos;68;
+De 75 a 79 años;Mujeres;% pirámide;5,105105105105105;
+De 70 a 74 años;Hombres;Fallecidos;85;
+De 70 a 74 años;Hombres;% pirámide;6,381381381381382;
+De 70 a 74 años;Mujeres;Fallecidos;46;
+De 70 a 74 años;Mujeres;% pirámide;3,453453453453453;
+De 65 a 69 años;Hombres;Fallecidos;58;
+De 65 a 69 años;Hombres;% pirámide;4,354354354354354;
+De 65 a 69 años;Mujeres;Fallecidos;25;
+De 65 a 69 años;Mujeres;% pirámide;1,8768768768768769;
+De 60 a 64 años;Hombres;Fallecidos;51;
+De 60 a 64 años;Hombres;% pirámide;3,8288288288288284;
+De 60 a 64 años;Mujeres;Fallecidos;23;
+De 60 a 64 años;Mujeres;% pirámide;1,7267267267267266;
+De 55 a 59 años;Hombres;Fallecidos;35;
+De 55 a 59 años;Hombres;% pirámide;2,6276276276276276;
+De 55 a 59 años;Mujeres;Fallecidos;12;
+De 55 a 59 años;Mujeres;% pirámide;0,9009009009009009;
+De 50 a 54 años;Hombres;Fallecidos;21;
+De 50 a 54 años;Hombres;% pirámide;1,5765765765765765;
+De 50 a 54 años;Mujeres;Fallecidos;1;
+De 50 a 54 años;Mujeres;% pirámide;0,08;
+De 45 a 49 años;Hombres;Fallecidos;11;
+De 45 a 49 años;Hombres;% pirámide;0,8258258258258258;
+De 45 a 49 años;Mujeres;Fallecidos;4;
+De 45 a 49 años;Mujeres;% pirámide;0,3003003003003003;
+De 40 a 44 años;Hombres;Fallecidos;2;
+De 40 a 44 años;Hombres;% pirámide;0,15015015015015015;
+De 40 a 44 años;Mujeres;Fallecidos;2;
+De 40 a 44 años;Mujeres;% pirámide;0,15015015015015015;
+De 35 a 39 años;Hombres;Fallecidos;4;
+De 35 a 39 años;Hombres;% pirámide;0,3003003003003003;
+De 35 a 39 años;Mujeres;Fallecidos;1;
+De 35 a 39 años;Mujeres;% pirámide;0,08;
+De 30 a 34 años;Hombres;Fallecidos;2;
+De 30 a 34 años;Hombres;% pirámide;0,15015015015015015;
+De 30 a 34 años;Mujeres;Fallecidos;;
+De 30 a 34 años;Mujeres;% pirámide;;
+De 25 a 29 años;Hombres;Fallecidos;1;
+De 25 a 29 años;Hombres;% pirámide;0,08;
+De 25 a 29 años;Mujeres;Fallecidos;1;
+De 25 a 29 años;Mujeres;% pirámide;0,08;
+De 20 a 24 años;Hombres;Fallecidos;1;
+De 20 a 24 años;Hombres;% pirámide;0,08;
+De 20 a 24 años;Mujeres;Fallecidos;;
+De 20 a 24 años;Mujeres;% pirámide;;
+De 15 a 19 años;Hombres;Fallecidos;2;
+De 15 a 19 años;Hombres;% pirámide;0,15015015015015015;
+De 15 a 19 años;Mujeres;Fallecidos;;
+De 15 a 19 años;Mujeres;% pirámide;;
 
           
                
@@ -42,11 +78,6 @@ De 15 a 19 años; ;Mujeres;;
                
                
                
-          
-          
-               
-                    
-               
                
                
           
@@ -55,11 +86,6 @@ De 15 a 19 años; ;Mujeres;;
                     
                
                
-               
-          
-          
-               
-                    
                
                
                
@@ -70,11 +96,6 @@ De 15 a 19 años; ;Mujeres;;
                
                
                
-          
-          
-               
-                    
-               
                
                
           
@@ -83,11 +104,6 @@ De 15 a 19 años; ;Mujeres;;
                     
                
                
-               
-          
-          
-               
-                    
                
                
                
@@ -98,11 +114,6 @@ De 15 a 19 años; ;Mujeres;;
                
                
                
-          
-          
-               
-                    
-               
                
                
           
@@ -111,11 +122,6 @@ De 15 a 19 años; ;Mujeres;;
                     
                
                
-               
-          
-          
-               
-                    
                
                
                
@@ -126,11 +132,6 @@ De 15 a 19 años; ;Mujeres;;
                
                
                
-          
-          
-               
-                    
-               
                
                
           
@@ -139,11 +140,6 @@ De 15 a 19 años; ;Mujeres;;
                     
                
                
-               
-          
-          
-               
-                    
                
                
                
@@ -154,10 +150,86 @@ De 15 a 19 años; ;Mujeres;;
                
                
                
+               
+               
           
           
                
                     
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
                
                
                

@@ -1,192 +1,85 @@
-Edad;Medida;Sexo;Valor;
-De 100 y más años; ;Hombres;0,03417245699965828;
-De 100 y más años; ;Mujeres;0,10251737099897483;
-De 95 a 99 años; ;Hombres;0,045563275999544364;
-De 95 a 99 años; ;Mujeres;0,5581501309944185;
-De 90 a 94 años; ;Hombres;0,6606675019933933;
-De 90 a 94 años; ;Mujeres;1,765576944982344;
-De 85 a 89 años; ;Hombres;1,4580248319854197;
-De 85 a 89 años; ;Mujeres;3,4400273379655997;
-De 80 a 84 años; ;Hombres;1,8794851349812052;
-De 80 a 84 años; ;Mujeres;2,8818772069711813;
-De 75 a 79 años; ;Hombres;2,1756464289782436;
-De 75 a 79 años; ;Mujeres;2,2667729809773323;
-De 70 a 74 años; ;Hombres;2,733796559972662;
-De 70 a 74 años; ;Mujeres;2,7793598359722065;
-De 65 a 69 años; ;Hombres;3,0299578539697003;
-De 65 a 69 años; ;Mujeres;2,756578197972434;
-De 60 a 64 años; ;Hombres;4,408246952955917;
-De 60 a 64 años; ;Mujeres;4,784143979952159;
-De 55 a 59 años; ;Hombres;4,932224626950678;
-De 55 a 59 años; ;Mujeres;6,276341268937237;
-De 50 a 54 años; ;Hombres;5,023351178949766;
-De 50 a 54 años; ;Mujeres;6,219387173937807;
-De 45 a 49 años; ;Hombres;4,590500056954095;
-De 45 a 49 años; ;Mujeres;5,6042829479439575;
-De 40 a 44 años; ;Hombres;3,189429319968106;
-De 40 a 44 años; ;Mujeres;4,932224626950678;
-De 35 a 39 años; ;Hombres;2,642670007973573;
-De 35 a 39 años; ;Mujeres;4,294338762957057;
-De 30 a 34 años; ;Hombres;2,4034628089759655;
-De 30 a 34 años; ;Mujeres;3,7931427269620683;
-De 25 a 29 años; ;Hombres;1,8111402209818888;
-De 25 a 29 años; ;Mujeres;3,257774233967422;
-De 20 a 24 años; ;Hombres;0,8201389679917986;
-De 20 a 24 años; ;Mujeres;1,5605422029843945;
-De 15 a 19 años; ;Hombres;0,2619888369973801;
-De 15 a 19 años; ;Mujeres;0,31894293199681056;
-De 10 a 14 años; ;Hombres;0,045563275999544364;
-De 10 a 14 años; ;Mujeres;0,022781637999772182;
-De 5 a 9 años; ;Hombres;0,05695409499943046;
-De 5 a 9 años; ;Mujeres;0,05695409499943046;
-De 0 a 4 años; ;Hombres;0,09112655199908873;
-De 0 a 4 años; ;Mujeres;0,03417245699965828;
-
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-          
-     
+Edad;Sexo;Medida;Valor;
+De 100 y más años;Hombres;Recuperados;2;
+De 100 y más años;Hombres;% pirámide;0,02;
+De 100 y más años;Mujeres;Recuperados;8;
+De 100 y más años;Mujeres;% pirámide;0,08;
+De 95 a 99 años;Hombres;Recuperados;4;
+De 95 a 99 años;Hombres;% pirámide;0,04;
+De 95 a 99 años;Mujeres;Recuperados;49;
+De 95 a 99 años;Mujeres;% pirámide;0,5168231199240586;
+De 90 a 94 años;Hombres;Recuperados;63;
+De 90 a 94 años;Hombres;% pirámide;0,6644868684737897;
+De 90 a 94 años;Mujeres;Recuperados;171;
+De 90 a 94 años;Mujeres;% pirámide;1,8036072144288577;
+De 85 a 89 años;Hombres;Recuperados;144;
+De 85 a 89 años;Hombres;% pirámide;1,5188271279400907;
+De 85 a 89 años;Mujeres;Recuperados;322;
+De 85 a 89 años;Mujeres;% pirámide;3,396266216643814;
+De 80 a 84 años;Hombres;Recuperados;172;
+De 80 a 84 años;Hombres;% pirámide;1,8141546250395528;
+De 80 a 84 años;Mujeres;Recuperados;277;
+De 80 a 84 años;Mujeres;% pirámide;2,921632739162536;
+De 75 a 79 años;Hombres;Recuperados;202;
+De 75 a 79 años;Hombres;% pirámide;2,130576943360405;
+De 75 a 79 años;Mujeres;Recuperados;217;
+De 75 a 79 años;Mujeres;% pirámide;2,288788102520831;
+De 70 a 74 años;Hombres;Recuperados;263;
+De 70 a 74 años;Hombres;% pirámide;2,7739689906128047;
+De 70 a 74 años;Mujeres;Recuperados;254;
+De 70 a 74 años;Mujeres;% pirámide;2,679042295116549;
+De 65 a 69 años;Hombres;Recuperados;279;
+De 65 a 69 años;Hombres;% pirámide;2,942727560383926;
+De 65 a 69 años;Mujeres;Recuperados;247;
+De 65 a 69 años;Mujeres;% pirámide;2,6052104208416833;
+De 60 a 64 años;Hombres;Recuperados;432;
+De 60 a 64 años;Hombres;% pirámide;4,556481383820272;
+De 60 a 64 años;Mujeres;Recuperados;455;
+De 60 a 64 años;Mujeres;% pirámide;4,799071827866259;
+De 55 a 59 años;Hombres;Recuperados;473;
+De 55 a 59 años;Hombres;% pirámide;4,98892521885877;
+De 55 a 59 años;Mujeres;Recuperados;602;
+De 55 a 59 años;Mujeres;% pirámide;6,349541187638434;
+De 50 a 54 años;Hombres;Recuperados;484;
+De 50 a 54 años;Hombres;% pirámide;5,104946735576417;
+De 50 a 54 años;Mujeres;Recuperados;592;
+De 50 a 54 años;Mujeres;% pirámide;6,244067081531484;
+De 45 a 49 años;Hombres;Recuperados;428;
+De 45 a 49 años;Hombres;% pirámide;4,514291741377492;
+De 45 a 49 años;Mujeres;Recuperados;539;
+De 45 a 49 años;Mujeres;% pirámide;5,685054319164645;
+De 40 a 44 años;Hombres;Recuperados;303;
+De 40 a 44 años;Hombres;% pirámide;3,195865415040607;
+De 40 a 44 años;Mujeres;Recuperados;474;
+De 40 a 44 años;Mujeres;% pirámide;4,999472629469466;
+De 35 a 39 años;Hombres;Recuperados;243;
+De 35 a 39 años;Hombres;% pirámide;2,5630207783989034;
+De 35 a 39 años;Mujeres;Recuperados;413;
+De 35 a 39 años;Mujeres;% pirámide;4,356080582217066;
+De 30 a 34 años;Hombres;Recuperados;224;
+De 30 a 34 años;Hombres;% pirámide;2,362619976795697;
+De 30 a 34 años;Mujeres;Recuperados;358;
+De 30 a 34 años;Mujeres;% pirámide;3,775972998628837;
+De 25 a 29 años;Hombres;Recuperados;166;
+De 25 a 29 años;Hombres;% pirámide;1,7508701613753823;
+De 25 a 29 años;Mujeres;Recuperados;318;
+De 25 a 29 años;Mujeres;% pirámide;3,3540765742010334;
+De 20 a 24 años;Hombres;Recuperados;78;
+De 20 a 24 años;Hombres;% pirámide;0,8226980276342157;
+De 20 a 24 años;Mujeres;Recuperados;139;
+De 20 a 24 años;Mujeres;% pirámide;1,4660900748866155;
+De 15 a 19 años;Hombres;Recuperados;25;
+De 15 a 19 años;Hombres;% pirámide;0,26368526526737684;
+De 15 a 19 años;Mujeres;Recuperados;30;
+De 15 a 19 años;Mujeres;% pirámide;0,31642231832085227;
+De 10 a 14 años;Hombres;Recuperados;4;
+De 10 a 14 años;Hombres;% pirámide;0,04;
+De 10 a 14 años;Mujeres;Recuperados;3;
+De 10 a 14 años;Mujeres;% pirámide;0,03;
+De 5 a 9 años;Hombres;Recuperados;5;
+De 5 a 9 años;Hombres;% pirámide;0,05;
+De 5 a 9 años;Mujeres;Recuperados;5;
+De 5 a 9 años;Mujeres;% pirámide;0,05;
+De 0 a 4 años;Hombres;Recuperados;8;
+De 0 a 4 años;Hombres;% pirámide;0,08;
+De 0 a 4 años;Mujeres;Recuperados;3;
+De 0 a 4 años;Mujeres;% pirámide;0,03;
