@@ -212,7 +212,7 @@ datos.last <- datos.minist %>%
 kable(datos.last[, -1])
 ```
 
-(Valores negativos significan que se han eliminado casos respecto al día anterior)
+*(valores negativos significan que se han eliminado casos respecto al día anterior)*
 
 <br>
 
@@ -934,6 +934,7 @@ datatable(muni.data, rownames = FALSE, filter = "top")
 ```
 
 <br>
+
 
 Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos]((https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html)) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía.
 
