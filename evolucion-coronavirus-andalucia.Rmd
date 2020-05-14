@@ -325,7 +325,7 @@ ggplot(datos.andal) +
 <br>
 <br>
 
-Andalucía es de las comunidades autónomas que [menos test ha realizado](https://elpais.com/sociedad/2020-04-27/la-rioja-hace-siete-veces-mas-pruebas-pcr-por-habitante-que-andalucia.html) en relación al tamaño de su población (al menos hasta mediados de Abril). Por tanto el número de casos de COVID-19 puede estar notablemente infraestimado. En general, no debemos comparar el número de casos entre comunidades sin tener en cuenta la enorme variación en el número de test realizados.
+Andalucía es de las comunidades autónomas que [menos test ha realizado](https://elpais.com/sociedad/2020-04-27/la-rioja-hace-siete-veces-mas-pruebas-pcr-por-habitante-que-andalucia.html) en relación al tamaño de su población (al menos hasta mediados de Abril). Por tanto el número de casos de COVID-19 puede estar notablemente infraestimado. De hecho, los primeros resultados del estudio serológico indican que [en Andalucía se han detectado probablemente menos del 10% de los contagios](https://www.eldiario.es/sociedad/porcentaje-poblacion-contagiada-explosivo-COVID-19_0_1026798481.html). En general, no debemos comparar el número de casos entre comunidades sin tener en cuenta la enorme variación en el número de test realizados.
 
 <br>
 
@@ -921,6 +921,76 @@ ggplot() +
 
 
 <br>
+
+
+
+## Letalidad
+
+<br>
+
+Aquí se representa, para cada sexo y franja de edad, la proporción de casos confirmados de COVID-19 que acaban en defunción (lo que en inglés se conoce como [Case Fatality Rate](https://en.wikipedia.org/wiki/Case_fatality_rate)). Estos valores sirven para tener una idea aproximada de la letalidad del virus, aunque la probabilidad individual de defunción depende de muchos otros factores (otras enfermedades, mejoras en los tratamientos, etc). Los valores que aquí se presentan además no tienen en cuenta las defunciones que pueden ocurrir en las próximas semanas de personas ahora infectadas. 
+
+En cualquier caso, es evidente que la letalidad aumenta con la edad y es mayor en hombres que en mujeres. 
+
+<br>
+
+```{r letalidad, out.width='100%', fig.height=5}
+
+casos.edad.sexo <- read_csv2("datos/edad.sexo/datos_casos_edad_sexo.csv",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = "."),
+                          skip_empty_rows = TRUE) %>%
+  select(-X5) %>%
+  filter(Medida == "Nº casos") %>%
+  filter(!is.na(Edad)) %>%
+  rename(Casos = Valor) %>%
+  select(-Medida)
+
+def.edad.sexo <- read_csv2("datos/edad.sexo/datos_def_edad_sexo.csv",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = "."),
+                          skip_empty_rows = TRUE) %>%
+  select(-X5) %>%
+  filter(Medida == "Fallecidos") %>%
+  filter(!is.na(Edad))  %>%
+  rename(Fallecidos = Valor) %>%
+  select(-Medida)
+
+
+cfr <- left_join(casos.edad.sexo, def.edad.sexo, by = c("Edad", "Sexo")) %>%
+  mutate(Fallecidos = ifelse(is.na(Fallecidos), 0, Fallecidos)) %>%
+  mutate(CFR = 100*Fallecidos/Casos) %>%
+  filter(Edad != "De 100 y más años") %>%
+  mutate(edades = factor(rep(edades[-1], each = 2), levels = edades[-1]))
+
+
+## Obtener etiquetas edades
+# (ver chunk anterior)
+# library(stringr)
+# edades <- casos.edad.sexo %>%
+#   filter(Sexo == "Hombres") %>%
+#   mutate(edades = str_replace(Edad, "De ", "")) %>%
+#   mutate(edades = str_replace(edades, " a ", " - ")) %>%
+#   mutate(edades = str_replace(edades, " años", "")) %>%
+#   pull(edades)
+  #mutate(edades = rev(edades))
+
+ggplot(cfr) +
+  facet_wrap(~Sexo, ncol = 2, scales = "free_x") +
+  geom_col(aes(edades, CFR, fill = Sexo)) +
+  coord_flip() +
+  labs(y = "Case Fatality Rate (%)", x = "Edad\n", 
+       title = "Letalidad por COVID-19 en Andalucía",
+       subtitle = "Proporción de muertes respecto al número de casos confirmados\nen cada categoría de edad y sexo",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_fill_manual(values = c("#ff7f00", "#984ea3")) +
+  theme(legend.position = "none")
+
+```
+
+
 
 
 ## Datos por municipio

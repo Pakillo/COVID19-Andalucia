@@ -44,7 +44,7 @@ server <- function(input, output, session) {
     selectedData <- reactive({
         datos.muni %>%
         filter(Provincia == input$prov, Municipio == input$muni) %>%
-            dplyr::select(-Distrito)
+            dplyr::select(-Provincia, -Distrito, -Municipio)
     })
 
 
