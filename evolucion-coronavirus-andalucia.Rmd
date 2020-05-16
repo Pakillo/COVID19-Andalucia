@@ -182,6 +182,24 @@ ggplot(datos.andal.long) +
 
 ```
 
+<br>
+
+Evolución en las **últimas dos semanas**:
+
+```{r fig.resumen.14d, out.width='100%', fig.height=6}
+
+ggplot(datos.andal.long) +
+  facet_wrap(~indic, ncol = 1, scales = "free_y") + 
+  geom_col(aes(x = Fecha, y = value, fill = indic)) +
+  scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
+  labs(x = "", y = "Nº personas\n", caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(legend.position = "none") +
+  scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
+               date_breaks = "2 days", date_labels = "%d %B") 
+
+```
+
+
 
 <br>
 
@@ -268,7 +286,7 @@ ggplot(casos.pcr) +
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
-  scale_y_continuous(limits = c(0, NA), n.breaks = 6) +
+  scale_y_continuous(limits = c(0, NA)) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
@@ -276,6 +294,28 @@ ggplot(datos.andal) +
 
 ```
 
+<br>
+
+Casos confirmados por PCR en los últimos 14 días:
+
+<br>
+
+```{r casos.pcr.14d, fig.height=4, out.width='100%'}
+
+ggplot(datos.andal) +
+  geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
+            fill = "#ff7f00") +
+  scale_y_continuous(limits = c(0, NA)) +
+  labs(x = "", y = "Nuevas detecciones\n",
+       title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
+  scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
+               date_breaks = "2 days", date_labels = "%d %B") +
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 2, label = ConfirmadosPCR),
+            data = subset(datos.andal, Fecha > (Sys.Date() - 15))) 
+
+```
 
 <br>
 
@@ -347,7 +387,7 @@ ggplot(test.ccaa) +
 
 <br>
 
-La proporción de casos positivos respecto al total de test realizados también [puede informarnos](https://www.theatlantic.com/technology/archive/2020/04/us-coronavirus-outbreak-out-control-test-positivity-rate/610132/) sobre la incidencia de la enfermedad: 
+La proporción de casos positivos respecto al total de test realizados también [puede informarnos](https://www.theatlantic.com/technology/archive/2020/04/us-coronavirus-outbreak-out-control-test-positivity-rate/610132/) sobre la incidencia de la enfermedad. 
 
 <br>
 
@@ -359,7 +399,7 @@ ggplot(datos.andal) +
   # geom_ribbon(aes(x = Fecha, ymin = prop.ci.low, ymax = prop.ci.up),
   #             fill = "#ff7f00", alpha = 0.3) +
   geom_col(aes(x = Fecha, y = Prop.Positivos), 
-            size = 2, fill = "#ff7f00") +
+            fill = "#ff7f00") +
   geom_line(aes(x = Fecha, y = (Ntest.dia/sec.axis.factor)), 
             colour = "grey70", size = 1.5) +
   # geom_text(aes(x = Fecha, y = 5, label = Ntest.dia), 
@@ -377,6 +417,7 @@ ggplot(datos.andal) +
 
 ```
 
+(La Junta de Andalucía ha dejado de proporcionar datos diarios del número de personas testadas, por lo que esta gráfica ha dejado de actualizarse desde el 12 de Mayo)
 
 <br>
 <br>
@@ -390,7 +431,7 @@ A continuación se presentan los **casos confirmados mediante PCR en cada provin
 ggplot(datos.provs) +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
-            size = 1.5, fill = "#ff7f00") +
+            fill = "#ff7f00") +
   ylim(0, NA) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos de COVID-19 confirmados por PCR en cada provincia",
@@ -403,7 +444,30 @@ ggplot(datos.provs) +
 
 <br>
 
-Pulse [aquí](#datos-por-municipio) para ver los **datos por municipio y distrito sanitario**. 
+Y en los últimos 14 días:
+
+<br>
+
+```{r casos_provincias.14d, out.width = '100%', fig.height=6}
+
+ggplot(datos.provs) +
+  facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
+  geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
+            fill = "#ff7f00") +
+  ylim(0, NA) +
+  labs(x = "", y = "Nuevas detecciones\n",
+       title = "Casos de COVID-19 confirmados por PCR en cada provincia",
+       subtitle = "Últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(axis.text.x = element_text(size = 8)) +
+  scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
+               date_breaks = "2 days", date_labels = "%d %B") 
+
+```
+
+<br>
+
+Pulse [aquí](#datos-por-municipio) para ver los **datos por municipio**. 
 
 <br>
 
@@ -607,15 +671,35 @@ ggplot(datos) +
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
-            size = 1.5, fill = "#377eb8") +
+            fill = "#377eb8") +
   ylim(0, NA) +
-  #scale_x_date(limits = c(as.Date("2020-03-15"), NA)) +
-  labs(x = "", y = "Nº Personas\n",
+  labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 ```
 
+
+<br>
+
+
+```{r ingresos_Andalucia.14d, fig.height=3, out.width='100%'}
+
+ggplot(datos.andal) +
+  geom_col(aes(x = Fecha, y = Hospitalizados), 
+            fill = "#377eb8") +
+  ylim(0, NA) +
+  labs(x = "", y = "Nº Ingresos\n",
+       title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
+       subtitle = "Últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+               date_breaks = "2 days", date_labels = "%d %B") +
+  geom_text(aes(Fecha, y = Hospitalizados + 1, label = Hospitalizados),
+            data = subset(datos.andal, Fecha > (Sys.Date() - 15))) 
+  
+
+```
 
 <br>
 <br>
@@ -626,10 +710,9 @@ ggplot(datos.andal) +
 ggplot(datos.provs) +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
-            size = 1.5, fill = "#377eb8") +
+            fill = "#377eb8") +
   ylim(0, NA) +
-  #scale_x_date(limits = c(as.Date("2020-03-15"), NA)) +
-  labs(x = "", y = "Nº Personas\n",
+  labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
@@ -637,6 +720,26 @@ ggplot(datos.provs) +
 
 ```
 
+
+<br>
+
+
+```{r ingresos_provincias.14d, out.width='100%', fig.height=6}
+
+ggplot(datos.provs) +
+  facet_wrap(~Territorio, ncol = 2) +
+  geom_col(aes(x = Fecha, y = Hospitalizados), 
+            fill = "#377eb8") +
+  ylim(0, NA) +
+  labs(x = "", y = "Nº Ingresos\n",
+       title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
+       subtitle = "Últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(axis.text.x = element_text(size = 8)) +
+  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+               date_breaks = "2 days", date_labels = "%d %B")
+
+```
 
 <br>
 
@@ -649,17 +752,31 @@ ggplot(datos.provs) +
 ```{r uci_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(datos.andal) +
-  geom_col(aes(x = Fecha, y = UCI), 
-            size = 1.5, fill = "#e41a1c") +
+  geom_col(aes(x = Fecha, y = UCI), fill = "#e41a1c") +
   ylim(0, NA) +
-  #scale_x_date(limits = c(as.Date("2020-03-27"), NA)) +
-  labs(x = "", y = "Nº Personas\n",
+  labs(x = "", y = "Nº Ingresos UCI\n",
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 ```
 
 
+<br>
+
+
+```{r uci_Andalucia.14d, fig.height=3, out.width='100%'}
+
+ggplot(datos.andal) +
+  geom_col(aes(x = Fecha, y = UCI), fill = "#e41a1c") +
+  ylim(0, NA) +
+  labs(x = "", y = "Nº Ingresos UCI\n",
+       title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
+       subtitle = "Últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+               date_breaks = "2 days", date_labels = "%d %B") 
+
+```
 <br>
 <br>
 
@@ -668,12 +785,10 @@ ggplot(datos.andal) +
 
 ggplot(datos.provs) +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
-  geom_col(aes(x = Fecha, y = UCI), 
-            size = 1.5, fill = "#e41a1c") +
+  geom_col(aes(x = Fecha, y = UCI), fill = "#e41a1c") +
   ylim(0, NA) +
-  #scale_x_date(limits = c(as.Date("2020-03-27"), NA)) +
-  labs(x = "", y = "Nº Personas\n",
-       title = "Ingresos diarios en cuidados intensivos en cada provincia",
+  labs(x = "", y = "Nº Ingresos UCI\n",
+       title = "Ingresos diarios en UCI en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias, la escala del eje vertical es diferente cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8))
@@ -681,6 +796,31 @@ ggplot(datos.provs) +
 ```
 
 
+## Camas ocupadas
+
+<br>
+
+Número de camas ocupadas en centros hospitalarios, y cuántas de ellas son de cuidados intensivos (UCI):
+
+<br>
+
+```{r camas.ocupadas, out.width='100%', fig.height=3}
+
+camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
+  mutate(Fecha = as.Date(Fecha)) %>%
+  filter(Territorio == "Andalucía") 
+
+ggplot(camas) +
+  geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
+  geom_line(aes(Fecha, UCI), colour = "#e41a1c", size = 2) +
+  labs(title = "Camas ocupadas con COVID-19 en hospitales andaluces",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       x = "", y = "Camas ocupadas\n") +
+  geom_text(data = camas[nrow(camas), ], aes(Fecha + 0.1, CamasOcup, label = "Totales"), colour = "#377eb8") +
+  geom_text(data = camas[nrow(camas), ], aes(Fecha + 0.1, UCI, label = "UCI"), colour = "#e41a1c")
+  
+
+```
 
 
 ```{r altas_Andalucía, fig.height=3, out.width='100%', eval=FALSE}
@@ -767,12 +907,27 @@ ggplot(datos.provs) +
 ```{r fallecidos_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(datos.andal) +
-  geom_col(aes(x = Fecha, y = Defunciones), 
-            size = 1.5, fill = "grey40") +
+  geom_col(aes(x = Fecha, y = Defunciones), fill = "grey40") +
   labs(x = "", y = "Nº Defunciones\n",
        title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) 
+
+```
+
+<br>
+
+```{r fallecidos_Andalucia.14d, fig.height=3, out.width='100%'}
+
+ggplot(datos.andal) +
+  geom_col(aes(x = Fecha, y = Defunciones), fill = "grey40") +
+  labs(x = "", y = "Nº Defunciones\n",
+       title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
+       subtitle = "Últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_y_continuous(limits = c(0, NA)) +
+  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+               date_breaks = "2 days", date_labels = "%d %B") 
 
 ```
 
@@ -1020,7 +1175,83 @@ include_app("https://frodsan.shinyapps.io/COVID19-Municipios-Andalucia/",
             height = '600px')
 ```
 
+
 <br>
 
-Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos]((https://www.juntadeandalucia.es/organismos/saludyfamilias/areas/salud-vida/paginas/Nuevo_Coronavirus.html)) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía.
+## Comparacion con otras CCAA
+
+<br>
+
+
+```{r confirmados.ccaa, fig.height=5, out.width='100%'}
+
+ccaa.pcr <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_confirmados_pcr_long.csv", guess_max = 10000) 
+
+library(plotly)
+
+options(scipen = 1000)
+
+ggplotly(ggplot(ccaa.pcr) +
+  # geom_smooth(aes(x = Fecha, y = PCR.new, group = CCAA), 
+  #             colour = "grey80", se = FALSE, span = 0.1) +
+  geom_line(aes(x = fecha, y = total, group = CCAA), 
+              colour = "grey80") +
+  geom_line(aes(x = fecha, y = total), 
+            data = subset(ccaa.pcr, CCAA == "Andalucía"), 
+            colour = "#ff7f00", size = 2) +
+  scale_y_log10() +
+  labs(x = "", y = "Confirmados PCR\n",
+       title = "Casos de COVID-19 confirmados por PCR en cada CCAA",
+       subtitle = "Escala logarítmica",
+       caption = "https://tiny.cc/COVID19-Andalucia"))
+
+```
+
+<br>
+
+```{r hosp.ccaa, fig.height=5, out.width='100%'}
+
+ccaa.hosp <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_hospitalizados_long.csv", guess_max = 10000)
+
+ggplotly(ggplot(ccaa.hosp) +
+  # geom_smooth(aes(x = Fecha, y = PCR.new, group = CCAA), 
+  #             colour = "grey80", se = FALSE, span = 0.1) +
+  geom_line(aes(x = fecha, y = total, group = CCAA), 
+              colour = "grey80") +
+  geom_line(aes(x = fecha, y = total), 
+            data = subset(ccaa.hosp, CCAA == "Andalucía"), 
+            colour = "#377eb8", size = 2) +
+  scale_y_log10() +
+  labs(x = "", y = "Nº Ingresos\n",
+       title = "Nuevos ingresos con COVID-19 por CCAA",
+       subtitle = "Escala logarítmica",
+       caption = "https://tiny.cc/COVID19-Andalucia"))
+
+```
+
+
+<br>
+
+```{r def.ccaa, fig.height=4, out.width='100%'}
+
+ccaa.def <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_fallecidos_long.csv", guess_max = 10000)
+
+ggplotly(ggplot(ccaa.def) +
+  geom_line(aes(x = fecha, y = total, group = CCAA), 
+              colour = "grey80") +
+  geom_line(aes(x = fecha, y = total), 
+            data = subset(ccaa.def, CCAA == "Andalucía"), 
+            colour = "grey20", size = 2) +
+  scale_y_log10() +
+  labs(x = "", y = "Defunciones\n",
+       title = "Defunciones relacionadas con COVID-19 por CCAA",
+       subtitle = "Escala logarítmica",
+       caption = "https://tiny.cc/COVID19-Andalucia"))
+
+```
+
+<br>
+
+Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos](https://github.com/Pakillo/COVID19-Andalucia/tree/master/datos) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía. Reproducción permitida con fines no comerciales citando la fuente (CC-BY-NC 4.0).
+
 
