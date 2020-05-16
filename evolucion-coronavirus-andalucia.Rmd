@@ -308,6 +308,7 @@ ggplot(datos.andal) +
   scale_y_continuous(limits = c(0, NA)) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
+       subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
@@ -809,6 +810,7 @@ Número de camas ocupadas en centros hospitalarios, y cuántas de ellas son de c
 camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
   mutate(Fecha = as.Date(Fecha)) %>%
   filter(Territorio == "Andalucía") 
+camas.last <- camas[nrow(camas), ]
 
 ggplot(camas) +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
@@ -816,8 +818,12 @@ ggplot(camas) +
   labs(title = "Camas ocupadas con COVID-19 en hospitales andaluces",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "", y = "Camas ocupadas\n") +
-  geom_text(data = camas[nrow(camas), ], aes(Fecha + 0.1, CamasOcup, label = "Totales"), colour = "#377eb8") +
-  geom_text(data = camas[nrow(camas), ], aes(Fecha + 0.1, UCI, label = "UCI"), colour = "#e41a1c")
+  geom_text(data = camas.last, 
+            aes(Fecha + 0.1, CamasOcup + 10, label = paste0( "Totales\n", CamasOcup)),
+            colour = "#377eb8") +
+  geom_text(data = camas.last, 
+            aes(Fecha + 0.1, UCI + 10, label = paste0("UCI\n", UCI)), 
+            colour = "#e41a1c")
   
 
 ```
@@ -1232,7 +1238,7 @@ ggplotly(ggplot(ccaa.hosp) +
 
 <br>
 
-```{r def.ccaa, fig.height=4, out.width='100%'}
+```{r def.ccaa, fig.height=5, out.width='100%'}
 
 ccaa.def <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_fallecidos_long.csv", guess_max = 10000)
 
@@ -1252,6 +1258,6 @@ ggplotly(ggplot(ccaa.def) +
 
 <br>
 
-Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos](https://github.com/Pakillo/COVID19-Andalucia/tree/master/datos) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía. Reproducción permitida con fines no comerciales citando la fuente (CC-BY-NC 4.0).
+Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos](https://github.com/Pakillo/COVID19-Andalucia/tree/master/datos) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía, la Fundación CIVIO y Datadista. Reproducción permitida con fines no comerciales citando la fuente (CC-BY-NC 4.0).
 
 
