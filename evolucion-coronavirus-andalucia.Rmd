@@ -815,6 +815,7 @@ camas.last <- camas[nrow(camas), ]
 ggplot(camas) +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, UCI), colour = "#e41a1c", size = 2) +
+  ylim(0, NA) +
   labs(title = "Camas ocupadas con COVID-19 en hospitales andaluces",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "", y = "Camas ocupadas\n") +
