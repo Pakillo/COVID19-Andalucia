@@ -1,635 +1,809 @@
 Fecha;Territorio;Medida;Valor;
+17/05/2020;Andalucía;Confirmados PCR;12458;
+17/05/2020;Andalucía;Confirmados PCR 14 días;261;
+17/05/2020;Andalucía;Hospitalizados;6178;
+17/05/2020;Andalucía;Total UCI;761;
+17/05/2020;Andalucía;Fallecimientos;1358;
+17/05/2020;Andalucía;Curados;10671;
+17/05/2020;Andalucía;Confirmados total;16457;
+17/05/2020;Almería;Confirmados PCR;498;
+17/05/2020;Almería;Confirmados PCR 14 días;20;
+17/05/2020;Almería;Hospitalizados;229;
+17/05/2020;Almería;Total UCI;42;
+17/05/2020;Almería;Fallecimientos;52;
+17/05/2020;Almería;Curados;487;
+17/05/2020;Almería;Confirmados total;729;
+17/05/2020;Cádiz;Confirmados PCR;1240;
+17/05/2020;Cádiz;Confirmados PCR 14 días;22;
+17/05/2020;Cádiz;Hospitalizados;571;
+17/05/2020;Cádiz;Total UCI;79;
+17/05/2020;Cádiz;Fallecimientos;145;
+17/05/2020;Cádiz;Curados;565;
+17/05/2020;Cádiz;Confirmados total;1508;
+17/05/2020;Córdoba;Confirmados PCR;1331;
+17/05/2020;Córdoba;Confirmados PCR 14 días;13;
+17/05/2020;Córdoba;Hospitalizados;552;
+17/05/2020;Córdoba;Total UCI;76;
+17/05/2020;Córdoba;Fallecimientos;106;
+17/05/2020;Córdoba;Curados;1350;
+17/05/2020;Córdoba;Confirmados total;1696;
+17/05/2020;Granada;Confirmados PCR;2417;
+17/05/2020;Granada;Confirmados PCR 14 días;43;
+17/05/2020;Granada;Hospitalizados;1184;
+17/05/2020;Granada;Total UCI;132;
+17/05/2020;Granada;Fallecimientos;279;
+17/05/2020;Granada;Curados;2524;
+17/05/2020;Granada;Confirmados total;3106;
+17/05/2020;Huelva;Confirmados PCR;400;
+17/05/2020;Huelva;Confirmados PCR 14 días;1;
+17/05/2020;Huelva;Hospitalizados;219;
+17/05/2020;Huelva;Total UCI;30;
+17/05/2020;Huelva;Fallecimientos;48;
+17/05/2020;Huelva;Curados;392;
+17/05/2020;Huelva;Confirmados total;521;
+17/05/2020;Jaén;Confirmados PCR;1387;
+17/05/2020;Jaén;Confirmados PCR 14 días;50;
+17/05/2020;Jaén;Hospitalizados;754;
+17/05/2020;Jaén;Total UCI;87;
+17/05/2020;Jaén;Fallecimientos;175;
+17/05/2020;Jaén;Curados;1171;
+17/05/2020;Jaén;Confirmados total;1793;
+17/05/2020;Málaga;Confirmados PCR;2760;
+17/05/2020;Málaga;Confirmados PCR 14 días;59;
+17/05/2020;Málaga;Hospitalizados;1473;
+17/05/2020;Málaga;Total UCI;167;
+17/05/2020;Málaga;Fallecimientos;278;
+17/05/2020;Málaga;Curados;2302;
+17/05/2020;Málaga;Confirmados total;4122;
+17/05/2020;Sevilla;Confirmados PCR;2425;
+17/05/2020;Sevilla;Confirmados PCR 14 días;53;
+17/05/2020;Sevilla;Hospitalizados;1196;
+17/05/2020;Sevilla;Total UCI;148;
+17/05/2020;Sevilla;Fallecimientos;275;
+17/05/2020;Sevilla;Curados;1880;
+17/05/2020;Sevilla;Confirmados total;2982;
 16/05/2020;Andalucía;Confirmados PCR;12450;
-16/05/2020;Andalucía;Confirmados PCR <14días;265;
+16/05/2020;Andalucía;Confirmados PCR 14 días;265;
 16/05/2020;Andalucía;Hospitalizados;6174;
 16/05/2020;Andalucía;Total UCI;760;
 16/05/2020;Andalucía;Fallecimientos;1358;
 16/05/2020;Andalucía;Curados;10611;
 16/05/2020;Andalucía;Confirmados total;16432;
 16/05/2020;Almería;Confirmados PCR;498;
-16/05/2020;Almería;Confirmados PCR <14días;20;
+16/05/2020;Almería;Confirmados PCR 14 días;20;
 16/05/2020;Almería;Hospitalizados;228;
 16/05/2020;Almería;Total UCI;41;
 16/05/2020;Almería;Fallecimientos;52;
 16/05/2020;Almería;Curados;484;
 16/05/2020;Almería;Confirmados total;728;
 16/05/2020;Cádiz;Confirmados PCR;1240;
-16/05/2020;Cádiz;Confirmados PCR <14días;23;
+16/05/2020;Cádiz;Confirmados PCR 14 días;23;
 16/05/2020;Cádiz;Hospitalizados;570;
 16/05/2020;Cádiz;Total UCI;79;
 16/05/2020;Cádiz;Fallecimientos;145;
 16/05/2020;Cádiz;Curados;560;
 16/05/2020;Cádiz;Confirmados total;1500;
 16/05/2020;Córdoba;Confirmados PCR;1331;
-16/05/2020;Córdoba;Confirmados PCR <14días;13;
+16/05/2020;Córdoba;Confirmados PCR 14 días;13;
 16/05/2020;Córdoba;Hospitalizados;552;
 16/05/2020;Córdoba;Total UCI;76;
 16/05/2020;Córdoba;Fallecimientos;106;
 16/05/2020;Córdoba;Curados;1350;
 16/05/2020;Córdoba;Confirmados total;1696;
 16/05/2020;Granada;Confirmados PCR;2413;
-16/05/2020;Granada;Confirmados PCR <14días;41;
+16/05/2020;Granada;Confirmados PCR 14 días;41;
 16/05/2020;Granada;Hospitalizados;1183;
 16/05/2020;Granada;Total UCI;132;
 16/05/2020;Granada;Fallecimientos;279;
 16/05/2020;Granada;Curados;2520;
 16/05/2020;Granada;Confirmados total;3101;
 16/05/2020;Huelva;Confirmados PCR;400;
-16/05/2020;Huelva;Confirmados PCR <14días;1;
+16/05/2020;Huelva;Confirmados PCR 14 días;1;
 16/05/2020;Huelva;Hospitalizados;219;
 16/05/2020;Huelva;Total UCI;30;
 16/05/2020;Huelva;Fallecimientos;48;
 16/05/2020;Huelva;Curados;391;
 16/05/2020;Huelva;Confirmados total;521;
 16/05/2020;Jaén;Confirmados PCR;1387;
-16/05/2020;Jaén;Confirmados PCR <14días;55;
+16/05/2020;Jaén;Confirmados PCR 14 días;55;
 16/05/2020;Jaén;Hospitalizados;754;
 16/05/2020;Jaén;Total UCI;87;
 16/05/2020;Jaén;Fallecimientos;175;
 16/05/2020;Jaén;Curados;1171;
 16/05/2020;Jaén;Confirmados total;1793;
 16/05/2020;Málaga;Confirmados PCR;2758;
-16/05/2020;Málaga;Confirmados PCR <14días;57;
+16/05/2020;Málaga;Confirmados PCR 14 días;57;
 16/05/2020;Málaga;Hospitalizados;1472;
 16/05/2020;Málaga;Total UCI;167;
 16/05/2020;Málaga;Fallecimientos;278;
 16/05/2020;Málaga;Curados;2295;
 16/05/2020;Málaga;Confirmados total;4115;
 16/05/2020;Sevilla;Confirmados PCR;2423;
-16/05/2020;Sevilla;Confirmados PCR <14días;55;
+16/05/2020;Sevilla;Confirmados PCR 14 días;55;
 16/05/2020;Sevilla;Hospitalizados;1196;
 16/05/2020;Sevilla;Total UCI;148;
 16/05/2020;Sevilla;Fallecimientos;275;
 16/05/2020;Sevilla;Curados;1840;
 16/05/2020;Sevilla;Confirmados total;2978;
 15/05/2020;Andalucía;Confirmados PCR;12420;
-15/05/2020;Andalucía;Confirmados PCR <14días;257;
+15/05/2020;Andalucía;Confirmados PCR 14 días;257;
 15/05/2020;Andalucía;Hospitalizados;6161;
 15/05/2020;Andalucía;Total UCI;758;
 15/05/2020;Andalucía;Fallecimientos;1355;
 15/05/2020;Andalucía;Curados;10319;
 15/05/2020;Andalucía;Confirmados total;16263;
 15/05/2020;Almería;Confirmados PCR;494;
-15/05/2020;Almería;Confirmados PCR <14días;18;
+15/05/2020;Almería;Confirmados PCR 14 días;18;
 15/05/2020;Almería;Hospitalizados;224;
 15/05/2020;Almería;Total UCI;41;
 15/05/2020;Almería;Fallecimientos;51;
 15/05/2020;Almería;Curados;474;
 15/05/2020;Almería;Confirmados total;713;
 15/05/2020;Cádiz;Confirmados PCR;1235;
-15/05/2020;Cádiz;Confirmados PCR <14días;22;
+15/05/2020;Cádiz;Confirmados PCR 14 días;22;
 15/05/2020;Cádiz;Hospitalizados;568;
 15/05/2020;Cádiz;Total UCI;79;
 15/05/2020;Cádiz;Fallecimientos;145;
 15/05/2020;Cádiz;Curados;530;
 15/05/2020;Cádiz;Confirmados total;1487;
 15/05/2020;Córdoba;Confirmados PCR;1329;
-15/05/2020;Córdoba;Confirmados PCR <14días;14;
+15/05/2020;Córdoba;Confirmados PCR 14 días;14;
 15/05/2020;Córdoba;Hospitalizados;552;
 15/05/2020;Córdoba;Total UCI;75;
 15/05/2020;Córdoba;Fallecimientos;105;
 15/05/2020;Córdoba;Curados;1335;
 15/05/2020;Córdoba;Confirmados total;1688;
 15/05/2020;Granada;Confirmados PCR;2407;
-15/05/2020;Granada;Confirmados PCR <14días;40;
+15/05/2020;Granada;Confirmados PCR 14 días;40;
 15/05/2020;Granada;Hospitalizados;1183;
 15/05/2020;Granada;Total UCI;132;
 15/05/2020;Granada;Fallecimientos;279;
 15/05/2020;Granada;Curados;2499;
 15/05/2020;Granada;Confirmados total;3070;
 15/05/2020;Huelva;Confirmados PCR;399;
-15/05/2020;Huelva;Confirmados PCR <14días;0;
+15/05/2020;Huelva;Confirmados PCR 14 días;0;
 15/05/2020;Huelva;Hospitalizados;219;
 15/05/2020;Huelva;Total UCI;30;
 15/05/2020;Huelva;Fallecimientos;48;
 15/05/2020;Huelva;Curados;351;
 15/05/2020;Huelva;Confirmados total;520;
 15/05/2020;Jaén;Confirmados PCR;1379;
-15/05/2020;Jaén;Confirmados PCR <14días;49;
+15/05/2020;Jaén;Confirmados PCR 14 días;49;
 15/05/2020;Jaén;Hospitalizados;753;
 15/05/2020;Jaén;Total UCI;86;
 15/05/2020;Jaén;Fallecimientos;174;
 15/05/2020;Jaén;Curados;1129;
 15/05/2020;Jaén;Confirmados total;1771;
 15/05/2020;Málaga;Confirmados PCR;2754;
-15/05/2020;Málaga;Confirmados PCR <14días;54;
+15/05/2020;Málaga;Confirmados PCR 14 días;54;
 15/05/2020;Málaga;Hospitalizados;1466;
 15/05/2020;Málaga;Total UCI;167;
 15/05/2020;Málaga;Fallecimientos;278;
 15/05/2020;Málaga;Curados;2214;
 15/05/2020;Málaga;Confirmados total;4068;
 15/05/2020;Sevilla;Confirmados PCR;2423;
-15/05/2020;Sevilla;Confirmados PCR <14días;60;
+15/05/2020;Sevilla;Confirmados PCR 14 días;60;
 15/05/2020;Sevilla;Hospitalizados;1196;
 15/05/2020;Sevilla;Total UCI;148;
 15/05/2020;Sevilla;Fallecimientos;275;
 15/05/2020;Sevilla;Curados;1787;
 15/05/2020;Sevilla;Confirmados total;2946;
 14/05/2020;Andalucía;Confirmados PCR;12401;
-14/05/2020;Andalucía;Confirmados PCR <14días;281;
+14/05/2020;Andalucía;Confirmados PCR 14 días;281;
 14/05/2020;Andalucía;Hospitalizados;6146;
 14/05/2020;Andalucía;Total UCI;754;
 14/05/2020;Andalucía;Fallecimientos;1344;
 14/05/2020;Andalucía;Curados;10148;
 14/05/2020;Andalucía;Confirmados total;16068;
 14/05/2020;Almería;Confirmados PCR;492;
-14/05/2020;Almería;Confirmados PCR <14días;18;
+14/05/2020;Almería;Confirmados PCR 14 días;18;
 14/05/2020;Almería;Hospitalizados;218;
 14/05/2020;Almería;Total UCI;39;
 14/05/2020;Almería;Fallecimientos;50;
 14/05/2020;Almería;Curados;452;
 14/05/2020;Almería;Confirmados total;695;
 14/05/2020;Cádiz;Confirmados PCR;1236;
-14/05/2020;Cádiz;Confirmados PCR <14días;25;
+14/05/2020;Cádiz;Confirmados PCR 14 días;25;
 14/05/2020;Cádiz;Hospitalizados;566;
 14/05/2020;Cádiz;Total UCI;79;
 14/05/2020;Cádiz;Fallecimientos;142;
 14/05/2020;Cádiz;Curados;517;
 14/05/2020;Cádiz;Confirmados total;1480;
 14/05/2020;Córdoba;Confirmados PCR;1328;
-14/05/2020;Córdoba;Confirmados PCR <14días;13;
+14/05/2020;Córdoba;Confirmados PCR 14 días;13;
 14/05/2020;Córdoba;Hospitalizados;551;
 14/05/2020;Córdoba;Total UCI;74;
 14/05/2020;Córdoba;Fallecimientos;105;
 14/05/2020;Córdoba;Curados;1331;
 14/05/2020;Córdoba;Confirmados total;1682;
 14/05/2020;Granada;Confirmados PCR;2401;
-14/05/2020;Granada;Confirmados PCR <14días;50;
+14/05/2020;Granada;Confirmados PCR 14 días;50;
 14/05/2020;Granada;Hospitalizados;1184;
 14/05/2020;Granada;Total UCI;132;
 14/05/2020;Granada;Fallecimientos;278;
 14/05/2020;Granada;Curados;2480;
 14/05/2020;Granada;Confirmados total;3033;
 14/05/2020;Huelva;Confirmados PCR;399;
-14/05/2020;Huelva;Confirmados PCR <14días;0;
+14/05/2020;Huelva;Confirmados PCR 14 días;0;
 14/05/2020;Huelva;Hospitalizados;219;
 14/05/2020;Huelva;Total UCI;30;
 14/05/2020;Huelva;Fallecimientos;48;
 14/05/2020;Huelva;Curados;344;
 14/05/2020;Huelva;Confirmados total;520;
 14/05/2020;Jaén;Confirmados PCR;1375;
-14/05/2020;Jaén;Confirmados PCR <14días;58;
+14/05/2020;Jaén;Confirmados PCR 14 días;58;
 14/05/2020;Jaén;Hospitalizados;751;
 14/05/2020;Jaén;Total UCI;85;
 14/05/2020;Jaén;Fallecimientos;173;
 14/05/2020;Jaén;Curados;1121;
 14/05/2020;Jaén;Confirmados total;1751;
 14/05/2020;Málaga;Confirmados PCR;2746;
-14/05/2020;Málaga;Confirmados PCR <14días;55;
+14/05/2020;Málaga;Confirmados PCR 14 días;55;
 14/05/2020;Málaga;Hospitalizados;1463;
 14/05/2020;Málaga;Total UCI;167;
 14/05/2020;Málaga;Fallecimientos;274;
 14/05/2020;Málaga;Curados;2161;
 14/05/2020;Málaga;Confirmados total;3983;
 14/05/2020;Sevilla;Confirmados PCR;2424;
-14/05/2020;Sevilla;Confirmados PCR <14días;62;
+14/05/2020;Sevilla;Confirmados PCR 14 días;62;
 14/05/2020;Sevilla;Hospitalizados;1194;
 14/05/2020;Sevilla;Total UCI;148;
 14/05/2020;Sevilla;Fallecimientos;274;
 14/05/2020;Sevilla;Curados;1742;
 14/05/2020;Sevilla;Confirmados total;2924;
 13/05/2020;Andalucía;Confirmados PCR;12359;
-13/05/2020;Andalucía;Confirmados PCR <14días;304;
+13/05/2020;Andalucía;Confirmados PCR 14 días;304;
 13/05/2020;Andalucía;Hospitalizados;6128;
 13/05/2020;Andalucía;Total UCI;751;
 13/05/2020;Andalucía;Fallecimientos;1336;
 13/05/2020;Andalucía;Curados;9918;
 13/05/2020;Andalucía;Confirmados total;15823;
 13/05/2020;Almería;Confirmados PCR;488;
-13/05/2020;Almería;Confirmados PCR <14días;14;
+13/05/2020;Almería;Confirmados PCR 14 días;14;
 13/05/2020;Almería;Hospitalizados;216;
 13/05/2020;Almería;Total UCI;39;
 13/05/2020;Almería;Fallecimientos;50;
 13/05/2020;Almería;Curados;447;
 13/05/2020;Almería;Confirmados total;677;
 13/05/2020;Cádiz;Confirmados PCR;1235;
-13/05/2020;Cádiz;Confirmados PCR <14días;41;
+13/05/2020;Cádiz;Confirmados PCR 14 días;41;
 13/05/2020;Cádiz;Hospitalizados;566;
 13/05/2020;Cádiz;Total UCI;79;
 13/05/2020;Cádiz;Fallecimientos;142;
 13/05/2020;Cádiz;Curados;511;
 13/05/2020;Cádiz;Confirmados total;1477;
 13/05/2020;Córdoba;Confirmados PCR;1326;
-13/05/2020;Córdoba;Confirmados PCR <14días;16;
+13/05/2020;Córdoba;Confirmados PCR 14 días;16;
 13/05/2020;Córdoba;Hospitalizados;549;
 13/05/2020;Córdoba;Total UCI;74;
 13/05/2020;Córdoba;Fallecimientos;105;
 13/05/2020;Córdoba;Curados;1308;
 13/05/2020;Córdoba;Confirmados total;1656;
 13/05/2020;Granada;Confirmados PCR;2399;
-13/05/2020;Granada;Confirmados PCR <14días;58;
+13/05/2020;Granada;Confirmados PCR 14 días;58;
 13/05/2020;Granada;Hospitalizados;1183;
 13/05/2020;Granada;Total UCI;132;
 13/05/2020;Granada;Fallecimientos;275;
 13/05/2020;Granada;Curados;2412;
 13/05/2020;Granada;Confirmados total;2965;
 13/05/2020;Huelva;Confirmados PCR;398;
-13/05/2020;Huelva;Confirmados PCR <14días;0;
+13/05/2020;Huelva;Confirmados PCR 14 días;0;
 13/05/2020;Huelva;Hospitalizados;219;
 13/05/2020;Huelva;Total UCI;30;
 13/05/2020;Huelva;Fallecimientos;48;
 13/05/2020;Huelva;Curados;328;
 13/05/2020;Huelva;Confirmados total;510;
 13/05/2020;Jaén;Confirmados PCR;1366;
-13/05/2020;Jaén;Confirmados PCR <14días;62;
+13/05/2020;Jaén;Confirmados PCR 14 días;62;
 13/05/2020;Jaén;Hospitalizados;749;
 13/05/2020;Jaén;Total UCI;83;
 13/05/2020;Jaén;Fallecimientos;170;
 13/05/2020;Jaén;Curados;1103;
 13/05/2020;Jaén;Confirmados total;1724;
 13/05/2020;Málaga;Confirmados PCR;2732;
-13/05/2020;Málaga;Confirmados PCR <14días;55;
+13/05/2020;Málaga;Confirmados PCR 14 días;55;
 13/05/2020;Málaga;Hospitalizados;1455;
 13/05/2020;Málaga;Total UCI;166;
 13/05/2020;Málaga;Fallecimientos;273;
 13/05/2020;Málaga;Curados;2098;
 13/05/2020;Málaga;Confirmados total;3919;
 13/05/2020;Sevilla;Confirmados PCR;2415;
-13/05/2020;Sevilla;Confirmados PCR <14días;58;
+13/05/2020;Sevilla;Confirmados PCR 14 días;58;
 13/05/2020;Sevilla;Hospitalizados;1191;
 13/05/2020;Sevilla;Total UCI;148;
 13/05/2020;Sevilla;Fallecimientos;273;
 13/05/2020;Sevilla;Curados;1711;
 13/05/2020;Sevilla;Confirmados total;2895;
 12/05/2020;Andalucía;Confirmados PCR;12317;
-12/05/2020;Andalucía;Confirmados PCR <14días;323;
+12/05/2020;Andalucía;Confirmados PCR 14 días;323;
 12/05/2020;Andalucía;Hospitalizados;6114;
 12/05/2020;Andalucía;Total UCI;750;
 12/05/2020;Andalucía;Fallecimientos;1332;
 12/05/2020;Andalucía;Curados;9481;
 12/05/2020;Andalucía;Confirmados total;15629;
 12/05/2020;Almería;Confirmados PCR;485;
-12/05/2020;Almería;Confirmados PCR <14días;14;
+12/05/2020;Almería;Confirmados PCR 14 días;14;
 12/05/2020;Almería;Hospitalizados;214;
 12/05/2020;Almería;Total UCI;39;
 12/05/2020;Almería;Fallecimientos;50;
 12/05/2020;Almería;Curados;433;
 12/05/2020;Almería;Confirmados total;662;
 12/05/2020;Cádiz;Confirmados PCR;1232;
-12/05/2020;Cádiz;Confirmados PCR <14días;43;
+12/05/2020;Cádiz;Confirmados PCR 14 días;43;
 12/05/2020;Cádiz;Hospitalizados;566;
 12/05/2020;Cádiz;Total UCI;79;
 12/05/2020;Cádiz;Fallecimientos;142;
 12/05/2020;Cádiz;Curados;489;
 12/05/2020;Cádiz;Confirmados total;1464;
 12/05/2020;Córdoba;Confirmados PCR;1326;
-12/05/2020;Córdoba;Confirmados PCR <14días;21;
+12/05/2020;Córdoba;Confirmados PCR 14 días;21;
 12/05/2020;Córdoba;Hospitalizados;547;
 12/05/2020;Córdoba;Total UCI;74;
 12/05/2020;Córdoba;Fallecimientos;105;
 12/05/2020;Córdoba;Curados;1176;
 12/05/2020;Córdoba;Confirmados total;1632;
 12/05/2020;Granada;Confirmados PCR;2381;
-12/05/2020;Granada;Confirmados PCR <14días;65;
+12/05/2020;Granada;Confirmados PCR 14 días;65;
 12/05/2020;Granada;Hospitalizados;1179;
 12/05/2020;Granada;Total UCI;132;
 12/05/2020;Granada;Fallecimientos;274;
 12/05/2020;Granada;Curados;2326;
 12/05/2020;Granada;Confirmados total;2966;
 12/05/2020;Huelva;Confirmados PCR;398;
-12/05/2020;Huelva;Confirmados PCR <14días;0;
+12/05/2020;Huelva;Confirmados PCR 14 días;0;
 12/05/2020;Huelva;Hospitalizados;219;
 12/05/2020;Huelva;Total UCI;30;
 12/05/2020;Huelva;Fallecimientos;48;
 12/05/2020;Huelva;Curados;320;
 12/05/2020;Huelva;Confirmados total;510;
 12/05/2020;Jaén;Confirmados PCR;1358;
-12/05/2020;Jaén;Confirmados PCR <14días;62;
+12/05/2020;Jaén;Confirmados PCR 14 días;62;
 12/05/2020;Jaén;Hospitalizados;745;
 12/05/2020;Jaén;Total UCI;82;
 12/05/2020;Jaén;Fallecimientos;168;
 12/05/2020;Jaén;Curados;1099;
 12/05/2020;Jaén;Confirmados total;1689;
 12/05/2020;Málaga;Confirmados PCR;2723;
-12/05/2020;Málaga;Confirmados PCR <14días;55;
+12/05/2020;Málaga;Confirmados PCR 14 días;55;
 12/05/2020;Málaga;Hospitalizados;1454;
 12/05/2020;Málaga;Total UCI;166;
 12/05/2020;Málaga;Fallecimientos;272;
 12/05/2020;Málaga;Curados;2010;
 12/05/2020;Málaga;Confirmados total;3838;
 12/05/2020;Sevilla;Confirmados PCR;2414;
-12/05/2020;Sevilla;Confirmados PCR <14días;63;
+12/05/2020;Sevilla;Confirmados PCR 14 días;63;
 12/05/2020;Sevilla;Hospitalizados;1190;
 12/05/2020;Sevilla;Total UCI;148;
 12/05/2020;Sevilla;Fallecimientos;273;
 12/05/2020;Sevilla;Curados;1628;
 12/05/2020;Sevilla;Confirmados total;2868;
 11/05/2020;Andalucía;Confirmados PCR;12293;
-11/05/2020;Andalucía;Confirmados PCR <14días;351;
+11/05/2020;Andalucía;Confirmados PCR 14 días;351;
 11/05/2020;Andalucía;Hospitalizados;6101;
 11/05/2020;Andalucía;Total UCI;745;
 11/05/2020;Andalucía;Fallecimientos;1326;
 11/05/2020;Andalucía;Curados;9297;
 11/05/2020;Andalucía;Confirmados total;15522;
 11/05/2020;Almería;Confirmados PCR;483;
-11/05/2020;Almería;Confirmados PCR <14días;13;
+11/05/2020;Almería;Confirmados PCR 14 días;13;
 11/05/2020;Almería;Hospitalizados;213;
 11/05/2020;Almería;Total UCI;38;
 11/05/2020;Almería;Fallecimientos;50;
 11/05/2020;Almería;Curados;427;
 11/05/2020;Almería;Confirmados total;652;
 11/05/2020;Cádiz;Confirmados PCR;1232;
-11/05/2020;Cádiz;Confirmados PCR <14días;45;
+11/05/2020;Cádiz;Confirmados PCR 14 días;45;
 11/05/2020;Cádiz;Hospitalizados;566;
 11/05/2020;Cádiz;Total UCI;79;
 11/05/2020;Cádiz;Fallecimientos;142;
 11/05/2020;Cádiz;Curados;473;
 11/05/2020;Cádiz;Confirmados total;1449;
 11/05/2020;Córdoba;Confirmados PCR;1324;
-11/05/2020;Córdoba;Confirmados PCR <14días;22;
+11/05/2020;Córdoba;Confirmados PCR 14 días;22;
 11/05/2020;Córdoba;Hospitalizados;546;
 11/05/2020;Córdoba;Total UCI;73;
 11/05/2020;Córdoba;Fallecimientos;104;
 11/05/2020;Córdoba;Curados;1147;
 11/05/2020;Córdoba;Confirmados total;1600;
 11/05/2020;Granada;Confirmados PCR;2378;
-11/05/2020;Granada;Confirmados PCR <14días;71;
+11/05/2020;Granada;Confirmados PCR 14 días;71;
 11/05/2020;Granada;Hospitalizados;1178;
 11/05/2020;Granada;Total UCI;132;
 11/05/2020;Granada;Fallecimientos;274;
 11/05/2020;Granada;Curados;2315;
 11/05/2020;Granada;Confirmados total;3002;
 11/05/2020;Huelva;Confirmados PCR;398;
-11/05/2020;Huelva;Confirmados PCR <14días;4;
+11/05/2020;Huelva;Confirmados PCR 14 días;4;
 11/05/2020;Huelva;Hospitalizados;219;
 11/05/2020;Huelva;Total UCI;30;
 11/05/2020;Huelva;Fallecimientos;47;
 11/05/2020;Huelva;Curados;309;
 11/05/2020;Huelva;Confirmados total;510;
 11/05/2020;Jaén;Confirmados PCR;1355;
-11/05/2020;Jaén;Confirmados PCR <14días;64;
+11/05/2020;Jaén;Confirmados PCR 14 días;64;
 11/05/2020;Jaén;Hospitalizados;742;
 11/05/2020;Jaén;Total UCI;81;
 11/05/2020;Jaén;Fallecimientos;166;
 11/05/2020;Jaén;Curados;1082;
 11/05/2020;Jaén;Confirmados total;1669;
 11/05/2020;Málaga;Confirmados PCR;2714;
-11/05/2020;Málaga;Confirmados PCR <14días;64;
+11/05/2020;Málaga;Confirmados PCR 14 días;64;
 11/05/2020;Málaga;Hospitalizados;1449;
 11/05/2020;Málaga;Total UCI;165;
 11/05/2020;Málaga;Fallecimientos;271;
 11/05/2020;Málaga;Curados;1960;
 11/05/2020;Málaga;Confirmados total;3790;
 11/05/2020;Sevilla;Confirmados PCR;2409;
-11/05/2020;Sevilla;Confirmados PCR <14días;68;
+11/05/2020;Sevilla;Confirmados PCR 14 días;68;
 11/05/2020;Sevilla;Hospitalizados;1188;
 11/05/2020;Sevilla;Total UCI;147;
 11/05/2020;Sevilla;Fallecimientos;272;
 11/05/2020;Sevilla;Curados;1584;
 11/05/2020;Sevilla;Confirmados total;2850;
 10/05/2020;Andalucía;Confirmados PCR;12341;
-10/05/2020;Andalucía;Confirmados PCR <14días;359;
+10/05/2020;Andalucía;Confirmados PCR 14 días;359;
 10/05/2020;Andalucía;Hospitalizados;6092;
 10/05/2020;Andalucía;Total UCI;745;
 10/05/2020;Andalucía;Fallecimientos;1322;
 10/05/2020;Andalucía;Curados;9205;
 10/05/2020;Andalucía;Confirmados total;15478;
 10/05/2020;Almería;Confirmados PCR;482;
-10/05/2020;Almería;Confirmados PCR <14días;12;
+10/05/2020;Almería;Confirmados PCR 14 días;12;
 10/05/2020;Almería;Hospitalizados;212;
 10/05/2020;Almería;Total UCI;38;
 10/05/2020;Almería;Fallecimientos;50;
 10/05/2020;Almería;Curados;423;
 10/05/2020;Almería;Confirmados total;649;
 10/05/2020;Cádiz;Confirmados PCR;1232;
-10/05/2020;Cádiz;Confirmados PCR <14días;49;
+10/05/2020;Cádiz;Confirmados PCR 14 días;49;
 10/05/2020;Cádiz;Hospitalizados;567;
 10/05/2020;Cádiz;Total UCI;79;
 10/05/2020;Cádiz;Fallecimientos;142;
 10/05/2020;Cádiz;Curados;472;
 10/05/2020;Cádiz;Confirmados total;1450;
 10/05/2020;Córdoba;Confirmados PCR;1326;
-10/05/2020;Córdoba;Confirmados PCR <14días;24;
+10/05/2020;Córdoba;Confirmados PCR 14 días;24;
 10/05/2020;Córdoba;Hospitalizados;544;
 10/05/2020;Córdoba;Total UCI;73;
 10/05/2020;Córdoba;Fallecimientos;104;
 10/05/2020;Córdoba;Curados;1148;
 10/05/2020;Córdoba;Confirmados total;1600;
 10/05/2020;Granada;Confirmados PCR;2438;
-10/05/2020;Granada;Confirmados PCR <14días;74;
+10/05/2020;Granada;Confirmados PCR 14 días;74;
 10/05/2020;Granada;Hospitalizados;1176;
 10/05/2020;Granada;Total UCI;132;
 10/05/2020;Granada;Fallecimientos;274;
 10/05/2020;Granada;Curados;2302;
 10/05/2020;Granada;Confirmados total;2987;
 10/05/2020;Huelva;Confirmados PCR;398;
-10/05/2020;Huelva;Confirmados PCR <14días;6;
+10/05/2020;Huelva;Confirmados PCR 14 días;6;
 10/05/2020;Huelva;Hospitalizados;219;
 10/05/2020;Huelva;Total UCI;30;
 10/05/2020;Huelva;Fallecimientos;47;
 10/05/2020;Huelva;Curados;303;
 10/05/2020;Huelva;Confirmados total;510;
 10/05/2020;Jaén;Confirmados PCR;1349;
-10/05/2020;Jaén;Confirmados PCR <14días;61;
+10/05/2020;Jaén;Confirmados PCR 14 días;61;
 10/05/2020;Jaén;Hospitalizados;743;
 10/05/2020;Jaén;Total UCI;81;
 10/05/2020;Jaén;Fallecimientos;165;
 10/05/2020;Jaén;Curados;1060;
 10/05/2020;Jaén;Confirmados total;1661;
 10/05/2020;Málaga;Confirmados PCR;2714;
-10/05/2020;Málaga;Confirmados PCR <14días;66;
+10/05/2020;Málaga;Confirmados PCR 14 días;66;
 10/05/2020;Málaga;Hospitalizados;1448;
 10/05/2020;Málaga;Total UCI;165;
 10/05/2020;Málaga;Fallecimientos;271;
 10/05/2020;Málaga;Curados;1955;
 10/05/2020;Málaga;Confirmados total;3779;
 10/05/2020;Sevilla;Confirmados PCR;2402;
-10/05/2020;Sevilla;Confirmados PCR <14días;67;
+10/05/2020;Sevilla;Confirmados PCR 14 días;67;
 10/05/2020;Sevilla;Hospitalizados;1183;
 10/05/2020;Sevilla;Total UCI;147;
 10/05/2020;Sevilla;Fallecimientos;269;
 10/05/2020;Sevilla;Curados;1542;
 10/05/2020;Sevilla;Confirmados total;2842;
 09/05/2020;Andalucía;Confirmados PCR;12315;
-09/05/2020;Andalucía;Confirmados PCR <14días;362;
+09/05/2020;Andalucía;Confirmados PCR 14 días;362;
 09/05/2020;Andalucía;Hospitalizados;6080;
 09/05/2020;Andalucía;Total UCI;744;
 09/05/2020;Andalucía;Fallecimientos;1320;
 09/05/2020;Andalucía;Curados;9020;
 09/05/2020;Andalucía;Confirmados total;15403;
 09/05/2020;Almería;Confirmados PCR;479;
-09/05/2020;Almería;Confirmados PCR <14días;9;
+09/05/2020;Almería;Confirmados PCR 14 días;9;
 09/05/2020;Almería;Hospitalizados;211;
 09/05/2020;Almería;Total UCI;38;
 09/05/2020;Almería;Fallecimientos;50;
 09/05/2020;Almería;Curados;403;
 09/05/2020;Almería;Confirmados total;642;
 09/05/2020;Cádiz;Confirmados PCR;1232;
-09/05/2020;Cádiz;Confirmados PCR <14días;52;
+09/05/2020;Cádiz;Confirmados PCR 14 días;52;
 09/05/2020;Cádiz;Hospitalizados;566;
 09/05/2020;Cádiz;Total UCI;79;
 09/05/2020;Cádiz;Fallecimientos;142;
 09/05/2020;Cádiz;Curados;469;
 09/05/2020;Cádiz;Confirmados total;1444;
 09/05/2020;Córdoba;Confirmados PCR;1323;
-09/05/2020;Córdoba;Confirmados PCR <14días;22;
+09/05/2020;Córdoba;Confirmados PCR 14 días;22;
 09/05/2020;Córdoba;Hospitalizados;542;
 09/05/2020;Córdoba;Total UCI;73;
 09/05/2020;Córdoba;Fallecimientos;104;
 09/05/2020;Córdoba;Curados;1143;
 09/05/2020;Córdoba;Confirmados total;1589;
 09/05/2020;Granada;Confirmados PCR;2431;
-09/05/2020;Granada;Confirmados PCR <14días;77;
+09/05/2020;Granada;Confirmados PCR 14 días;77;
 09/05/2020;Granada;Hospitalizados;1173;
 09/05/2020;Granada;Total UCI;132;
 09/05/2020;Granada;Fallecimientos;273;
 09/05/2020;Granada;Curados;2269;
 09/05/2020;Granada;Confirmados total;2973;
 09/05/2020;Huelva;Confirmados PCR;398;
-09/05/2020;Huelva;Confirmados PCR <14días;7;
+09/05/2020;Huelva;Confirmados PCR 14 días;7;
 09/05/2020;Huelva;Hospitalizados;219;
 09/05/2020;Huelva;Total UCI;30;
 09/05/2020;Huelva;Fallecimientos;47;
 09/05/2020;Huelva;Curados;303;
 09/05/2020;Huelva;Confirmados total;510;
 09/05/2020;Jaén;Confirmados PCR;1345;
-09/05/2020;Jaén;Confirmados PCR <14días;58;
+09/05/2020;Jaén;Confirmados PCR 14 días;58;
 09/05/2020;Jaén;Hospitalizados;743;
 09/05/2020;Jaén;Total UCI;81;
 09/05/2020;Jaén;Fallecimientos;165;
 09/05/2020;Jaén;Curados;1042;
 09/05/2020;Jaén;Confirmados total;1654;
 09/05/2020;Málaga;Confirmados PCR;2712;
-09/05/2020;Málaga;Confirmados PCR <14días;70;
+09/05/2020;Málaga;Confirmados PCR 14 días;70;
 09/05/2020;Málaga;Hospitalizados;1445;
 09/05/2020;Málaga;Total UCI;165;
 09/05/2020;Málaga;Fallecimientos;271;
 09/05/2020;Málaga;Curados;1942;
 09/05/2020;Málaga;Confirmados total;3760;
 09/05/2020;Sevilla;Confirmados PCR;2395;
-09/05/2020;Sevilla;Confirmados PCR <14días;67;
+09/05/2020;Sevilla;Confirmados PCR 14 días;67;
 09/05/2020;Sevilla;Hospitalizados;1181;
 09/05/2020;Sevilla;Total UCI;146;
 09/05/2020;Sevilla;Fallecimientos;268;
 09/05/2020;Sevilla;Curados;1449;
 09/05/2020;Sevilla;Confirmados total;2831;
 08/05/2020;Andalucía;Confirmados PCR;12298;
-08/05/2020;Andalucía;Confirmados PCR <14días;420;
+08/05/2020;Andalucía;Confirmados PCR 14 días;420;
 08/05/2020;Andalucía;Hospitalizados;6069;
 08/05/2020;Andalucía;Total UCI;745;
 08/05/2020;Andalucía;Fallecimientos;1317;
 08/05/2020;Andalucía;Curados;8779;
 08/05/2020;Andalucía;Confirmados total;15228;
 08/05/2020;Almería;Confirmados PCR;477;
-08/05/2020;Almería;Confirmados PCR <14días;9;
+08/05/2020;Almería;Confirmados PCR 14 días;9;
 08/05/2020;Almería;Hospitalizados;210;
 08/05/2020;Almería;Total UCI;38;
 08/05/2020;Almería;Fallecimientos;49;
 08/05/2020;Almería;Curados;391;
 08/05/2020;Almería;Confirmados total;630;
 08/05/2020;Cádiz;Confirmados PCR;1228;
-08/05/2020;Cádiz;Confirmados PCR <14días;55;
+08/05/2020;Cádiz;Confirmados PCR 14 días;55;
 08/05/2020;Cádiz;Hospitalizados;565;
 08/05/2020;Cádiz;Total UCI;79;
 08/05/2020;Cádiz;Fallecimientos;141;
 08/05/2020;Cádiz;Curados;449;
 08/05/2020;Cádiz;Confirmados total;1426;
 08/05/2020;Córdoba;Confirmados PCR;1322;
-08/05/2020;Córdoba;Confirmados PCR <14días;25;
+08/05/2020;Córdoba;Confirmados PCR 14 días;25;
 08/05/2020;Córdoba;Hospitalizados;541;
 08/05/2020;Córdoba;Total UCI;73;
 08/05/2020;Córdoba;Fallecimientos;104;
 08/05/2020;Córdoba;Curados;1105;
 08/05/2020;Córdoba;Confirmados total;1547;
 08/05/2020;Granada;Confirmados PCR;2443;
-08/05/2020;Granada;Confirmados PCR <14días;120;
+08/05/2020;Granada;Confirmados PCR 14 días;120;
 08/05/2020;Granada;Hospitalizados;1171;
 08/05/2020;Granada;Total UCI;132;
 08/05/2020;Granada;Fallecimientos;273;
 08/05/2020;Granada;Curados;2201;
 08/05/2020;Granada;Confirmados total;2946;
 08/05/2020;Huelva;Confirmados PCR;398;
-08/05/2020;Huelva;Confirmados PCR <14días;9;
+08/05/2020;Huelva;Confirmados PCR 14 días;9;
 08/05/2020;Huelva;Hospitalizados;219;
 08/05/2020;Huelva;Total UCI;30;
 08/05/2020;Huelva;Fallecimientos;46;
 08/05/2020;Huelva;Curados;296;
 08/05/2020;Huelva;Confirmados total;507;
 08/05/2020;Jaén;Confirmados PCR;1332;
-08/05/2020;Jaén;Confirmados PCR <14días;52;
+08/05/2020;Jaén;Confirmados PCR 14 días;52;
 08/05/2020;Jaén;Hospitalizados;742;
 08/05/2020;Jaén;Total UCI;82;
 08/05/2020;Jaén;Fallecimientos;166;
 08/05/2020;Jaén;Curados;1039;
 08/05/2020;Jaén;Confirmados total;1638;
 08/05/2020;Málaga;Confirmados PCR;2707;
-08/05/2020;Málaga;Confirmados PCR <14días;81;
+08/05/2020;Málaga;Confirmados PCR 14 días;81;
 08/05/2020;Málaga;Hospitalizados;1440;
 08/05/2020;Málaga;Total UCI;165;
 08/05/2020;Málaga;Fallecimientos;270;
 08/05/2020;Málaga;Curados;1884;
 08/05/2020;Málaga;Confirmados total;3718;
 08/05/2020;Sevilla;Confirmados PCR;2391;
-08/05/2020;Sevilla;Confirmados PCR <14días;69;
+08/05/2020;Sevilla;Confirmados PCR 14 días;69;
 08/05/2020;Sevilla;Hospitalizados;1181;
 08/05/2020;Sevilla;Total UCI;146;
 08/05/2020;Sevilla;Fallecimientos;268;
 08/05/2020;Sevilla;Curados;1414;
 08/05/2020;Sevilla;Confirmados total;2816;
 07/05/2020;Andalucía;Confirmados PCR;12287;
-07/05/2020;Andalucía;Confirmados PCR <14días;506;
+07/05/2020;Andalucía;Confirmados PCR 14 días;506;
 07/05/2020;Andalucía;Hospitalizados;6038;
 07/05/2020;Andalucía;Total UCI;742;
 07/05/2020;Andalucía;Fallecimientos;1301;
 07/05/2020;Andalucía;Curados;8435;
 07/05/2020;Andalucía;Confirmados total;15050;
 07/05/2020;Almería;Confirmados PCR;477;
-07/05/2020;Almería;Confirmados PCR <14días;10;
+07/05/2020;Almería;Confirmados PCR 14 días;10;
 07/05/2020;Almería;Hospitalizados;210;
 07/05/2020;Almería;Total UCI;37;
 07/05/2020;Almería;Fallecimientos;49;
 07/05/2020;Almería;Curados;376;
 07/05/2020;Almería;Confirmados total;618;
 07/05/2020;Cádiz;Confirmados PCR;1222;
-07/05/2020;Cádiz;Confirmados PCR <14días;59;
+07/05/2020;Cádiz;Confirmados PCR 14 días;59;
 07/05/2020;Cádiz;Hospitalizados;559;
 07/05/2020;Cádiz;Total UCI;78;
 07/05/2020;Cádiz;Fallecimientos;138;
 07/05/2020;Cádiz;Curados;412;
 07/05/2020;Cádiz;Confirmados total;1406;
 07/05/2020;Córdoba;Confirmados PCR;1320;
-07/05/2020;Córdoba;Confirmados PCR <14días;27;
+07/05/2020;Córdoba;Confirmados PCR 14 días;27;
 07/05/2020;Córdoba;Hospitalizados;540;
 07/05/2020;Córdoba;Total UCI;73;
 07/05/2020;Córdoba;Fallecimientos;104;
 07/05/2020;Córdoba;Curados;1093;
 07/05/2020;Córdoba;Confirmados total;1527;
 07/05/2020;Granada;Confirmados PCR;2469;
-07/05/2020;Granada;Confirmados PCR <14días;168;
+07/05/2020;Granada;Confirmados PCR 14 días;168;
 07/05/2020;Granada;Hospitalizados;1166;
 07/05/2020;Granada;Total UCI;132;
 07/05/2020;Granada;Fallecimientos;271;
 07/05/2020;Granada;Curados;2126;
 07/05/2020;Granada;Confirmados total;2905;
 07/05/2020;Huelva;Confirmados PCR;398;
-07/05/2020;Huelva;Confirmados PCR <14días;10;
+07/05/2020;Huelva;Confirmados PCR 14 días;10;
 07/05/2020;Huelva;Hospitalizados;219;
 07/05/2020;Huelva;Total UCI;30;
 07/05/2020;Huelva;Fallecimientos;45;
 07/05/2020;Huelva;Curados;275;
 07/05/2020;Huelva;Confirmados total;500;
 07/05/2020;Jaén;Confirmados PCR;1321;
-07/05/2020;Jaén;Confirmados PCR <14días;48;
+07/05/2020;Jaén;Confirmados PCR 14 días;48;
 07/05/2020;Jaén;Hospitalizados;733;
 07/05/2020;Jaén;Total UCI;81;
 07/05/2020;Jaén;Fallecimientos;164;
 07/05/2020;Jaén;Curados;1001;
 07/05/2020;Jaén;Confirmados total;1609;
 07/05/2020;Málaga;Confirmados PCR;2701;
-07/05/2020;Málaga;Confirmados PCR <14días;104;
+07/05/2020;Málaga;Confirmados PCR 14 días;104;
 07/05/2020;Málaga;Hospitalizados;1438;
 07/05/2020;Málaga;Total UCI;165;
 07/05/2020;Málaga;Fallecimientos;266;
 07/05/2020;Málaga;Curados;1811;
 07/05/2020;Málaga;Confirmados total;3703;
 07/05/2020;Sevilla;Confirmados PCR;2379;
-07/05/2020;Sevilla;Confirmados PCR <14días;80;
+07/05/2020;Sevilla;Confirmados PCR 14 días;80;
 07/05/2020;Sevilla;Hospitalizados;1173;
 07/05/2020;Sevilla;Total UCI;146;
 07/05/2020;Sevilla;Fallecimientos;264;
 07/05/2020;Sevilla;Curados;1341;
 07/05/2020;Sevilla;Confirmados total;2782;
 
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
           
                
                     
