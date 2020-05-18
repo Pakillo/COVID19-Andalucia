@@ -223,7 +223,7 @@ datos.minist <- read_csv2("datos/ultimos_datos.csv",
 
 datos.last <- datos.minist %>%
   group_by(Territorio) %>%
-  mutate_at(3:7, function(x) {x - lag(x)}) %>%
+  mutate_at(3:8, function(x) {x - lag(x)}) %>%
   filter(Fecha == max(Fecha)) %>%
   ungroup()
 
