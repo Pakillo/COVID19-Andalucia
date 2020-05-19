@@ -2,7 +2,7 @@
 library(shiny)
 library(dplyr)
 library(ggplot2)
-library(plotly)
+#library(plotly)
 library(DT)
 
 datos.muni <- readr::read_csv("https://raw.githubusercontent.com/Pakillo/COVID19-Andalucia/master/datos/municipios.csv", guess_max = 10000)
@@ -21,7 +21,7 @@ ui <- pageWithSidebar(
     ),
     mainPanel(
         tabsetPanel(
-            tabPanel("Gráfica", plotlyOutput('plot1')),
+            tabPanel("Gráfica", plotOutput('plot1')),
             tabPanel("Tabla", DT::dataTableOutput('table1'))
         )
     )
@@ -51,9 +51,10 @@ server <- function(input, output, session) {
 
 
     # grafica
-    output$plot1 <- renderPlotly({
+    output$plot1 <- renderPlot({
 
-        plotly::ggplotly(
+        #plotly::ggplotly(
+
             selectedData() %>%
                 rename(`Confirmados PCR` = ConfirmadosPCR,
                        `Confirmados Total (PCR + test)` = ConfirmadosTotal) %>%
@@ -71,7 +72,9 @@ server <- function(input, output, session) {
                 theme(legend.position = "none",
                       plot.title = element_text(size = 15),
                       plot.caption = element_text(size = 8, face = "italic", colour = "grey60"),
-                      strip.text = element_text(size = 12)))
+                      strip.text = element_text(size = 12))
+
+        #)
     })
 
 
