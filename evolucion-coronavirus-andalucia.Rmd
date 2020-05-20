@@ -203,9 +203,12 @@ ggplot(datos.andal.long) +
 
 <br>
 
-**DATOS DEL DÍA:** `r Sys.Date() - 1`
+**DATOS DEL DÍA:** `r max(datos.andal$Fecha)`
 
 ```{r datos.last}
+
+## Existen discordancias entre serie suministrada al ministerio y la depurada por la Junta a posteriori. Por tanto paso a usar la de la Junta siempre que se pueda
+
 datos.minist <- read_csv2("datos/ultimos_datos.csv", 
                         col_types = "Dcci-",
                           locale = locale(date_names = "es", 
@@ -221,14 +224,27 @@ datos.minist <- read_csv2("datos/ultimos_datos.csv",
   tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
   arrange(Fecha)
 
-datos.last <- datos.minist %>%
-  group_by(Territorio) %>%
-  mutate_at(3:8, function(x) {x - lag(x)}) %>%
+# datos.last <- datos.minist %>%
+#   group_by(Territorio) %>%
+#   mutate_at(3:8, function(x) {x - lag(x)}) %>%
+#   filter(Fecha == max(Fecha)) %>%
+#   ungroup()
+#
+
+## Usando la serie de la Junta (1 día de retraso)
+datos.last <- datos.andal %>%
+  dplyr::select(Fecha:Defunciones) %>%#
+  bind_rows(datos.provs) %>%
+  dplyr::select(-ConfirmadosTotal) %>%
+  rename(Recuperados = Curados) %>%
+  dplyr::select(-Recuperados, Recuperados) %>%
   filter(Fecha == max(Fecha)) %>%
-  ungroup()
+  mutate_at(3:7, function(x) {ifelse(is.na(x), 0, x)})
 
 kable(datos.last[, -1])
+
 ```
+
 
 *(valores negativos significan que se han eliminado casos respecto al día anterior)*
 
@@ -237,6 +253,7 @@ kable(datos.last[, -1])
 **DATOS ACUMULADOS:**
 
 ```{r datos.acum}
+# Estos datos normalmente un día por delante de la serie de la Junta
 datos.minist %>%
   filter(Fecha == max(Fecha)) %>%
   select(-Fecha) %>%
@@ -462,7 +479,7 @@ ggplot(datos.provs) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
   scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
-               date_breaks = "2 days", date_labels = "%d %B") 
+               date_breaks = "4 days", date_labels = "%d %B") 
 
 ```
 
@@ -738,7 +755,7 @@ ggplot(datos.provs) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
   scale_x_date(limits = c(Sys.Date() - 15, NA), 
-               date_breaks = "2 days", date_labels = "%d %B")
+               date_breaks = "4 days", date_labels = "%d %B")
 
 ```
 
