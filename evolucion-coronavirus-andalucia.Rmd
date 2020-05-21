@@ -141,16 +141,6 @@ datos.andal <- datos %>%
   mutate(Prop.Positivos = 100 * Prop.Positivos) %>%
   ungroup()
 
-
-# prop.ci <- function(pos, n) {
-#   # from Gelman & Hill book, p. 18
-#   estimate <- pos/n
-#   se <- sqrt(estimate * (1 - estimate) / n)
-#   int.99 <- estimate + qnorm(c(.005,.995)) * se
-#   int.99
-# }
-
-
 ```
 
 <br>
@@ -644,39 +634,6 @@ mapview(casos.dist, zcol = "casos",
 ```
 
 
-
-
-```{r seguimiento_Andalucía, fig.height=3, out.width='100%',eval=FALSE}
-
-ggplot(andal) +
-  geom_line(aes(x = Fecha, y = Seguimiento), 
-            size = 2, colour = "#a65628") +
-  ylim(0, max(andal$Seguimiento)) +
-  scale_x_datetime(limits = c(min(andal$Fecha[!is.na(andal$Seguimiento)]),
-                          max(andal$Fecha))) +
-  labs(x = "", y = "Nº Personas\n",
-       title = "Personas en seguimiento activo por COVID-19 en Andalucía")
-
-```
-
-
-```{r seguimiento_provincias, out.width='100%', eval=FALSE}
-
-ggplot(datos) +
-  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_line(aes(x = Fecha, y = Seguimiento), 
-            size = 1.5, colour = "#a65628") +
-  ylim(0, max(datos$Seguimiento)) +
-  scale_x_datetime(limits = c(min(datos$Fecha[!is.na(datos$Seguimiento)]),
-                          max(datos$Fecha))) +
-  labs(x = "", y = "Nº Personas\n",
-       title = "Personas en seguimiento activo en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
-  theme(axis.text.x = element_text(size = 8))
-
-```
-
-
 <br>
 
 
@@ -843,38 +800,6 @@ ggplot(camas) +
             aes(Fecha + 0.1, UCI + 10, label = paste0("UCI\n", UCI)), 
             colour = "#e41a1c")
   
-
-```
-
-
-```{r altas_Andalucía, fig.height=3, out.width='100%', eval=FALSE}
-
-ggplot(andal) +
-  geom_line(aes(x = Fecha, y = Altas.dia), 
-            size = 2, colour = "#377eb8") +
-  ylim(0, max(andal$Altas.dia)) +
-  scale_x_datetime(limits = c(andal$Fecha[13],
-                          max(andal$Fecha))) +
-  labs(x = "", y = "Nº Personas\n",
-       title = "Altas hospitalarias en Andalucía")
-
-```
-
-
-
-```{r altas_provincias, out.width='100%', eval=FALSE}
-
-ggplot(datos) +
-  facet_wrap(~Provincia, scales = "free_y", ncol = 2) +
-  geom_line(aes(x = Fecha, y = Altas.dia), 
-            size = 1.5, colour = "#377eb8") +
-  ylim(0, max(datos$Altas.dia)) +
-  scale_x_datetime(limits = c(andal$Fecha[13],
-                          max(datos$Fecha))) +
-  labs(x = "", y = "Nº Personas\n",
-       title = "Altas hospitalarias en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
-  theme(axis.text.x = element_text(size = 8))
 
 ```
 
