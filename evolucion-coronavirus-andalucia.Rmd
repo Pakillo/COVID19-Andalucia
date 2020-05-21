@@ -469,7 +469,7 @@ Y en los últimos 14 días:
 ```{r casos_provincias.14d, out.width = '100%', fig.height=6}
 
 ggplot(datos.provs) +
-  facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
+  facet_wrap(~Territorio, ncol = 2) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
   ylim(0, NA) +
@@ -1258,7 +1258,8 @@ ggplotly(ggplot(ccaa.hosp) +
 
 ```{r def.ccaa, fig.height=5, out.width='100%'}
 
-ccaa.def <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_fallecidos_long.csv", guess_max = 10000)
+ccaa.def <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_fallecidos_long.csv", guess_max = 10000) %>%
+  mutate(total = as.numeric(total))
 
 ggplotly(ggplot(ccaa.def) +
   geom_line(aes(x = fecha, y = total, group = CCAA), 
