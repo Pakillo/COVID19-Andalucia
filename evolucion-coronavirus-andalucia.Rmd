@@ -416,7 +416,7 @@ ggplot(datos.andal) +
                      sec.axis = sec_axis(trans = ~ ((.*sec.axis.factor)), 
                                          breaks = seq(0, 3000, by = 500),
                                          name = "Número de test\n")) +
-  scale_x_date(limits = c(as.Date("2020-03-26"), NA)) +
+  scale_x_date(limits = c(as.Date("2020-03-26"), as.Date("2020-05-13"))) +
   labs(x = "", y = "Porcentaje de tests positivos\n",
        title = "Porcentaje de tests que dan positivo en Andalucía",
        subtitle = "La línea gris representa el número de test realizados diariamente (eje derecho)",
