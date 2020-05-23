@@ -185,7 +185,8 @@ ggplot(datos.andal.long) +
   labs(x = "", y = "Nº personas\n", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
   scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
-               date_breaks = "2 days", date_labels = "%d %B") 
+               date_breaks = "2 days", date_labels = "%d %B") +
+  scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
 
@@ -462,14 +463,14 @@ ggplot(datos.provs) +
   facet_wrap(~Territorio, ncol = 2) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
-  ylim(0, NA) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos de COVID-19 confirmados por PCR en cada provincia",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
   scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
-               date_breaks = "4 days", date_labels = "%d %B") 
+               date_breaks = "4 days", date_labels = "%d %B") +
+  scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
 ```
 
@@ -705,14 +706,14 @@ ggplot(datos.provs) +
   facet_wrap(~Territorio, ncol = 2) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
             fill = "#377eb8") +
-  ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
   scale_x_date(limits = c(Sys.Date() - 15, NA), 
-               date_breaks = "4 days", date_labels = "%d %B")
+               date_breaks = "4 days", date_labels = "%d %B") +
+  scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
 ```
 
