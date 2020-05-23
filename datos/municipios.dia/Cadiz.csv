@@ -1,17 +1,17 @@
 Lugar de residencia;Medida;Valor;
 Cádiz;Población;1240155;
-Cádiz;Confirmado PCR;1258;
-Cádiz;Confirmados PCR 14 días;24;
-Cádiz;Defunciones;149;
-Cádiz;Confirmados total;1554;
+Cádiz;Confirmado PCR;1257;
+Cádiz;Confirmados PCR 14 días;22;
+Cádiz;Defunciones;153;
+Cádiz;Confirmados total;1558;
 Campo de Gibraltar;Población;270879;
-Campo de Gibraltar;Confirmado PCR;228;
-Campo de Gibraltar;Confirmados PCR 14 días;4;
+Campo de Gibraltar;Confirmado PCR;227;
+Campo de Gibraltar;Confirmados PCR 14 días;3;
 Campo de Gibraltar;Defunciones;33;
 Campo de Gibraltar;Confirmados total;308;
 Algeciras;Población;121957;
-Algeciras;Confirmado PCR;138;
-Algeciras;Confirmados PCR 14 días;1;
+Algeciras;Confirmado PCR;137;
+Algeciras;Confirmados PCR 14 días;0;
 Algeciras;Defunciones;19;
 Algeciras;Confirmados total;183;
 Castellar de la Frontera;Población;3049;
@@ -52,8 +52,8 @@ Tarifa;Confirmados total;26;
 Bahía de Cádiz-La Janda;Población;512524;
 Bahía de Cádiz-La Janda;Confirmado PCR;519;
 Bahía de Cádiz-La Janda;Confirmados PCR 14 días;6;
-Bahía de Cádiz-La Janda;Defunciones;41;
-Bahía de Cádiz-La Janda;Confirmados total;629;
+Bahía de Cádiz-La Janda;Defunciones;43;
+Bahía de Cádiz-La Janda;Confirmados total;631;
 Barbate;Población;22518;
 Barbate;Confirmado PCR;5;
 Barbate;Confirmados PCR 14 días;0;
@@ -62,13 +62,13 @@ Barbate;Confirmados total;5;
 Cádiz (capital);Población;116027;
 Cádiz (capital);Confirmado PCR;159;
 Cádiz (capital);Confirmados PCR 14 días;0;
-Cádiz (capital);Defunciones;8;
-Cádiz (capital);Confirmados total;203;
+Cádiz (capital);Defunciones;9;
+Cádiz (capital);Confirmados total;204;
 Chiclana de la Frontera;Población;84489;
 Chiclana de la Frontera;Confirmado PCR;48;
 Chiclana de la Frontera;Confirmados PCR 14 días;1;
 Chiclana de la Frontera;Defunciones;8;
-Chiclana de la Frontera;Confirmados total;60;
+Chiclana de la Frontera;Confirmados total;61;
 Conil de la Frontera;Población;22529;
 Conil de la Frontera;Confirmado PCR;7;
 Conil de la Frontera;Confirmados PCR 14 días;1;
@@ -107,7 +107,7 @@ Puerto Real;Confirmados total;50;
 San Fernando;Población;94979;
 San Fernando;Confirmado PCR;184;
 San Fernando;Confirmados PCR 14 días;3;
-San Fernando;Defunciones;14;
+San Fernando;Defunciones;15;
 San Fernando;Confirmados total;214;
 Vejer de la Frontera;Población;12624;
 Vejer de la Frontera;Confirmado PCR;2;
@@ -116,9 +116,9 @@ Vejer de la Frontera;Defunciones;0;
 Vejer de la Frontera;Confirmados total;3;
 Jerez-Costa Noroeste;Población;341111;
 Jerez-Costa Noroeste;Confirmado PCR;360;
-Jerez-Costa Noroeste;Confirmados PCR 14 días;10;
+Jerez-Costa Noroeste;Confirmados PCR 14 días;9;
 Jerez-Costa Noroeste;Defunciones;47;
-Jerez-Costa Noroeste;Confirmados total;421;
+Jerez-Costa Noroeste;Confirmados total;422;
 Chipiona;Población;19123;
 Chipiona;Confirmado PCR;13;
 Chipiona;Confirmados PCR 14 días;0;
@@ -126,7 +126,7 @@ Chipiona;Defunciones;0;
 Chipiona;Confirmados total;14;
 Jerez de la Frontera;Población;212749;
 Jerez de la Frontera;Confirmado PCR;266;
-Jerez de la Frontera;Confirmados PCR 14 días;9;
+Jerez de la Frontera;Confirmados PCR 14 días;8;
 Jerez de la Frontera;Defunciones;41;
 Jerez de la Frontera;Confirmados total;311;
 San José del Valle;Población;4418;
@@ -138,7 +138,7 @@ Rota;Población;29109;
 Rota;Confirmado PCR;27;
 Rota;Confirmados PCR 14 días;1;
 Rota;Defunciones;3;
-Rota;Confirmados total;31;
+Rota;Confirmados total;32;
 Sanlúcar de Barrameda;Población;68684;
 Sanlúcar de Barrameda;Confirmado PCR;31;
 Sanlúcar de Barrameda;Confirmados PCR 14 días;0;
@@ -152,7 +152,7 @@ Trebujena;Confirmados total;27;
 Sierra de Cádiz;Población;115641;
 Sierra de Cádiz;Confirmado PCR;151;
 Sierra de Cádiz;Confirmados PCR 14 días;4;
-Sierra de Cádiz;Defunciones;28;
+Sierra de Cádiz;Defunciones;30;
 Sierra de Cádiz;Confirmados total;196;
 Alcalá del Valle;Población;5046;
 Alcalá del Valle;Confirmado PCR;67;
@@ -217,7 +217,7 @@ Grazalema;Confirmados total;1;
 Ubrique;Población;16597;
 Ubrique;Confirmado PCR;36;
 Ubrique;Confirmados PCR 14 días;3;
-Ubrique;Defunciones;7;
+Ubrique;Defunciones;9;
 Ubrique;Confirmados total;55;
 Villaluenga del Rosario;Población;455;
 Villaluenga del Rosario;Confirmado PCR;1;
@@ -249,7 +249,22 @@ Villamartín;Confirmado PCR;10;
 Villamartín;Confirmados PCR 14 días;0;
 Villamartín;Defunciones;0;
 Villamartín;Confirmados total;15;
+Municipio de Cádiz sin especificar;Población;;
+Municipio de Cádiz sin especificar;Confirmado PCR;0;
+Municipio de Cádiz sin especificar;Confirmados PCR 14 días;0;
+Municipio de Cádiz sin especificar;Defunciones;0;
+Municipio de Cádiz sin especificar;Confirmados total;1;
 
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
           
                
                     
