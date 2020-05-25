@@ -1,10 +1,46 @@
 Fecha declaración;Territorio;Medida;Valor;
+24/05/2020;Andalucía;Confirmados PCR;1;
+24/05/2020;Andalucía;Hospitalizados;0;
+24/05/2020;Andalucía;UCI;0;
+24/05/2020;Andalucía;Curados;19;
+24/05/2020;Andalucía;Defunciones;0;
+24/05/2020;Andalucía;Total confirmados (PCR+test);22;
+24/05/2020;Huelva;Confirmados PCR;0;
+24/05/2020;Huelva;Hospitalizados;0;
+24/05/2020;Huelva;UCI;0;
+24/05/2020;Huelva;Curados;1;
+24/05/2020;Huelva;Defunciones;0;
+24/05/2020;Huelva;Total confirmados (PCR+test);1;
+24/05/2020;Jaén;Confirmados PCR;1;
+24/05/2020;Jaén;Hospitalizados;0;
+24/05/2020;Jaén;UCI;0;
+24/05/2020;Jaén;Curados;0;
+24/05/2020;Jaén;Defunciones;0;
+24/05/2020;Jaén;Total confirmados (PCR+test);1;
+24/05/2020;Málaga;Confirmados PCR;0;
+24/05/2020;Málaga;Hospitalizados;0;
+24/05/2020;Málaga;UCI;0;
+24/05/2020;Málaga;Curados;5;
+24/05/2020;Málaga;Defunciones;0;
+24/05/2020;Málaga;Total confirmados (PCR+test);7;
+24/05/2020;Sevilla;Confirmados PCR;0;
+24/05/2020;Sevilla;Hospitalizados;0;
+24/05/2020;Sevilla;UCI;0;
+24/05/2020;Sevilla;Curados;13;
+24/05/2020;Sevilla;Defunciones;0;
+24/05/2020;Sevilla;Total confirmados (PCR+test);13;
 23/05/2020;Andalucía;Confirmados PCR;6;
 23/05/2020;Andalucía;Hospitalizados;2;
 23/05/2020;Andalucía;UCI;0;
-23/05/2020;Andalucía;Curados;43;
+23/05/2020;Andalucía;Curados;44;
 23/05/2020;Andalucía;Defunciones;1;
-23/05/2020;Andalucía;Total confirmados (PCR+test);50;
+23/05/2020;Andalucía;Total confirmados (PCR+test);51;
+23/05/2020;Almería;Confirmados PCR;1;
+23/05/2020;Almería;Hospitalizados;1;
+23/05/2020;Almería;UCI;0;
+23/05/2020;Almería;Curados;0;
+23/05/2020;Almería;Defunciones;0;
+23/05/2020;Almería;Total confirmados (PCR+test);1;
 23/05/2020;Córdoba;Confirmados PCR;0;
 23/05/2020;Córdoba;Hospitalizados;0;
 23/05/2020;Córdoba;UCI;0;
@@ -17,42 +53,42 @@ Fecha declaración;Territorio;Medida;Valor;
 23/05/2020;Granada;Curados;0;
 23/05/2020;Granada;Defunciones;1;
 23/05/2020;Granada;Total confirmados (PCR+test);3;
-23/05/2020;Jaén;Confirmados PCR;4;
-23/05/2020;Jaén;Hospitalizados;1;
+23/05/2020;Jaén;Confirmados PCR;3;
+23/05/2020;Jaén;Hospitalizados;0;
 23/05/2020;Jaén;UCI;0;
 23/05/2020;Jaén;Curados;1;
 23/05/2020;Jaén;Defunciones;0;
-23/05/2020;Jaén;Total confirmados (PCR+test);5;
+23/05/2020;Jaén;Total confirmados (PCR+test);4;
 23/05/2020;Sevilla;Confirmados PCR;0;
 23/05/2020;Sevilla;Hospitalizados;0;
 23/05/2020;Sevilla;UCI;0;
-23/05/2020;Sevilla;Curados;41;
+23/05/2020;Sevilla;Curados;42;
 23/05/2020;Sevilla;Defunciones;0;
-23/05/2020;Sevilla;Total confirmados (PCR+test);41;
-22/05/2020;Andalucía;Confirmados PCR;4;
-22/05/2020;Andalucía;Hospitalizados;4;
+23/05/2020;Sevilla;Total confirmados (PCR+test);42;
+22/05/2020;Andalucía;Confirmados PCR;5;
+22/05/2020;Andalucía;Hospitalizados;5;
 22/05/2020;Andalucía;UCI;0;
-22/05/2020;Andalucía;Curados;25;
+22/05/2020;Andalucía;Curados;22;
 22/05/2020;Andalucía;Defunciones;0;
-22/05/2020;Andalucía;Total confirmados (PCR+test);59;
+22/05/2020;Andalucía;Total confirmados (PCR+test);55;
 22/05/2020;Almería;Confirmados PCR;1;
 22/05/2020;Almería;Hospitalizados;2;
 22/05/2020;Almería;UCI;0;
-22/05/2020;Almería;Curados;4;
+22/05/2020;Almería;Curados;3;
 22/05/2020;Almería;Defunciones;0;
-22/05/2020;Almería;Total confirmados (PCR+test);7;
+22/05/2020;Almería;Total confirmados (PCR+test);6;
 22/05/2020;Córdoba;Confirmados PCR;0;
 22/05/2020;Córdoba;Hospitalizados;0;
 22/05/2020;Córdoba;UCI;0;
 22/05/2020;Córdoba;Curados;1;
 22/05/2020;Córdoba;Defunciones;0;
 22/05/2020;Córdoba;Total confirmados (PCR+test);1;
-22/05/2020;Granada;Confirmados PCR;0;
-22/05/2020;Granada;Hospitalizados;1;
+22/05/2020;Granada;Confirmados PCR;1;
+22/05/2020;Granada;Hospitalizados;2;
 22/05/2020;Granada;UCI;0;
-22/05/2020;Granada;Curados;11;
+22/05/2020;Granada;Curados;8;
 22/05/2020;Granada;Defunciones;0;
-22/05/2020;Granada;Total confirmados (PCR+test);14;
+22/05/2020;Granada;Total confirmados (PCR+test);11;
 22/05/2020;Huelva;Confirmados PCR;1;
 22/05/2020;Huelva;Hospitalizados;1;
 22/05/2020;Huelva;UCI;0;
@@ -68,7 +104,7 @@ Fecha declaración;Territorio;Medida;Valor;
 22/05/2020;Málaga;Confirmados PCR;2;
 22/05/2020;Málaga;Hospitalizados;0;
 22/05/2020;Málaga;UCI;0;
-22/05/2020;Málaga;Curados;5;
+22/05/2020;Málaga;Curados;6;
 22/05/2020;Málaga;Defunciones;0;
 22/05/2020;Málaga;Total confirmados (PCR+test);28;
 22/05/2020;Sevilla;Confirmados PCR;0;
@@ -80,7 +116,7 @@ Fecha declaración;Territorio;Medida;Valor;
 21/05/2020;Andalucía;Confirmados PCR;17;
 21/05/2020;Andalucía;Hospitalizados;5;
 21/05/2020;Andalucía;UCI;0;
-21/05/2020;Andalucía;Curados;52;
+21/05/2020;Andalucía;Curados;53;
 21/05/2020;Andalucía;Defunciones;0;
 21/05/2020;Andalucía;Total confirmados (PCR+test);103;
 21/05/2020;Almería;Confirmados PCR;0;
@@ -110,7 +146,7 @@ Fecha declaración;Territorio;Medida;Valor;
 21/05/2020;Málaga;Confirmados PCR;2;
 21/05/2020;Málaga;Hospitalizados;1;
 21/05/2020;Málaga;UCI;0;
-21/05/2020;Málaga;Curados;32;
+21/05/2020;Málaga;Curados;33;
 21/05/2020;Málaga;Defunciones;0;
 21/05/2020;Málaga;Total confirmados (PCR+test);56;
 21/05/2020;Sevilla;Confirmados PCR;4;
@@ -122,9 +158,9 @@ Fecha declaración;Territorio;Medida;Valor;
 20/05/2020;Andalucía;Confirmados PCR;21;
 20/05/2020;Andalucía;Hospitalizados;9;
 20/05/2020;Andalucía;UCI;1;
-20/05/2020;Andalucía;Curados;51;
+20/05/2020;Andalucía;Curados;53;
 20/05/2020;Andalucía;Defunciones;0;
-20/05/2020;Andalucía;Total confirmados (PCR+test);103;
+20/05/2020;Andalucía;Total confirmados (PCR+test);105;
 20/05/2020;Almería;Confirmados PCR;1;
 20/05/2020;Almería;Hospitalizados;2;
 20/05/2020;Almería;UCI;0;
@@ -158,19 +194,19 @@ Fecha declaración;Territorio;Medida;Valor;
 20/05/2020;Málaga;Confirmados PCR;6;
 20/05/2020;Málaga;Hospitalizados;1;
 20/05/2020;Málaga;UCI;0;
-20/05/2020;Málaga;Curados;30;
+20/05/2020;Málaga;Curados;31;
 20/05/2020;Málaga;Defunciones;0;
-20/05/2020;Málaga;Total confirmados (PCR+test);58;
+20/05/2020;Málaga;Total confirmados (PCR+test);59;
 20/05/2020;Sevilla;Confirmados PCR;0;
 20/05/2020;Sevilla;Hospitalizados;0;
 20/05/2020;Sevilla;UCI;0;
-20/05/2020;Sevilla;Curados;3;
+20/05/2020;Sevilla;Curados;4;
 20/05/2020;Sevilla;Defunciones;0;
-20/05/2020;Sevilla;Total confirmados (PCR+test);5;
+20/05/2020;Sevilla;Total confirmados (PCR+test);6;
 19/05/2020;Andalucía;Confirmados PCR;13;
-19/05/2020;Andalucía;Hospitalizados;5;
+19/05/2020;Andalucía;Hospitalizados;6;
 19/05/2020;Andalucía;UCI;2;
-19/05/2020;Andalucía;Curados;62;
+19/05/2020;Andalucía;Curados;63;
 19/05/2020;Andalucía;Defunciones;0;
 19/05/2020;Andalucía;Total confirmados (PCR+test);119;
 19/05/2020;Almería;Confirmados PCR;0;
@@ -192,7 +228,7 @@ Fecha declaración;Territorio;Medida;Valor;
 19/05/2020;Córdoba;Defunciones;0;
 19/05/2020;Córdoba;Total confirmados (PCR+test);17;
 19/05/2020;Granada;Confirmados PCR;3;
-19/05/2020;Granada;Hospitalizados;2;
+19/05/2020;Granada;Hospitalizados;3;
 19/05/2020;Granada;UCI;0;
 19/05/2020;Granada;Curados;22;
 19/05/2020;Granada;Defunciones;0;
@@ -212,7 +248,7 @@ Fecha declaración;Territorio;Medida;Valor;
 19/05/2020;Málaga;Confirmados PCR;1;
 19/05/2020;Málaga;Hospitalizados;0;
 19/05/2020;Málaga;UCI;0;
-19/05/2020;Málaga;Curados;16;
+19/05/2020;Málaga;Curados;17;
 19/05/2020;Málaga;Defunciones;0;
 19/05/2020;Málaga;Total confirmados (PCR+test);42;
 19/05/2020;Sevilla;Confirmados PCR;1;
@@ -221,11 +257,11 @@ Fecha declaración;Territorio;Medida;Valor;
 19/05/2020;Sevilla;Curados;7;
 19/05/2020;Sevilla;Defunciones;0;
 19/05/2020;Sevilla;Total confirmados (PCR+test);8;
-18/05/2020;Andalucía;Confirmados PCR;17;
+18/05/2020;Andalucía;Confirmados PCR;16;
 18/05/2020;Andalucía;Hospitalizados;7;
 18/05/2020;Andalucía;UCI;0;
-18/05/2020;Andalucía;Curados;80;
-18/05/2020;Andalucía;Defunciones;1;
+18/05/2020;Andalucía;Curados;81;
+18/05/2020;Andalucía;Defunciones;2;
 18/05/2020;Andalucía;Total confirmados (PCR+test);148;
 18/05/2020;Almería;Confirmados PCR;0;
 18/05/2020;Almería;Hospitalizados;0;
@@ -239,12 +275,12 @@ Fecha declaración;Territorio;Medida;Valor;
 18/05/2020;Cádiz;Curados;6;
 18/05/2020;Cádiz;Defunciones;0;
 18/05/2020;Cádiz;Total confirmados (PCR+test);12;
-18/05/2020;Córdoba;Confirmados PCR;2;
+18/05/2020;Córdoba;Confirmados PCR;1;
 18/05/2020;Córdoba;Hospitalizados;4;
 18/05/2020;Córdoba;UCI;0;
 18/05/2020;Córdoba;Curados;2;
-18/05/2020;Córdoba;Defunciones;1;
-18/05/2020;Córdoba;Total confirmados (PCR+test);9;
+18/05/2020;Córdoba;Defunciones;2;
+18/05/2020;Córdoba;Total confirmados (PCR+test);8;
 18/05/2020;Granada;Confirmados PCR;1;
 18/05/2020;Granada;Hospitalizados;2;
 18/05/2020;Granada;UCI;0;
@@ -266,9 +302,9 @@ Fecha declaración;Territorio;Medida;Valor;
 18/05/2020;Málaga;Confirmados PCR;2;
 18/05/2020;Málaga;Hospitalizados;1;
 18/05/2020;Málaga;UCI;0;
-18/05/2020;Málaga;Curados;31;
+18/05/2020;Málaga;Curados;32;
 18/05/2020;Málaga;Defunciones;0;
-18/05/2020;Málaga;Total confirmados (PCR+test);61;
+18/05/2020;Málaga;Total confirmados (PCR+test);62;
 18/05/2020;Sevilla;Confirmados PCR;5;
 18/05/2020;Sevilla;Hospitalizados;0;
 18/05/2020;Sevilla;UCI;0;
@@ -366,11 +402,11 @@ Fecha declaración;Territorio;Medida;Valor;
 16/05/2020;Sevilla;Defunciones;0;
 16/05/2020;Sevilla;Total confirmados (PCR+test);5;
 15/05/2020;Andalucía;Confirmados PCR;23;
-15/05/2020;Andalucía;Hospitalizados;7;
+15/05/2020;Andalucía;Hospitalizados;8;
 15/05/2020;Andalucía;UCI;0;
-15/05/2020;Andalucía;Curados;76;
+15/05/2020;Andalucía;Curados;78;
 15/05/2020;Andalucía;Defunciones;0;
-15/05/2020;Andalucía;Total confirmados (PCR+test);132;
+15/05/2020;Andalucía;Total confirmados (PCR+test);134;
 15/05/2020;Almería;Confirmados PCR;2;
 15/05/2020;Almería;Hospitalizados;2;
 15/05/2020;Almería;UCI;0;
@@ -390,7 +426,7 @@ Fecha declaración;Territorio;Medida;Valor;
 15/05/2020;Córdoba;Defunciones;0;
 15/05/2020;Córdoba;Total confirmados (PCR+test);7;
 15/05/2020;Granada;Confirmados PCR;9;
-15/05/2020;Granada;Hospitalizados;1;
+15/05/2020;Granada;Hospitalizados;2;
 15/05/2020;Granada;UCI;0;
 15/05/2020;Granada;Curados;14;
 15/05/2020;Granada;Defunciones;0;
@@ -410,9 +446,9 @@ Fecha declaración;Territorio;Medida;Valor;
 15/05/2020;Málaga;Confirmados PCR;1;
 15/05/2020;Málaga;Hospitalizados;2;
 15/05/2020;Málaga;UCI;0;
-15/05/2020;Málaga;Curados;30;
+15/05/2020;Málaga;Curados;32;
 15/05/2020;Málaga;Defunciones;0;
-15/05/2020;Málaga;Total confirmados (PCR+test);51;
+15/05/2020;Málaga;Total confirmados (PCR+test);53;
 15/05/2020;Sevilla;Confirmados PCR;0;
 15/05/2020;Sevilla;Hospitalizados;0;
 15/05/2020;Sevilla;UCI;0;
@@ -935,12 +971,12 @@ Fecha declaración;Territorio;Medida;Valor;
 05/05/2020;Sevilla;Curados;17;
 05/05/2020;Sevilla;Defunciones;0;
 05/05/2020;Sevilla;Total confirmados (PCR+test);18;
-04/05/2020;Andalucía;Confirmados PCR;48;
+04/05/2020;Andalucía;Confirmados PCR;47;
 04/05/2020;Andalucía;Hospitalizados;16;
 04/05/2020;Andalucía;UCI;2;
 04/05/2020;Andalucía;Curados;137;
 04/05/2020;Andalucía;Defunciones;2;
-04/05/2020;Andalucía;Total confirmados (PCR+test);244;
+04/05/2020;Andalucía;Total confirmados (PCR+test);243;
 04/05/2020;Almería;Confirmados PCR;0;
 04/05/2020;Almería;Hospitalizados;0;
 04/05/2020;Almería;UCI;0;
@@ -959,12 +995,12 @@ Fecha declaración;Territorio;Medida;Valor;
 04/05/2020;Córdoba;Curados;12;
 04/05/2020;Córdoba;Defunciones;0;
 04/05/2020;Córdoba;Total confirmados (PCR+test);19;
-04/05/2020;Granada;Confirmados PCR;6;
+04/05/2020;Granada;Confirmados PCR;5;
 04/05/2020;Granada;Hospitalizados;2;
 04/05/2020;Granada;UCI;0;
 04/05/2020;Granada;Curados;25;
 04/05/2020;Granada;Defunciones;1;
-04/05/2020;Granada;Total confirmados (PCR+test);35;
+04/05/2020;Granada;Total confirmados (PCR+test);34;
 04/05/2020;Huelva;Confirmados PCR;0;
 04/05/2020;Huelva;Hospitalizados;0;
 04/05/2020;Huelva;UCI;0;
@@ -1808,7 +1844,7 @@ Fecha declaración;Territorio;Medida;Valor;
 17/04/2020;Andalucía;Confirmados PCR;111;
 17/04/2020;Andalucía;Hospitalizados;37;
 17/04/2020;Andalucía;UCI;2;
-17/04/2020;Andalucía;Curados;98;
+17/04/2020;Andalucía;Curados;102;
 17/04/2020;Andalucía;Defunciones;10;
 17/04/2020;Andalucía;Total confirmados (PCR+test);174;
 17/04/2020;Almería;Confirmados PCR;8;
@@ -1856,7 +1892,7 @@ Fecha declaración;Territorio;Medida;Valor;
 17/04/2020;Sevilla;Confirmados PCR;21;
 17/04/2020;Sevilla;Hospitalizados;3;
 17/04/2020;Sevilla;UCI;0;
-17/04/2020;Sevilla;Curados;9;
+17/04/2020;Sevilla;Curados;13;
 17/04/2020;Sevilla;Defunciones;1;
 17/04/2020;Sevilla;Total confirmados (PCR+test);29;
 16/04/2020;Andalucía;Confirmados PCR;62;
@@ -1916,7 +1952,7 @@ Fecha declaración;Territorio;Medida;Valor;
 15/04/2020;Andalucía;Confirmados PCR;119;
 15/04/2020;Andalucía;Hospitalizados;41;
 15/04/2020;Andalucía;UCI;0;
-15/04/2020;Andalucía;Curados;121;
+15/04/2020;Andalucía;Curados;124;
 15/04/2020;Andalucía;Defunciones;8;
 15/04/2020;Andalucía;Total confirmados (PCR+test);182;
 15/04/2020;Almería;Confirmados PCR;4;
@@ -1964,13 +2000,13 @@ Fecha declaración;Territorio;Medida;Valor;
 15/04/2020;Sevilla;Confirmados PCR;22;
 15/04/2020;Sevilla;Hospitalizados;6;
 15/04/2020;Sevilla;UCI;0;
-15/04/2020;Sevilla;Curados;16;
+15/04/2020;Sevilla;Curados;19;
 15/04/2020;Sevilla;Defunciones;3;
 15/04/2020;Sevilla;Total confirmados (PCR+test);39;
 14/04/2020;Andalucía;Confirmados PCR;108;
 14/04/2020;Andalucía;Hospitalizados;53;
 14/04/2020;Andalucía;UCI;5;
-14/04/2020;Andalucía;Curados;150;
+14/04/2020;Andalucía;Curados;151;
 14/04/2020;Andalucía;Defunciones;11;
 14/04/2020;Andalucía;Total confirmados (PCR+test);213;
 14/04/2020;Almería;Confirmados PCR;6;
@@ -2018,7 +2054,7 @@ Fecha declaración;Territorio;Medida;Valor;
 14/04/2020;Sevilla;Confirmados PCR;32;
 14/04/2020;Sevilla;Hospitalizados;15;
 14/04/2020;Sevilla;UCI;1;
-14/04/2020;Sevilla;Curados;47;
+14/04/2020;Sevilla;Curados;48;
 14/04/2020;Sevilla;Defunciones;3;
 14/04/2020;Sevilla;Total confirmados (PCR+test);68;
 13/04/2020;Andalucía;Confirmados PCR;142;
@@ -2186,7 +2222,7 @@ Fecha declaración;Territorio;Medida;Valor;
 10/04/2020;Andalucía;Confirmados PCR;136;
 10/04/2020;Andalucía;Hospitalizados;68;
 10/04/2020;Andalucía;UCI;3;
-10/04/2020;Andalucía;Curados;143;
+10/04/2020;Andalucía;Curados;144;
 10/04/2020;Andalucía;Defunciones;16;
 10/04/2020;Andalucía;Total confirmados (PCR+test);209;
 10/04/2020;Almería;Confirmados PCR;4;
@@ -2234,7 +2270,7 @@ Fecha declaración;Territorio;Medida;Valor;
 10/04/2020;Sevilla;Confirmados PCR;23;
 10/04/2020;Sevilla;Hospitalizados;13;
 10/04/2020;Sevilla;UCI;0;
-10/04/2020;Sevilla;Curados;31;
+10/04/2020;Sevilla;Curados;32;
 10/04/2020;Sevilla;Defunciones;1;
 10/04/2020;Sevilla;Total confirmados (PCR+test);44;
 09/04/2020;Andalucía;Confirmados PCR;167;
@@ -2294,9 +2330,9 @@ Fecha declaración;Territorio;Medida;Valor;
 08/04/2020;Andalucía;Confirmados PCR;221;
 08/04/2020;Andalucía;Hospitalizados;110;
 08/04/2020;Andalucía;UCI;7;
-08/04/2020;Andalucía;Curados;186;
+08/04/2020;Andalucía;Curados;187;
 08/04/2020;Andalucía;Defunciones;17;
-08/04/2020;Andalucía;Total confirmados (PCR+test);266;
+08/04/2020;Andalucía;Total confirmados (PCR+test);267;
 08/04/2020;Almería;Confirmados PCR;7;
 08/04/2020;Almería;Hospitalizados;1;
 08/04/2020;Almería;UCI;0;
@@ -2342,9 +2378,9 @@ Fecha declaración;Territorio;Medida;Valor;
 08/04/2020;Sevilla;Confirmados PCR;41;
 08/04/2020;Sevilla;Hospitalizados;19;
 08/04/2020;Sevilla;UCI;1;
-08/04/2020;Sevilla;Curados;42;
+08/04/2020;Sevilla;Curados;43;
 08/04/2020;Sevilla;Defunciones;2;
-08/04/2020;Sevilla;Total confirmados (PCR+test);60;
+08/04/2020;Sevilla;Total confirmados (PCR+test);61;
 07/04/2020;Andalucía;Confirmados PCR;218;
 07/04/2020;Andalucía;Hospitalizados;94;
 07/04/2020;Andalucía;UCI;10;
@@ -2564,7 +2600,7 @@ Fecha declaración;Territorio;Medida;Valor;
 03/04/2020;Andalucía;Confirmados PCR;354;
 03/04/2020;Andalucía;Hospitalizados;143;
 03/04/2020;Andalucía;UCI;14;
-03/04/2020;Andalucía;Curados;257;
+03/04/2020;Andalucía;Curados;258;
 03/04/2020;Andalucía;Defunciones;44;
 03/04/2020;Andalucía;Total confirmados (PCR+test);376;
 03/04/2020;Almería;Confirmados PCR;22;
@@ -2612,7 +2648,7 @@ Fecha declaración;Territorio;Medida;Valor;
 03/04/2020;Sevilla;Confirmados PCR;47;
 03/04/2020;Sevilla;Hospitalizados;18;
 03/04/2020;Sevilla;UCI;2;
-03/04/2020;Sevilla;Curados;27;
+03/04/2020;Sevilla;Curados;28;
 03/04/2020;Sevilla;Defunciones;7;
 03/04/2020;Sevilla;Total confirmados (PCR+test);50;
 02/04/2020;Andalucía;Confirmados PCR;416;
@@ -2780,9 +2816,9 @@ Fecha declaración;Territorio;Medida;Valor;
 30/03/2020;Andalucía;Confirmados PCR;501;
 30/03/2020;Andalucía;Hospitalizados;236;
 30/03/2020;Andalucía;UCI;22;
-30/03/2020;Andalucía;Curados;386;
+30/03/2020;Andalucía;Curados;388;
 30/03/2020;Andalucía;Defunciones;58;
-30/03/2020;Andalucía;Total confirmados (PCR+test);527;
+30/03/2020;Andalucía;Total confirmados (PCR+test);529;
 30/03/2020;Almería;Confirmados PCR;29;
 30/03/2020;Almería;Hospitalizados;11;
 30/03/2020;Almería;UCI;2;
@@ -2828,9 +2864,9 @@ Fecha declaración;Territorio;Medida;Valor;
 30/03/2020;Sevilla;Confirmados PCR;81;
 30/03/2020;Sevilla;Hospitalizados;35;
 30/03/2020;Sevilla;UCI;3;
-30/03/2020;Sevilla;Curados;58;
+30/03/2020;Sevilla;Curados;60;
 30/03/2020;Sevilla;Defunciones;9;
-30/03/2020;Sevilla;Total confirmados (PCR+test);88;
+30/03/2020;Sevilla;Total confirmados (PCR+test);90;
 29/03/2020;Andalucía;Confirmados PCR;326;
 29/03/2020;Andalucía;Hospitalizados;226;
 29/03/2020;Andalucía;UCI;35;
@@ -2942,7 +2978,7 @@ Fecha declaración;Territorio;Medida;Valor;
 27/03/2020;Andalucía;Confirmados PCR;766;
 27/03/2020;Andalucía;Hospitalizados;381;
 27/03/2020;Andalucía;UCI;40;
-27/03/2020;Andalucía;Curados;612;
+27/03/2020;Andalucía;Curados;613;
 27/03/2020;Andalucía;Defunciones;76;
 27/03/2020;Andalucía;Total confirmados (PCR+test);790;
 27/03/2020;Almería;Confirmados PCR;24;
@@ -2990,15 +3026,15 @@ Fecha declaración;Territorio;Medida;Valor;
 27/03/2020;Sevilla;Confirmados PCR;147;
 27/03/2020;Sevilla;Hospitalizados;61;
 27/03/2020;Sevilla;UCI;9;
-27/03/2020;Sevilla;Curados;123;
+27/03/2020;Sevilla;Curados;124;
 27/03/2020;Sevilla;Defunciones;17;
 27/03/2020;Sevilla;Total confirmados (PCR+test);154;
-26/03/2020;Andalucía;Confirmados PCR;670;
+26/03/2020;Andalucía;Confirmados PCR;669;
 26/03/2020;Andalucía;Hospitalizados;373;
 26/03/2020;Andalucía;UCI;43;
 26/03/2020;Andalucía;Curados;524;
 26/03/2020;Andalucía;Defunciones;69;
-26/03/2020;Andalucía;Total confirmados (PCR+test);680;
+26/03/2020;Andalucía;Total confirmados (PCR+test);679;
 26/03/2020;Almería;Confirmados PCR;22;
 26/03/2020;Almería;Hospitalizados;14;
 26/03/2020;Almería;UCI;5;
@@ -3041,12 +3077,12 @@ Fecha declaración;Territorio;Medida;Valor;
 26/03/2020;Málaga;Curados;124;
 26/03/2020;Málaga;Defunciones;13;
 26/03/2020;Málaga;Total confirmados (PCR+test);163;
-26/03/2020;Sevilla;Confirmados PCR;133;
+26/03/2020;Sevilla;Confirmados PCR;132;
 26/03/2020;Sevilla;Hospitalizados;73;
 26/03/2020;Sevilla;UCI;12;
 26/03/2020;Sevilla;Curados;97;
 26/03/2020;Sevilla;Defunciones;15;
-26/03/2020;Sevilla;Total confirmados (PCR+test);134;
+26/03/2020;Sevilla;Total confirmados (PCR+test);133;
 25/03/2020;Andalucía;Confirmados PCR;689;
 25/03/2020;Andalucía;Hospitalizados;375;
 25/03/2020;Andalucía;UCI;39;
@@ -3104,7 +3140,7 @@ Fecha declaración;Territorio;Medida;Valor;
 24/03/2020;Andalucía;Confirmados PCR;634;
 24/03/2020;Andalucía;Hospitalizados;382;
 24/03/2020;Andalucía;UCI;49;
-24/03/2020;Andalucía;Curados;485;
+24/03/2020;Andalucía;Curados;486;
 24/03/2020;Andalucía;Defunciones;80;
 24/03/2020;Andalucía;Total confirmados (PCR+test);657;
 24/03/2020;Almería;Confirmados PCR;22;
@@ -3152,13 +3188,13 @@ Fecha declaración;Territorio;Medida;Valor;
 24/03/2020;Sevilla;Confirmados PCR;127;
 24/03/2020;Sevilla;Hospitalizados;71;
 24/03/2020;Sevilla;UCI;13;
-24/03/2020;Sevilla;Curados;101;
+24/03/2020;Sevilla;Curados;102;
 24/03/2020;Sevilla;Defunciones;14;
 24/03/2020;Sevilla;Total confirmados (PCR+test);131;
 23/03/2020;Andalucía;Confirmados PCR;658;
 23/03/2020;Andalucía;Hospitalizados;338;
 23/03/2020;Andalucía;UCI;59;
-23/03/2020;Andalucía;Curados;524;
+23/03/2020;Andalucía;Curados;529;
 23/03/2020;Andalucía;Defunciones;72;
 23/03/2020;Andalucía;Total confirmados (PCR+test);670;
 23/03/2020;Almería;Confirmados PCR;38;
@@ -3206,13 +3242,13 @@ Fecha declaración;Territorio;Medida;Valor;
 23/03/2020;Sevilla;Confirmados PCR;164;
 23/03/2020;Sevilla;Hospitalizados;69;
 23/03/2020;Sevilla;UCI;12;
-23/03/2020;Sevilla;Curados;131;
+23/03/2020;Sevilla;Curados;136;
 23/03/2020;Sevilla;Defunciones;25;
 23/03/2020;Sevilla;Total confirmados (PCR+test);167;
 22/03/2020;Andalucía;Confirmados PCR;352;
 22/03/2020;Andalucía;Hospitalizados;202;
 22/03/2020;Andalucía;UCI;33;
-22/03/2020;Andalucía;Curados;263;
+22/03/2020;Andalucía;Curados;267;
 22/03/2020;Andalucía;Defunciones;60;
 22/03/2020;Andalucía;Total confirmados (PCR+test);357;
 22/03/2020;Almería;Confirmados PCR;18;
@@ -3260,7 +3296,7 @@ Fecha declaración;Territorio;Medida;Valor;
 22/03/2020;Sevilla;Confirmados PCR;111;
 22/03/2020;Sevilla;Hospitalizados;43;
 22/03/2020;Sevilla;UCI;6;
-22/03/2020;Sevilla;Curados;85;
+22/03/2020;Sevilla;Curados;89;
 22/03/2020;Sevilla;Defunciones;21;
 22/03/2020;Sevilla;Total confirmados (PCR+test);114;
 21/03/2020;Andalucía;Confirmados PCR;331;
@@ -4070,9 +4106,9 @@ Fecha declaración;Territorio;Medida;Valor;
 01/03/2020;Andalucía;Confirmados PCR;0;
 01/03/2020;Andalucía;Hospitalizados;0;
 01/03/2020;Andalucía;UCI;0;
-01/03/2020;Andalucía;Curados;2;
+01/03/2020;Andalucía;Curados;3;
 01/03/2020;Andalucía;Defunciones;0;
-01/03/2020;Andalucía;Total confirmados (PCR+test);2;
+01/03/2020;Andalucía;Total confirmados (PCR+test);3;
 01/03/2020;Córdoba;Confirmados PCR;0;
 01/03/2020;Córdoba;Hospitalizados;0;
 01/03/2020;Córdoba;UCI;0;
@@ -4082,9 +4118,9 @@ Fecha declaración;Territorio;Medida;Valor;
 01/03/2020;Sevilla;Confirmados PCR;0;
 01/03/2020;Sevilla;Hospitalizados;0;
 01/03/2020;Sevilla;UCI;0;
-01/03/2020;Sevilla;Curados;1;
+01/03/2020;Sevilla;Curados;2;
 01/03/2020;Sevilla;Defunciones;0;
-01/03/2020;Sevilla;Total confirmados (PCR+test);1;
+01/03/2020;Sevilla;Total confirmados (PCR+test);2;
 28/02/2020;Andalucía;Confirmados PCR;3;
 28/02/2020;Andalucía;Hospitalizados;1;
 28/02/2020;Andalucía;UCI;0;
@@ -4156,6 +4192,75 @@ Fecha declaración;Territorio;Medida;Valor;
                
                     
                
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
                
                     
                
