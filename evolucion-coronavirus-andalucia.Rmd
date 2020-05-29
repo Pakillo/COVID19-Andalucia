@@ -328,11 +328,13 @@ ggplot(datos.andal) +
 
 <br>
 
-Además de PCR, la Junta de Andalucía está realizando test rápidos, que sirven para detectar personas que han sido probablemente contagiadas por el virus (aunque actualmente puedan no mostrar síntomas o no tener carga viral significativa). Las gráficas de abajo incluyen tanto los casos detectados mediante PCR como mediante test serológicos (anticuerpos).
 
-<br>
+```{r casos_Andalucia, fig.height=4, out.width='100%', eval = FALSE}
 
-```{r casos_Andalucia, fig.height=4, out.width='100%'}
+# Además de PCR, la Junta de Andalucía está realizando test rápidos, que sirven para detectar personas que han sido probablemente contagiadas por el virus (aunque actualmente puedan no mostrar síntomas o no tener carga viral significativa). Las gráficas de abajo incluyen tanto los casos detectados mediante PCR como mediante test serológicos (anticuerpos).
+# 
+# <br>
+
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = ConfirmadosTotal), 
@@ -390,7 +392,7 @@ ggplot(test.ccaa) +
                      limits = c(0, NA)) +
   scale_y_continuous(name = "Número de casos por 100.000 habitantes\n",
                      limits = c(0, NA)) +
-  labs(title = "Número de casos detectados en relación al número de habitantes\ny test realizados por CC.AA.",
+  labs(title = "Número de casos detectados en relación al número de test\nrealizados por CC.AA.",
        caption = "Datos a 14 de Abril (Fuente: https://datos.civio.es)\nhttps://tiny.cc/COVID19-Andalucia") 
 ```
 
