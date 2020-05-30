@@ -398,12 +398,15 @@ ggplot(test.ccaa) +
 
 <br>
 
-La proporción de casos positivos respecto al total de test realizados también [puede informarnos](https://www.theatlantic.com/technology/archive/2020/04/us-coronavirus-outbreak-out-control-test-positivity-rate/610132/) sobre la incidencia de la enfermedad. 
 
-<br>
 
-```{r prop.positivos, fig.height=4, out.width = '100%'}
+```{r prop.positivos, fig.height=4, out.width = '100%', eval=FALSE}
 
+# La proporción de casos positivos respecto al total de test realizados también [puede informarnos](https://www.theatlantic.com/technology/archive/2020/04/us-coronavirus-outbreak-out-control-test-positivity-rate/610132/) sobre la incidencia de la enfermedad. 
+# 
+# <br>
+  
+  
 sec.axis.factor = 30
 
 ggplot(datos.andal) +
@@ -426,9 +429,11 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 
+# (La Junta de Andalucía ha dejado de proporcionar datos diarios del número de personas testadas, por lo que esta gráfica ha dejado de actualizarse desde el 12 de Mayo)
+
 ```
 
-(La Junta de Andalucía ha dejado de proporcionar datos diarios del número de personas testadas, por lo que esta gráfica ha dejado de actualizarse desde el 12 de Mayo)
+
 
 <br>
 <br>
