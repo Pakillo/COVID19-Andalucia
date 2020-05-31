@@ -81,7 +81,8 @@ server <- function(input, output, session) {
 
     # tabla datos
     output$table1 <- DT::renderDT(
-        datatable(selectedData(), rownames = FALSE))
+        datatable(arrange(selectedData(), desc(Fecha)),
+                  rownames = FALSE))
 
 }
 
