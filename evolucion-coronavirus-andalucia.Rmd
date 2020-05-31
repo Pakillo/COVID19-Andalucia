@@ -350,7 +350,6 @@ ggplot(datos.andal) +
 
 ```
 
-<br>
 
 (Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.) 
 
@@ -372,11 +371,6 @@ ggplot(datos.andal) +
   labs(title = "Relación entre el número de casos confirmados\ny el número de test realizados diariamente",
        caption = "https://tiny.cc/COVID19-Andalucia")
 ```
-
-<br>
-
-
-
 
 
 ```{r prop.positivos, fig.height=4, out.width = '100%', eval=FALSE}
@@ -1136,6 +1130,7 @@ ggplot(test.ccaa) +
        caption = "Datos a 14 de Abril (Fuente: https://datos.civio.es)\nhttps://tiny.cc/COVID19-Andalucia") 
 ```
 
+<br>
 <br>
 
 
