@@ -81,11 +81,16 @@ datos <- readr::read_csv2("datos/datos_provincias_raw.csv",
                           skip_empty_rows = TRUE) %>%
   filter(!is.na(Medida))
 
+# datos %>%
+#   assertr::verify(unique(.$Medida) == 
+#                     c("Confirmados PCR", "Hospitalizados", "UCI", 
+#                       "Curados", "Defunciones", "Total confirmados"))
+
 datos <- datos %>%
   tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
-  rename(Fecha = `Fecha declaración`, 
+  rename(Fecha = `Fecha diagnóstico`, 
          ConfirmadosPCR = `Confirmados PCR`, 
-         ConfirmadosTotal = `Total confirmados (PCR+test)`) %>%
+         ConfirmadosTotal = `Total confirmados`) %>%
   dplyr::select(Fecha, Territorio, ConfirmadosPCR, ConfirmadosTotal, everything()) %>%
   arrange(Fecha) %>%
   dplyr::filter(Territorio != "España")
@@ -168,7 +173,8 @@ ggplot(datos.andal.long) +
   geom_col(aes(x = Fecha, y = value, fill = indic)) +
   scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -298,7 +304,8 @@ ggplot(datos.andal) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(panel.grid.minor.y = element_line(size = rel(0.5)))
+  theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -424,7 +431,8 @@ ggplot(datos.provs) +
        title = "Casos de COVID-19 confirmados por PCR en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8))
+  theme(axis.text.x = element_text(size = 8)) +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -629,7 +637,8 @@ ggplot(datos.andal) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -670,7 +679,8 @@ ggplot(datos.provs) +
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8))
+  theme(axis.text.x = element_text(size = 8)) +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -710,7 +720,8 @@ ggplot(datos.andal) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos UCI\n",
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -800,7 +811,8 @@ ggplot(datos.andal) +
   #scale_x_date(limits = c(as.Date("2020-03-23"), NA)) +
   labs(x = "", y = "Nº Personas\n",
        title = "Personas curadas de COVID-19 diariamente en Andalucía",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -839,7 +851,8 @@ ggplot(datos.andal) +
   labs(x = "", y = "Nº Defunciones\n",
        title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_y_continuous(limits = c(0, NA)) 
+  scale_y_continuous(limits = c(0, NA)) +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
@@ -874,7 +887,8 @@ ggplot(datos.provs) +
        title = "Defunciones diarias relacionadas con COVID-19 en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias, la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8))
+  theme(axis.text.x = element_text(size = 8)) +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
 
