@@ -79,7 +79,8 @@ datos <- readr::read_csv2("datos/datos_provincias_raw.csv",
                                           grouping_mark = ".",
                                           date_format = "%d/%m/%Y"),
                           skip_empty_rows = TRUE) %>%
-  filter(!is.na(Medida))
+  filter(!is.na(Medida)) %>%
+  mutate(Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida))
 
 # datos %>%
 #   assertr::verify(unique(.$Medida) == 
