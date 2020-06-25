@@ -3,7 +3,7 @@ library(dplyr)
 
 ## Datos municipios
 
-fecha.munis <- as.Date("2020-06-23")
+fecha.munis <- as.Date("2020-06-24")
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
 
