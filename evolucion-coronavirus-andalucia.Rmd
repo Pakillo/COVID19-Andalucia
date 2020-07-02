@@ -587,9 +587,11 @@ ggplot(distri.data2plot) +
 ### Mapas
 
 
-Este mapa muestra los casos confirmados por distrito sanitario con fecha 6 de Abril. La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
+Este mapa muestra los casos confirmados mediante PCR en los últimos 14 días en cada municipio. 
 
-```{r mapa_distritos, out.width='100%'}
+<br>
+
+```{r mapa_distritos, out.width='100%', eval=FALSE}
 casos.dist <- readxl::read_excel("datos/datos_brutos.xlsx", sheet = "distritos")
 
 library(sf)
@@ -621,6 +623,35 @@ mapview(casos.dist, zcol = "casos",
         
 ```
 
+
+```{r mapamunis_PCR_14d, eval=FALSE}
+
+muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000) %>%
+  filter(Fecha == max(Fecha)) %>%
+  rename(PROVINCIA = Provincia, MUNICIPIO = Municipio)
+
+
+
+library(sf)
+
+muni.gpkg <- st_read("datos/municipios.gpkg", 
+                     stringsAsFactors = FALSE, quiet = TRUE) 
+
+muni.14d <- left_join(select(muni.gpkg, PROVINCIA, MUNICIPIO),
+                      select(muni.data, PROVINCIA, MUNICIPIO, ConfirmadosPCR14d),
+                      by = c("PROVINCIA", "MUNICIPIO"))
+
+
+ggplot(muni.14d) +
+  geom_sf(aes(fill = ConfirmadosPCR14d))
+
+
+```
+
+
+<br>
+
+La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
 
 <br>
 
