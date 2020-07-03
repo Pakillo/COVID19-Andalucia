@@ -586,9 +586,6 @@ ggplot(distri.data2plot) +
 
 ### Mapas
 
-
-Este mapa muestra los casos confirmados mediante PCR en los últimos 14 días en cada municipio. 
-
 <br>
 
 ```{r mapa_distritos, out.width='100%', eval=FALSE}
@@ -624,11 +621,12 @@ mapview(casos.dist, zcol = "casos",
 ```
 
 
-```{r mapamunis_PCR_14d, eval=FALSE}
+```{r mapamunis_PCR_14d, out.width='100%'}
 
-muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000) %>%
+muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000) %>%
   filter(Fecha == max(Fecha)) %>%
-  rename(PROVINCIA = Provincia, MUNICIPIO = Municipio)
+  rename(PROVINCIA = Provincia, MUNICIPIO = Municipio) %>%
+  mutate(ConfirmadosPCR14d = ifelse(ConfirmadosPCR14d < 1, NA, ConfirmadosPCR14d))
 
 
 
@@ -641,9 +639,18 @@ muni.14d <- left_join(select(muni.gpkg, PROVINCIA, MUNICIPIO),
                       select(muni.data, PROVINCIA, MUNICIPIO, ConfirmadosPCR14d),
                       by = c("PROVINCIA", "MUNICIPIO"))
 
-
 ggplot(muni.14d) +
-  geom_sf(aes(fill = ConfirmadosPCR14d))
+  geom_sf(aes(fill = ConfirmadosPCR14d), colour = "grey90", size = 0.1) +
+  scale_fill_distiller(type = "seq", palette = "Blues", direction = 1, 
+                       na.value = "white") +
+  #theme_minimal() +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank()) +
+  labs(title = "Casos confirmados por PCR en cada municipio",
+       subtitle = "Últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
 
 
 ```
