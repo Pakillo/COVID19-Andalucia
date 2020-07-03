@@ -244,8 +244,6 @@ kable(datos.last[, -1])
 ```
 
 
-*(valores negativos significan que se han eliminado casos respecto al día anterior)*
-
 <br>
 
 **DATOS ACUMULADOS:**
@@ -586,7 +584,8 @@ ggplot(distri.data2plot) +
 
 ### Mapas
 
-<br>
+La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
+
 
 ```{r mapa_distritos, out.width='100%', eval=FALSE}
 casos.dist <- readxl::read_excel("datos/datos_brutos.xlsx", sheet = "distritos")
@@ -655,10 +654,6 @@ ggplot(muni.14d) +
 
 ```
 
-
-<br>
-
-La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
 
 <br>
 

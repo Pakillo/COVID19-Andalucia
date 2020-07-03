@@ -3,7 +3,7 @@ library(dplyr)
 
 ## Datos municipios
 
-fecha.munis <- as.Date("2020-06-30")
+fecha.munis <- as.Date("2020-07-01")
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
 
@@ -27,7 +27,7 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
     mutate(Medida = ifelse(Medida == "Confirmado PCR", "Confirmados PCR", Medida)) %>%
     mutate(Medida = ifelse(Medida == "Confirmados PCR 14 días", "ConfirmadosPCR14d", Medida)) %>%
     mutate(Medida = ifelse(Medida == "Total Confirmados", "Confirmados total", Medida)) %>%
-    dplyr::filter(Medida == "Confirmados PCR" | Medida == "Confirmados total" | Medida == "Fallecidos" | Medida = "ConfirmadosPCR14d") %>%
+    dplyr::filter(Medida == "Confirmados PCR" | Medida == "Confirmados total" | Medida == "Fallecidos" | Medida == "ConfirmadosPCR14d") %>%
     tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
     rename(ConfirmadosPCR = `Confirmados PCR`,
            ConfirmadosTotal = `Confirmados total`,
