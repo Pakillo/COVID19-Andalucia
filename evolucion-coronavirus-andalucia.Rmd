@@ -584,8 +584,6 @@ ggplot(distri.data2plot) +
 
 ### Mapas
 
-La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
-
 
 ```{r mapa_distritos, out.width='100%', eval=FALSE}
 casos.dist <- readxl::read_excel("datos/datos_brutos.xlsx", sheet = "distritos")
@@ -639,13 +637,14 @@ muni.14d <- left_join(select(muni.gpkg, PROVINCIA, MUNICIPIO),
                       by = c("PROVINCIA", "MUNICIPIO"))
 
 ggplot(muni.14d) +
-  geom_sf(aes(fill = ConfirmadosPCR14d), colour = "grey90", size = 0.1) +
+  geom_sf(aes(fill = ConfirmadosPCR14d), colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Blues", direction = 1, 
                        na.value = "white") +
   #theme_minimal() +
   theme(axis.text = element_blank(),
         panel.grid = element_blank(),
-        legend.title = element_blank()) +
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
   labs(title = "Casos confirmados por PCR en cada municipio",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia")
@@ -654,6 +653,7 @@ ggplot(muni.14d) +
 
 ```
 
+La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
 
 <br>
 
