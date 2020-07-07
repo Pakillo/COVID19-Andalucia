@@ -203,11 +203,11 @@ ggplot(datos.andal.long) +
 
 **DATOS DEL DÍA:** `r max(datos.andal$Fecha)`
 
-```{r datos.last}
+```{r datos.last, out.width='100%'}
 
 ## Existen discordancias entre serie suministrada al ministerio y la depurada por la Junta a posteriori. Por tanto paso a usar la de la Junta siempre que se pueda
 
-datos.minist <- read_csv2("datos/ultimos_datos.csv", 
+datos.minist <- read_csv2("datos/acumulados.csv", 
                         col_types = "Dcci-",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
@@ -248,7 +248,7 @@ kable(datos.last[, -1])
 
 **DATOS ACUMULADOS:**
 
-```{r datos.acum}
+```{r datos.acum, out.width='100%'}
 # Estos datos normalmente un día por delante de la serie de la Junta
 datos.minist %>%
   filter(Fecha == max(Fecha)) %>%
