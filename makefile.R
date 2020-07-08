@@ -3,7 +3,7 @@ library(dplyr)
 
 ## Datos municipios
 
-fecha.munis <- as.Date("2020-07-06")
+fecha.munis <- as.Date("2020-07-07")
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000)
 
@@ -22,7 +22,7 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
     assertr::verify(unique(.$Medida) ==
                       c("Población", "Confirmados PCR",
                         "Confirmados PCR 14 días", "Confirmados PCR 7 días",
-                        "Fallecidos", "Curados", "Total Confirmados",
+                        "Total Confirmados", "Curados", "Fallecidos",
                         "Confirmado PCR")) %>%
     mutate(Medida = ifelse(Medida == "Confirmado PCR", "Confirmados PCR", Medida)) %>%
     mutate(Medida = ifelse(Medida == "Confirmados PCR 14 días", "ConfirmadosPCR14d", Medida)) %>%
