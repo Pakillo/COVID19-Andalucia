@@ -185,14 +185,15 @@ Evolución en las **últimas dos semanas**:
 
 ```{r fig.resumen.14d, out.width='100%', fig.height=6}
 
-ggplot(datos.andal.long) +
+datos.andal.long %>%
+  filter(Fecha > as.Date(Sys.Date() - 16)) %>%
+ggplot() +
   facet_wrap(~indic, ncol = 1, scales = "free_y") + 
   geom_col(aes(x = Fecha, y = value, fill = indic)) +
   scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas\n", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
-               date_breaks = "2 days", date_labels = "%d %B") +
+  scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
   scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
@@ -316,7 +317,9 @@ Casos confirmados por PCR en los últimos 14 días:
 
 ```{r casos.pcr.14d, fig.height=4, out.width='100%'}
 
-ggplot(datos.andal) +
+datos.andal %>%
+  filter(Fecha > as.Date(Sys.Date() - 16)) %>%
+ggplot() +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
   scale_y_continuous(limits = c(0, NA)) +
@@ -325,10 +328,9 @@ ggplot(datos.andal) +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
-  scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
-               date_breaks = "2 days", date_labels = "%d %B") +
+  scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
   geom_text(aes(Fecha, y = ConfirmadosPCR + 2, label = ConfirmadosPCR),
-            data = subset(datos.andal, Fecha > (Sys.Date() - 15))) 
+            data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
 
 ```
 
@@ -444,7 +446,9 @@ Y en los últimos 14 días:
 
 ```{r casos_provincias.14d, out.width = '100%', fig.height=6}
 
-ggplot(datos.provs) +
+datos.provs %>%
+  filter(Fecha > as.Date(Sys.Date() - 16)) %>%
+ggplot() +
   facet_wrap(~Territorio, ncol = 2) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
@@ -453,8 +457,7 @@ ggplot(datos.provs) +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(limits = c(as.Date(Sys.Date() - 15), NA), 
-               date_breaks = "4 days", date_labels = "%d %B") +
+  scale_x_date(date_breaks = "4 days", date_labels = "%d %B") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
 ```
@@ -617,6 +620,7 @@ mapview(casos.dist, zcol = "casos",
         
 ```
 
+Este mapa de nuevos casos confirmados en los últimos 14 días es útil para saber dónde se encuentran los brotes activos en la actualidad:
 
 ```{r mapamunis_PCR_14d, out.width='100%'}
 
@@ -690,10 +694,10 @@ ggplot(datos.andal) +
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+  scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "2 days", date_labels = "%d %B") +
   geom_text(aes(Fecha, y = Hospitalizados + 0.5, label = Hospitalizados),
-            data = subset(datos.andal, Fecha > (Sys.Date() - 15))) 
+            data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
   
 
 ```
@@ -733,7 +737,7 @@ ggplot(datos.provs) +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+  scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "4 days", date_labels = "%d %B") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
@@ -772,7 +776,7 @@ ggplot(datos.andal) +
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+  scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "2 days", date_labels = "%d %B") 
 
 ```
@@ -901,7 +905,7 @@ ggplot(datos.andal) +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
-  scale_x_date(limits = c(Sys.Date() - 15, NA), 
+  scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "2 days", date_labels = "%d %B") 
 
 ```
