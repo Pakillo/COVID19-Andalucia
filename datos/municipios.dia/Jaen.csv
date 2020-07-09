@@ -1,10 +1,10 @@
 Lugar de residencia;Medida;Valor;
 Jaén;Población;633564;
-Jaén;Confirmados PCR;1496;
+Jaén;Confirmados PCR;1497;
 Jaén;Confirmados PCR 14 días;16;
-Jaén;Confirmados PCR 7 días;4;
-Jaén;Total Confirmados ;1990;
-Jaén;Curados;1748;
+Jaén;Confirmados PCR 7 días;3;
+Jaén;Total Confirmados ;1991;
+Jaén;Curados;1749;
 Jaén;Fallecidos;189;
 Jaén Sur;Población;90904;
 Jaén Sur;Confirmados PCR;122;
@@ -100,7 +100,7 @@ Villardompardo;Fallecidos;0;
 Jaén (distrito);Población;197150;
 Jaén (distrito);Confirmados PCR;692;
 Jaén (distrito);Confirmados PCR 14 días;8;
-Jaén (distrito);Confirmados PCR 7 días;1;
+Jaén (distrito);Confirmados PCR 7 días;0;
 Jaén (distrito);Total Confirmados ;909;
 Jaén (distrito);Curados;799;
 Jaén (distrito);Fallecidos;73;
@@ -170,7 +170,7 @@ Guardia de Jaén (La);Fallecidos;1;
 Jaén (capital);Población;112999;
 Jaén (capital);Confirmados PCR;451;
 Jaén (capital);Confirmados PCR 14 días;7;
-Jaén (capital);Confirmados PCR 7 días;1;
+Jaén (capital);Confirmados PCR 7 días;0;
 Jaén (capital);Total Confirmados ;603;
 Jaén (capital);Curados;534;
 Jaén (capital);Fallecidos;45;
@@ -267,10 +267,10 @@ Torredelcampo;Curados;70;
 Torredelcampo;Fallecidos;6;
 Jaén Norte;Población;182943;
 Jaén Norte;Confirmados PCR;484;
-Jaén Norte;Confirmados PCR 14 días;4;
-Jaén Norte;Confirmados PCR 7 días;2;
+Jaén Norte;Confirmados PCR 14 días;3;
+Jaén Norte;Confirmados PCR 7 días;1;
 Jaén Norte;Total Confirmados ;632;
-Jaén Norte;Curados;568;
+Jaén Norte;Curados;569;
 Jaén Norte;Fallecidos;62;
 Andújar;Población;36793;
 Andújar;Confirmados PCR;48;
@@ -298,7 +298,7 @@ Arjona;Confirmados PCR;56;
 Arjona;Confirmados PCR 14 días;0;
 Arjona;Confirmados PCR 7 días;0;
 Arjona;Total Confirmados ;70;
-Arjona;Curados;61;
+Arjona;Curados;62;
 Arjona;Fallecidos;8;
 Arjonilla;Población;3575;
 Arjonilla;Confirmados PCR;14;
@@ -386,8 +386,8 @@ Jabalquinto;Curados;4;
 Jabalquinto;Fallecidos;1;
 Linares;Población;57414;
 Linares;Confirmados PCR;229;
-Linares;Confirmados PCR 14 días;3;
-Linares;Confirmados PCR 7 días;2;
+Linares;Confirmados PCR 14 días;2;
+Linares;Confirmados PCR 7 días;1;
 Linares;Total Confirmados ;301;
 Linares;Curados;273;
 Linares;Fallecidos;27;
@@ -713,7 +713,26 @@ Villanueva del Arzobispo;Confirmados PCR 7 días;0;
 Villanueva del Arzobispo;Total Confirmados ;2;
 Villanueva del Arzobispo;Curados;2;
 Villanueva del Arzobispo;Fallecidos;0;
+Municipio de Jaén sin especificar;Población;;
+Municipio de Jaén sin especificar;Confirmados PCR;1;
+Municipio de Jaén sin especificar;Confirmados PCR 14 días;1;
+Municipio de Jaén sin especificar;Confirmados PCR 7 días;1;
+Municipio de Jaén sin especificar;Total Confirmados ;1;
+Municipio de Jaén sin especificar;Curados;0;
+Municipio de Jaén sin especificar;Fallecidos;0;
 
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+               
+          
           
                
                     
