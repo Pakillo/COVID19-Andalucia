@@ -1,70 +1,178 @@
 Fecha diagnóstico;Territorio;Medida;Valor;
-09/07/2020;Andalucía;Confirmados PCR;33;
-09/07/2020;Andalucía;Hospitalizados;2;
+12/07/2020;Andalucía;Confirmados PCR;18;
+12/07/2020;Andalucía;Hospitalizados;4;
+12/07/2020;Andalucía;UCI;0;
+12/07/2020;Andalucía;Curados;0;
+12/07/2020;Andalucía;Fallecidos;0;
+12/07/2020;Andalucía;Total confirmados;18;
+12/07/2020;Almería;Confirmados PCR;11;
+12/07/2020;Almería;Hospitalizados;0;
+12/07/2020;Almería;UCI;0;
+12/07/2020;Almería;Curados;0;
+12/07/2020;Almería;Fallecidos;0;
+12/07/2020;Almería;Total confirmados;11;
+12/07/2020;Cádiz;Confirmados PCR;2;
+12/07/2020;Cádiz;Hospitalizados;0;
+12/07/2020;Cádiz;UCI;0;
+12/07/2020;Cádiz;Curados;0;
+12/07/2020;Cádiz;Fallecidos;0;
+12/07/2020;Cádiz;Total confirmados;2;
+12/07/2020;Córdoba;Confirmados PCR;1;
+12/07/2020;Córdoba;Hospitalizados;0;
+12/07/2020;Córdoba;UCI;0;
+12/07/2020;Córdoba;Curados;0;
+12/07/2020;Córdoba;Fallecidos;0;
+12/07/2020;Córdoba;Total confirmados;1;
+12/07/2020;Málaga;Confirmados PCR;4;
+12/07/2020;Málaga;Hospitalizados;4;
+12/07/2020;Málaga;UCI;0;
+12/07/2020;Málaga;Curados;0;
+12/07/2020;Málaga;Fallecidos;0;
+12/07/2020;Málaga;Total confirmados;4;
+11/07/2020;Andalucía;Confirmados PCR;40;
+11/07/2020;Andalucía;Hospitalizados;2;
+11/07/2020;Andalucía;UCI;1;
+11/07/2020;Andalucía;Curados;0;
+11/07/2020;Andalucía;Fallecidos;0;
+11/07/2020;Andalucía;Total confirmados;41;
+11/07/2020;Almería;Confirmados PCR;25;
+11/07/2020;Almería;Hospitalizados;1;
+11/07/2020;Almería;UCI;1;
+11/07/2020;Almería;Curados;0;
+11/07/2020;Almería;Fallecidos;0;
+11/07/2020;Almería;Total confirmados;25;
+11/07/2020;Córdoba;Confirmados PCR;2;
+11/07/2020;Córdoba;Hospitalizados;0;
+11/07/2020;Córdoba;UCI;0;
+11/07/2020;Córdoba;Curados;0;
+11/07/2020;Córdoba;Fallecidos;0;
+11/07/2020;Córdoba;Total confirmados;2;
+11/07/2020;Granada;Confirmados PCR;8;
+11/07/2020;Granada;Hospitalizados;1;
+11/07/2020;Granada;UCI;0;
+11/07/2020;Granada;Curados;0;
+11/07/2020;Granada;Fallecidos;0;
+11/07/2020;Granada;Total confirmados;9;
+11/07/2020;Jaén;Confirmados PCR;1;
+11/07/2020;Jaén;Hospitalizados;0;
+11/07/2020;Jaén;UCI;0;
+11/07/2020;Jaén;Curados;0;
+11/07/2020;Jaén;Fallecidos;0;
+11/07/2020;Jaén;Total confirmados;1;
+11/07/2020;Málaga;Confirmados PCR;4;
+11/07/2020;Málaga;Hospitalizados;0;
+11/07/2020;Málaga;UCI;0;
+11/07/2020;Málaga;Curados;0;
+11/07/2020;Málaga;Fallecidos;0;
+11/07/2020;Málaga;Total confirmados;4;
+10/07/2020;Andalucía;Confirmados PCR;53;
+10/07/2020;Andalucía;Hospitalizados;4;
+10/07/2020;Andalucía;UCI;0;
+10/07/2020;Andalucía;Curados;1;
+10/07/2020;Andalucía;Fallecidos;0;
+10/07/2020;Andalucía;Total confirmados;53;
+10/07/2020;Almería;Confirmados PCR;32;
+10/07/2020;Almería;Hospitalizados;1;
+10/07/2020;Almería;UCI;0;
+10/07/2020;Almería;Curados;0;
+10/07/2020;Almería;Fallecidos;0;
+10/07/2020;Almería;Total confirmados;32;
+10/07/2020;Cádiz;Confirmados PCR;2;
+10/07/2020;Cádiz;Hospitalizados;1;
+10/07/2020;Cádiz;UCI;0;
+10/07/2020;Cádiz;Curados;1;
+10/07/2020;Cádiz;Fallecidos;0;
+10/07/2020;Cádiz;Total confirmados;2;
+10/07/2020;Granada;Confirmados PCR;6;
+10/07/2020;Granada;Hospitalizados;0;
+10/07/2020;Granada;UCI;0;
+10/07/2020;Granada;Curados;0;
+10/07/2020;Granada;Fallecidos;0;
+10/07/2020;Granada;Total confirmados;6;
+10/07/2020;Huelva;Confirmados PCR;1;
+10/07/2020;Huelva;Hospitalizados;0;
+10/07/2020;Huelva;UCI;0;
+10/07/2020;Huelva;Curados;0;
+10/07/2020;Huelva;Fallecidos;0;
+10/07/2020;Huelva;Total confirmados;1;
+10/07/2020;Málaga;Confirmados PCR;11;
+10/07/2020;Málaga;Hospitalizados;2;
+10/07/2020;Málaga;UCI;0;
+10/07/2020;Málaga;Curados;0;
+10/07/2020;Málaga;Fallecidos;0;
+10/07/2020;Málaga;Total confirmados;11;
+10/07/2020;Sevilla;Confirmados PCR;1;
+10/07/2020;Sevilla;Hospitalizados;0;
+10/07/2020;Sevilla;UCI;0;
+10/07/2020;Sevilla;Curados;0;
+10/07/2020;Sevilla;Fallecidos;0;
+10/07/2020;Sevilla;Total confirmados;1;
+09/07/2020;Andalucía;Confirmados PCR;42;
+09/07/2020;Andalucía;Hospitalizados;3;
 09/07/2020;Andalucía;UCI;0;
 09/07/2020;Andalucía;Curados;1;
 09/07/2020;Andalucía;Fallecidos;0;
-09/07/2020;Andalucía;Total confirmados;34;
-09/07/2020;Almería;Confirmados PCR;7;
+09/07/2020;Andalucía;Total confirmados;42;
+09/07/2020;Almería;Confirmados PCR;6;
 09/07/2020;Almería;Hospitalizados;0;
 09/07/2020;Almería;UCI;0;
 09/07/2020;Almería;Curados;0;
 09/07/2020;Almería;Fallecidos;0;
-09/07/2020;Almería;Total confirmados;7;
-09/07/2020;Cádiz;Confirmados PCR;1;
+09/07/2020;Almería;Total confirmados;6;
+09/07/2020;Cádiz;Confirmados PCR;2;
 09/07/2020;Cádiz;Hospitalizados;0;
 09/07/2020;Cádiz;UCI;0;
 09/07/2020;Cádiz;Curados;1;
 09/07/2020;Cádiz;Fallecidos;0;
-09/07/2020;Cádiz;Total confirmados;1;
-09/07/2020;Córdoba;Confirmados PCR;3;
+09/07/2020;Cádiz;Total confirmados;2;
+09/07/2020;Córdoba;Confirmados PCR;4;
 09/07/2020;Córdoba;Hospitalizados;0;
 09/07/2020;Córdoba;UCI;0;
 09/07/2020;Córdoba;Curados;0;
 09/07/2020;Córdoba;Fallecidos;0;
-09/07/2020;Córdoba;Total confirmados;3;
-09/07/2020;Granada;Confirmados PCR;18;
+09/07/2020;Córdoba;Total confirmados;4;
+09/07/2020;Granada;Confirmados PCR;24;
 09/07/2020;Granada;Hospitalizados;1;
 09/07/2020;Granada;UCI;0;
 09/07/2020;Granada;Curados;0;
 09/07/2020;Granada;Fallecidos;0;
-09/07/2020;Granada;Total confirmados;19;
-09/07/2020;Málaga;Confirmados PCR;4;
-09/07/2020;Málaga;Hospitalizados;1;
+09/07/2020;Granada;Total confirmados;24;
+09/07/2020;Málaga;Confirmados PCR;6;
+09/07/2020;Málaga;Hospitalizados;2;
 09/07/2020;Málaga;UCI;0;
 09/07/2020;Málaga;Curados;0;
 09/07/2020;Málaga;Fallecidos;0;
-09/07/2020;Málaga;Total confirmados;4;
-08/07/2020;Andalucía;Confirmados PCR;47;
-08/07/2020;Andalucía;Hospitalizados;1;
+09/07/2020;Málaga;Total confirmados;6;
+08/07/2020;Andalucía;Confirmados PCR;50;
+08/07/2020;Andalucía;Hospitalizados;3;
 08/07/2020;Andalucía;UCI;0;
-08/07/2020;Andalucía;Curados;0;
+08/07/2020;Andalucía;Curados;3;
 08/07/2020;Andalucía;Fallecidos;0;
-08/07/2020;Andalucía;Total confirmados;47;
+08/07/2020;Andalucía;Total confirmados;50;
 08/07/2020;Almería;Confirmados PCR;15;
 08/07/2020;Almería;Hospitalizados;1;
 08/07/2020;Almería;UCI;0;
 08/07/2020;Almería;Curados;0;
 08/07/2020;Almería;Fallecidos;0;
 08/07/2020;Almería;Total confirmados;15;
-08/07/2020;Cádiz;Confirmados PCR;1;
-08/07/2020;Cádiz;Hospitalizados;0;
+08/07/2020;Cádiz;Confirmados PCR;3;
+08/07/2020;Cádiz;Hospitalizados;2;
 08/07/2020;Cádiz;UCI;0;
-08/07/2020;Cádiz;Curados;0;
+08/07/2020;Cádiz;Curados;3;
 08/07/2020;Cádiz;Fallecidos;0;
-08/07/2020;Cádiz;Total confirmados;1;
+08/07/2020;Cádiz;Total confirmados;3;
 08/07/2020;Córdoba;Confirmados PCR;1;
 08/07/2020;Córdoba;Hospitalizados;0;
 08/07/2020;Córdoba;UCI;0;
 08/07/2020;Córdoba;Curados;0;
 08/07/2020;Córdoba;Fallecidos;0;
 08/07/2020;Córdoba;Total confirmados;1;
-08/07/2020;Granada;Confirmados PCR;26;
+08/07/2020;Granada;Confirmados PCR;27;
 08/07/2020;Granada;Hospitalizados;0;
 08/07/2020;Granada;UCI;0;
 08/07/2020;Granada;Curados;0;
 08/07/2020;Granada;Fallecidos;0;
-08/07/2020;Granada;Total confirmados;26;
+08/07/2020;Granada;Total confirmados;27;
 08/07/2020;Huelva;Confirmados PCR;1;
 08/07/2020;Huelva;Hospitalizados;0;
 08/07/2020;Huelva;UCI;0;
@@ -77,24 +185,24 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 08/07/2020;Málaga;Curados;0;
 08/07/2020;Málaga;Fallecidos;0;
 08/07/2020;Málaga;Total confirmados;3;
-07/07/2020;Andalucía;Confirmados PCR;33;
+07/07/2020;Andalucía;Confirmados PCR;34;
 07/07/2020;Andalucía;Hospitalizados;3;
 07/07/2020;Andalucía;UCI;0;
 07/07/2020;Andalucía;Curados;0;
 07/07/2020;Andalucía;Fallecidos;1;
-07/07/2020;Andalucía;Total confirmados;34;
+07/07/2020;Andalucía;Total confirmados;35;
 07/07/2020;Almería;Confirmados PCR;5;
 07/07/2020;Almería;Hospitalizados;1;
 07/07/2020;Almería;UCI;0;
 07/07/2020;Almería;Curados;0;
 07/07/2020;Almería;Fallecidos;0;
 07/07/2020;Almería;Total confirmados;6;
-07/07/2020;Granada;Confirmados PCR;22;
+07/07/2020;Granada;Confirmados PCR;23;
 07/07/2020;Granada;Hospitalizados;2;
 07/07/2020;Granada;UCI;0;
 07/07/2020;Granada;Curados;0;
 07/07/2020;Granada;Fallecidos;1;
-07/07/2020;Granada;Total confirmados;22;
+07/07/2020;Granada;Total confirmados;23;
 07/07/2020;Jaén;Confirmados PCR;2;
 07/07/2020;Jaén;Hospitalizados;0;
 07/07/2020;Jaén;UCI;0;
@@ -108,7 +216,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/07/2020;Málaga;Fallecidos;0;
 07/07/2020;Málaga;Total confirmados;4;
 06/07/2020;Andalucía;Confirmados PCR;10;
-06/07/2020;Andalucía;Hospitalizados;1;
+06/07/2020;Andalucía;Hospitalizados;2;
 06/07/2020;Andalucía;UCI;0;
 06/07/2020;Andalucía;Curados;1;
 06/07/2020;Andalucía;Fallecidos;0;
@@ -126,7 +234,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/07/2020;Cádiz;Fallecidos;0;
 06/07/2020;Cádiz;Total confirmados;2;
 06/07/2020;Granada;Confirmados PCR;4;
-06/07/2020;Granada;Hospitalizados;0;
+06/07/2020;Granada;Hospitalizados;1;
 06/07/2020;Granada;UCI;0;
 06/07/2020;Granada;Curados;0;
 06/07/2020;Granada;Fallecidos;0;
@@ -164,7 +272,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 04/07/2020;Andalucía;Confirmados PCR;17;
 04/07/2020;Andalucía;Hospitalizados;5;
 04/07/2020;Andalucía;UCI;0;
-04/07/2020;Andalucía;Curados;0;
+04/07/2020;Andalucía;Curados;1;
 04/07/2020;Andalucía;Fallecidos;0;
 04/07/2020;Andalucía;Total confirmados;17;
 04/07/2020;Almería;Confirmados PCR;3;
@@ -182,7 +290,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 04/07/2020;Granada;Confirmados PCR;6;
 04/07/2020;Granada;Hospitalizados;1;
 04/07/2020;Granada;UCI;0;
-04/07/2020;Granada;Curados;0;
+04/07/2020;Granada;Curados;1;
 04/07/2020;Granada;Fallecidos;0;
 04/07/2020;Granada;Total confirmados;6;
 04/07/2020;Málaga;Confirmados PCR;5;
@@ -194,13 +302,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 03/07/2020;Andalucía;Confirmados PCR;23;
 03/07/2020;Andalucía;Hospitalizados;3;
 03/07/2020;Andalucía;UCI;0;
-03/07/2020;Andalucía;Curados;1;
+03/07/2020;Andalucía;Curados;3;
 03/07/2020;Andalucía;Fallecidos;0;
 03/07/2020;Andalucía;Total confirmados;23;
 03/07/2020;Almería;Confirmados PCR;7;
 03/07/2020;Almería;Hospitalizados;2;
 03/07/2020;Almería;UCI;0;
-03/07/2020;Almería;Curados;0;
+03/07/2020;Almería;Curados;2;
 03/07/2020;Almería;Fallecidos;0;
 03/07/2020;Almería;Total confirmados;7;
 03/07/2020;Granada;Confirmados PCR;11;
@@ -257,15 +365,15 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/07/2020;Málaga;Curados;1;
 02/07/2020;Málaga;Fallecidos;0;
 02/07/2020;Málaga;Total confirmados;3;
-01/07/2020;Andalucía;Confirmados PCR;18;
+01/07/2020;Andalucía;Confirmados PCR;19;
 01/07/2020;Andalucía;Hospitalizados;1;
-01/07/2020;Andalucía;UCI;0;
+01/07/2020;Andalucía;UCI;1;
 01/07/2020;Andalucía;Curados;3;
 01/07/2020;Andalucía;Fallecidos;0;
-01/07/2020;Andalucía;Total confirmados;19;
+01/07/2020;Andalucía;Total confirmados;20;
 01/07/2020;Almería;Confirmados PCR;2;
 01/07/2020;Almería;Hospitalizados;1;
-01/07/2020;Almería;UCI;0;
+01/07/2020;Almería;UCI;1;
 01/07/2020;Almería;Curados;0;
 01/07/2020;Almería;Fallecidos;0;
 01/07/2020;Almería;Total confirmados;2;
@@ -287,12 +395,12 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 01/07/2020;Jaén;Curados;1;
 01/07/2020;Jaén;Fallecidos;0;
 01/07/2020;Jaén;Total confirmados;2;
-01/07/2020;Málaga;Confirmados PCR;0;
+01/07/2020;Málaga;Confirmados PCR;1;
 01/07/2020;Málaga;Hospitalizados;0;
 01/07/2020;Málaga;UCI;0;
 01/07/2020;Málaga;Curados;1;
 01/07/2020;Málaga;Fallecidos;0;
-01/07/2020;Málaga;Total confirmados;1;
+01/07/2020;Málaga;Total confirmados;2;
 01/07/2020;Sevilla;Confirmados PCR;1;
 01/07/2020;Sevilla;Hospitalizados;0;
 01/07/2020;Sevilla;UCI;0;
@@ -300,15 +408,15 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 01/07/2020;Sevilla;Fallecidos;0;
 01/07/2020;Sevilla;Total confirmados;1;
 30/06/2020;Andalucía;Confirmados PCR;29;
-30/06/2020;Andalucía;Hospitalizados;6;
+30/06/2020;Andalucía;Hospitalizados;5;
 30/06/2020;Andalucía;UCI;1;
 30/06/2020;Andalucía;Curados;6;
 30/06/2020;Andalucía;Fallecidos;0;
 30/06/2020;Andalucía;Total confirmados;30;
 30/06/2020;Almería;Confirmados PCR;3;
-30/06/2020;Almería;Hospitalizados;2;
+30/06/2020;Almería;Hospitalizados;1;
 30/06/2020;Almería;UCI;0;
-30/06/2020;Almería;Curados;2;
+30/06/2020;Almería;Curados;1;
 30/06/2020;Almería;Fallecidos;0;
 30/06/2020;Almería;Total confirmados;3;
 30/06/2020;Cádiz;Confirmados PCR;3;
@@ -332,7 +440,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 30/06/2020;Málaga;Confirmados PCR;4;
 30/06/2020;Málaga;Hospitalizados;0;
 30/06/2020;Málaga;UCI;0;
-30/06/2020;Málaga;Curados;1;
+30/06/2020;Málaga;Curados;2;
 30/06/2020;Málaga;Fallecidos;0;
 30/06/2020;Málaga;Total confirmados;5;
 30/06/2020;Sevilla;Confirmados PCR;1;
@@ -341,12 +449,12 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 30/06/2020;Sevilla;Curados;0;
 30/06/2020;Sevilla;Fallecidos;0;
 30/06/2020;Sevilla;Total confirmados;1;
-29/06/2020;Andalucía;Confirmados PCR;12;
+29/06/2020;Andalucía;Confirmados PCR;13;
 29/06/2020;Andalucía;Hospitalizados;2;
 29/06/2020;Andalucía;UCI;0;
-29/06/2020;Andalucía;Curados;3;
+29/06/2020;Andalucía;Curados;4;
 29/06/2020;Andalucía;Fallecidos;0;
-29/06/2020;Andalucía;Total confirmados;12;
+29/06/2020;Andalucía;Total confirmados;13;
 29/06/2020;Almería;Confirmados PCR;1;
 29/06/2020;Almería;Hospitalizados;1;
 29/06/2020;Almería;UCI;0;
@@ -359,6 +467,12 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/06/2020;Cádiz;Curados;1;
 29/06/2020;Cádiz;Fallecidos;0;
 29/06/2020;Cádiz;Total confirmados;1;
+29/06/2020;Córdoba;Confirmados PCR;1;
+29/06/2020;Córdoba;Hospitalizados;0;
+29/06/2020;Córdoba;UCI;0;
+29/06/2020;Córdoba;Curados;1;
+29/06/2020;Córdoba;Fallecidos;0;
+29/06/2020;Córdoba;Total confirmados;1;
 29/06/2020;Granada;Confirmados PCR;8;
 29/06/2020;Granada;Hospitalizados;0;
 29/06/2020;Granada;UCI;0;
@@ -380,13 +494,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 28/06/2020;Andalucía;Confirmados PCR;36;
 28/06/2020;Andalucía;Hospitalizados;3;
 28/06/2020;Andalucía;UCI;0;
-28/06/2020;Andalucía;Curados;3;
+28/06/2020;Andalucía;Curados;4;
 28/06/2020;Andalucía;Fallecidos;0;
 28/06/2020;Andalucía;Total confirmados;36;
 28/06/2020;Almería;Confirmados PCR;4;
 28/06/2020;Almería;Hospitalizados;0;
 28/06/2020;Almería;UCI;0;
-28/06/2020;Almería;Curados;2;
+28/06/2020;Almería;Curados;3;
 28/06/2020;Almería;Fallecidos;0;
 28/06/2020;Almería;Total confirmados;4;
 28/06/2020;Granada;Confirmados PCR;15;
@@ -410,7 +524,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/06/2020;Andalucía;Confirmados PCR;15;
 27/06/2020;Andalucía;Hospitalizados;1;
 27/06/2020;Andalucía;UCI;0;
-27/06/2020;Andalucía;Curados;2;
+27/06/2020;Andalucía;Curados;4;
 27/06/2020;Andalucía;Fallecidos;0;
 27/06/2020;Andalucía;Total confirmados;15;
 27/06/2020;Cádiz;Confirmados PCR;1;
@@ -422,7 +536,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/06/2020;Granada;Confirmados PCR;8;
 27/06/2020;Granada;Hospitalizados;1;
 27/06/2020;Granada;UCI;0;
-27/06/2020;Granada;Curados;0;
+27/06/2020;Granada;Curados;2;
 27/06/2020;Granada;Fallecidos;0;
 27/06/2020;Granada;Total confirmados;8;
 27/06/2020;Jaén;Confirmados PCR;1;
@@ -476,7 +590,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 25/06/2020;Andalucía;Confirmados PCR;17;
 25/06/2020;Andalucía;Hospitalizados;0;
 25/06/2020;Andalucía;UCI;0;
-25/06/2020;Andalucía;Curados;4;
+25/06/2020;Andalucía;Curados;5;
 25/06/2020;Andalucía;Fallecidos;0;
 25/06/2020;Andalucía;Total confirmados;17;
 25/06/2020;Almería;Confirmados PCR;3;
@@ -488,7 +602,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 25/06/2020;Granada;Confirmados PCR;6;
 25/06/2020;Granada;Hospitalizados;0;
 25/06/2020;Granada;UCI;0;
-25/06/2020;Granada;Curados;0;
+25/06/2020;Granada;Curados;1;
 25/06/2020;Granada;Fallecidos;0;
 25/06/2020;Granada;Total confirmados;6;
 25/06/2020;Huelva;Confirmados PCR;1;
@@ -506,13 +620,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/06/2020;Andalucía;Confirmados PCR;89;
 24/06/2020;Andalucía;Hospitalizados;2;
 24/06/2020;Andalucía;UCI;0;
-24/06/2020;Andalucía;Curados;12;
+24/06/2020;Andalucía;Curados;15;
 24/06/2020;Andalucía;Fallecidos;0;
 24/06/2020;Andalucía;Total confirmados;89;
 24/06/2020;Cádiz;Confirmados PCR;3;
 24/06/2020;Cádiz;Hospitalizados;0;
 24/06/2020;Cádiz;UCI;0;
-24/06/2020;Cádiz;Curados;0;
+24/06/2020;Cádiz;Curados;2;
 24/06/2020;Cádiz;Fallecidos;0;
 24/06/2020;Cádiz;Total confirmados;3;
 24/06/2020;Granada;Confirmados PCR;11;
@@ -536,7 +650,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/06/2020;Málaga;Confirmados PCR;64;
 24/06/2020;Málaga;Hospitalizados;1;
 24/06/2020;Málaga;UCI;0;
-24/06/2020;Málaga;Curados;4;
+24/06/2020;Málaga;Curados;5;
 24/06/2020;Málaga;Fallecidos;0;
 24/06/2020;Málaga;Total confirmados;64;
 24/06/2020;Sevilla;Confirmados PCR;1;
@@ -686,13 +800,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 18/06/2020;Andalucía;Confirmados PCR;22;
 18/06/2020;Andalucía;Hospitalizados;2;
 18/06/2020;Andalucía;UCI;1;
-18/06/2020;Andalucía;Curados;18;
+18/06/2020;Andalucía;Curados;19;
 18/06/2020;Andalucía;Fallecidos;0;
 18/06/2020;Andalucía;Total confirmados;24;
 18/06/2020;Almería;Confirmados PCR;1;
 18/06/2020;Almería;Hospitalizados;0;
 18/06/2020;Almería;UCI;0;
-18/06/2020;Almería;Curados;0;
+18/06/2020;Almería;Curados;1;
 18/06/2020;Almería;Fallecidos;0;
 18/06/2020;Almería;Total confirmados;1;
 18/06/2020;Cádiz;Confirmados PCR;13;
@@ -1184,7 +1298,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/06/2020;Andalucía;Confirmados PCR;15;
 02/06/2020;Andalucía;Hospitalizados;4;
 02/06/2020;Andalucía;UCI;0;
-02/06/2020;Andalucía;Curados;16;
+02/06/2020;Andalucía;Curados;17;
 02/06/2020;Andalucía;Fallecidos;0;
 02/06/2020;Andalucía;Total confirmados;19;
 02/06/2020;Almería;Confirmados PCR;1;
@@ -1220,7 +1334,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/06/2020;Málaga;Confirmados PCR;7;
 02/06/2020;Málaga;Hospitalizados;2;
 02/06/2020;Málaga;UCI;0;
-02/06/2020;Málaga;Curados;5;
+02/06/2020;Málaga;Curados;6;
 02/06/2020;Málaga;Fallecidos;0;
 02/06/2020;Málaga;Total confirmados;8;
 02/06/2020;Sevilla;Confirmados PCR;3;
@@ -1280,7 +1394,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 31/05/2020;Andalucía;Confirmados PCR;10;
 31/05/2020;Andalucía;Hospitalizados;1;
 31/05/2020;Andalucía;UCI;0;
-31/05/2020;Andalucía;Curados;9;
+31/05/2020;Andalucía;Curados;10;
 31/05/2020;Andalucía;Fallecidos;0;
 31/05/2020;Andalucía;Total confirmados;10;
 31/05/2020;Almería;Confirmados PCR;2;
@@ -1292,7 +1406,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 31/05/2020;Cádiz;Confirmados PCR;4;
 31/05/2020;Cádiz;Hospitalizados;1;
 31/05/2020;Cádiz;UCI;0;
-31/05/2020;Cádiz;Curados;3;
+31/05/2020;Cádiz;Curados;4;
 31/05/2020;Cádiz;Fallecidos;0;
 31/05/2020;Cádiz;Total confirmados;4;
 31/05/2020;Huelva;Confirmados PCR;1;
@@ -2354,7 +2468,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 08/05/2020;Andalucía;Confirmados PCR;22;
 08/05/2020;Andalucía;Hospitalizados;9;
 08/05/2020;Andalucía;UCI;1;
-08/05/2020;Andalucía;Curados;170;
+08/05/2020;Andalucía;Curados;176;
 08/05/2020;Andalucía;Fallecidos;0;
 08/05/2020;Andalucía;Total confirmados;190;
 08/05/2020;Almería;Confirmados PCR;2;
@@ -2396,7 +2510,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 08/05/2020;Málaga;Confirmados PCR;6;
 08/05/2020;Málaga;Hospitalizados;4;
 08/05/2020;Málaga;UCI;0;
-08/05/2020;Málaga;Curados;59;
+08/05/2020;Málaga;Curados;65;
 08/05/2020;Málaga;Fallecidos;0;
 08/05/2020;Málaga;Total confirmados;79;
 08/05/2020;Sevilla;Confirmados PCR;8;
@@ -2408,7 +2522,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/05/2020;Andalucía;Confirmados PCR;19;
 07/05/2020;Andalucía;Hospitalizados;10;
 07/05/2020;Andalucía;UCI;2;
-07/05/2020;Andalucía;Curados;146;
+07/05/2020;Andalucía;Curados;149;
 07/05/2020;Andalucía;Fallecidos;3;
 07/05/2020;Andalucía;Total confirmados;160;
 07/05/2020;Almería;Confirmados PCR;1;
@@ -2420,7 +2534,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/05/2020;Cádiz;Confirmados PCR;2;
 07/05/2020;Cádiz;Hospitalizados;0;
 07/05/2020;Cádiz;UCI;0;
-07/05/2020;Cádiz;Curados;10;
+07/05/2020;Cádiz;Curados;11;
 07/05/2020;Cádiz;Fallecidos;0;
 07/05/2020;Cádiz;Total confirmados;11;
 07/05/2020;Córdoba;Confirmados PCR;1;
@@ -2450,7 +2564,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/05/2020;Málaga;Confirmados PCR;1;
 07/05/2020;Málaga;Hospitalizados;2;
 07/05/2020;Málaga;UCI;0;
-07/05/2020;Málaga;Curados;36;
+07/05/2020;Málaga;Curados;38;
 07/05/2020;Málaga;Fallecidos;1;
 07/05/2020;Málaga;Total confirmados;45;
 07/05/2020;Sevilla;Confirmados PCR;8;
@@ -2462,7 +2576,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/05/2020;Andalucía;Confirmados PCR;23;
 06/05/2020;Andalucía;Hospitalizados;9;
 06/05/2020;Andalucía;UCI;1;
-06/05/2020;Andalucía;Curados;159;
+06/05/2020;Andalucía;Curados;161;
 06/05/2020;Andalucía;Fallecidos;1;
 06/05/2020;Andalucía;Total confirmados;169;
 06/05/2020;Almería;Confirmados PCR;0;
@@ -2504,7 +2618,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/05/2020;Málaga;Confirmados PCR;7;
 06/05/2020;Málaga;Hospitalizados;2;
 06/05/2020;Málaga;UCI;1;
-06/05/2020;Málaga;Curados;39;
+06/05/2020;Málaga;Curados;41;
 06/05/2020;Málaga;Fallecidos;1;
 06/05/2020;Málaga;Total confirmados;48;
 06/05/2020;Sevilla;Confirmados PCR;4;
@@ -2516,7 +2630,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 05/05/2020;Andalucía;Confirmados PCR;51;
 05/05/2020;Andalucía;Hospitalizados;17;
 05/05/2020;Andalucía;UCI;0;
-05/05/2020;Andalucía;Curados;214;
+05/05/2020;Andalucía;Curados;221;
 05/05/2020;Andalucía;Fallecidos;2;
 05/05/2020;Andalucía;Total confirmados;232;
 05/05/2020;Almería;Confirmados PCR;0;
@@ -2558,7 +2672,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 05/05/2020;Málaga;Confirmados PCR;6;
 05/05/2020;Málaga;Hospitalizados;7;
 05/05/2020;Málaga;UCI;0;
-05/05/2020;Málaga;Curados;48;
+05/05/2020;Málaga;Curados;55;
 05/05/2020;Málaga;Fallecidos;0;
 05/05/2020;Málaga;Total confirmados;61;
 05/05/2020;Sevilla;Confirmados PCR;16;
@@ -2570,7 +2684,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 04/05/2020;Andalucía;Confirmados PCR;18;
 04/05/2020;Andalucía;Hospitalizados;11;
 04/05/2020;Andalucía;UCI;2;
-04/05/2020;Andalucía;Curados;156;
+04/05/2020;Andalucía;Curados;164;
 04/05/2020;Andalucía;Fallecidos;1;
 04/05/2020;Andalucía;Total confirmados;169;
 04/05/2020;Almería;Confirmados PCR;0;
@@ -2612,7 +2726,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 04/05/2020;Málaga;Confirmados PCR;4;
 04/05/2020;Málaga;Hospitalizados;2;
 04/05/2020;Málaga;UCI;0;
-04/05/2020;Málaga;Curados;44;
+04/05/2020;Málaga;Curados;52;
 04/05/2020;Málaga;Fallecidos;0;
 04/05/2020;Málaga;Total confirmados;54;
 04/05/2020;Sevilla;Confirmados PCR;2;
@@ -2624,7 +2738,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 03/05/2020;Andalucía;Confirmados PCR;4;
 03/05/2020;Andalucía;Hospitalizados;7;
 03/05/2020;Andalucía;UCI;1;
-03/05/2020;Andalucía;Curados;37;
+03/05/2020;Andalucía;Curados;38;
 03/05/2020;Andalucía;Fallecidos;0;
 03/05/2020;Andalucía;Total confirmados;40;
 03/05/2020;Córdoba;Confirmados PCR;0;
@@ -2648,7 +2762,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 03/05/2020;Málaga;Confirmados PCR;0;
 03/05/2020;Málaga;Hospitalizados;2;
 03/05/2020;Málaga;UCI;1;
-03/05/2020;Málaga;Curados;8;
+03/05/2020;Málaga;Curados;9;
 03/05/2020;Málaga;Fallecidos;0;
 03/05/2020;Málaga;Total confirmados;11;
 03/05/2020;Sevilla;Confirmados PCR;2;
@@ -2660,7 +2774,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/05/2020;Andalucía;Confirmados PCR;25;
 02/05/2020;Andalucía;Hospitalizados;12;
 02/05/2020;Andalucía;UCI;1;
-02/05/2020;Andalucía;Curados;52;
+02/05/2020;Andalucía;Curados;53;
 02/05/2020;Andalucía;Fallecidos;3;
 02/05/2020;Andalucía;Total confirmados;57;
 02/05/2020;Cádiz;Confirmados PCR;3;
@@ -2690,7 +2804,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/05/2020;Málaga;Confirmados PCR;4;
 02/05/2020;Málaga;Hospitalizados;2;
 02/05/2020;Málaga;UCI;0;
-02/05/2020;Málaga;Curados;10;
+02/05/2020;Málaga;Curados;11;
 02/05/2020;Málaga;Fallecidos;0;
 02/05/2020;Málaga;Total confirmados;11;
 02/05/2020;Sevilla;Confirmados PCR;1;
@@ -2756,7 +2870,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 30/04/2020;Andalucía;Confirmados PCR;52;
 30/04/2020;Andalucía;Hospitalizados;17;
 30/04/2020;Andalucía;UCI;1;
-30/04/2020;Andalucía;Curados;223;
+30/04/2020;Andalucía;Curados;228;
 30/04/2020;Andalucía;Fallecidos;3;
 30/04/2020;Andalucía;Total confirmados;237;
 30/04/2020;Almería;Confirmados PCR;3;
@@ -2792,13 +2906,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 30/04/2020;Jaén;Confirmados PCR;9;
 30/04/2020;Jaén;Hospitalizados;4;
 30/04/2020;Jaén;UCI;0;
-30/04/2020;Jaén;Curados;20;
+30/04/2020;Jaén;Curados;21;
 30/04/2020;Jaén;Fallecidos;0;
 30/04/2020;Jaén;Total confirmados;22;
 30/04/2020;Málaga;Confirmados PCR;5;
 30/04/2020;Málaga;Hospitalizados;4;
 30/04/2020;Málaga;UCI;0;
-30/04/2020;Málaga;Curados;80;
+30/04/2020;Málaga;Curados;84;
 30/04/2020;Málaga;Fallecidos;1;
 30/04/2020;Málaga;Total confirmados;89;
 30/04/2020;Sevilla;Confirmados PCR;4;
@@ -2810,7 +2924,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/04/2020;Andalucía;Confirmados PCR;38;
 29/04/2020;Andalucía;Hospitalizados;21;
 29/04/2020;Andalucía;UCI;0;
-29/04/2020;Andalucía;Curados;215;
+29/04/2020;Andalucía;Curados;217;
 29/04/2020;Andalucía;Fallecidos;0;
 29/04/2020;Andalucía;Total confirmados;222;
 29/04/2020;Almería;Confirmados PCR;1;
@@ -2852,7 +2966,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/04/2020;Málaga;Confirmados PCR;13;
 29/04/2020;Málaga;Hospitalizados;6;
 29/04/2020;Málaga;UCI;0;
-29/04/2020;Málaga;Curados;60;
+29/04/2020;Málaga;Curados;62;
 29/04/2020;Málaga;Fallecidos;0;
 29/04/2020;Málaga;Total confirmados;65;
 29/04/2020;Sevilla;Confirmados PCR;7;
@@ -2918,7 +3032,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/04/2020;Andalucía;Confirmados PCR;49;
 27/04/2020;Andalucía;Hospitalizados;26;
 27/04/2020;Andalucía;UCI;2;
-27/04/2020;Andalucía;Curados;191;
+27/04/2020;Andalucía;Curados;192;
 27/04/2020;Andalucía;Fallecidos;9;
 27/04/2020;Andalucía;Total confirmados;207;
 27/04/2020;Almería;Confirmados PCR;2;
@@ -2960,7 +3074,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/04/2020;Málaga;Confirmados PCR;5;
 27/04/2020;Málaga;Hospitalizados;3;
 27/04/2020;Málaga;UCI;0;
-27/04/2020;Málaga;Curados;51;
+27/04/2020;Málaga;Curados;52;
 27/04/2020;Málaga;Fallecidos;1;
 27/04/2020;Málaga;Total confirmados;57;
 27/04/2020;Sevilla;Confirmados PCR;14;
@@ -3074,7 +3188,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/04/2020;Andalucía;Confirmados PCR;60;
 24/04/2020;Andalucía;Hospitalizados;26;
 24/04/2020;Andalucía;UCI;4;
-24/04/2020;Andalucía;Curados;197;
+24/04/2020;Andalucía;Curados;198;
 24/04/2020;Andalucía;Fallecidos;2;
 24/04/2020;Andalucía;Total confirmados;209;
 24/04/2020;Almería;Confirmados PCR;2;
@@ -3116,7 +3230,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/04/2020;Málaga;Confirmados PCR;17;
 24/04/2020;Málaga;Hospitalizados;5;
 24/04/2020;Málaga;UCI;2;
-24/04/2020;Málaga;Curados;55;
+24/04/2020;Málaga;Curados;56;
 24/04/2020;Málaga;Fallecidos;0;
 24/04/2020;Málaga;Total confirmados;64;
 24/04/2020;Sevilla;Confirmados PCR;5;
@@ -3128,7 +3242,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 23/04/2020;Andalucía;Confirmados PCR;61;
 23/04/2020;Andalucía;Hospitalizados;15;
 23/04/2020;Andalucía;UCI;0;
-23/04/2020;Andalucía;Curados;168;
+23/04/2020;Andalucía;Curados;170;
 23/04/2020;Andalucía;Fallecidos;3;
 23/04/2020;Andalucía;Total confirmados;176;
 23/04/2020;Almería;Confirmados PCR;2;
@@ -3170,7 +3284,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 23/04/2020;Málaga;Confirmados PCR;12;
 23/04/2020;Málaga;Hospitalizados;2;
 23/04/2020;Málaga;UCI;0;
-23/04/2020;Málaga;Curados;49;
+23/04/2020;Málaga;Curados;51;
 23/04/2020;Málaga;Fallecidos;0;
 23/04/2020;Málaga;Total confirmados;53;
 23/04/2020;Sevilla;Confirmados PCR;11;
@@ -3668,7 +3782,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 13/04/2020;Andalucía;Confirmados PCR;142;
 13/04/2020;Andalucía;Hospitalizados;61;
 13/04/2020;Andalucía;UCI;4;
-13/04/2020;Andalucía;Curados;232;
+13/04/2020;Andalucía;Curados;233;
 13/04/2020;Andalucía;Fallecidos;16;
 13/04/2020;Andalucía;Total confirmados;273;
 13/04/2020;Almería;Confirmados PCR;1;
@@ -3680,7 +3794,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 13/04/2020;Cádiz;Confirmados PCR;22;
 13/04/2020;Cádiz;Hospitalizados;10;
 13/04/2020;Cádiz;UCI;0;
-13/04/2020;Cádiz;Curados;22;
+13/04/2020;Cádiz;Curados;23;
 13/04/2020;Cádiz;Fallecidos;4;
 13/04/2020;Cádiz;Total confirmados;27;
 13/04/2020;Córdoba;Confirmados PCR;11;
@@ -4099,7 +4213,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/04/2020;Sevilla;Total confirmados;62;
 05/04/2020;Andalucía;Confirmados PCR;114;
 05/04/2020;Andalucía;Hospitalizados;64;
-05/04/2020;Andalucía;UCI;6;
+05/04/2020;Andalucía;UCI;7;
 05/04/2020;Andalucía;Curados;108;
 05/04/2020;Andalucía;Fallecidos;17;
 05/04/2020;Andalucía;Total confirmados;128;
@@ -4123,7 +4237,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 05/04/2020;Córdoba;Total confirmados;11;
 05/04/2020;Granada;Confirmados PCR;28;
 05/04/2020;Granada;Hospitalizados;12;
-05/04/2020;Granada;UCI;2;
+05/04/2020;Granada;UCI;3;
 05/04/2020;Granada;Curados;27;
 05/04/2020;Granada;Fallecidos;2;
 05/04/2020;Granada;Total confirmados;30;
@@ -4370,7 +4484,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 31/03/2020;Andalucía;Confirmados PCR;511;
 31/03/2020;Andalucía;Hospitalizados;243;
 31/03/2020;Andalucía;UCI;15;
-31/03/2020;Andalucía;Curados;441;
+31/03/2020;Andalucía;Curados;442;
 31/03/2020;Andalucía;Fallecidos;57;
 31/03/2020;Andalucía;Total confirmados;513;
 31/03/2020;Almería;Confirmados PCR;22;
@@ -4382,7 +4496,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 31/03/2020;Cádiz;Confirmados PCR;46;
 31/03/2020;Cádiz;Hospitalizados;18;
 31/03/2020;Cádiz;UCI;0;
-31/03/2020;Cádiz;Curados;40;
+31/03/2020;Cádiz;Curados;41;
 31/03/2020;Cádiz;Fallecidos;5;
 31/03/2020;Cádiz;Total confirmados;46;
 31/03/2020;Córdoba;Confirmados PCR;76;
@@ -4478,7 +4592,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/03/2020;Andalucía;Confirmados PCR;403;
 29/03/2020;Andalucía;Hospitalizados;253;
 29/03/2020;Andalucía;UCI;33;
-29/03/2020;Andalucía;Curados;319;
+29/03/2020;Andalucía;Curados;320;
 29/03/2020;Andalucía;Fallecidos;67;
 29/03/2020;Andalucía;Total confirmados;405;
 29/03/2020;Almería;Confirmados PCR;17;
@@ -4490,7 +4604,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/03/2020;Cádiz;Confirmados PCR;56;
 29/03/2020;Cádiz;Hospitalizados;30;
 29/03/2020;Cádiz;UCI;6;
-29/03/2020;Cádiz;Curados;45;
+29/03/2020;Cádiz;Curados;46;
 29/03/2020;Cádiz;Fallecidos;11;
 29/03/2020;Cádiz;Total confirmados;58;
 29/03/2020;Córdoba;Confirmados PCR;66;
@@ -4640,7 +4754,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 26/03/2020;Andalucía;Confirmados PCR;669;
 26/03/2020;Andalucía;Hospitalizados;380;
 26/03/2020;Andalucía;UCI;43;
-26/03/2020;Andalucía;Curados;575;
+26/03/2020;Andalucía;Curados;576;
 26/03/2020;Andalucía;Fallecidos;73;
 26/03/2020;Andalucía;Total confirmados;670;
 26/03/2020;Almería;Confirmados PCR;17;
@@ -4652,7 +4766,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 26/03/2020;Cádiz;Confirmados PCR;54;
 26/03/2020;Cádiz;Hospitalizados;36;
 26/03/2020;Cádiz;UCI;9;
-26/03/2020;Cádiz;Curados;44;
+26/03/2020;Cádiz;Curados;45;
 26/03/2020;Cádiz;Fallecidos;7;
 26/03/2020;Cádiz;Total confirmados;54;
 26/03/2020;Córdoba;Confirmados PCR;31;
@@ -5907,17 +6021,6 @@ Fecha diagnóstico;Territorio;Medida;Valor;
                     
                
                
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
                     
                
                
@@ -5928,365 +6031,6 @@ Fecha diagnóstico;Territorio;Medida;Valor;
                
           
           
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
                
                     
                
@@ -6495,6 +6239,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
                     
                
                
+                    
+               
+               
                
                
                
@@ -6505,6 +6252,591 @@ Fecha diagnóstico;Territorio;Medida;Valor;
                
                     
                
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
                
                     
                

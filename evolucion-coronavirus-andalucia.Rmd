@@ -642,7 +642,7 @@ muni.14d <- left_join(select(muni.gpkg, PROVINCIA, MUNICIPIO),
 
 ggplot(muni.14d) +
   geom_sf(aes(fill = ConfirmadosPCR14d), colour = "grey85", size = 0.1) +
-  scale_fill_distiller(type = "seq", palette = "Blues", direction = 1, 
+  scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
                        na.value = "white") +
   #theme_minimal() +
   theme(axis.text = element_blank(),
