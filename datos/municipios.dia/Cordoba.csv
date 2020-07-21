@@ -1,30 +1,30 @@
 Lugar de residencia;Medida;Valor;
 Córdoba;Población;786635;
-Córdoba;Confirmados PCR;1449;
-Córdoba;Confirmados PCR 14 días;95;
-Córdoba;Confirmados PCR 7 días;88;
-Córdoba;Total Confirmados ;1850;
+Córdoba;Confirmados PCR;1460;
+Córdoba;Confirmados PCR 14 días;105;
+Córdoba;Confirmados PCR 7 días;99;
+Córdoba;Total Confirmados ;1861;
 Córdoba;Curados;1637;
 Córdoba;Fallecidos;116;
 Córdoba (distrito);Población;325701;
-Córdoba (distrito);Confirmados PCR;684;
-Córdoba (distrito);Confirmados PCR 14 días;88;
-Córdoba (distrito);Confirmados PCR 7 días;82;
-Córdoba (distrito);Total Confirmados ;937;
+Córdoba (distrito);Confirmados PCR;692;
+Córdoba (distrito);Confirmados PCR 14 días;95;
+Córdoba (distrito);Confirmados PCR 7 días;90;
+Córdoba (distrito);Total Confirmados ;945;
 Córdoba (distrito);Curados;808;
 Córdoba (distrito);Fallecidos;40;
 Córdoba (capital);Población;325701;
-Córdoba (capital);Confirmados PCR;684;
-Córdoba (capital);Confirmados PCR 14 días;88;
-Córdoba (capital);Confirmados PCR 7 días;82;
-Córdoba (capital);Total Confirmados ;937;
+Córdoba (capital);Confirmados PCR;692;
+Córdoba (capital);Confirmados PCR 14 días;95;
+Córdoba (capital);Confirmados PCR 7 días;90;
+Córdoba (capital);Total Confirmados ;945;
 Córdoba (capital);Curados;808;
 Córdoba (capital);Fallecidos;40;
 Córdoba Sur;Población;261145;
-Córdoba Sur;Confirmados PCR;512;
-Córdoba Sur;Confirmados PCR 14 días;1;
-Córdoba Sur;Confirmados PCR 7 días;0;
-Córdoba Sur;Total Confirmados ;609;
+Córdoba Sur;Confirmados PCR;513;
+Córdoba Sur;Confirmados PCR 14 días;2;
+Córdoba Sur;Confirmados PCR 7 días;1;
+Córdoba Sur;Total Confirmados ;610;
 Córdoba Sur;Curados;556;
 Córdoba Sur;Fallecidos;51;
 Aguilar de la Frontera;Población;13328;
@@ -63,10 +63,10 @@ Benamejí;Total Confirmados ;2;
 Benamejí;Curados;2;
 Benamejí;Fallecidos;0;
 Encinas Reales;Población;2254;
-Encinas Reales;Confirmados PCR;4;
-Encinas Reales;Confirmados PCR 14 días;0;
-Encinas Reales;Confirmados PCR 7 días;0;
-Encinas Reales;Total Confirmados ;4;
+Encinas Reales;Confirmados PCR;5;
+Encinas Reales;Confirmados PCR 14 días;1;
+Encinas Reales;Confirmados PCR 7 días;1;
+Encinas Reales;Total Confirmados ;5;
 Encinas Reales;Curados;3;
 Encinas Reales;Fallecidos;1;
 Palenciana;Población;1478;
@@ -231,17 +231,17 @@ Rute;Total Confirmados ;92;
 Rute;Curados;77;
 Rute;Fallecidos;15;
 Guadalquivir;Población;124207;
-Guadalquivir;Confirmados PCR;54;
-Guadalquivir;Confirmados PCR 14 días;0;
-Guadalquivir;Confirmados PCR 7 días;0;
-Guadalquivir;Total Confirmados ;89;
+Guadalquivir;Confirmados PCR;55;
+Guadalquivir;Confirmados PCR 14 días;1;
+Guadalquivir;Confirmados PCR 7 días;1;
+Guadalquivir;Total Confirmados ;90;
 Guadalquivir;Curados;83;
 Guadalquivir;Fallecidos;6;
 Bujalance;Población;7417;
-Bujalance;Confirmados PCR;7;
-Bujalance;Confirmados PCR 14 días;0;
-Bujalance;Confirmados PCR 7 días;0;
-Bujalance;Total Confirmados ;8;
+Bujalance;Confirmados PCR;8;
+Bujalance;Confirmados PCR 14 días;1;
+Bujalance;Confirmados PCR 7 días;1;
+Bujalance;Total Confirmados ;9;
 Bujalance;Curados;8;
 Bujalance;Fallecidos;0;
 Cañete de las Torres;Población;2933;
@@ -399,10 +399,10 @@ Posadas;Total Confirmados ;5;
 Posadas;Curados;5;
 Posadas;Fallecidos;0;
 Córdoba Norte;Población;75582;
-Córdoba Norte;Confirmados PCR;198;
-Córdoba Norte;Confirmados PCR 14 días;5;
-Córdoba Norte;Confirmados PCR 7 días;5;
-Córdoba Norte;Total Confirmados ;214;
+Córdoba Norte;Confirmados PCR;200;
+Córdoba Norte;Confirmados PCR 14 días;7;
+Córdoba Norte;Confirmados PCR 7 días;7;
+Córdoba Norte;Total Confirmados ;216;
 Córdoba Norte;Curados;190;
 Córdoba Norte;Fallecidos;19;
 Belalcázar;Población;3255;
@@ -455,10 +455,10 @@ Granjuela (La);Total Confirmados ;;
 Granjuela (La);Curados;;
 Granjuela (La);Fallecidos;;
 Peñarroya-Pueblonuevo;Población;10695;
-Peñarroya-Pueblonuevo;Confirmados PCR;25;
-Peñarroya-Pueblonuevo;Confirmados PCR 14 días;4;
-Peñarroya-Pueblonuevo;Confirmados PCR 7 días;4;
-Peñarroya-Pueblonuevo;Total Confirmados ;25;
+Peñarroya-Pueblonuevo;Confirmados PCR;27;
+Peñarroya-Pueblonuevo;Confirmados PCR 14 días;6;
+Peñarroya-Pueblonuevo;Confirmados PCR 7 días;6;
+Peñarroya-Pueblonuevo;Total Confirmados ;27;
 Peñarroya-Pueblonuevo;Curados;21;
 Peñarroya-Pueblonuevo;Fallecidos;0;
 Valsequillo;Población;356;
@@ -580,26 +580,7 @@ Villanueva de Córdoba;Confirmados PCR 7 días;0;
 Villanueva de Córdoba;Total Confirmados ;5;
 Villanueva de Córdoba;Curados;5;
 Villanueva de Córdoba;Fallecidos;0;
-Municipio de Córdoba sin especificar;Población;;
-Municipio de Córdoba sin especificar;Confirmados PCR;1;
-Municipio de Córdoba sin especificar;Confirmados PCR 14 días;1;
-Municipio de Córdoba sin especificar;Confirmados PCR 7 días;1;
-Municipio de Córdoba sin especificar;Total Confirmados ;1;
-Municipio de Córdoba sin especificar;Curados;0;
-Municipio de Córdoba sin especificar;Fallecidos;0;
 
-          
-               
-                    
-               
-               
-               
-               
-               
-               
-               
-               
-          
           
                
                     
