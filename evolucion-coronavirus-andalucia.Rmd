@@ -620,7 +620,7 @@ mapview(casos.dist, zcol = "casos",
         
 ```
 
-Este mapa de nuevos casos confirmados en los últimos 14 días es útil para saber dónde se encuentran los brotes activos en la actualidad:
+Este mapa de casos confirmados en los últimos 14 días es útil para saber dónde se encuentran los brotes activos en la actualidad:
 
 ```{r mapamunis_PCR_14d, out.width='100%'}
 
@@ -633,15 +633,28 @@ muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000) %>%
 
 library(sf)
 
-muni.gpkg <- st_read("datos/municipios.gpkg", 
-                     stringsAsFactors = FALSE, quiet = TRUE) 
+# muni.gpkg <- st_read("datos/municipios.gpkg", 
+#                      stringsAsFactors = FALSE, quiet = TRUE) 
+# 
+# muni.lite <- rmapshaper::ms_simplify(muni.gpkg, keep_shapes = TRUE, keep = 0.01)
+# 
+# st_write(muni.lite, "datos/municipios_lite.gpkg")
 
-muni.14d <- left_join(select(muni.gpkg, PROVINCIA, MUNICIPIO),
+muni.lite <- st_read("datos/municipios_lite.gpkg", 
+                     stringsAsFactors = FALSE, quiet = TRUE)
+
+muni.14d <- left_join(select(muni.lite, PROVINCIA, MUNICIPIO),
                       select(muni.data, PROVINCIA, MUNICIPIO, ConfirmadosPCR14d),
-                      by = c("PROVINCIA", "MUNICIPIO"))
+                      by = c("PROVINCIA", "MUNICIPIO")) %>%
+  mutate(casos = ifelse(is.na(ConfirmadosPCR14d), 0, ConfirmadosPCR14d),
+         lab = paste(MUNICIPIO, casos, sep = ": "))
 
-ggplot(muni.14d) +
-  geom_sf(aes(fill = ConfirmadosPCR14d), colour = "grey85", size = 0.1) +
+library(ggiraph)
+
+mapa <- 
+  ggplot(muni.14d) +
+  ggiraph::geom_sf_interactive(aes(fill = ConfirmadosPCR14d, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
                        na.value = "white") +
   #theme_minimal() +
@@ -652,8 +665,8 @@ ggplot(muni.14d) +
   labs(title = "Casos confirmados por PCR en cada municipio",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia")
-  
 
+girafe(ggobj = mapa)
 
 ```
 
