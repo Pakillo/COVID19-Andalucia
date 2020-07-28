@@ -825,7 +825,9 @@ Número de camas ocupadas en centros hospitalarios, y cuántas de ellas son de c
 camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
   mutate(Fecha = as.Date(Fecha)) %>%
   filter(Territorio == "Andalucía") 
-camas.last <- camas[nrow(camas), ]
+camas.last <- camas %>%
+  filter(!is.na(CamasOcup)) %>%
+  slice_tail()
 
 ggplot(camas) +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
