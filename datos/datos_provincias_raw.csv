@@ -1,30 +1,192 @@
 Fecha diagnóstico;Territorio;Medida;Valor;
-30/07/2020;Andalucía;Confirmados PCR;109;
-30/07/2020;Andalucía;Total confirmados;109;
-30/07/2020;Andalucía;Hospitalizados;7;
+02/08/2020;Andalucía;Confirmados PCR;101;
+02/08/2020;Andalucía;Total confirmados;101;
+02/08/2020;Andalucía;Hospitalizados;2;
+02/08/2020;Andalucía;UCI;1;
+02/08/2020;Andalucía;Curados;0;
+02/08/2020;Andalucía;Fallecidos;0;
+02/08/2020;Almería;Confirmados PCR;50;
+02/08/2020;Almería;Total confirmados;50;
+02/08/2020;Almería;Hospitalizados;2;
+02/08/2020;Almería;UCI;1;
+02/08/2020;Almería;Curados;0;
+02/08/2020;Almería;Fallecidos;0;
+02/08/2020;Cádiz;Confirmados PCR;7;
+02/08/2020;Cádiz;Total confirmados;7;
+02/08/2020;Cádiz;Hospitalizados;0;
+02/08/2020;Cádiz;UCI;0;
+02/08/2020;Cádiz;Curados;0;
+02/08/2020;Cádiz;Fallecidos;0;
+02/08/2020;Córdoba;Confirmados PCR;4;
+02/08/2020;Córdoba;Total confirmados;4;
+02/08/2020;Córdoba;Hospitalizados;0;
+02/08/2020;Córdoba;UCI;0;
+02/08/2020;Córdoba;Curados;0;
+02/08/2020;Córdoba;Fallecidos;0;
+02/08/2020;Granada;Confirmados PCR;8;
+02/08/2020;Granada;Total confirmados;8;
+02/08/2020;Granada;Hospitalizados;0;
+02/08/2020;Granada;UCI;0;
+02/08/2020;Granada;Curados;0;
+02/08/2020;Granada;Fallecidos;0;
+02/08/2020;Huelva;Confirmados PCR;1;
+02/08/2020;Huelva;Total confirmados;1;
+02/08/2020;Huelva;Hospitalizados;0;
+02/08/2020;Huelva;UCI;0;
+02/08/2020;Huelva;Curados;0;
+02/08/2020;Huelva;Fallecidos;0;
+02/08/2020;Jaén;Confirmados PCR;1;
+02/08/2020;Jaén;Total confirmados;1;
+02/08/2020;Jaén;Hospitalizados;0;
+02/08/2020;Jaén;UCI;0;
+02/08/2020;Jaén;Curados;0;
+02/08/2020;Jaén;Fallecidos;0;
+02/08/2020;Málaga;Confirmados PCR;21;
+02/08/2020;Málaga;Total confirmados;21;
+02/08/2020;Málaga;Hospitalizados;0;
+02/08/2020;Málaga;UCI;0;
+02/08/2020;Málaga;Curados;0;
+02/08/2020;Málaga;Fallecidos;0;
+02/08/2020;Sevilla;Confirmados PCR;9;
+02/08/2020;Sevilla;Total confirmados;9;
+02/08/2020;Sevilla;Hospitalizados;0;
+02/08/2020;Sevilla;UCI;0;
+02/08/2020;Sevilla;Curados;0;
+02/08/2020;Sevilla;Fallecidos;0;
+01/08/2020;Andalucía;Confirmados PCR;145;
+01/08/2020;Andalucía;Total confirmados;146;
+01/08/2020;Andalucía;Hospitalizados;8;
+01/08/2020;Andalucía;UCI;1;
+01/08/2020;Andalucía;Curados;1;
+01/08/2020;Andalucía;Fallecidos;1;
+01/08/2020;Almería;Confirmados PCR;23;
+01/08/2020;Almería;Total confirmados;23;
+01/08/2020;Almería;Hospitalizados;1;
+01/08/2020;Almería;UCI;0;
+01/08/2020;Almería;Curados;0;
+01/08/2020;Almería;Fallecidos;0;
+01/08/2020;Cádiz;Confirmados PCR;23;
+01/08/2020;Cádiz;Total confirmados;23;
+01/08/2020;Cádiz;Hospitalizados;3;
+01/08/2020;Cádiz;UCI;0;
+01/08/2020;Cádiz;Curados;0;
+01/08/2020;Cádiz;Fallecidos;1;
+01/08/2020;Córdoba;Confirmados PCR;21;
+01/08/2020;Córdoba;Total confirmados;21;
+01/08/2020;Córdoba;Hospitalizados;1;
+01/08/2020;Córdoba;UCI;0;
+01/08/2020;Córdoba;Curados;1;
+01/08/2020;Córdoba;Fallecidos;0;
+01/08/2020;Granada;Confirmados PCR;17;
+01/08/2020;Granada;Total confirmados;17;
+01/08/2020;Granada;Hospitalizados;1;
+01/08/2020;Granada;UCI;1;
+01/08/2020;Granada;Curados;0;
+01/08/2020;Granada;Fallecidos;0;
+01/08/2020;Huelva;Confirmados PCR;3;
+01/08/2020;Huelva;Total confirmados;3;
+01/08/2020;Huelva;Hospitalizados;0;
+01/08/2020;Huelva;UCI;0;
+01/08/2020;Huelva;Curados;0;
+01/08/2020;Huelva;Fallecidos;0;
+01/08/2020;Jaén;Confirmados PCR;6;
+01/08/2020;Jaén;Total confirmados;6;
+01/08/2020;Jaén;Hospitalizados;0;
+01/08/2020;Jaén;UCI;0;
+01/08/2020;Jaén;Curados;0;
+01/08/2020;Jaén;Fallecidos;0;
+01/08/2020;Málaga;Confirmados PCR;33;
+01/08/2020;Málaga;Total confirmados;34;
+01/08/2020;Málaga;Hospitalizados;1;
+01/08/2020;Málaga;UCI;0;
+01/08/2020;Málaga;Curados;0;
+01/08/2020;Málaga;Fallecidos;0;
+01/08/2020;Sevilla;Confirmados PCR;19;
+01/08/2020;Sevilla;Total confirmados;19;
+01/08/2020;Sevilla;Hospitalizados;1;
+01/08/2020;Sevilla;UCI;0;
+01/08/2020;Sevilla;Curados;0;
+01/08/2020;Sevilla;Fallecidos;0;
+31/07/2020;Andalucía;Confirmados PCR;188;
+31/07/2020;Andalucía;Total confirmados;188;
+31/07/2020;Andalucía;Hospitalizados;5;
+31/07/2020;Andalucía;UCI;0;
+31/07/2020;Andalucía;Curados;0;
+31/07/2020;Andalucía;Fallecidos;0;
+31/07/2020;Almería;Confirmados PCR;43;
+31/07/2020;Almería;Total confirmados;43;
+31/07/2020;Almería;Hospitalizados;4;
+31/07/2020;Almería;UCI;0;
+31/07/2020;Almería;Curados;0;
+31/07/2020;Almería;Fallecidos;0;
+31/07/2020;Cádiz;Confirmados PCR;11;
+31/07/2020;Cádiz;Total confirmados;11;
+31/07/2020;Cádiz;Hospitalizados;0;
+31/07/2020;Cádiz;UCI;0;
+31/07/2020;Cádiz;Curados;0;
+31/07/2020;Cádiz;Fallecidos;0;
+31/07/2020;Córdoba;Confirmados PCR;27;
+31/07/2020;Córdoba;Total confirmados;27;
+31/07/2020;Córdoba;Hospitalizados;0;
+31/07/2020;Córdoba;UCI;0;
+31/07/2020;Córdoba;Curados;0;
+31/07/2020;Córdoba;Fallecidos;0;
+31/07/2020;Granada;Confirmados PCR;10;
+31/07/2020;Granada;Total confirmados;10;
+31/07/2020;Granada;Hospitalizados;0;
+31/07/2020;Granada;UCI;0;
+31/07/2020;Granada;Curados;0;
+31/07/2020;Granada;Fallecidos;0;
+31/07/2020;Huelva;Confirmados PCR;9;
+31/07/2020;Huelva;Total confirmados;9;
+31/07/2020;Huelva;Hospitalizados;0;
+31/07/2020;Huelva;UCI;0;
+31/07/2020;Huelva;Curados;0;
+31/07/2020;Huelva;Fallecidos;0;
+31/07/2020;Jaén;Confirmados PCR;11;
+31/07/2020;Jaén;Total confirmados;11;
+31/07/2020;Jaén;Hospitalizados;0;
+31/07/2020;Jaén;UCI;0;
+31/07/2020;Jaén;Curados;0;
+31/07/2020;Jaén;Fallecidos;0;
+31/07/2020;Málaga;Confirmados PCR;55;
+31/07/2020;Málaga;Total confirmados;55;
+31/07/2020;Málaga;Hospitalizados;1;
+31/07/2020;Málaga;UCI;0;
+31/07/2020;Málaga;Curados;0;
+31/07/2020;Málaga;Fallecidos;0;
+31/07/2020;Sevilla;Confirmados PCR;22;
+31/07/2020;Sevilla;Total confirmados;22;
+31/07/2020;Sevilla;Hospitalizados;0;
+31/07/2020;Sevilla;UCI;0;
+31/07/2020;Sevilla;Curados;0;
+31/07/2020;Sevilla;Fallecidos;0;
+30/07/2020;Andalucía;Confirmados PCR;193;
+30/07/2020;Andalucía;Total confirmados;194;
+30/07/2020;Andalucía;Hospitalizados;9;
 30/07/2020;Andalucía;UCI;0;
 30/07/2020;Andalucía;Curados;0;
 30/07/2020;Andalucía;Fallecidos;0;
-30/07/2020;Almería;Confirmados PCR;15;
-30/07/2020;Almería;Total confirmados;15;
-30/07/2020;Almería;Hospitalizados;3;
+30/07/2020;Almería;Confirmados PCR;84;
+30/07/2020;Almería;Total confirmados;84;
+30/07/2020;Almería;Hospitalizados;5;
 30/07/2020;Almería;UCI;0;
 30/07/2020;Almería;Curados;0;
 30/07/2020;Almería;Fallecidos;0;
-30/07/2020;Cádiz;Confirmados PCR;8;
-30/07/2020;Cádiz;Total confirmados;8;
+30/07/2020;Cádiz;Confirmados PCR;11;
+30/07/2020;Cádiz;Total confirmados;12;
 30/07/2020;Cádiz;Hospitalizados;0;
 30/07/2020;Cádiz;UCI;0;
 30/07/2020;Cádiz;Curados;0;
 30/07/2020;Cádiz;Fallecidos;0;
-30/07/2020;Córdoba;Confirmados PCR;36;
-30/07/2020;Córdoba;Total confirmados;36;
+30/07/2020;Córdoba;Confirmados PCR;35;
+30/07/2020;Córdoba;Total confirmados;35;
 30/07/2020;Córdoba;Hospitalizados;0;
 30/07/2020;Córdoba;UCI;0;
 30/07/2020;Córdoba;Curados;0;
 30/07/2020;Córdoba;Fallecidos;0;
-30/07/2020;Granada;Confirmados PCR;17;
-30/07/2020;Granada;Total confirmados;17;
+30/07/2020;Granada;Confirmados PCR;20;
+30/07/2020;Granada;Total confirmados;20;
 30/07/2020;Granada;Hospitalizados;3;
 30/07/2020;Granada;UCI;0;
 30/07/2020;Granada;Curados;0;
@@ -35,32 +197,32 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 30/07/2020;Huelva;UCI;0;
 30/07/2020;Huelva;Curados;0;
 30/07/2020;Huelva;Fallecidos;0;
-30/07/2020;Málaga;Confirmados PCR;13;
-30/07/2020;Málaga;Total confirmados;13;
+30/07/2020;Málaga;Confirmados PCR;20;
+30/07/2020;Málaga;Total confirmados;20;
 30/07/2020;Málaga;Hospitalizados;1;
 30/07/2020;Málaga;UCI;0;
 30/07/2020;Málaga;Curados;0;
 30/07/2020;Málaga;Fallecidos;0;
-30/07/2020;Sevilla;Confirmados PCR;13;
-30/07/2020;Sevilla;Total confirmados;13;
+30/07/2020;Sevilla;Confirmados PCR;16;
+30/07/2020;Sevilla;Total confirmados;16;
 30/07/2020;Sevilla;Hospitalizados;0;
 30/07/2020;Sevilla;UCI;0;
 30/07/2020;Sevilla;Curados;0;
 30/07/2020;Sevilla;Fallecidos;0;
-29/07/2020;Andalucía;Confirmados PCR;140;
-29/07/2020;Andalucía;Total confirmados;140;
-29/07/2020;Andalucía;Hospitalizados;5;
+29/07/2020;Andalucía;Confirmados PCR;143;
+29/07/2020;Andalucía;Total confirmados;143;
+29/07/2020;Andalucía;Hospitalizados;6;
 29/07/2020;Andalucía;UCI;0;
 29/07/2020;Andalucía;Curados;0;
 29/07/2020;Andalucía;Fallecidos;0;
-29/07/2020;Almería;Confirmados PCR;36;
-29/07/2020;Almería;Total confirmados;36;
-29/07/2020;Almería;Hospitalizados;3;
+29/07/2020;Almería;Confirmados PCR;35;
+29/07/2020;Almería;Total confirmados;35;
+29/07/2020;Almería;Hospitalizados;4;
 29/07/2020;Almería;UCI;0;
 29/07/2020;Almería;Curados;0;
 29/07/2020;Almería;Fallecidos;0;
-29/07/2020;Cádiz;Confirmados PCR;7;
-29/07/2020;Cádiz;Total confirmados;7;
+29/07/2020;Cádiz;Confirmados PCR;8;
+29/07/2020;Cádiz;Total confirmados;8;
 29/07/2020;Cádiz;Hospitalizados;0;
 29/07/2020;Cádiz;UCI;0;
 29/07/2020;Cádiz;Curados;0;
@@ -71,8 +233,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/07/2020;Córdoba;UCI;0;
 29/07/2020;Córdoba;Curados;0;
 29/07/2020;Córdoba;Fallecidos;0;
-29/07/2020;Granada;Confirmados PCR;7;
-29/07/2020;Granada;Total confirmados;7;
+29/07/2020;Granada;Confirmados PCR;6;
+29/07/2020;Granada;Total confirmados;6;
 29/07/2020;Granada;Hospitalizados;0;
 29/07/2020;Granada;UCI;0;
 29/07/2020;Granada;Curados;0;
@@ -89,26 +251,26 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/07/2020;Jaén;UCI;0;
 29/07/2020;Jaén;Curados;0;
 29/07/2020;Jaén;Fallecidos;0;
-29/07/2020;Málaga;Confirmados PCR;42;
-29/07/2020;Málaga;Total confirmados;42;
+29/07/2020;Málaga;Confirmados PCR;44;
+29/07/2020;Málaga;Total confirmados;44;
 29/07/2020;Málaga;Hospitalizados;1;
 29/07/2020;Málaga;UCI;0;
 29/07/2020;Málaga;Curados;0;
 29/07/2020;Málaga;Fallecidos;0;
-29/07/2020;Sevilla;Confirmados PCR;27;
-29/07/2020;Sevilla;Total confirmados;27;
+29/07/2020;Sevilla;Confirmados PCR;29;
+29/07/2020;Sevilla;Total confirmados;29;
 29/07/2020;Sevilla;Hospitalizados;0;
 29/07/2020;Sevilla;UCI;0;
 29/07/2020;Sevilla;Curados;0;
 29/07/2020;Sevilla;Fallecidos;0;
-28/07/2020;Andalucía;Confirmados PCR;99;
-28/07/2020;Andalucía;Total confirmados;99;
-28/07/2020;Andalucía;Hospitalizados;7;
-28/07/2020;Andalucía;UCI;1;
+28/07/2020;Andalucía;Confirmados PCR;101;
+28/07/2020;Andalucía;Total confirmados;101;
+28/07/2020;Andalucía;Hospitalizados;8;
+28/07/2020;Andalucía;UCI;2;
 28/07/2020;Andalucía;Curados;0;
 28/07/2020;Andalucía;Fallecidos;0;
-28/07/2020;Almería;Confirmados PCR;25;
-28/07/2020;Almería;Total confirmados;25;
+28/07/2020;Almería;Confirmados PCR;24;
+28/07/2020;Almería;Total confirmados;24;
 28/07/2020;Almería;Hospitalizados;2;
 28/07/2020;Almería;UCI;1;
 28/07/2020;Almería;Curados;0;
@@ -121,12 +283,12 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 28/07/2020;Cádiz;Fallecidos;0;
 28/07/2020;Córdoba;Confirmados PCR;9;
 28/07/2020;Córdoba;Total confirmados;9;
-28/07/2020;Córdoba;Hospitalizados;1;
-28/07/2020;Córdoba;UCI;0;
+28/07/2020;Córdoba;Hospitalizados;2;
+28/07/2020;Córdoba;UCI;1;
 28/07/2020;Córdoba;Curados;0;
 28/07/2020;Córdoba;Fallecidos;0;
-28/07/2020;Granada;Confirmados PCR;8;
-28/07/2020;Granada;Total confirmados;8;
+28/07/2020;Granada;Confirmados PCR;9;
+28/07/2020;Granada;Total confirmados;9;
 28/07/2020;Granada;Hospitalizados;0;
 28/07/2020;Granada;UCI;0;
 28/07/2020;Granada;Curados;0;
@@ -143,20 +305,20 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 28/07/2020;Jaén;UCI;0;
 28/07/2020;Jaén;Curados;0;
 28/07/2020;Jaén;Fallecidos;0;
-28/07/2020;Málaga;Confirmados PCR;27;
-28/07/2020;Málaga;Total confirmados;27;
+28/07/2020;Málaga;Confirmados PCR;28;
+28/07/2020;Málaga;Total confirmados;28;
 28/07/2020;Málaga;Hospitalizados;1;
 28/07/2020;Málaga;UCI;0;
 28/07/2020;Málaga;Curados;0;
 28/07/2020;Málaga;Fallecidos;0;
-28/07/2020;Sevilla;Confirmados PCR;19;
-28/07/2020;Sevilla;Total confirmados;19;
+28/07/2020;Sevilla;Confirmados PCR;20;
+28/07/2020;Sevilla;Total confirmados;20;
 28/07/2020;Sevilla;Hospitalizados;1;
 28/07/2020;Sevilla;UCI;0;
 28/07/2020;Sevilla;Curados;0;
 28/07/2020;Sevilla;Fallecidos;0;
-27/07/2020;Andalucía;Confirmados PCR;90;
-27/07/2020;Andalucía;Total confirmados;91;
+27/07/2020;Andalucía;Confirmados PCR;89;
+27/07/2020;Andalucía;Total confirmados;90;
 27/07/2020;Andalucía;Hospitalizados;7;
 27/07/2020;Andalucía;UCI;1;
 27/07/2020;Andalucía;Curados;0;
@@ -197,8 +359,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/07/2020;Málaga;UCI;0;
 27/07/2020;Málaga;Curados;0;
 27/07/2020;Málaga;Fallecidos;0;
-27/07/2020;Sevilla;Confirmados PCR;18;
-27/07/2020;Sevilla;Total confirmados;18;
+27/07/2020;Sevilla;Confirmados PCR;17;
+27/07/2020;Sevilla;Total confirmados;17;
 27/07/2020;Sevilla;Hospitalizados;0;
 27/07/2020;Sevilla;UCI;0;
 27/07/2020;Sevilla;Curados;0;
@@ -315,7 +477,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/07/2020;Andalucía;Total confirmados;134;
 24/07/2020;Andalucía;Hospitalizados;6;
 24/07/2020;Andalucía;UCI;0;
-24/07/2020;Andalucía;Curados;1;
+24/07/2020;Andalucía;Curados;2;
 24/07/2020;Andalucía;Fallecidos;0;
 24/07/2020;Almería;Confirmados PCR;38;
 24/07/2020;Almería;Total confirmados;38;
@@ -327,7 +489,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/07/2020;Cádiz;Total confirmados;4;
 24/07/2020;Cádiz;Hospitalizados;0;
 24/07/2020;Cádiz;UCI;0;
-24/07/2020;Cádiz;Curados;0;
+24/07/2020;Cádiz;Curados;1;
 24/07/2020;Cádiz;Fallecidos;0;
 24/07/2020;Córdoba;Confirmados PCR;5;
 24/07/2020;Córdoba;Total confirmados;5;
@@ -369,13 +531,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 23/07/2020;Andalucía;Total confirmados;96;
 23/07/2020;Andalucía;Hospitalizados;7;
 23/07/2020;Andalucía;UCI;1;
-23/07/2020;Andalucía;Curados;1;
+23/07/2020;Andalucía;Curados;2;
 23/07/2020;Andalucía;Fallecidos;0;
 23/07/2020;Almería;Confirmados PCR;43;
 23/07/2020;Almería;Total confirmados;43;
 23/07/2020;Almería;Hospitalizados;4;
 23/07/2020;Almería;UCI;1;
-23/07/2020;Almería;Curados;0;
+23/07/2020;Almería;Curados;1;
 23/07/2020;Almería;Fallecidos;0;
 23/07/2020;Cádiz;Confirmados PCR;1;
 23/07/2020;Cádiz;Total confirmados;1;
@@ -424,7 +586,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 22/07/2020;Andalucía;Hospitalizados;7;
 22/07/2020;Andalucía;UCI;0;
 22/07/2020;Andalucía;Curados;8;
-22/07/2020;Andalucía;Fallecidos;0;
+22/07/2020;Andalucía;Fallecidos;1;
 22/07/2020;Almería;Confirmados PCR;23;
 22/07/2020;Almería;Total confirmados;23;
 22/07/2020;Almería;Hospitalizados;3;
@@ -460,7 +622,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 22/07/2020;Jaén;Hospitalizados;1;
 22/07/2020;Jaén;UCI;0;
 22/07/2020;Jaén;Curados;0;
-22/07/2020;Jaén;Fallecidos;0;
+22/07/2020;Jaén;Fallecidos;1;
 22/07/2020;Málaga;Confirmados PCR;13;
 22/07/2020;Málaga;Total confirmados;13;
 22/07/2020;Málaga;Hospitalizados;1;
@@ -473,17 +635,17 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 22/07/2020;Sevilla;UCI;0;
 22/07/2020;Sevilla;Curados;0;
 22/07/2020;Sevilla;Fallecidos;0;
-21/07/2020;Andalucía;Confirmados PCR;54;
-21/07/2020;Andalucía;Total confirmados;54;
+21/07/2020;Andalucía;Confirmados PCR;55;
+21/07/2020;Andalucía;Total confirmados;55;
 21/07/2020;Andalucía;Hospitalizados;5;
 21/07/2020;Andalucía;UCI;1;
-21/07/2020;Andalucía;Curados;3;
+21/07/2020;Andalucía;Curados;5;
 21/07/2020;Andalucía;Fallecidos;0;
 21/07/2020;Almería;Confirmados PCR;15;
 21/07/2020;Almería;Total confirmados;15;
 21/07/2020;Almería;Hospitalizados;2;
 21/07/2020;Almería;UCI;0;
-21/07/2020;Almería;Curados;1;
+21/07/2020;Almería;Curados;2;
 21/07/2020;Almería;Fallecidos;0;
 21/07/2020;Cádiz;Confirmados PCR;3;
 21/07/2020;Cádiz;Total confirmados;3;
@@ -519,10 +681,10 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 21/07/2020;Málaga;Total confirmados;16;
 21/07/2020;Málaga;Hospitalizados;1;
 21/07/2020;Málaga;UCI;0;
-21/07/2020;Málaga;Curados;0;
+21/07/2020;Málaga;Curados;1;
 21/07/2020;Málaga;Fallecidos;0;
-21/07/2020;Sevilla;Confirmados PCR;6;
-21/07/2020;Sevilla;Total confirmados;6;
+21/07/2020;Sevilla;Confirmados PCR;7;
+21/07/2020;Sevilla;Total confirmados;7;
 21/07/2020;Sevilla;Hospitalizados;1;
 21/07/2020;Sevilla;UCI;1;
 21/07/2020;Sevilla;Curados;2;
@@ -573,19 +735,19 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 19/07/2020;Andalucía;Total confirmados;87;
 19/07/2020;Andalucía;Hospitalizados;1;
 19/07/2020;Andalucía;UCI;0;
-19/07/2020;Andalucía;Curados;42;
+19/07/2020;Andalucía;Curados;45;
 19/07/2020;Andalucía;Fallecidos;0;
 19/07/2020;Almería;Confirmados PCR;58;
 19/07/2020;Almería;Total confirmados;58;
 19/07/2020;Almería;Hospitalizados;0;
 19/07/2020;Almería;UCI;0;
-19/07/2020;Almería;Curados;41;
+19/07/2020;Almería;Curados;43;
 19/07/2020;Almería;Fallecidos;0;
 19/07/2020;Cádiz;Confirmados PCR;1;
 19/07/2020;Cádiz;Total confirmados;1;
 19/07/2020;Cádiz;Hospitalizados;0;
 19/07/2020;Cádiz;UCI;0;
-19/07/2020;Cádiz;Curados;0;
+19/07/2020;Cádiz;Curados;1;
 19/07/2020;Cádiz;Fallecidos;0;
 19/07/2020;Córdoba;Confirmados PCR;15;
 19/07/2020;Córdoba;Total confirmados;15;
@@ -1577,10 +1739,10 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 23/06/2020;Málaga;UCI;0;
 23/06/2020;Málaga;Curados;2;
 23/06/2020;Málaga;Fallecidos;0;
-22/06/2020;Andalucía;Confirmados PCR;3;
-22/06/2020;Andalucía;Total confirmados;4;
-22/06/2020;Andalucía;Hospitalizados;1;
-22/06/2020;Andalucía;UCI;0;
+22/06/2020;Andalucía;Confirmados PCR;4;
+22/06/2020;Andalucía;Total confirmados;5;
+22/06/2020;Andalucía;Hospitalizados;2;
+22/06/2020;Andalucía;UCI;1;
 22/06/2020;Andalucía;Curados;3;
 22/06/2020;Andalucía;Fallecidos;0;
 22/06/2020;Córdoba;Confirmados PCR;0;
@@ -1589,10 +1751,10 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 22/06/2020;Córdoba;UCI;0;
 22/06/2020;Córdoba;Curados;1;
 22/06/2020;Córdoba;Fallecidos;0;
-22/06/2020;Huelva;Confirmados PCR;1;
-22/06/2020;Huelva;Total confirmados;1;
-22/06/2020;Huelva;Hospitalizados;0;
-22/06/2020;Huelva;UCI;0;
+22/06/2020;Huelva;Confirmados PCR;2;
+22/06/2020;Huelva;Total confirmados;2;
+22/06/2020;Huelva;Hospitalizados;1;
+22/06/2020;Huelva;UCI;1;
 22/06/2020;Huelva;Curados;1;
 22/06/2020;Huelva;Fallecidos;0;
 22/06/2020;Málaga;Confirmados PCR;1;
@@ -5843,10 +6005,10 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 23/03/2020;Sevilla;UCI;8;
 23/03/2020;Sevilla;Curados;129;
 23/03/2020;Sevilla;Fallecidos;31;
-22/03/2020;Andalucía;Confirmados PCR;368;
-22/03/2020;Andalucía;Total confirmados;369;
-22/03/2020;Andalucía;Hospitalizados;260;
-22/03/2020;Andalucía;UCI;43;
+22/03/2020;Andalucía;Confirmados PCR;367;
+22/03/2020;Andalucía;Total confirmados;368;
+22/03/2020;Andalucía;Hospitalizados;259;
+22/03/2020;Andalucía;UCI;42;
 22/03/2020;Andalucía;Curados;295;
 22/03/2020;Andalucía;Fallecidos;58;
 22/03/2020;Almería;Confirmados PCR;12;
@@ -5873,10 +6035,10 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 22/03/2020;Granada;UCI;8;
 22/03/2020;Granada;Curados;60;
 22/03/2020;Granada;Fallecidos;10;
-22/03/2020;Huelva;Confirmados PCR;18;
-22/03/2020;Huelva;Total confirmados;18;
-22/03/2020;Huelva;Hospitalizados;17;
-22/03/2020;Huelva;UCI;5;
+22/03/2020;Huelva;Confirmados PCR;17;
+22/03/2020;Huelva;Total confirmados;17;
+22/03/2020;Huelva;Hospitalizados;16;
+22/03/2020;Huelva;UCI;4;
 22/03/2020;Huelva;Curados;13;
 22/03/2020;Huelva;Fallecidos;4;
 22/03/2020;Jaén;Confirmados PCR;38;
@@ -6858,6 +7020,312 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 03/02/2020;Sevilla;Curados;1;
 03/02/2020;Sevilla;Fallecidos;0;
 
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+               
+          
           
                
                     
