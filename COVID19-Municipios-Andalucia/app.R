@@ -8,11 +8,12 @@ library(DT)
 
 #### FUNCTIONS ####
 
-select_data <- function(df, provincia, municipio) {
+select_data <- function(df, provincia, municipio, start, end) {
 
     df %>%
         filter(Provincia == provincia, Municipio == municipio) %>%
-        dplyr::select(-Provincia, -Distrito, -Municipio, -ConfirmadosPCR14d)
+        dplyr::select(-Provincia, -Distrito, -Municipio, -ConfirmadosPCR14d) %>%
+        filter(Fecha >= start, Fecha <= end)
 
 }
 
@@ -55,7 +56,12 @@ ui <- pageWithSidebar(
     headerPanel('COVID-19 en Andalucía: datos por municipio'),
     sidebarPanel(
         selectInput('prov', 'Provincia', provs, selected = "Córdoba"),
-        uiOutput('muni')
+        uiOutput('muni'),
+        dateRangeInput('dateRange',
+                       label = 'Periodo:',
+                       start = "2020-05-01", end = Sys.Date(),
+                       min = "2020-05-01", max = Sys.Date(),
+                       separator = " - ")
     ),
     mainPanel(
         tabsetPanel(
@@ -81,7 +87,12 @@ server <- function(input, output, session) {
     })
 
 
-    selectedData <- reactive({select_data(datos.muni, provincia = input$prov, municipio = input$muni)})
+    selectedData <- reactive({
+        select_data(datos.muni,
+                    provincia = input$prov,
+                    municipio = input$muni,
+                    start = input$dateRange[1],
+                    end = input$dateRange[2])})
 
     # grafica
     output$plot1 <- renderPlot({make_plot(selectedData(), municipio = input$muni)})
