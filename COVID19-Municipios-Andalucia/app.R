@@ -59,8 +59,8 @@ ui <- pageWithSidebar(
         uiOutput('muni'),
         dateRangeInput('dateRange',
                        label = 'Periodo:',
-                       start = "2020-05-01", end = Sys.Date(),
-                       min = "2020-05-01", max = Sys.Date(),
+                       start = "2020-05-01", end = Sys.Date() - 1,
+                       min = "2020-05-01", max = Sys.Date() - 1,
                        separator = " - ")
     ),
     mainPanel(
