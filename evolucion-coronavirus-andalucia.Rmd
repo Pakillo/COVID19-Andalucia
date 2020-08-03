@@ -175,7 +175,8 @@ ggplot(datos.andal.long) +
   scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA)) +
+  scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
 
@@ -300,7 +301,7 @@ ggplot(casos.pcr) +
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
-  scale_y_continuous(limits = c(0, NA)) +
+  scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = "")) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
