@@ -66,7 +66,9 @@ render_toc("evolucion-coronavirus-andalucia.Rmd", base_level = 2, toc_depth = 1)
 
 
 ```{r datos}
+
 library(readr)
+library(assertr)
 
 #datos <- readxl::read_excel("datos_brutos.xlsx", sheet = "datos")
 # A partir del 20 de Abril, usando datos de la Junta
@@ -96,28 +98,6 @@ datos <- datos %>%
   arrange(Fecha) %>%
   dplyr::filter(Territorio != "España")
 
-
-## 9 Mayo: Datos son ahora diarios, NO acumulados!!
-
-# datos <- datos %>%
-#   group_by(Territorio) %>%
-#   mutate(ConfirmadosPCR.new = ConfirmadosPCR - lag(ConfirmadosPCR),
-#          ConfirmadosTotal.new = ConfirmadosTotal - lag(ConfirmadosTotal),
-#          Hospitalizados.new = Hospitalizados - lag(Hospitalizados),
-#          UCI.new =  UCI - lag(UCI),
-#          Curados.new = Curados - lag(Curados),
-#          Defunciones.new = Defunciones - lag(Defunciones)) %>%
-#   ungroup()
-
-##
-
-
-# checks
-library(assertr)
-
-# datos %>%
-#   assert(within_bounds(0, Inf), Confirmados.new:Curados.new, 
-#          error_fun = error_report)  
 
 write_csv(datos, "datos/datos_provincias_clean.csv")
 
@@ -330,7 +310,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 4, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 8, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
 
 ```
@@ -760,7 +740,7 @@ ggplot(datos.provs) +
 <br>
 
 
-## Ingresos en cuidados intensivos (UCI)
+### Ingresos en cuidados intensivos (UCI)
 
 <br>
 
@@ -813,7 +793,7 @@ ggplot(datos.provs) +
 ```
 
 
-## Camas ocupadas
+### Camas ocupadas
 
 <br>
 
@@ -949,6 +929,41 @@ ggplot(datos.provs) +
 <br>
 
 
+
+
+
+## Datos por municipio
+
+
+
+<br>
+
+```{r tabla.muni, out.width='100%', eval=FALSE}
+# Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
+
+library(DT)
+
+muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
+#muni.data$Provincia <- as.factor(muni.data$Provincia)
+
+datatable(muni.data, rownames = FALSE, filter = "top")
+```
+
+
+Seleccione provincia y municipio para visualizar el número de casos confirmados y defunciones por municipio.
+
+<br>
+
+```{r shiny.muni, out.width='100%'}
+include_app("https://frodsan.shinyapps.io/COVID19-Municipios-Andalucia/", 
+            height = '600px')
+```
+
+
+<br>
+
+
+
 ## Distribucion por edad y sexo
 
 <br>
@@ -1079,7 +1094,7 @@ ggplot() +
 
 <br>
 
-Aquí se representa, para cada sexo y franja de edad, la proporción de casos confirmados de COVID-19 que acaban en defunción (lo que en inglés se conoce como [Case Fatality Rate](https://en.wikipedia.org/wiki/Case_fatality_rate)). Estos valores sirven para tener una idea aproximada de la letalidad del virus, aunque la probabilidad individual de defunción depende de muchos otros factores (otras enfermedades, mejoras en los tratamientos, etc). Los valores que aquí se presentan además no tienen en cuenta las defunciones que pueden ocurrir en las próximas semanas de personas ahora infectadas. 
+Aquí se representa, para cada sexo y franja de edad, la proporción de casos confirmados de COVID-19 que acaban en defunción (lo que en inglés se conoce como [Case Fatality Rate](https://en.wikipedia.org/wiki/Case_fatality_rate)). Estos valores sirven para tener una idea aproximada de la letalidad del virus, aunque la probabilidad individual de defunción depende de muchos otros factores (otras enfermedades, mejoras en los tratamientos, etc). Los valores que aquí se presentan además no tienen en cuenta las defunciones que pueden ocurrir en las próximas semanas de personas ahora infectadas. Ni las defunciones debidas a COVID-19 pero no diagnosticadas.
 
 En cualquier caso, es evidente que la letalidad aumenta con la edad y es mayor en hombres que en mujeres. 
 
@@ -1093,7 +1108,7 @@ casos.edad.sexo <- read_csv2("datos/edad.sexo/datos_casos_edad_sexo.csv",
                                           grouping_mark = "."),
                           skip_empty_rows = TRUE) %>%
   select(-X5) %>%
-  filter(Medida == "Nº casos") %>%
+  filter(Medida == "Confirmado PCR") %>%
   filter(!is.na(Edad)) %>%
   rename(Casos = Valor) %>%
   select(-Medida)
@@ -1117,22 +1132,11 @@ cfr <- left_join(casos.edad.sexo, def.edad.sexo, by = c("Edad", "Sexo")) %>%
   mutate(edades = factor(rep(edades[-1], each = 2), levels = edades[-1]))
 
 
-## Obtener etiquetas edades
-# (ver chunk anterior)
-# library(stringr)
-# edades <- casos.edad.sexo %>%
-#   filter(Sexo == "Hombres") %>%
-#   mutate(edades = str_replace(Edad, "De ", "")) %>%
-#   mutate(edades = str_replace(edades, " a ", " - ")) %>%
-#   mutate(edades = str_replace(edades, " años", "")) %>%
-#   pull(edades)
-  #mutate(edades = rev(edades))
-
 ggplot(cfr) +
   facet_wrap(~Sexo, ncol = 2, scales = "free_x") +
   geom_col(aes(edades, CFR, fill = Sexo)) +
   coord_flip() +
-  labs(y = "Case Fatality Rate (%)", x = "Edad\n", 
+  labs(y = "Porcentaje de casos que acaban en defunción (%)", x = "Edad\n", 
        title = "Letalidad por COVID-19 en Andalucía",
        subtitle = "Proporción de muertes respecto al número de casos confirmados\nen cada categoría de edad y sexo",
        caption = "https://tiny.cc/COVID19-Andalucia") +
@@ -1140,37 +1144,6 @@ ggplot(cfr) +
   theme(legend.position = "none")
 
 ```
-
-
-
-
-## Datos por municipio
-
-
-
-<br>
-
-```{r tabla.muni, out.width='100%', eval=FALSE}
-# Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
-
-library(DT)
-
-muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
-#muni.data$Provincia <- as.factor(muni.data$Provincia)
-
-datatable(muni.data, rownames = FALSE, filter = "top")
-```
-
-
-Seleccione provincia y municipio para visualizar el número de casos confirmados y defunciones por municipio.
-
-<br>
-
-```{r shiny.muni, out.width='100%'}
-include_app("https://frodsan.shinyapps.io/COVID19-Municipios-Andalucia/", 
-            height = '600px')
-```
-
 
 <br>
 
