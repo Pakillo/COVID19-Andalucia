@@ -665,7 +665,9 @@ Mientras que en los meses de Marzo a Mayo la inmensa mayoría de casos detectado
 <br>
 
 
-```{r casos.edad.fecha, out.width='100%', fig.height=3}
+```{r casos.edad.fecha, out.width='100%', fig.height=2.5}
+
+library(stringr)
 
 casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
                           skip_empty_rows = TRUE) %>%
@@ -677,7 +679,7 @@ casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
   mutate(edades = str_replace(Edad, "De ", "")) %>%
   mutate(edades = str_replace(edades, " a ", " - ")) %>%
   mutate(edades = str_replace(edades, " años", "")) %>%
-  mutate(edades = factor(edades, 
+  mutate(edades = factor(edades,
                          levels = rev(c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
   rename(Casos = Valor) %>%
   mutate(Casos = ifelse(is.na(Casos), 0, Casos))
