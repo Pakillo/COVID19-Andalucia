@@ -310,7 +310,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 10, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 15, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
 
 ```
@@ -689,7 +689,7 @@ casos.edad.fecha %>%
   ggplot() +
   geom_tile(aes(x = Fecha, y = edades, fill = Casos)) +
   scale_fill_viridis_c() +
-  labs(y = "Edad",
+  labs(y = "Edad", x = "",
        title = "Edad de los casos confirmados por PCR",
        caption = "https://tiny.cc/COVID19-Andalucia") 
 
@@ -734,7 +734,7 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "2 days", date_labels = "%d %B") +
-  geom_text(aes(Fecha, y = Hospitalizados + 1, label = Hospitalizados),
+  geom_text(aes(Fecha, y = Hospitalizados + 2, label = Hospitalizados),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
   
 
