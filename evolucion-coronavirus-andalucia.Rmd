@@ -1221,71 +1221,30 @@ ggplot(test.ccaa) +
 
 ```{r confirmados.ccaa, fig.height=5, out.width='100%'}
 
-ccaa.pcr <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_confirmados_pcr_long.csv", guess_max = 10000) 
+ccaa.pcr <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_datos_isciii_nueva_serie.csv", guess_max = 10000) 
 
 library(plotly)
 
 options(scipen = 1000)
 
-ggplotly(ggplot(ccaa.pcr) +
-  # geom_smooth(aes(x = Fecha, y = PCR.new, group = CCAA), 
-  #             colour = "grey80", se = FALSE, span = 0.1) +
-  geom_line(aes(x = fecha, y = total, group = CCAA), 
+ggplotly(
+  ggplot(ccaa.pcr) +
+  geom_line(aes(x = fecha, y = num_casos_prueba_pcr, group = ccaa), 
               colour = "grey80") +
-  geom_line(aes(x = fecha, y = total), 
-            data = subset(ccaa.pcr, CCAA == "Andalucía"), 
+  geom_line(aes(x = fecha, y = num_casos_prueba_pcr), 
+            data = subset(ccaa.pcr, ccaa == "Andalucía"), 
             colour = "#ff7f00", size = 2) +
-  scale_y_log10() +
+  #scale_y_log10() +
   labs(x = "", y = "Confirmados PCR\n",
        title = "Casos de COVID-19 confirmados por PCR en cada CCAA",
-       subtitle = "Escala logarítmica",
-       caption = "https://tiny.cc/COVID19-Andalucia"))
-
-```
-
-<br>
-
-```{r hosp.ccaa, fig.height=5, out.width='100%'}
-
-ccaa.hosp <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_hospitalizados_long.csv", guess_max = 10000)
-
-ggplotly(ggplot(ccaa.hosp) +
-  # geom_smooth(aes(x = Fecha, y = PCR.new, group = CCAA), 
-  #             colour = "grey80", se = FALSE, span = 0.1) +
-  geom_line(aes(x = fecha, y = total, group = CCAA), 
-              colour = "grey80") +
-  geom_line(aes(x = fecha, y = total), 
-            data = subset(ccaa.hosp, CCAA == "Andalucía"), 
-            colour = "#377eb8", size = 2) +
-  scale_y_log10() +
-  labs(x = "", y = "Nº Ingresos\n",
-       title = "Nuevos ingresos con COVID-19 por CCAA",
-       subtitle = "Escala logarítmica",
-       caption = "https://tiny.cc/COVID19-Andalucia"))
+       #subtitle = "Escala logarítmica",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+)
 
 ```
 
 
-<br>
 
-```{r def.ccaa, fig.height=5, out.width='100%'}
-
-ccaa.def <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_fallecidos_long.csv", guess_max = 10000) %>%
-  mutate(total = as.numeric(total))
-
-ggplotly(ggplot(ccaa.def) +
-  geom_line(aes(x = fecha, y = total, group = CCAA), 
-              colour = "grey80") +
-  geom_line(aes(x = fecha, y = total), 
-            data = subset(ccaa.def, CCAA == "Andalucía"), 
-            colour = "grey20", size = 2) +
-  scale_y_log10() +
-  labs(x = "", y = "Defunciones\n",
-       title = "Defunciones relacionadas con COVID-19 por CCAA",
-       subtitle = "Escala logarítmica",
-       caption = "https://tiny.cc/COVID19-Andalucia"))
-
-```
 
 <br>
 
