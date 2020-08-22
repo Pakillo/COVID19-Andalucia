@@ -310,7 +310,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 20, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 25, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
 
 ```
@@ -656,6 +656,59 @@ La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito 
 <br>
 
 
+
+
+### Porcentaje de PCR positivas
+
+Aquí se muestra el número de PCR realizadas en Andalucía cada semana (según los datos ofrecidos por [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019)), el número de casos detectados esa semana, y en consecuencia el porcentaje de PCR positivas. Si el porcentaje de pruebas positivas es elevado es probable que no se esten detectando todos los casos.
+
+
+```{r test.posit, out.width='100%'}
+
+ntest <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_test_realizados.csv") %>%
+  filter(cod_ine == "01") %>%
+  select(Fecha, cod_ine, CCAA, PCR)
+
+# datos.andal$casos.7d <- zoo::rollsumr(datos.andal$ConfirmadosPCR, k = 7, fill = NA)
+
+datos.andal <- datos.andal %>%
+  mutate(casos.acum = cumsum(ConfirmadosPCR))
+
+ntest <- datos.andal %>%
+  select(Fecha, casos.acum) %>%
+  right_join(ntest, by = "Fecha") %>%
+  arrange(Fecha) %>%
+  mutate(pcr.7d = PCR - lag(PCR),
+         casos.7d = casos.acum - lag(casos.acum)) %>%
+  mutate(pos.percent = 100*round(casos.7d/pcr.7d, digits = 3)) %>%
+  select(Fecha, pcr.7d, casos.7d, pos.percent) %>%
+  tidyr::pivot_longer(cols = pcr.7d:pos.percent) %>%
+  mutate(name = case_when(
+    name =="pcr.7d" ~ "PCR realizadas",
+    name == "casos.7d" ~ "Casos confirmados",
+    name == "pos.percent" ~ "Porcentaje de PCR positivas"
+  )) %>%
+  mutate(name = factor(name, levels = c("PCR realizadas", "Casos confirmados", "Porcentaje de PCR positivas"))) %>%
+  filter(Fecha > "2020-04-23")
+
+ggplot(ntest) + 
+  facet_wrap(~name, ncol = 1, scales = "free_y") +
+  geom_line(aes(Fecha, value, colour = name), size = 2) +
+  ylim(0, NA) +
+  scale_colour_manual(values = c("grey60", "#ff7f00", "black")) +
+  theme(legend.position = "none") +
+  labs(x = "", y = "",
+       #title = "Porcentaje de personas con PCR positiva",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
+
+```
+
+
+<br>
+
+
+
 ### Casos confirmados por fecha y rango de edad
 
 Esta figura representa los rangos de edad de los casos confirmados por PCR a lo largo del tiempo (desde el 15 de Marzo de 2020). 
@@ -696,6 +749,7 @@ casos.edad.fecha %>%
 ```
 
 <br>
+
 
 
 
