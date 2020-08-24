@@ -751,6 +751,29 @@ casos.edad.fecha %>%
 <br>
 
 
+```{r casos.edad.anim, out.width='100%', eval = FALSE}
+
+library(gganimate)
+
+edad.anim <- 
+  casos.edad.fecha %>%
+  mutate(edades = factor(edades,
+                         levels = (c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
+  filter(Fecha > "2020-07-01") %>%
+  ggplot() +
+  geom_col(aes(edades, Casos), fill = "#ff7f00") +
+  transition_states(Fecha, wrap = FALSE) +
+  labs(y = "Número de casos diarios\n", x = "Edad",
+       title = "Edad de los casos confirmados por PCR",
+       subtitle = "{closest_state}",
+       caption = "https://tiny.cc/COVID19-Andalucia") 
+
+animate(edad.anim, height = 5, width = 7, units = "in", res = 150, duration = 15, 
+        rewind = FALSE, end_pause = 1)
+anim_save("edad_casos_anim.gif")
+
+    
+```
 
 
 
