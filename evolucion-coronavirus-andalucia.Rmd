@@ -52,9 +52,9 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos confirmados, personas ingresadas, curadas y fallecidas.
+Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas** (no acumuladas) en número de casos confirmados, personas ingresadas, curadas y fallecidas.
 
-Los datos se actualizan diariamente. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
+Los datos se **actualizan diariamente**. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
 
 Última actualización: `r Sys.Date()`
 
@@ -247,7 +247,7 @@ datos.minist %>%
 
 <br>
 
-En primer lugar se muestra el número de casos confirmados diariamente mediante técnica PCR:
+En primer lugar se muestra el número de casos confirmados diariamente mediante técnica PCR. 
 
 <br>
 
@@ -340,7 +340,7 @@ ggplot(datos.andal) +
 ```
 
 
-(Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.) 
+Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad. Igualmente, durante los primeros meses de la pandemia (Marzo-Mayo 2020) solo se realizaron PCR para los pacientes más graves, dejando sin detectar probablemente [más del 90% de los casos](https://www.eldiario.es/sociedad/porcentaje-poblacion-contagiada-explosivo-COVID-19_0_1026798481.html), por lo que el número de casos diarios no es comparable entre periodos con distinta intensidad de muestreo. 
 
 <br>
 
