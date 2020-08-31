@@ -310,7 +310,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 25, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 30, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
 
 ```
@@ -713,7 +713,7 @@ ggplot(ntest) +
 
 Esta figura representa los rangos de edad de los casos confirmados por PCR a lo largo del tiempo (desde el 15 de Marzo de 2020). 
 
-Mientras que en los meses de Marzo a Mayo la inmensa mayoría de casos detectados tenían más de 30 años, en las últimas semanas la mayoría de casos corresponde a personas más jóvenes (15 a 65 años).
+Mientras que en los meses de Marzo a Mayo la inmensa mayoría de casos detectados tenían más de 30 años, en las últimas semanas la mayoría de casos corresponde a personas más jóvenes (15 a 65 años), aunque paulatinamente los contagios se extienden a todas las edades.
 
 <br>
 
@@ -768,8 +768,7 @@ edad.anim <-
        subtitle = "{closest_state}",
        caption = "https://tiny.cc/COVID19-Andalucia") 
 
-animate(edad.anim, height = 5, width = 7, units = "in", res = 150, duration = 15, 
-        rewind = FALSE, end_pause = 1)
+animate(edad.anim, height = 5, width = 7, units = "in", res = 150, duration = 15, rewind = FALSE)
 anim_save("edad_casos_anim.gif")
 
     
@@ -811,7 +810,7 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "2 days", date_labels = "%d %B") +
-  geom_text(aes(Fecha, y = Hospitalizados + 2, label = Hospitalizados),
+  geom_text(aes(Fecha, y = Hospitalizados + 4, label = Hospitalizados),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
   
 
