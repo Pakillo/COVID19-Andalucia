@@ -52,9 +52,9 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas (no acumuladas)** en número de casos confirmados, personas ingresadas, curadas y fallecidas.
+Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas** (no acumuladas) en número de casos confirmados, personas ingresadas, curadas y fallecidas.
 
-Los datos se actualizan diariamente. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
+Los datos se **actualizan diariamente**. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
 
 Última actualización: `r Sys.Date()`
 
@@ -247,7 +247,7 @@ datos.minist %>%
 
 <br>
 
-En primer lugar se muestra el número de casos confirmados diariamente mediante técnica PCR:
+En primer lugar se muestra el número de casos confirmados diariamente mediante técnica PCR. 
 
 <br>
 
@@ -340,7 +340,7 @@ ggplot(datos.andal) +
 ```
 
 
-(Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados cada día puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad.) 
+Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad. Igualmente, durante los primeros meses de la pandemia (Marzo-Mayo 2020) solo se realizaron PCR para los pacientes más graves, dejando sin detectar probablemente [más del 90% de los casos](https://www.eldiario.es/sociedad/porcentaje-poblacion-contagiada-explosivo-COVID-19_0_1026798481.html), por lo que el número de casos diarios no es comparable entre periodos con distinta intensidad de muestreo. 
 
 <br>
 
@@ -665,7 +665,7 @@ Aquí se muestra el número de PCR realizadas en Andalucía cada semana (según 
 
 ```{r test.posit, out.width='100%'}
 
-ntest <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_test_realizados.csv") %>%
+ntest <- readr::read_csv2("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_test_realizados.csv") %>%
   filter(cod_ine == "01") %>%
   select(Fecha, cod_ine, CCAA, PCR)
 
@@ -751,6 +751,29 @@ casos.edad.fecha %>%
 <br>
 
 
+```{r casos.edad.anim, out.width='100%', eval = FALSE}
+
+library(gganimate)
+
+edad.anim <- 
+  casos.edad.fecha %>%
+  mutate(edades = factor(edades,
+                         levels = (c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
+  filter(Fecha > "2020-07-01") %>%
+  ggplot() +
+  geom_col(aes(edades, Casos), fill = "#ff7f00") +
+  transition_states(Fecha, wrap = FALSE) +
+  labs(y = "Número de casos diarios\n", x = "Edad",
+       title = "Edad de los casos confirmados por PCR",
+       subtitle = "{closest_state}",
+       caption = "https://tiny.cc/COVID19-Andalucia") 
+
+animate(edad.anim, height = 5, width = 7, units = "in", res = 150, duration = 15, 
+        rewind = FALSE, end_pause = 1)
+anim_save("edad_casos_anim.gif")
+
+    
+```
 
 
 
