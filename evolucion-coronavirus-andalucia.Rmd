@@ -941,7 +941,7 @@ ggplot(camas) +
             aes(Fecha - 2, CamasOcup + 20, label = paste0( "Total ", CamasOcup)),
             colour = "#377eb8") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, UCI + 20, label = paste0("UCI ", UCI)), 
+            aes(Fecha - 2, UCI + 25, label = paste0("UCI ", UCI)), 
             colour = "#e41a1c") 
   
 
