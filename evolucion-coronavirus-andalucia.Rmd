@@ -174,7 +174,7 @@ ggplot() +
   scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas\n", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
+  scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
   scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
@@ -309,8 +309,8 @@ ggplot() +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
-  scale_x_date(date_breaks = "2 days", date_labels = "%d %B") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 30, label = ConfirmadosPCR),
+  scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 40, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
 
 ```
@@ -438,7 +438,7 @@ ggplot() +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(date_breaks = "4 days", date_labels = "%d %B") +
+  scale_x_date(date_breaks = "4 days", date_labels = "%d %b") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
 ```
@@ -665,7 +665,7 @@ Aquí se muestra el número de PCR realizadas en Andalucía cada semana (según 
 
 ```{r test.posit, out.width='100%'}
 
-ntest <- readr::read_csv2("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_test_realizados.csv") %>%
+ntest <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_test_realizados.csv") %>%
   filter(cod_ine == "01") %>%
   select(Fecha, cod_ine, CCAA, PCR)
 
@@ -744,7 +744,8 @@ casos.edad.fecha %>%
   scale_fill_viridis_c() +
   labs(y = "Edad", x = "",
        title = "Edad de los casos confirmados por PCR",
-       caption = "https://tiny.cc/COVID19-Andalucia") 
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Casos diarios") 
 
 ```
 
@@ -755,20 +756,27 @@ casos.edad.fecha %>%
 
 library(gganimate)
 
-edad.anim <- 
+edad.anim.df <-
   casos.edad.fecha %>%
   mutate(edades = factor(edades,
                          levels = (c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
-  filter(Fecha > "2020-07-01") %>%
-  ggplot() +
-  geom_col(aes(edades, Casos), fill = "#ff7f00") +
-  transition_states(Fecha, wrap = FALSE) +
-  labs(y = "Número de casos diarios\n", x = "Edad",
+  filter(Fecha >= "2020-07-01")
+    
+edad.anim <- 
+  ggplot(edad.anim.df) +
+  geom_col(aes(x = edades, y = Casos), fill = "#ff7f00") +
+  #transition_states(Fecha, wrap = FALSE) +
+  transition_manual(frames = Fecha) +
+  labs(y = "Número de casos diarios \n", x = "Edad",
        title = "Edad de los casos confirmados por PCR",
-       subtitle = "{closest_state}",
+       subtitle = "{current_frame}",
        caption = "https://tiny.cc/COVID19-Andalucia") 
 
-animate(edad.anim, height = 5, width = 7, units = "in", res = 150, duration = 15, rewind = FALSE)
+animate(edad.anim, height = 4, width = 5, units = "in", res = 150, 
+        rewind = FALSE, 
+        nframes = length(unique(edad.anim.df$Fecha)),
+        fps = 4)
+
 anim_save("edad_casos_anim.gif")
 
     
@@ -809,7 +817,7 @@ ggplot(datos.andal) +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
-               date_breaks = "2 days", date_labels = "%d %B") +
+               date_breaks = "2 days", date_labels = "%d %b") +
   geom_text(aes(Fecha, y = Hospitalizados + 4, label = Hospitalizados),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
   
@@ -852,7 +860,7 @@ ggplot(datos.provs) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
-               date_breaks = "4 days", date_labels = "%d %B") +
+               date_breaks = "4 days", date_labels = "%d %b") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
 ```
@@ -891,7 +899,7 @@ ggplot(datos.andal) +
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
-               date_breaks = "2 days", date_labels = "%d %B") 
+               date_breaks = "2 days", date_labels = "%d %b") 
 
 ```
 <br>
@@ -925,7 +933,9 @@ Número de camas ocupadas en centros hospitalarios, y cuántas de ellas son de c
 
 camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
   mutate(Fecha = as.Date(Fecha)) %>%
-  filter(Territorio == "Andalucía") 
+  filter(Territorio == "Andalucía")  %>%
+  filter(Fecha >= "2020-07-01")
+
 camas.last <- camas %>%
   filter(!is.na(CamasOcup)) %>%
   slice_tail()
@@ -1022,7 +1032,7 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
-               date_breaks = "2 days", date_labels = "%d %B") 
+               date_breaks = "2 days", date_labels = "%d %b") 
 
 ```
 
