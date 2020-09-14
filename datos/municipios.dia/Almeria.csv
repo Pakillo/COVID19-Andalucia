@@ -1,42 +1,48 @@
 Lugar de residencia;Medida;Valor;
 Almería;Población;716820;
-Almería;Confirmados PCR;6189;
-Almería;Confirmados PCR 14 días;1715;
-Almería;Confirmados PCR 7 días;785;
-Almería;Total Confirmados ;6467;
-Almería;Curados;2839;
-Almería;Fallecidos;96;
+Almería;Confirmados PCR;6458;
+Almería;Confirmados PCR 14 días;1602;
+Almería;Tasa PCR 14 días;223,4870678831506;
+Almería;Confirmados PCR 7 días;656;
+Almería;Total Confirmados ;6737;
+Almería;Curados;2920;
+Almería;Fallecidos;98;
 Almería (distrito);Población;301623;
-Almería (distrito);Confirmados PCR;2156;
-Almería (distrito);Confirmados PCR 14 días;546;
-Almería (distrito);Confirmados PCR 7 días;249;
-Almería (distrito);Total Confirmados ;2322;
-Almería (distrito);Curados;796;
-Almería (distrito);Fallecidos;41;
+Almería (distrito);Confirmados PCR;2220;
+Almería (distrito);Confirmados PCR 14 días;478;
+Almería (distrito);Tasa PCR 14 días;158,4759782907802;
+Almería (distrito);Confirmados PCR 7 días;175;
+Almería (distrito);Total Confirmados ;2386;
+Almería (distrito);Curados;816;
+Almería (distrito);Fallecidos;42;
 Almería (capital);Población;198533;
-Almería (capital);Confirmados PCR;1370;
-Almería (capital);Confirmados PCR 14 días;346;
-Almería (capital);Confirmados PCR 7 días;149;
-Almería (capital);Total Confirmados ;1513;
-Almería (capital);Curados;566;
+Almería (capital);Confirmados PCR;1423;
+Almería (capital);Confirmados PCR 14 días;302;
+Almería (capital);Tasa PCR 14 días;152,11576916683876;
+Almería (capital);Confirmados PCR 7 días;114;
+Almería (capital);Total Confirmados ;1566;
+Almería (capital);Curados;572;
 Almería (capital);Fallecidos;29;
 Alboloduy;Población;616;
 Alboloduy;Confirmados PCR;;
 Alboloduy;Confirmados PCR 14 días;;
+Alboloduy;Tasa PCR 14 días;;
 Alboloduy;Confirmados PCR 7 días;;
 Alboloduy;Total Confirmados ;;
 Alboloduy;Curados;;
 Alboloduy;Fallecidos;;
 Alhabia;Población;671;
 Alhabia;Confirmados PCR;8;
-Alhabia;Confirmados PCR 14 días;5;
+Alhabia;Confirmados PCR 14 días;4;
+Alhabia;Tasa PCR 14 días;596,1251862891207;
 Alhabia;Confirmados PCR 7 días;0;
 Alhabia;Total Confirmados ;9;
 Alhabia;Curados;2;
 Alhabia;Fallecidos;0;
 Alhama de Almería;Población;3641;
 Alhama de Almería;Confirmados PCR;16;
-Alhama de Almería;Confirmados PCR 14 días;10;
+Alhama de Almería;Confirmados PCR 14 días;7;
+Alhama de Almería;Tasa PCR 14 días;192,25487503433123;
 Alhama de Almería;Confirmados PCR 7 días;3;
 Alhama de Almería;Total Confirmados ;18;
 Alhama de Almería;Curados;5;
@@ -44,6 +50,7 @@ Alhama de Almería;Fallecidos;0;
 Alicún;Población;206;
 Alicún;Confirmados PCR;;
 Alicún;Confirmados PCR 14 días;;
+Alicún;Tasa PCR 14 días;;
 Alicún;Confirmados PCR 7 días;;
 Alicún;Total Confirmados ;;
 Alicún;Curados;;
@@ -51,6 +58,7 @@ Alicún;Fallecidos;;
 Almócita;Población;169;
 Almócita;Confirmados PCR;1;
 Almócita;Confirmados PCR 14 días;0;
+Almócita;Tasa PCR 14 días;0;
 Almócita;Confirmados PCR 7 días;0;
 Almócita;Total Confirmados ;1;
 Almócita;Curados;0;
@@ -58,13 +66,15 @@ Almócita;Fallecidos;1;
 Alsodux;Población;125;
 Alsodux;Confirmados PCR;1;
 Alsodux;Confirmados PCR 14 días;1;
-Alsodux;Confirmados PCR 7 días;1;
+Alsodux;Tasa PCR 14 días;800;
+Alsodux;Confirmados PCR 7 días;0;
 Alsodux;Total Confirmados ;1;
 Alsodux;Curados;0;
 Alsodux;Fallecidos;0;
 Beires;Población;110;
 Beires;Confirmados PCR;2;
-Beires;Confirmados PCR 14 días;1;
+Beires;Confirmados PCR 14 días;0;
+Beires;Tasa PCR 14 días;0;
 Beires;Confirmados PCR 7 días;0;
 Beires;Total Confirmados ;2;
 Beires;Curados;0;
@@ -72,6 +82,7 @@ Beires;Fallecidos;0;
 Bentarique;Población;238;
 Bentarique;Confirmados PCR;2;
 Bentarique;Confirmados PCR 14 días;0;
+Bentarique;Tasa PCR 14 días;0;
 Bentarique;Confirmados PCR 7 días;0;
 Bentarique;Total Confirmados ;2;
 Bentarique;Curados;0;
@@ -79,20 +90,23 @@ Bentarique;Fallecidos;0;
 Canjáyar;Población;1214;
 Canjáyar;Confirmados PCR;2;
 Canjáyar;Confirmados PCR 14 días;0;
+Canjáyar;Tasa PCR 14 días;0;
 Canjáyar;Confirmados PCR 7 días;0;
 Canjáyar;Total Confirmados ;2;
 Canjáyar;Curados;2;
 Canjáyar;Fallecidos;0;
 Huécija;Población;480;
-Huécija;Confirmados PCR;6;
-Huécija;Confirmados PCR 14 días;4;
-Huécija;Confirmados PCR 7 días;3;
-Huécija;Total Confirmados ;6;
+Huécija;Confirmados PCR;7;
+Huécija;Confirmados PCR 14 días;5;
+Huécija;Tasa PCR 14 días;1041,6666666666667;
+Huécija;Confirmados PCR 7 días;1;
+Huécija;Total Confirmados ;7;
 Huécija;Curados;2;
 Huécija;Fallecidos;0;
 Íllar;Población;394;
 Íllar;Confirmados PCR;26;
 Íllar;Confirmados PCR 14 días;0;
+Íllar;Tasa PCR 14 días;0;
 Íllar;Confirmados PCR 7 días;0;
 Íllar;Total Confirmados ;28;
 Íllar;Curados;25;
@@ -100,6 +114,7 @@ Huécija;Fallecidos;0;
 Instinción;Población;448;
 Instinción;Confirmados PCR;1;
 Instinción;Confirmados PCR 14 días;0;
+Instinción;Tasa PCR 14 días;0;
 Instinción;Confirmados PCR 7 días;0;
 Instinción;Total Confirmados ;1;
 Instinción;Curados;1;
@@ -107,6 +122,7 @@ Instinción;Fallecidos;0;
 Ohanes;Población;580;
 Ohanes;Confirmados PCR;;
 Ohanes;Confirmados PCR 14 días;;
+Ohanes;Tasa PCR 14 días;;
 Ohanes;Confirmados PCR 7 días;;
 Ohanes;Total Confirmados ;;
 Ohanes;Curados;;
@@ -114,6 +130,7 @@ Ohanes;Fallecidos;;
 Padules;Población;410;
 Padules;Confirmados PCR;5;
 Padules;Confirmados PCR 14 días;0;
+Padules;Tasa PCR 14 días;0;
 Padules;Confirmados PCR 7 días;0;
 Padules;Total Confirmados ;5;
 Padules;Curados;2;
@@ -121,6 +138,7 @@ Padules;Fallecidos;0;
 Rágol;Población;316;
 Rágol;Confirmados PCR;0;
 Rágol;Confirmados PCR 14 días;0;
+Rágol;Tasa PCR 14 días;0;
 Rágol;Confirmados PCR 7 días;0;
 Rágol;Total Confirmados ;1;
 Rágol;Curados;1;
@@ -128,41 +146,47 @@ Rágol;Fallecidos;0;
 Santa Cruz de Marchena;Población;208;
 Santa Cruz de Marchena;Confirmados PCR;;
 Santa Cruz de Marchena;Confirmados PCR 14 días;;
+Santa Cruz de Marchena;Tasa PCR 14 días;;
 Santa Cruz de Marchena;Confirmados PCR 7 días;;
 Santa Cruz de Marchena;Total Confirmados ;;
 Santa Cruz de Marchena;Curados;;
 Santa Cruz de Marchena;Fallecidos;;
 Terque;Población;377;
-Terque;Confirmados PCR;30;
-Terque;Confirmados PCR 14 días;7;
-Terque;Confirmados PCR 7 días;7;
-Terque;Total Confirmados ;30;
+Terque;Confirmados PCR;31;
+Terque;Confirmados PCR 14 días;8;
+Terque;Tasa PCR 14 días;2122,0159151193634;
+Terque;Confirmados PCR 7 días;2;
+Terque;Total Confirmados ;31;
 Terque;Curados;0;
-Terque;Fallecidos;2;
+Terque;Fallecidos;3;
 Benahadux;Población;4382;
 Benahadux;Confirmados PCR;23;
-Benahadux;Confirmados PCR 14 días;6;
-Benahadux;Confirmados PCR 7 días;5;
+Benahadux;Confirmados PCR 14 días;5;
+Benahadux;Tasa PCR 14 días;114,10314924691922;
+Benahadux;Confirmados PCR 7 días;1;
 Benahadux;Total Confirmados ;24;
 Benahadux;Curados;8;
 Benahadux;Fallecidos;0;
 Gádor;Población;3012;
 Gádor;Confirmados PCR;9;
-Gádor;Confirmados PCR 14 días;3;
+Gádor;Confirmados PCR 14 días;1;
+Gádor;Tasa PCR 14 días;33,200531208499335;
 Gádor;Confirmados PCR 7 días;0;
 Gádor;Total Confirmados ;10;
-Gádor;Curados;3;
+Gádor;Curados;4;
 Gádor;Fallecidos;0;
 Huércal de Almería;Población;17651;
-Huércal de Almería;Confirmados PCR;89;
+Huércal de Almería;Confirmados PCR;90;
 Huércal de Almería;Confirmados PCR 14 días;21;
-Huércal de Almería;Confirmados PCR 7 días;14;
-Huércal de Almería;Total Confirmados ;96;
-Huércal de Almería;Curados;31;
+Huércal de Almería;Tasa PCR 14 días;118,9734292674636;
+Huércal de Almería;Confirmados PCR 7 días;8;
+Huércal de Almería;Total Confirmados ;97;
+Huércal de Almería;Curados;32;
 Huércal de Almería;Fallecidos;1;
 Pechina;Población;4037;
 Pechina;Confirmados PCR;11;
 Pechina;Confirmados PCR 14 días;2;
+Pechina;Tasa PCR 14 días;49,54173891503592;
 Pechina;Confirmados PCR 7 días;0;
 Pechina;Total Confirmados ;13;
 Pechina;Curados;4;
@@ -170,62 +194,71 @@ Pechina;Fallecidos;0;
 Rioja;Población;1417;
 Rioja;Confirmados PCR;7;
 Rioja;Confirmados PCR 14 días;7;
-Rioja;Confirmados PCR 7 días;2;
+Rioja;Tasa PCR 14 días;494,0014114326041;
+Rioja;Confirmados PCR 7 días;1;
 Rioja;Total Confirmados ;7;
 Rioja;Curados;0;
 Rioja;Fallecidos;0;
 Santa Fe de Mondújar;Población;452;
 Santa Fe de Mondújar;Confirmados PCR;;
 Santa Fe de Mondújar;Confirmados PCR 14 días;;
+Santa Fe de Mondújar;Tasa PCR 14 días;;
 Santa Fe de Mondújar;Confirmados PCR 7 días;;
 Santa Fe de Mondújar;Total Confirmados ;;
 Santa Fe de Mondújar;Curados;;
 Santa Fe de Mondújar;Fallecidos;;
 Viator;Población;5885;
 Viator;Confirmados PCR;23;
-Viator;Confirmados PCR 14 días;8;
-Viator;Confirmados PCR 7 días;4;
+Viator;Confirmados PCR 14 días;7;
+Viator;Tasa PCR 14 días;118,946474086661;
+Viator;Confirmados PCR 7 días;1;
 Viator;Total Confirmados ;23;
 Viator;Curados;4;
 Viator;Fallecidos;0;
 Carboneras;Población;8004;
 Carboneras;Confirmados PCR;17;
 Carboneras;Confirmados PCR 14 días;1;
+Carboneras;Tasa PCR 14 días;12,493753123438282;
 Carboneras;Confirmados PCR 7 días;1;
 Carboneras;Total Confirmados ;19;
 Carboneras;Curados;7;
 Carboneras;Fallecidos;0;
 Níjar;Población;30663;
-Níjar;Confirmados PCR;447;
-Níjar;Confirmados PCR 14 días;108;
-Níjar;Confirmados PCR 7 días;51;
-Níjar;Total Confirmados ;451;
-Níjar;Curados;119;
+Níjar;Confirmados PCR;454;
+Níjar;Confirmados PCR 14 días;91;
+Níjar;Tasa PCR 14 días;296,7746143560643;
+Níjar;Confirmados PCR 7 días;36;
+Níjar;Total Confirmados ;458;
+Níjar;Curados;130;
 Níjar;Fallecidos;4;
 Abla;Población;1249;
 Abla;Confirmados PCR;3;
 Abla;Confirmados PCR 14 días;2;
+Abla;Tasa PCR 14 días;160,1281024819856;
 Abla;Confirmados PCR 7 días;2;
 Abla;Total Confirmados ;3;
 Abla;Curados;0;
 Abla;Fallecidos;0;
 Abrucena;Población;1202;
-Abrucena;Confirmados PCR;3;
-Abrucena;Confirmados PCR 14 días;0;
-Abrucena;Confirmados PCR 7 días;0;
-Abrucena;Total Confirmados ;3;
+Abrucena;Confirmados PCR;4;
+Abrucena;Confirmados PCR 14 días;1;
+Abrucena;Tasa PCR 14 días;83,19467554076539;
+Abrucena;Confirmados PCR 7 días;1;
+Abrucena;Total Confirmados ;4;
 Abrucena;Curados;0;
 Abrucena;Fallecidos;0;
 Fiñana;Población;1994;
 Fiñana;Confirmados PCR;11;
-Fiñana;Confirmados PCR 14 días;11;
-Fiñana;Confirmados PCR 7 días;7;
+Fiñana;Confirmados PCR 14 días;10;
+Fiñana;Tasa PCR 14 días;501,5045135406219;
+Fiñana;Confirmados PCR 7 días;4;
 Fiñana;Total Confirmados ;11;
 Fiñana;Curados;0;
 Fiñana;Fallecidos;0;
 Gérgal;Población;1030;
 Gérgal;Confirmados PCR;5;
 Gérgal;Confirmados PCR 14 días;0;
+Gérgal;Tasa PCR 14 días;0;
 Gérgal;Confirmados PCR 7 días;0;
 Gérgal;Total Confirmados ;5;
 Gérgal;Curados;2;
@@ -233,6 +266,7 @@ Gérgal;Fallecidos;2;
 Nacimiento;Población;495;
 Nacimiento;Confirmados PCR;;
 Nacimiento;Confirmados PCR 14 días;;
+Nacimiento;Tasa PCR 14 días;;
 Nacimiento;Confirmados PCR 7 días;;
 Nacimiento;Total Confirmados ;;
 Nacimiento;Curados;;
@@ -240,6 +274,7 @@ Nacimiento;Fallecidos;;
 Olula de Castro;Población;196;
 Olula de Castro;Confirmados PCR;;
 Olula de Castro;Confirmados PCR 14 días;;
+Olula de Castro;Tasa PCR 14 días;;
 Olula de Castro;Confirmados PCR 7 días;;
 Olula de Castro;Total Confirmados ;;
 Olula de Castro;Curados;;
@@ -247,6 +282,7 @@ Olula de Castro;Fallecidos;;
 Tres Villas (Las);Población;568;
 Tres Villas (Las);Confirmados PCR;2;
 Tres Villas (Las);Confirmados PCR 14 días;0;
+Tres Villas (Las);Tasa PCR 14 días;0;
 Tres Villas (Las);Confirmados PCR 7 días;0;
 Tres Villas (Las);Total Confirmados ;2;
 Tres Villas (Las);Curados;2;
@@ -254,6 +290,7 @@ Tres Villas (Las);Fallecidos;0;
 Benizalón;Población;254;
 Benizalón;Confirmados PCR;;
 Benizalón;Confirmados PCR 14 días;;
+Benizalón;Tasa PCR 14 días;;
 Benizalón;Confirmados PCR 7 días;;
 Benizalón;Total Confirmados ;;
 Benizalón;Curados;;
@@ -261,6 +298,7 @@ Benizalón;Fallecidos;;
 Lubrín;Población;1477;
 Lubrín;Confirmados PCR;3;
 Lubrín;Confirmados PCR 14 días;0;
+Lubrín;Tasa PCR 14 días;0;
 Lubrín;Confirmados PCR 7 días;0;
 Lubrín;Total Confirmados ;3;
 Lubrín;Curados;3;
@@ -268,6 +306,7 @@ Lubrín;Fallecidos;0;
 Lucainena de las Torres;Población;538;
 Lucainena de las Torres;Confirmados PCR;;
 Lucainena de las Torres;Confirmados PCR 14 días;;
+Lucainena de las Torres;Tasa PCR 14 días;;
 Lucainena de las Torres;Confirmados PCR 7 días;;
 Lucainena de las Torres;Total Confirmados ;;
 Lucainena de las Torres;Curados;;
@@ -275,6 +314,7 @@ Lucainena de las Torres;Fallecidos;;
 Sorbas;Población;2388;
 Sorbas;Confirmados PCR;2;
 Sorbas;Confirmados PCR 14 días;0;
+Sorbas;Tasa PCR 14 días;0;
 Sorbas;Confirmados PCR 7 días;0;
 Sorbas;Total Confirmados ;2;
 Sorbas;Curados;0;
@@ -282,6 +322,7 @@ Sorbas;Fallecidos;0;
 Uleila del Campo;Población;833;
 Uleila del Campo;Confirmados PCR;5;
 Uleila del Campo;Confirmados PCR 14 días;0;
+Uleila del Campo;Tasa PCR 14 días;0;
 Uleila del Campo;Confirmados PCR 7 días;0;
 Uleila del Campo;Total Confirmados ;5;
 Uleila del Campo;Curados;3;
@@ -289,6 +330,7 @@ Uleila del Campo;Fallecidos;0;
 Alcudia de Monteagud;Población;152;
 Alcudia de Monteagud;Confirmados PCR;;
 Alcudia de Monteagud;Confirmados PCR 14 días;;
+Alcudia de Monteagud;Tasa PCR 14 días;;
 Alcudia de Monteagud;Confirmados PCR 7 días;;
 Alcudia de Monteagud;Total Confirmados ;;
 Alcudia de Monteagud;Curados;;
@@ -296,6 +338,7 @@ Alcudia de Monteagud;Fallecidos;;
 Benitagla;Población;58;
 Benitagla;Confirmados PCR;;
 Benitagla;Confirmados PCR 14 días;;
+Benitagla;Tasa PCR 14 días;;
 Benitagla;Confirmados PCR 7 días;;
 Benitagla;Total Confirmados ;;
 Benitagla;Curados;;
@@ -303,6 +346,7 @@ Benitagla;Fallecidos;;
 Castro de Filabres;Población;123;
 Castro de Filabres;Confirmados PCR;1;
 Castro de Filabres;Confirmados PCR 14 días;0;
+Castro de Filabres;Tasa PCR 14 días;0;
 Castro de Filabres;Confirmados PCR 7 días;0;
 Castro de Filabres;Total Confirmados ;1;
 Castro de Filabres;Curados;1;
@@ -310,6 +354,7 @@ Castro de Filabres;Fallecidos;0;
 Senés;Población;295;
 Senés;Confirmados PCR;;
 Senés;Confirmados PCR 14 días;;
+Senés;Tasa PCR 14 días;;
 Senés;Confirmados PCR 7 días;;
 Senés;Total Confirmados ;;
 Senés;Curados;;
@@ -317,13 +362,15 @@ Senés;Fallecidos;;
 Tabernas;Población;3688;
 Tabernas;Confirmados PCR;25;
 Tabernas;Confirmados PCR 14 días;3;
+Tabernas;Tasa PCR 14 días;81,34490238611714;
 Tabernas;Confirmados PCR 7 días;0;
 Tabernas;Total Confirmados ;25;
-Tabernas;Curados;3;
+Tabernas;Curados;4;
 Tabernas;Fallecidos;0;
 Tahal;Población;362;
 Tahal;Confirmados PCR;;
 Tahal;Confirmados PCR 14 días;;
+Tahal;Tasa PCR 14 días;;
 Tahal;Confirmados PCR 7 días;;
 Tahal;Total Confirmados ;;
 Tahal;Curados;;
@@ -331,6 +378,7 @@ Tahal;Fallecidos;;
 Turrillas;Población;240;
 Turrillas;Confirmados PCR;;
 Turrillas;Confirmados PCR 14 días;;
+Turrillas;Tasa PCR 14 días;;
 Turrillas;Confirmados PCR 7 días;;
 Turrillas;Total Confirmados ;;
 Turrillas;Curados;;
@@ -338,34 +386,39 @@ Turrillas;Fallecidos;;
 Velefique;Población;242;
 Velefique;Confirmados PCR;;
 Velefique;Confirmados PCR 14 días;;
+Velefique;Tasa PCR 14 días;;
 Velefique;Confirmados PCR 7 días;;
 Velefique;Total Confirmados ;;
 Velefique;Curados;;
 Velefique;Fallecidos;;
 Levante-Alto Almanzora;Población;150044;
-Levante-Alto Almanzora;Confirmados PCR;842;
-Levante-Alto Almanzora;Confirmados PCR 14 días;232;
-Levante-Alto Almanzora;Confirmados PCR 7 días;97;
-Levante-Alto Almanzora;Total Confirmados ;884;
-Levante-Alto Almanzora;Curados;455;
+Levante-Alto Almanzora;Confirmados PCR;871;
+Levante-Alto Almanzora;Confirmados PCR 14 días;203;
+Levante-Alto Almanzora;Tasa PCR 14 días;135,29364719682226;
+Levante-Alto Almanzora;Confirmados PCR 7 días;92;
+Levante-Alto Almanzora;Total Confirmados ;913;
+Levante-Alto Almanzora;Curados;511;
 Levante-Alto Almanzora;Fallecidos;16;
 Albanchez;Población;741;
 Albanchez;Confirmados PCR;0;
 Albanchez;Confirmados PCR 14 días;0;
+Albanchez;Tasa PCR 14 días;0;
 Albanchez;Confirmados PCR 7 días;0;
 Albanchez;Total Confirmados ;1;
 Albanchez;Curados;1;
 Albanchez;Fallecidos;0;
 Albox;Población;11805;
 Albox;Confirmados PCR;59;
-Albox;Confirmados PCR 14 días;24;
-Albox;Confirmados PCR 7 días;4;
+Albox;Confirmados PCR 14 días;16;
+Albox;Tasa PCR 14 días;135,53578991952563;
+Albox;Confirmados PCR 7 días;0;
 Albox;Total Confirmados ;59;
-Albox;Curados;27;
+Albox;Curados;31;
 Albox;Fallecidos;3;
 Arboleas;Población;4596;
 Arboleas;Confirmados PCR;11;
-Arboleas;Confirmados PCR 14 días;2;
+Arboleas;Confirmados PCR 14 días;1;
+Arboleas;Tasa PCR 14 días;21,75805047867711;
 Arboleas;Confirmados PCR 7 días;0;
 Arboleas;Total Confirmados ;11;
 Arboleas;Curados;9;
@@ -373,6 +426,7 @@ Arboleas;Fallecidos;1;
 Cantoria;Población;3204;
 Cantoria;Confirmados PCR;6;
 Cantoria;Confirmados PCR 14 días;2;
+Cantoria;Tasa PCR 14 días;62,421972534332085;
 Cantoria;Confirmados PCR 7 días;0;
 Cantoria;Total Confirmados ;6;
 Cantoria;Curados;4;
@@ -380,6 +434,7 @@ Cantoria;Fallecidos;0;
 Cóbdar;Población;171;
 Cóbdar;Confirmados PCR;;
 Cóbdar;Confirmados PCR 14 días;;
+Cóbdar;Tasa PCR 14 días;;
 Cóbdar;Confirmados PCR 7 días;;
 Cóbdar;Total Confirmados ;;
 Cóbdar;Curados;;
@@ -387,6 +442,7 @@ Cóbdar;Fallecidos;;
 Oria;Población;2249;
 Oria;Confirmados PCR;1;
 Oria;Confirmados PCR 14 días;0;
+Oria;Tasa PCR 14 días;0;
 Oria;Confirmados PCR 7 días;0;
 Oria;Total Confirmados ;2;
 Oria;Curados;1;
@@ -394,55 +450,63 @@ Oria;Fallecidos;0;
 Partaloa;Población;1110;
 Partaloa;Confirmados PCR;2;
 Partaloa;Confirmados PCR 14 días;0;
+Partaloa;Tasa PCR 14 días;0;
 Partaloa;Confirmados PCR 7 días;0;
 Partaloa;Total Confirmados ;2;
 Partaloa;Curados;2;
 Partaloa;Fallecidos;0;
 Cuevas del Almanzora;Población;14081;
-Cuevas del Almanzora;Confirmados PCR;89;
-Cuevas del Almanzora;Confirmados PCR 14 días;39;
-Cuevas del Almanzora;Confirmados PCR 7 días;17;
-Cuevas del Almanzora;Total Confirmados ;90;
-Cuevas del Almanzora;Curados;12;
+Cuevas del Almanzora;Confirmados PCR;105;
+Cuevas del Almanzora;Confirmados PCR 14 días;45;
+Cuevas del Almanzora;Tasa PCR 14 días;319,57957531425325;
+Cuevas del Almanzora;Confirmados PCR 7 días;29;
+Cuevas del Almanzora;Total Confirmados ;106;
+Cuevas del Almanzora;Curados;18;
 Cuevas del Almanzora;Fallecidos;1;
 Huércal-Overa;Población;19127;
 Huércal-Overa;Confirmados PCR;152;
-Huércal-Overa;Confirmados PCR 14 días;63;
-Huércal-Overa;Confirmados PCR 7 días;26;
+Huércal-Overa;Confirmados PCR 14 días;48;
+Huércal-Overa;Tasa PCR 14 días;250,95414858576882;
+Huércal-Overa;Confirmados PCR 7 días;18;
 Huércal-Overa;Total Confirmados ;161;
-Huércal-Overa;Curados;54;
+Huércal-Overa;Curados;55;
 Huércal-Overa;Fallecidos;2;
 Pulpí;Población;10055;
-Pulpí;Confirmados PCR;94;
-Pulpí;Confirmados PCR 14 días;32;
-Pulpí;Confirmados PCR 7 días;21;
-Pulpí;Total Confirmados ;96;
-Pulpí;Curados;49;
+Pulpí;Confirmados PCR;99;
+Pulpí;Confirmados PCR 14 días;34;
+Pulpí;Tasa PCR 14 días;338,14022874191943;
+Pulpí;Confirmados PCR 7 días;22;
+Pulpí;Total Confirmados ;101;
+Pulpí;Curados;58;
 Pulpí;Fallecidos;0;
 Taberno;Población;925;
 Taberno;Confirmados PCR;1;
 Taberno;Confirmados PCR 14 días;0;
+Taberno;Tasa PCR 14 días;0;
 Taberno;Confirmados PCR 7 días;0;
 Taberno;Total Confirmados ;1;
 Taberno;Curados;1;
 Taberno;Fallecidos;0;
 Zurgena;Población;3005;
 Zurgena;Confirmados PCR;12;
-Zurgena;Confirmados PCR 14 días;7;
-Zurgena;Confirmados PCR 7 días;3;
+Zurgena;Confirmados PCR 14 días;4;
+Zurgena;Tasa PCR 14 días;133,11148086522462;
+Zurgena;Confirmados PCR 7 días;1;
 Zurgena;Total Confirmados ;12;
 Zurgena;Curados;3;
 Zurgena;Fallecidos;0;
 Chirivel;Población;1472;
 Chirivel;Confirmados PCR;5;
 Chirivel;Confirmados PCR 14 días;2;
+Chirivel;Tasa PCR 14 días;135,8695652173913;
 Chirivel;Confirmados PCR 7 días;0;
 Chirivel;Total Confirmados ;7;
-Chirivel;Curados;3;
+Chirivel;Curados;5;
 Chirivel;Fallecidos;0;
 María;Población;1238;
 María;Confirmados PCR;4;
-María;Confirmados PCR 14 días;1;
+María;Confirmados PCR 14 días;0;
+María;Tasa PCR 14 días;0;
 María;Confirmados PCR 7 días;0;
 María;Total Confirmados ;4;
 María;Curados;3;
@@ -450,20 +514,23 @@ María;Fallecidos;0;
 Vélez-Blanco;Población;1904;
 Vélez-Blanco;Confirmados PCR;5;
 Vélez-Blanco;Confirmados PCR 14 días;2;
-Vélez-Blanco;Confirmados PCR 7 días;2;
+Vélez-Blanco;Tasa PCR 14 días;105,04201680672269;
+Vélez-Blanco;Confirmados PCR 7 días;0;
 Vélez-Blanco;Total Confirmados ;5;
 Vélez-Blanco;Curados;3;
 Vélez-Blanco;Fallecidos;0;
 Vélez-Rubio;Población;6555;
 Vélez-Rubio;Confirmados PCR;21;
-Vélez-Rubio;Confirmados PCR 14 días;15;
-Vélez-Rubio;Confirmados PCR 7 días;13;
+Vélez-Rubio;Confirmados PCR 14 días;13;
+Vélez-Rubio;Tasa PCR 14 días;198,3218916857361;
+Vélez-Rubio;Confirmados PCR 7 días;10;
 Vélez-Rubio;Total Confirmados ;22;
 Vélez-Rubio;Curados;6;
 Vélez-Rubio;Fallecidos;1;
 Chercos;Población;278;
 Chercos;Confirmados PCR;;
 Chercos;Confirmados PCR 14 días;;
+Chercos;Tasa PCR 14 días;;
 Chercos;Confirmados PCR 7 días;;
 Chercos;Total Confirmados ;;
 Chercos;Curados;;
@@ -471,6 +538,7 @@ Chercos;Fallecidos;;
 Fines;Población;2079;
 Fines;Confirmados PCR;2;
 Fines;Confirmados PCR 14 días;0;
+Fines;Tasa PCR 14 días;0;
 Fines;Confirmados PCR 7 días;0;
 Fines;Total Confirmados ;3;
 Fines;Curados;3;
@@ -478,6 +546,7 @@ Fines;Fallecidos;0;
 Laroya;Población;192;
 Laroya;Confirmados PCR;;
 Laroya;Confirmados PCR 14 días;;
+Laroya;Tasa PCR 14 días;;
 Laroya;Confirmados PCR 7 días;;
 Laroya;Total Confirmados ;;
 Laroya;Curados;;
@@ -485,27 +554,31 @@ Laroya;Fallecidos;;
 Líjar;Población;390;
 Líjar;Confirmados PCR;6;
 Líjar;Confirmados PCR 14 días;0;
+Líjar;Tasa PCR 14 días;0;
 Líjar;Confirmados PCR 7 días;0;
 Líjar;Total Confirmados ;6;
 Líjar;Curados;1;
 Líjar;Fallecidos;1;
 Macael;Población;5482;
 Macael;Confirmados PCR;20;
-Macael;Confirmados PCR 14 días;8;
+Macael;Confirmados PCR 14 días;6;
+Macael;Tasa PCR 14 días;109,44910616563298;
 Macael;Confirmados PCR 7 días;0;
 Macael;Total Confirmados ;23;
 Macael;Curados;11;
 Macael;Fallecidos;3;
 Olula del Río;Población;6210;
-Olula del Río;Confirmados PCR;18;
-Olula del Río;Confirmados PCR 14 días;4;
-Olula del Río;Confirmados PCR 7 días;2;
-Olula del Río;Total Confirmados ;27;
+Olula del Río;Confirmados PCR;19;
+Olula del Río;Confirmados PCR 14 días;5;
+Olula del Río;Tasa PCR 14 días;80,51529790660226;
+Olula del Río;Confirmados PCR 7 días;3;
+Olula del Río;Total Confirmados ;28;
 Olula del Río;Curados;23;
 Olula del Río;Fallecidos;0;
 Purchena;Población;1618;
 Purchena;Confirmados PCR;2;
 Purchena;Confirmados PCR 14 días;0;
+Purchena;Tasa PCR 14 días;0;
 Purchena;Confirmados PCR 7 días;0;
 Purchena;Total Confirmados ;4;
 Purchena;Curados;3;
@@ -513,6 +586,7 @@ Purchena;Fallecidos;1;
 Sierro;Población;381;
 Sierro;Confirmados PCR;0;
 Sierro;Confirmados PCR 14 días;0;
+Sierro;Tasa PCR 14 días;0;
 Sierro;Confirmados PCR 7 días;0;
 Sierro;Total Confirmados ;1;
 Sierro;Curados;1;
@@ -520,6 +594,7 @@ Sierro;Fallecidos;0;
 Somontín;Población;446;
 Somontín;Confirmados PCR;;
 Somontín;Confirmados PCR 14 días;;
+Somontín;Tasa PCR 14 días;;
 Somontín;Confirmados PCR 7 días;;
 Somontín;Total Confirmados ;;
 Somontín;Curados;;
@@ -527,6 +602,7 @@ Somontín;Fallecidos;;
 Suflí;Población;204;
 Suflí;Confirmados PCR;;
 Suflí;Confirmados PCR 14 días;;
+Suflí;Tasa PCR 14 días;;
 Suflí;Confirmados PCR 7 días;;
 Suflí;Total Confirmados ;;
 Suflí;Curados;;
@@ -534,6 +610,7 @@ Suflí;Fallecidos;;
 Urrácal;Población;350;
 Urrácal;Confirmados PCR;1;
 Urrácal;Confirmados PCR 14 días;0;
+Urrácal;Tasa PCR 14 días;0;
 Urrácal;Confirmados PCR 7 días;0;
 Urrácal;Total Confirmados ;1;
 Urrácal;Curados;1;
@@ -541,6 +618,7 @@ Urrácal;Fallecidos;0;
 Alcóntar;Población;505;
 Alcóntar;Confirmados PCR;;
 Alcóntar;Confirmados PCR 14 días;;
+Alcóntar;Tasa PCR 14 días;;
 Alcóntar;Confirmados PCR 7 días;;
 Alcóntar;Total Confirmados ;;
 Alcóntar;Curados;;
@@ -548,6 +626,7 @@ Alcóntar;Fallecidos;;
 Armuña de Almanzora;Población;302;
 Armuña de Almanzora;Confirmados PCR;1;
 Armuña de Almanzora;Confirmados PCR 14 días;1;
+Armuña de Almanzora;Tasa PCR 14 días;331,12582781456956;
 Armuña de Almanzora;Confirmados PCR 7 días;0;
 Armuña de Almanzora;Total Confirmados ;1;
 Armuña de Almanzora;Curados;0;
@@ -555,6 +634,7 @@ Armuña de Almanzora;Fallecidos;0;
 Bacares;Población;246;
 Bacares;Confirmados PCR;;
 Bacares;Confirmados PCR 14 días;;
+Bacares;Tasa PCR 14 días;;
 Bacares;Confirmados PCR 7 días;;
 Bacares;Total Confirmados ;;
 Bacares;Curados;;
@@ -562,6 +642,7 @@ Bacares;Fallecidos;;
 Bayarque;Población;215;
 Bayarque;Confirmados PCR;;
 Bayarque;Confirmados PCR 14 días;;
+Bayarque;Tasa PCR 14 días;;
 Bayarque;Confirmados PCR 7 días;;
 Bayarque;Total Confirmados ;;
 Bayarque;Curados;;
@@ -569,13 +650,15 @@ Bayarque;Fallecidos;;
 Lúcar;Población;763;
 Lúcar;Confirmados PCR;3;
 Lúcar;Confirmados PCR 14 días;0;
+Lúcar;Tasa PCR 14 días;0;
 Lúcar;Confirmados PCR 7 días;0;
 Lúcar;Total Confirmados ;4;
 Lúcar;Curados;4;
 Lúcar;Fallecidos;0;
 Serón;Población;2041;
 Serón;Confirmados PCR;1;
-Serón;Confirmados PCR 14 días;1;
+Serón;Confirmados PCR 14 días;0;
+Serón;Tasa PCR 14 días;0;
 Serón;Confirmados PCR 7 días;0;
 Serón;Total Confirmados ;2;
 Serón;Curados;1;
@@ -583,20 +666,23 @@ Serón;Fallecidos;0;
 Tíjola;Población;3541;
 Tíjola;Confirmados PCR;5;
 Tíjola;Confirmados PCR 14 días;1;
+Tíjola;Tasa PCR 14 días;28,240609997175937;
 Tíjola;Confirmados PCR 7 días;0;
 Tíjola;Total Confirmados ;7;
 Tíjola;Curados;5;
 Tíjola;Fallecidos;0;
 Antas;Población;3182;
 Antas;Confirmados PCR;16;
-Antas;Confirmados PCR 14 días;7;
-Antas;Confirmados PCR 7 días;4;
+Antas;Confirmados PCR 14 días;4;
+Antas;Tasa PCR 14 días;125,70710245128849;
+Antas;Confirmados PCR 7 días;2;
 Antas;Total Confirmados ;16;
-Antas;Curados;6;
+Antas;Curados;9;
 Antas;Fallecidos;0;
 Bédar;Población;971;
 Bédar;Confirmados PCR;1;
 Bédar;Confirmados PCR 14 días;0;
+Bédar;Tasa PCR 14 días;0;
 Bédar;Confirmados PCR 7 días;0;
 Bédar;Total Confirmados ;1;
 Bédar;Curados;1;
@@ -604,55 +690,63 @@ Bédar;Fallecidos;0;
 Gallardos (Los);Población;2794;
 Gallardos (Los);Confirmados PCR;4;
 Gallardos (Los);Confirmados PCR 14 días;1;
+Gallardos (Los);Tasa PCR 14 días;35,79098067287044;
 Gallardos (Los);Confirmados PCR 7 días;0;
 Gallardos (Los);Total Confirmados ;4;
 Gallardos (Los);Curados;2;
 Gallardos (Los);Fallecidos;0;
 Garrucha;Población;9212;
-Garrucha;Confirmados PCR;70;
-Garrucha;Confirmados PCR 14 días;3;
-Garrucha;Confirmados PCR 7 días;0;
-Garrucha;Total Confirmados ;72;
+Garrucha;Confirmados PCR;75;
+Garrucha;Confirmados PCR 14 días;7;
+Garrucha;Tasa PCR 14 días;75,98784194528875;
+Garrucha;Confirmados PCR 7 días;5;
+Garrucha;Total Confirmados ;77;
 Garrucha;Curados;58;
 Garrucha;Fallecidos;0;
 Mojácar;Población;6403;
 Mojácar;Confirmados PCR;93;
-Mojácar;Confirmados PCR 14 días;6;
-Mojácar;Confirmados PCR 7 días;1;
+Mojácar;Confirmados PCR 14 días;3;
+Mojácar;Tasa PCR 14 días;46,85303763860691;
+Mojácar;Confirmados PCR 7 días;0;
 Mojácar;Total Confirmados ;94;
-Mojácar;Curados;62;
+Mojácar;Curados;76;
 Mojácar;Fallecidos;1;
 Turre;Población;3549;
 Turre;Confirmados PCR;17;
 Turre;Confirmados PCR 14 días;2;
-Turre;Confirmados PCR 7 días;2;
+Turre;Tasa PCR 14 días;56,353902507748664;
+Turre;Confirmados PCR 7 días;1;
 Turre;Total Confirmados ;17;
-Turre;Curados;13;
+Turre;Curados;14;
 Turre;Fallecidos;0;
 Vera;Población;16452;
-Vera;Confirmados PCR;120;
-Vera;Confirmados PCR 14 días;9;
-Vera;Confirmados PCR 7 días;2;
-Vera;Total Confirmados ;122;
-Vera;Curados;82;
+Vera;Confirmados PCR;122;
+Vera;Confirmados PCR 14 días;6;
+Vera;Tasa PCR 14 días;36,46973012399708;
+Vera;Confirmados PCR 7 días;1;
+Vera;Total Confirmados ;124;
+Vera;Curados;98;
 Vera;Fallecidos;2;
 Poniente de Almería;Población;265153;
-Poniente de Almería;Confirmados PCR;3021;
-Poniente de Almería;Confirmados PCR 14 días;865;
-Poniente de Almería;Confirmados PCR 7 días;403;
-Poniente de Almería;Total Confirmados ;3091;
-Poniente de Almería;Curados;1581;
-Poniente de Almería;Fallecidos;39;
+Poniente de Almería;Confirmados PCR;3186;
+Poniente de Almería;Confirmados PCR 14 días;854;
+Poniente de Almería;Tasa PCR 14 días;322,07819636210036;
+Poniente de Almería;Confirmados PCR 7 días;367;
+Poniente de Almería;Total Confirmados ;3257;
+Poniente de Almería;Curados;1582;
+Poniente de Almería;Fallecidos;40;
 Adra;Población;25148;
-Adra;Confirmados PCR;128;
-Adra;Confirmados PCR 14 días;66;
+Adra;Confirmados PCR;143;
+Adra;Confirmados PCR 14 días;68;
+Adra;Tasa PCR 14 días;270,39923651980274;
 Adra;Confirmados PCR 7 días;39;
-Adra;Total Confirmados ;133;
+Adra;Total Confirmados ;148;
 Adra;Curados;47;
 Adra;Fallecidos;3;
 Alcolea;Población;825;
 Alcolea;Confirmados PCR;1;
 Alcolea;Confirmados PCR 14 días;0;
+Alcolea;Tasa PCR 14 días;0;
 Alcolea;Confirmados PCR 7 días;0;
 Alcolea;Total Confirmados ;2;
 Alcolea;Curados;2;
@@ -660,27 +754,31 @@ Alcolea;Fallecidos;0;
 Bayárcal;Población;317;
 Bayárcal;Confirmados PCR;;
 Bayárcal;Confirmados PCR 14 días;;
+Bayárcal;Tasa PCR 14 días;;
 Bayárcal;Confirmados PCR 7 días;;
 Bayárcal;Total Confirmados ;;
 Bayárcal;Curados;;
 Bayárcal;Fallecidos;;
 Berja;Población;12415;
-Berja;Confirmados PCR;27;
-Berja;Confirmados PCR 14 días;11;
-Berja;Confirmados PCR 7 días;6;
-Berja;Total Confirmados ;27;
+Berja;Confirmados PCR;31;
+Berja;Confirmados PCR 14 días;15;
+Berja;Tasa PCR 14 días;120,82158679017317;
+Berja;Confirmados PCR 7 días;8;
+Berja;Total Confirmados ;32;
 Berja;Curados;11;
 Berja;Fallecidos;1;
 Dalías;Población;4006;
-Dalías;Confirmados PCR;36;
-Dalías;Confirmados PCR 14 días;3;
+Dalías;Confirmados PCR;37;
+Dalías;Confirmados PCR 14 días;2;
+Dalías;Tasa PCR 14 días;49,925112331502746;
 Dalías;Confirmados PCR 7 días;1;
-Dalías;Total Confirmados ;36;
+Dalías;Total Confirmados ;37;
 Dalías;Curados;20;
 Dalías;Fallecidos;3;
 Fondón;Población;989;
 Fondón;Confirmados PCR;1;
 Fondón;Confirmados PCR 14 días;1;
+Fondón;Tasa PCR 14 días;101,11223458038423;
 Fondón;Confirmados PCR 7 días;0;
 Fondón;Total Confirmados ;1;
 Fondón;Curados;0;
@@ -688,34 +786,39 @@ Fondón;Fallecidos;0;
 Láujar de Andarax;Población;1536;
 Láujar de Andarax;Confirmados PCR;13;
 Láujar de Andarax;Confirmados PCR 14 días;4;
-Láujar de Andarax;Confirmados PCR 7 días;4;
+Láujar de Andarax;Tasa PCR 14 días;260,4166666666667;
+Láujar de Andarax;Confirmados PCR 7 días;3;
 Láujar de Andarax;Total Confirmados ;13;
 Láujar de Andarax;Curados;9;
 Láujar de Andarax;Fallecidos;0;
 Paterna del Río;Población;371;
 Paterna del Río;Confirmados PCR;;
 Paterna del Río;Confirmados PCR 14 días;;
+Paterna del Río;Tasa PCR 14 días;;
 Paterna del Río;Confirmados PCR 7 días;;
 Paterna del Río;Total Confirmados ;;
 Paterna del Río;Curados;;
 Paterna del Río;Fallecidos;;
 Balanegra;Población;3009;
-Balanegra;Confirmados PCR;17;
-Balanegra;Confirmados PCR 14 días;6;
-Balanegra;Confirmados PCR 7 días;3;
-Balanegra;Total Confirmados ;17;
+Balanegra;Confirmados PCR;20;
+Balanegra;Confirmados PCR 14 días;7;
+Balanegra;Tasa PCR 14 días;232,6354270521768;
+Balanegra;Confirmados PCR 7 días;5;
+Balanegra;Total Confirmados ;20;
 Balanegra;Curados;2;
 Balanegra;Fallecidos;0;
 Ejido (El);Población;83594;
-Ejido (El);Confirmados PCR;1257;
-Ejido (El);Confirmados PCR 14 días;379;
-Ejido (El);Confirmados PCR 7 días;172;
-Ejido (El);Total Confirmados ;1280;
-Ejido (El);Curados;551;
+Ejido (El);Confirmados PCR;1337;
+Ejido (El);Confirmados PCR 14 días;375;
+Ejido (El);Tasa PCR 14 días;448,59678924324714;
+Ejido (El);Confirmados PCR 7 días;163;
+Ejido (El);Total Confirmados ;1360;
+Ejido (El);Curados;552;
 Ejido (El);Fallecidos;8;
 Enix;Población;466;
 Enix;Confirmados PCR;1;
 Enix;Confirmados PCR 14 días;0;
+Enix;Tasa PCR 14 días;0;
 Enix;Confirmados PCR 7 días;0;
 Enix;Total Confirmados ;1;
 Enix;Curados;0;
@@ -723,37 +826,42 @@ Enix;Fallecidos;0;
 Felix;Población;628;
 Felix;Confirmados PCR;3;
 Felix;Confirmados PCR 14 días;1;
+Felix;Tasa PCR 14 días;159,23566878980893;
 Felix;Confirmados PCR 7 días;1;
 Felix;Total Confirmados ;3;
 Felix;Curados;2;
 Felix;Fallecidos;0;
 Roquetas de Mar;Población;96800;
-Roquetas de Mar;Confirmados PCR;986;
-Roquetas de Mar;Confirmados PCR 14 días;206;
-Roquetas de Mar;Confirmados PCR 7 días;95;
-Roquetas de Mar;Total Confirmados ;1022;
+Roquetas de Mar;Confirmados PCR;1020;
+Roquetas de Mar;Confirmados PCR 14 días;205;
+Roquetas de Mar;Tasa PCR 14 días;211,77685950413223;
+Roquetas de Mar;Confirmados PCR 7 días;84;
+Roquetas de Mar;Total Confirmados ;1056;
 Roquetas de Mar;Curados;680;
 Roquetas de Mar;Fallecidos;20;
 Mojonera (La);Población;9021;
-Mojonera (La);Confirmados PCR;213;
-Mojonera (La);Confirmados PCR 14 días;62;
-Mojonera (La);Confirmados PCR 7 días;25;
-Mojonera (La);Total Confirmados ;215;
+Mojonera (La);Confirmados PCR;217;
+Mojonera (La);Confirmados PCR 14 días;50;
+Mojonera (La);Tasa PCR 14 días;554,2622769094336;
+Mojonera (La);Confirmados PCR 7 días;12;
+Mojonera (La);Total Confirmados ;219;
 Mojonera (La);Curados;113;
-Mojonera (La);Fallecidos;2;
+Mojonera (La);Fallecidos;3;
 Vícar;Población;26028;
-Vícar;Confirmados PCR;338;
+Vícar;Confirmados PCR;362;
 Vícar;Confirmados PCR 14 días;126;
-Vícar;Confirmados PCR 7 días;57;
-Vícar;Total Confirmados ;341;
+Vícar;Tasa PCR 14 días;484,09405255878283;
+Vícar;Confirmados PCR 7 días;51;
+Vícar;Total Confirmados ;365;
 Vícar;Curados;144;
 Vícar;Fallecidos;2;
 Municipio de Almería sin especificar;Población;;
-Municipio de Almería sin especificar;Confirmados PCR;170;
-Municipio de Almería sin especificar;Confirmados PCR 14 días;72;
-Municipio de Almería sin especificar;Confirmados PCR 7 días;36;
-Municipio de Almería sin especificar;Total Confirmados ;170;
-Municipio de Almería sin especificar;Curados;7;
+Municipio de Almería sin especificar;Confirmados PCR;181;
+Municipio de Almería sin especificar;Confirmados PCR 14 días;67;
+Municipio de Almería sin especificar;Tasa PCR 14 días;-;
+Municipio de Almería sin especificar;Confirmados PCR 7 días;22;
+Municipio de Almería sin especificar;Total Confirmados ;181;
+Municipio de Almería sin especificar;Curados;11;
 Municipio de Almería sin especificar;Fallecidos;0;
 
           
@@ -767,6 +875,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -779,10 +888,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -803,6 +914,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -815,10 +927,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -839,6 +953,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -851,10 +966,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -875,10 +992,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -899,10 +1018,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -923,6 +1044,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -935,10 +1057,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -959,10 +1083,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -983,10 +1109,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1007,6 +1135,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1019,10 +1148,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1043,10 +1174,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1067,10 +1200,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1091,6 +1226,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1103,10 +1239,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1127,6 +1265,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1139,10 +1278,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1163,6 +1304,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1175,10 +1317,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1199,10 +1343,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1223,10 +1369,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1247,6 +1395,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1259,10 +1408,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1283,10 +1434,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1307,10 +1460,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1331,6 +1486,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1343,10 +1499,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1367,10 +1525,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1391,10 +1551,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1415,6 +1577,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1427,10 +1590,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1451,6 +1616,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1463,10 +1629,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1487,6 +1655,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1499,10 +1668,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1523,10 +1694,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1547,10 +1720,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1571,6 +1746,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1583,10 +1759,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1607,10 +1785,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1631,10 +1811,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1655,6 +1837,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1667,10 +1850,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1691,10 +1876,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1715,10 +1902,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1739,6 +1928,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1751,10 +1941,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1775,6 +1967,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1787,10 +1980,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1811,6 +2006,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1823,10 +2019,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1847,10 +2045,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1871,10 +2071,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1895,6 +2097,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1907,10 +2110,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1931,10 +2136,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1955,10 +2162,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -1979,6 +2188,7 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
@@ -1991,10 +2201,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -2015,10 +2227,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                
@@ -2039,10 +2253,12 @@ Municipio de Almería sin especificar;Fallecidos;0;
                
                
                
+               
           
           
                
                     
+               
                
                
                

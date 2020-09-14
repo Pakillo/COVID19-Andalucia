@@ -948,10 +948,10 @@ ggplot(camas) +
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "", y = "Camas ocupadas\n") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasOcup + 40, label = paste0( "Total ", CamasOcup)),
+            aes(Fecha - 2, CamasOcup + 60, label = paste0( "Total ", CamasOcup)),
             colour = "#377eb8") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, UCI + 40, label = paste0("UCI ", UCI)), 
+            aes(Fecha - 2, UCI + 60, label = paste0("UCI ", UCI)), 
             colour = "#e41a1c") 
   
 
