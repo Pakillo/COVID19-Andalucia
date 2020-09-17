@@ -189,37 +189,15 @@ ggplot() +
 
 ## Existen discordancias entre serie suministrada al ministerio y la depurada por la Junta a posteriori. Por tanto paso a usar la de la Junta siempre que se pueda
 
-datos.minist <- read_csv2("datos/acumulados.csv", 
-                        col_types = "Dcci-",
-                          locale = locale(date_names = "es", 
-                                          decimal_mark = ",",
-                                          grouping_mark = ".",
-                                          date_format = "%d/%m/%Y"),
-                          skip_empty_rows = TRUE) %>%
-  filter(Medida != "Confirmados PCR <14días", Medida != "Confirmados total") %>%
-  mutate(Medida = ifelse(Medida == "Confirmados PCR", "ConfirmadosPCR", Medida),
-         Medida = ifelse(Medida == "Total UCI", "UCI", Medida),
-         Medida = ifelse(Medida == "Fallecimientos", "Defunciones", Medida),
-         Medida = ifelse(Medida == "Curados", "Recuperados", Medida)) %>%
-  tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
-  arrange(Fecha)
-
-# datos.last <- datos.minist %>%
-#   group_by(Territorio) %>%
-#   mutate_at(3:8, function(x) {x - lag(x)}) %>%
-#   filter(Fecha == max(Fecha)) %>%
-#   ungroup()
-#
-
 ## Usando la serie de la Junta (1 día de retraso)
 datos.last <- datos.andal %>%
   dplyr::select(Fecha:Defunciones) %>%#
   bind_rows(datos.provs) %>%
   dplyr::select(-ConfirmadosTotal) %>%
-  rename(Recuperados = Curados) %>%
-  dplyr::select(-Recuperados, Recuperados) %>%
+  #rename(Recuperados = Curados) %>%
+  #dplyr::select(-Recuperados, Recuperados) %>%
   filter(Fecha == max(Fecha)) %>%
-  mutate_at(3:7, function(x) {ifelse(is.na(x), 0, x)})
+  mutate_at(3:ncol(.), function(x) {ifelse(is.na(x), 0, x)})
 
 kable(datos.last[, -1])
 
@@ -232,6 +210,23 @@ kable(datos.last[, -1])
 
 ```{r datos.acum, out.width='100%'}
 # Estos datos normalmente un día por delante de la serie de la Junta
+
+datos.minist <- read_csv2("datos/acumulados.csv", 
+                        col_types = "Dcci-",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = ".",
+                                          date_format = "%d/%m/%Y"),
+                          skip_empty_rows = TRUE) %>%
+  filter(Medida != "Total confirmados") %>%
+  mutate(Medida = ifelse(Medida == "Confirmados PCR", "ConfirmadosPCR", Medida),
+         Medida = ifelse(Medida == "Total UCI", "UCI", Medida),
+         Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida),
+         Medida = ifelse(Medida == "Curados", "Recuperados", Medida)) %>%
+  tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
+  arrange(Fecha)
+
+
 datos.minist %>%
   filter(Fecha == max(Fecha)) %>%
   select(-Fecha) %>%
@@ -966,7 +961,7 @@ ggplot(camas) +
 <br>
 
 
-```{r curadas_Andalucia, fig.height=3, out.width='100%'}
+```{r curadas_Andalucia, fig.height=3, out.width='100%', eval=FALSE}
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Curados), 
