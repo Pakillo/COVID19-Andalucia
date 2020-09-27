@@ -52,9 +52,9 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas** (no acumuladas) en número de casos confirmados, personas ingresadas, curadas y fallecidas.
+Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas** (no acumuladas).
 
-Los datos se **actualizan diariamente**. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia).
+Los datos se **actualizan diariamente**. En esta [cuenta de twitter](https://twitter.com/covid_andalucia) compartiremos la información más relevante. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia). 
 
 Última actualización: `r Sys.Date()`
 
@@ -127,6 +127,14 @@ datos.andal <- datos %>%
   mutate(Prop.Positivos = 100 * Prop.Positivos) %>%
   ungroup()
 
+# add datos camas ocupadas
+camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
+  mutate(Fecha = as.Date(Fecha)) %>%
+  rename(CamasUCI = UCI)
+
+datos.andal <- datos.andal %>%
+  left_join(camas, by = c("Fecha", "Territorio"))
+  
 ```
 
 <br>
@@ -139,12 +147,13 @@ datos.andal <- datos %>%
 ```{r fig.resumen, out.width='100%', fig.height=6}
 
 datos.andal.long <- datos.andal %>%
-  select(Fecha:Defunciones, -ConfirmadosTotal) %>%
+  select(Fecha, Territorio, ConfirmadosPCR, Hospitalizados, UCI, Defunciones) %>%
   tidyr::pivot_longer(cols = ConfirmadosPCR:Defunciones, names_to = "indic") %>%
   filter(indic != "Curados") %>%
   mutate(indic = ifelse(indic == "Hospitalizados", "Hospitalizaciones", indic)) %>%
   mutate(indic = ifelse(indic == "UCI", "Ingresos UCI", indic)) %>%
   mutate(indic = ifelse(indic == "ConfirmadosPCR", "Confirmados PCR", indic)) %>%
+  # mutate(indic = ifelse(indic == "CamasOcup", "Camas ocupadas", indic)) %>%
   mutate(indic = factor(indic, 
                         levels = c("Confirmados PCR", "Hospitalizaciones", 
                                    "Ingresos UCI", "Defunciones")))
@@ -155,7 +164,7 @@ ggplot(datos.andal.long) +
   scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA)) +
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA), date_breaks = "1 month", date_labels = "%b") +
   scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
@@ -179,7 +188,7 @@ ggplot() +
 
 ```
 
-
+**NOTA**: el retraso (de varios días) en las notificaciones hace que las curvas parezcan a menudo descendentes. A menudo, en los días siguientes se añaden nuevos casos, ingresos y defunciones asignados a fechas pasadas. Por tanto, un descenso en, por ejemplo, el número de casos u hospitalizaciones en los últimos días **no debe interpretarse como un descenso** en la intensidad de la pandemia hasta que los datos sean consolidados en los próximos días.
 
 <br>
 
@@ -281,9 +290,15 @@ ggplot(datos.andal) +
        title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA), 
+               date_breaks = "1 month", date_labels = "%b")
 
 ```
+
+<br>
+
+Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad. Durante los primeros meses de la pandemia (Marzo-Mayo 2020) solo se realizó PCR a los pacientes más graves, dejando sin detectar probablemente [más del 90% de los casos](https://www.eldiario.es/sociedad/porcentaje-poblacion-contagiada-explosivo-COVID-19_0_1026798481.html), por lo que el número de casos diarios no es comparable entre periodos con distinta intensidad de muestreo como la primavera y el otoño. 
+
 
 <br>
 
@@ -312,6 +327,9 @@ ggplot() +
 
 <br>
 
+**NOTA**: el retraso (de varios días) en las notificaciones hace que las curvas parezcan a menudo descendentes. Frecuentemente, en los días siguientes se añaden nuevos casos asignados a fechas pasadas. Por tanto, **un descenso en el número de casos en los últimos días no debe interpretarse como un descenso en la intensidad de la pandemia** hasta que los datos sean consolidados en los próximos días.
+
+<br>
 
 ```{r casos_Andalucia, fig.height=4, out.width='100%', eval = FALSE}
 
@@ -333,12 +351,6 @@ ggplot(datos.andal) +
   theme(panel.grid.minor.y = element_line(size = rel(0.5)))
 
 ```
-
-
-Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad. Igualmente, durante los primeros meses de la pandemia (Marzo-Mayo 2020) solo se realizaron PCR para los pacientes más graves, dejando sin detectar probablemente [más del 90% de los casos](https://www.eldiario.es/sociedad/porcentaje-poblacion-contagiada-explosivo-COVID-19_0_1026798481.html), por lo que el número de casos diarios no es comparable entre periodos con distinta intensidad de muestreo. 
-
-<br>
-
 
 
 ```{r ncasos.ntest, out.width='100%', fig.height=4, eval=FALSE}
@@ -596,7 +608,7 @@ mapview(casos.dist, zcol = "casos",
         
 ```
 
-Este mapa de casos confirmados en los últimos 14 días es útil para saber dónde se encuentran los brotes activos en la actualidad:
+Este mapa de **casos confirmados en los últimos 14 días** es útil para saber dónde se encuentran los brotes activos en la actualidad:
 
 ```{r mapamunis_PCR_14d, out.width='100%'}
 
@@ -646,7 +658,7 @@ girafe(ggobj = mapa)
 
 ```
 
-La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
+La Junta de Andalucía ha comenzado a visualizar los datos diarios por provincia, distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
 
 <br>
 
@@ -655,7 +667,7 @@ La Junta de Andalucía ha comenzado a visualizar los datos diarios por distrito 
 
 ### Porcentaje de PCR positivas
 
-Aquí se muestra el número de PCR realizadas en Andalucía cada semana (según los datos ofrecidos por [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019)), el número de casos detectados esa semana, y en consecuencia el porcentaje de PCR positivas. Si el porcentaje de pruebas positivas es elevado es probable que no se esten detectando todos los casos.
+Aquí se muestra el número de PCR realizadas en Andalucía cada semana (según los datos ofrecidos por [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019)), el número de casos detectados esa semana y, en consecuencia, el porcentaje de PCR positivas. Si el porcentaje de pruebas positivas es elevado es probable que no se estén detectando todos los casos y por tanto no se estén cortando bien las cadenas de transmisión. La OMS recomienda que este porcentaje se mantenga por debajo del 5%. 
 
 
 ```{r test.posit, out.width='100%'}
@@ -679,11 +691,11 @@ ntest <- datos.andal %>%
   select(Fecha, pcr.7d, casos.7d, pos.percent) %>%
   tidyr::pivot_longer(cols = pcr.7d:pos.percent) %>%
   mutate(name = case_when(
-    name =="pcr.7d" ~ "PCR realizadas",
+    name =="pcr.7d" ~ "PCR semanales realizadas",
     name == "casos.7d" ~ "Casos confirmados",
     name == "pos.percent" ~ "Porcentaje de PCR positivas"
   )) %>%
-  mutate(name = factor(name, levels = c("PCR realizadas", "Casos confirmados", "Porcentaje de PCR positivas"))) %>%
+  mutate(name = factor(name, levels = c("PCR semanales realizadas", "Casos confirmados", "Porcentaje de PCR positivas"))) %>%
   filter(Fecha > "2020-04-23")
 
 ggplot(ntest) + 
@@ -708,7 +720,7 @@ ggplot(ntest) +
 
 Esta figura representa los rangos de edad de los casos confirmados por PCR a lo largo del tiempo (desde el 15 de Marzo de 2020). 
 
-Mientras que en los meses de Marzo a Mayo la inmensa mayoría de casos detectados tenían más de 30 años, en las últimas semanas la mayoría de casos corresponde a personas más jóvenes (15 a 65 años), aunque paulatinamente los contagios se extienden a todas las edades.
+Mientras que en los meses de Marzo a Mayo sólo se detectaron los casos más graves, normalmente asociados a personas de mayor edad (>45 años), en la segunda oleada (a partir de Agosto), los casos comenzaron en personas jóvenes para extenderse paulatinamente a todas las edades.
 
 <br>
 
@@ -740,7 +752,8 @@ casos.edad.fecha %>%
   labs(y = "Edad", x = "",
        title = "Edad de los casos confirmados por PCR",
        caption = "https://tiny.cc/COVID19-Andalucia",
-       fill = "Casos diarios") 
+       fill = "Casos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
 
 ```
 
@@ -770,7 +783,7 @@ edad.anim <-
 animate(edad.anim, height = 4, width = 5, units = "in", res = 150, 
         rewind = FALSE, 
         nframes = length(unique(edad.anim.df$Fecha)),
-        fps = 4)
+        fps = 8)
 
 anim_save("edad_casos_anim.gif")
 
@@ -793,7 +806,8 @@ ggplot(datos.andal) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA),
+               date_breaks = "1 month", date_labels = "%b")
 
 ```
 
@@ -820,6 +834,10 @@ ggplot(datos.andal) +
 ```
 
 <br>
+
+**NOTA**: el retraso (de varios días) en las notificaciones hace que las curvas parezcan a menudo descendentes. Frecuentemente, en los días siguientes se añaden nuevos ingresos asignados a fechas pasadas. Por tanto, **un descenso en el número de hospitalizaciones en los últimos días no debe interpretarse como un descenso en la intensidad de la pandemia** hasta que los datos sean consolidados en los próximos días.
+
+
 <br>
 
 
@@ -876,7 +894,8 @@ ggplot(datos.andal) +
   labs(x = "", y = "Nº Ingresos UCI\n",
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA),
+               date_breaks = "1 month", date_labels = "%b")
 
 ```
 
@@ -898,6 +917,9 @@ ggplot(datos.andal) +
 
 ```
 <br>
+
+**NOTA**: el retraso (de varios días) en las notificaciones hace que las curvas parezcan a menudo descendentes. Frecuentemente, en los días siguientes se añaden nuevos ingresos asignados a fechas pasadas. Por tanto, **un descenso en el número de ingresos en los últimos días no debe interpretarse como un descenso en la intensidad de la pandemia** hasta que los datos sean consolidados en los próximos días.
+
 <br>
 
 
@@ -920,34 +942,32 @@ ggplot(datos.provs) +
 
 <br>
 
-Número de camas ocupadas en centros hospitalarios, y cuántas de ellas son de cuidados intensivos (UCI):
+Número de pacientes ingresados en centros hospitalarios, incluyendo aquellos en cuidados intensivos (UCI). El pico máximo de camas ocupadas se alcanzó el 30 de Marzo con 2708 pacientes ingresados (438 en UCI).
 
 <br>
 
 ```{r camas.ocupadas, out.width='100%', fig.height=3}
 
-camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
-  mutate(Fecha = as.Date(Fecha)) %>%
-  filter(Territorio == "Andalucía")  %>%
-  filter(Fecha >= "2020-07-01")
-
-camas.last <- camas %>%
+camas.last <- datos.andal %>%
   filter(!is.na(CamasOcup)) %>%
   slice_tail()
 
-ggplot(camas) +
+datos.andal %>%
+  filter(Fecha > "2020-04-04") %>%
+ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
-  geom_line(aes(Fecha, UCI), colour = "#e41a1c", size = 2) +
+  geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   ylim(0, NA) +
-  labs(title = "Camas ocupadas con COVID-19 en hospitales andaluces",
+  labs(title = "Pacientes ingresados con COVID-19 en hospitales andaluces",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "", y = "Camas ocupadas\n") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasOcup + 60, label = paste0( "Total ", CamasOcup)),
+            aes(Fecha - 2, CamasOcup + 100, label = paste0( "Total ", CamasOcup)),
             colour = "#377eb8") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, UCI + 60, label = paste0("UCI ", UCI)), 
-            colour = "#e41a1c") 
+            aes(Fecha - 2, CamasUCI + 100, label = paste0("UCI ", CamasUCI)), 
+            colour = "#e41a1c") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
 
 ```
@@ -1011,7 +1031,8 @@ ggplot(datos.andal) +
        title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), NA),
+               date_breaks = "1 month", date_labels = "%b")
 
 ```
 
@@ -1032,6 +1053,9 @@ ggplot(datos.andal) +
 ```
 
 <br>
+
+**NOTA**: el retraso (de varios días) en las notificaciones hace que las curvas parezcan a menudo descendentes. Frecuentemente, en los días siguientes se añaden nuevas defunciones asignadas a fechas pasadas. Por tanto, **un aparente descenso en el número de defunciones en los últimos días no debe interpretarse como un descenso en la intensidad de la pandemia** hasta que los datos sean consolidados en los próximos días.
+
 <br>
 
 ```{r fallecidos_provincias, eval = TRUE, out.width='100%', fig.height=6}
