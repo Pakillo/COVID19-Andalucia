@@ -1,85 +1,276 @@
 Edad;Sexo;Medida;Valor;
 De 100 y más años;Hombres;Confirmado PCR;3;
-De 100 y más años;Hombres;% pirámide;0,01;
-De 100 y más años;Mujeres;Confirmado PCR;19;
-De 100 y más años;Mujeres;% pirámide;0,04;
-De 95 a 99 años;Hombres;Confirmado PCR;42;
+De 100 y más años;Hombres;% pirámide;0,00;
+De 100 y más años;Mujeres;Confirmado PCR;29;
+De 100 y más años;Mujeres;% pirámide;0,05;
+De 95 a 99 años;Hombres;Confirmado PCR;49;
 De 95 a 99 años;Hombres;% pirámide;0,08;
-De 95 a 99 años;Mujeres;Confirmado PCR;173;
-De 95 a 99 años;Mujeres;% pirámide;0,3416676541454359;
-De 90 a 94 años;Hombres;Confirmado PCR;230;
-De 90 a 94 años;Hombres;% pirámide;0,4542402338349726;
-De 90 a 94 años;Mujeres;Confirmado PCR;567;
-De 90 a 94 años;Mujeres;% pirámide;1,119800924280128;
-De 85 a 89 años;Hombres;Confirmado PCR;499;
-De 85 a 89 años;Hombres;% pirámide;0,9855038116680491;
-De 85 a 89 años;Mujeres;Confirmado PCR;963;
-De 85 a 89 años;Mujeres;% pirámide;1,9018841094916459;
-De 80 a 84 años;Hombres;Confirmado PCR;672;
-De 80 a 84 años;Hombres;% pirámide;1,327171465813485;
-De 80 a 84 años;Mujeres;Confirmado PCR;925;
-De 80 a 84 años;Mujeres;% pirámide;1,8268357230319547;
-De 75 a 79 años;Hombres;Confirmado PCR;840;
-De 75 a 79 años;Hombres;% pirámide;1,6589643322668564;
-De 75 a 79 años;Mujeres;Confirmado PCR;768;
-De 75 a 79 años;Mujeres;% pirámide;1,5167673895011258;
-De 70 a 74 años;Hombres;Confirmado PCR;944;
-De 70 a 74 años;Hombres;% pirámide;1,8643599162618003;
-De 70 a 74 años;Mujeres;Confirmado PCR;880;
-De 70 a 74 años;Mujeres;% pirámide;1,7379626338033731;
-De 65 a 69 años;Hombres;Confirmado PCR;1111;
-De 65 a 69 años;Hombres;% pirámide;2,1941778251767587;
-De 65 a 69 años;Mujeres;Confirmado PCR;978;
-De 65 a 69 años;Mujeres;% pirámide;1,93150847256784;
-De 60 a 64 años;Hombres;Confirmado PCR;1471;
-De 60 a 64 años;Hombres;% pirámide;2,9051625390054117;
-De 60 a 64 años;Mujeres;Confirmado PCR;1447;
-De 60 a 64 años;Mujeres;% pirámide;2,8577635580835015;
-De 55 a 59 años;Hombres;Confirmado PCR;1750;
-De 55 a 59 años;Hombres;% pirámide;3,456175692222617;
-De 55 a 59 años;Mujeres;Confirmado PCR;1903;
-De 55 a 59 años;Mujeres;% pirámide;3,7583441955997943;
-De 50 a 54 años;Hombres;Confirmado PCR;1912;
-De 50 a 54 años;Hombres;% pirámide;3,776118813445511;
-De 50 a 54 años;Mujeres;Confirmado PCR;2060;
-De 50 a 54 años;Mujeres;% pirámide;4,068412529130624;
-De 45 a 49 años;Hombres;Confirmado PCR;1984;
-De 45 a 49 años;Hombres;% pirámide;3,9183157562112414;
-De 45 a 49 años;Mujeres;Confirmado PCR;2062;
-De 45 a 49 años;Mujeres;% pirámide;4,0723624442074495;
-De 40 a 44 años;Hombres;Confirmado PCR;2034;
-De 40 a 44 años;Hombres;% pirámide;4,017063633131888;
-De 40 a 44 años;Mujeres;Confirmado PCR;2119;
-De 40 a 44 años;Mujeres;% pirámide;4,184935023896987;
-De 35 a 39 años;Hombres;Confirmado PCR;2118;
-De 35 a 39 años;Hombres;% pirámide;4,182960066358573;
-De 35 a 39 años;Mujeres;Confirmado PCR;1991;
-De 35 a 39 años;Mujeres;% pirámide;3,9321404589801316;
-De 30 a 34 años;Hombres;Confirmado PCR;2104;
-De 30 a 34 años;Hombres;% pirámide;4,155310660820792;
-De 30 a 34 años;Mujeres;Confirmado PCR;2104;
-De 30 a 34 años;Mujeres;% pirámide;4,155310660820792;
-De 25 a 29 años;Hombres;Confirmado PCR;2087;
-De 25 a 29 años;Hombres;% pirámide;4,121736382667772;
-De 25 a 29 años;Mujeres;Confirmado PCR;2312;
-De 25 a 29 años;Mujeres;% pirámide;4,56610182881068;
-De 20 a 24 años;Hombres;Confirmado PCR;1743;
-De 20 a 24 años;Hombres;% pirámide;3,4423509894537268;
-De 20 a 24 años;Mujeres;Confirmado PCR;1935;
-De 20 a 24 años;Mujeres;% pirámide;3,8215428368290083;
-De 15 a 19 años;Hombres;Confirmado PCR;1015;
-De 15 a 19 años;Hombres;% pirámide;2,004581901489118;
-De 15 a 19 años;Mujeres;Confirmado PCR;1084;
-De 15 a 19 años;Mujeres;% pirámide;2,1408539716396096;
-De 10 a 14 años;Hombres;Confirmado PCR;658;
-De 10 a 14 años;Hombres;% pirámide;1,299522060275704;
-De 10 a 14 años;Mujeres;Confirmado PCR;695;
-De 10 a 14 años;Mujeres;% pirámide;1,3725954891969823;
-De 5 a 9 años;Hombres;Confirmado PCR;583;
-De 5 a 9 años;Hombres;% pirámide;1,1514002448947347;
-De 5 a 9 años;Mujeres;Confirmado PCR;566;
-De 5 a 9 años;Mujeres;% pirámide;1,117825966741715;
-De 0 a 4 años;Hombres;Confirmado PCR;613;
-De 0 a 4 años;Hombres;% pirámide;1,2106489710471224;
-De 0 a 4 años;Mujeres;Confirmado PCR;618;
-De 0 a 4 años;Mujeres;% pirámide;1,220523758739187;
+De 95 a 99 años;Mujeres;Confirmado PCR;198;
+De 95 a 99 años;Mujeres;% pirámide;0,3189689891260572;
+De 90 a 94 años;Hombres;Confirmado PCR;254;
+De 90 a 94 años;Hombres;% pirámide;0,4091824405960532;
+De 90 a 94 años;Mujeres;Confirmado PCR;654;
+De 90 a 94 años;Mujeres;% pirámide;1,0535642368103102;
+De 85 a 89 años;Hombres;Confirmado PCR;588;
+De 85 a 89 años;Hombres;% pirámide;0,9472412404349577;
+De 85 a 89 años;Mujeres;Confirmado PCR;1114;
+De 85 a 89 años;Mujeres;% pirámide;1,7946033024567056;
+De 80 a 84 años;Hombres;Confirmado PCR;772;
+De 80 a 84 años;Hombres;% pirámide;1,243656866693516;
+De 80 a 84 años;Mujeres;Confirmado PCR;1087;
+De 80 a 84 años;Mujeres;% pirámide;1,7511075312122433;
+De 75 a 79 años;Hombres;Confirmado PCR;965;
+De 75 a 79 años;Hombres;% pirámide;1,5545710833668949;
+De 75 a 79 años;Mujeres;Confirmado PCR;935;
+De 75 a 79 años;Mujeres;% pirámide;1,5062424486508257;
+De 70 a 74 años;Hombres;Confirmado PCR;1127;
+De 70 a 74 años;Hombres;% pirámide;1,815545710833669;
+De 70 a 74 años;Mujeres;Confirmado PCR;1073;
+De 70 a 74 años;Mujeres;% pirámide;1,7285541683447443;
+De 65 a 69 años;Hombres;Confirmado PCR;1327;
+De 65 a 69 años;Hombres;% pirámide;2,1377366089407976;
+De 65 a 69 años;Mujeres;Confirmado PCR;1216;
+De 65 a 69 años;Mujeres;% pirámide;1,9589206604913412;
+De 60 a 64 años;Hombres;Confirmado PCR;1764;
+De 60 a 64 años;Hombres;% pirámide;2,841723721304873;
+De 60 a 64 años;Mujeres;Confirmado PCR;1741;
+De 60 a 64 años;Mujeres;% pirámide;2,8046717680225535;
+De 55 a 59 años;Hombres;Confirmado PCR;2094;
+De 55 a 59 años;Hombres;% pirámide;3,373338703181635;
+De 55 a 59 años;Mujeres;Confirmado PCR;2307;
+De 55 a 59 años;Mujeres;% pirámide;3,716472009665727;
+De 50 a 54 años;Hombres;Confirmado PCR;2288;
+De 50 a 54 años;Hombres;% pirámide;3,6858638743455496;
+De 50 a 54 años;Mujeres;Confirmado PCR;2492;
+De 50 a 54 años;Mujeres;% pirámide;4,014498590414821;
+De 45 a 49 años;Hombres;Confirmado PCR;2431;
+De 45 a 49 años;Hombres;% pirámide;3,916230366492147;
+De 45 a 49 años;Mujeres;Confirmado PCR;2567;
+De 45 a 49 años;Mujeres;% pirámide;4,135320177204994;
+De 40 a 44 años;Hombres;Confirmado PCR;2505;
+De 40 a 44 años;Hombres;% pirámide;4,035440998791784;
+De 40 a 44 años;Mujeres;Confirmado PCR;2618;
+De 40 a 44 años;Mujeres;% pirámide;4,2174788562223124;
+De 35 a 39 años;Hombres;Confirmado PCR;2561;
+De 35 a 39 años;Hombres;% pirámide;4,12565445026178;
+De 35 a 39 años;Mujeres;Confirmado PCR;2472;
+De 35 a 39 años;Mujeres;% pirámide;3,9822795006041076;
+De 30 a 34 años;Hombres;Confirmado PCR;2477;
+De 30 a 34 años;Hombres;% pirámide;3,9903342730567863;
+De 30 a 34 años;Mujeres;Confirmado PCR;2555;
+De 30 a 34 años;Mujeres;% pirámide;4,115988723318567;
+De 25 a 29 años;Hombres;Confirmado PCR;2498;
+De 25 a 29 años;Hombres;% pirámide;4,024164317358035;
+De 25 a 29 años;Mujeres;Confirmado PCR;2756;
+De 25 a 29 años;Mujeres;% pirámide;4,439790575916231;
+De 20 a 24 años;Hombres;Confirmado PCR;2148;
+De 20 a 24 años;Hombres;% pirámide;3,46033024567056;
+De 20 a 24 años;Mujeres;Confirmado PCR;2390;
+De 20 a 24 años;Mujeres;% pirámide;3,850181232380185;
+De 15 a 19 años;Hombres;Confirmado PCR;1337;
+De 15 a 19 años;Hombres;% pirámide;2,1538461538461537;
+De 15 a 19 años;Mujeres;Confirmado PCR;1431;
+De 15 a 19 años;Mujeres;% pirámide;2,305275875956504;
+De 10 a 14 años;Hombres;Confirmado PCR;921;
+De 10 a 14 años;Hombres;% pirámide;1,4836890857833267;
+De 10 a 14 años;Mujeres;Confirmado PCR;979;
+De 10 a 14 años;Mujeres;% pirámide;1,5771244462343939;
+De 5 a 9 años;Hombres;Confirmado PCR;830;
+De 5 a 9 años;Hombres;% pirámide;1,337092227144583;
+De 5 a 9 años;Mujeres;Confirmado PCR;818;
+De 5 a 9 años;Mujeres;% pirámide;1,3177607732581555;
+De 0 a 4 años;Hombres;Confirmado PCR;823;
+De 0 a 4 años;Hombres;% pirámide;1,3258155457108336;
+De 0 a 4 años;Mujeres;Confirmado PCR;826;
+De 0 a 4 años;Mujeres;% pirámide;1,3306484091824407;
+
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+     

@@ -1,88 +1,46 @@
-Edad;Sexo;Medida;Valor;
-De 100 y más años;Hombres;Casos UCI;0;
-De 100 y más años;Hombres;% pirámide;0;
-De 100 y más años;Mujeres;Casos UCI;0;
-De 100 y más años;Mujeres;% pirámide;0;
-De 95 a 99 años;Hombres;Casos UCI;0;
-De 95 a 99 años;Hombres;% pirámide;0;
-De 95 a 99 años;Mujeres;Casos UCI;0;
-De 95 a 99 años;Mujeres;% pirámide;0;
-De 90 a 94 años;Hombres;Casos UCI;1;
-De 90 a 94 años;Hombres;% pirámide;0,102880658436214;
-De 90 a 94 años;Mujeres;Casos UCI;0;
-De 90 a 94 años;Mujeres;% pirámide;0;
-De 85 a 89 años;Hombres;Casos UCI;1;
-De 85 a 89 años;Hombres;% pirámide;0,102880658436214;
-De 85 a 89 años;Mujeres;Casos UCI;1;
-De 85 a 89 años;Mujeres;% pirámide;0,102880658436214;
-De 80 a 84 años;Hombres;Casos UCI;20;
-De 80 a 84 años;Hombres;% pirámide;2,05761316872428;
-De 80 a 84 años;Mujeres;Casos UCI;17;
-De 80 a 84 años;Mujeres;% pirámide;1,7489711934156378;
-De 75 a 79 años;Hombres;Casos UCI;75;
-De 75 a 79 años;Hombres;% pirámide;7,716049382716049;
-De 75 a 79 años;Mujeres;Casos UCI;34;
-De 75 a 79 años;Mujeres;% pirámide;3,4979423868312756;
-De 70 a 74 años;Hombres;Casos UCI;104;
-De 70 a 74 años;Hombres;% pirámide;10,699588477366255;
-De 70 a 74 años;Mujeres;Casos UCI;51;
-De 70 a 74 años;Mujeres;% pirámide;5,246913580246913;
-De 65 a 69 años;Hombres;Casos UCI;105;
-De 65 a 69 años;Hombres;% pirámide;10,802469135802468;
-De 65 a 69 años;Mujeres;Casos UCI;31;
-De 65 a 69 años;Mujeres;% pirámide;3,189300411522634;
-De 60 a 64 años;Hombres;Casos UCI;119;
-De 60 a 64 años;Hombres;% pirámide;12,242798353909464;
-De 60 a 64 años;Mujeres;Casos UCI;32;
-De 60 a 64 años;Mujeres;% pirámide;3,292181069958848;
-De 55 a 59 años;Hombres;Casos UCI;82;
-De 55 a 59 años;Hombres;% pirámide;8,436213991769549;
-De 55 a 59 años;Mujeres;Casos UCI;29;
-De 55 a 59 años;Mujeres;% pirámide;2,983539094650206;
-De 50 a 54 años;Hombres;Casos UCI;89;
-De 50 a 54 años;Hombres;% pirámide;9,156378600823045;
-De 50 a 54 años;Mujeres;Casos UCI;20;
-De 50 a 54 años;Mujeres;% pirámide;2,05761316872428;
-De 45 a 49 años;Hombres;Casos UCI;50;
-De 45 a 49 años;Hombres;% pirámide;5,1440329218107;
-De 45 a 49 años;Mujeres;Casos UCI;17;
-De 45 a 49 años;Mujeres;% pirámide;1,7489711934156378;
-De 40 a 44 años;Hombres;Casos UCI;17;
-De 40 a 44 años;Hombres;% pirámide;1,7489711934156378;
-De 40 a 44 años;Mujeres;Casos UCI;10;
-De 40 a 44 años;Mujeres;% pirámide;1,02880658436214;
-De 35 a 39 años;Hombres;Casos UCI;18;
-De 35 a 39 años;Hombres;% pirámide;1,8518518518518516;
-De 35 a 39 años;Mujeres;Casos UCI;7;
-De 35 a 39 años;Mujeres;% pirámide;0,720164609053498;
-De 30 a 34 años;Hombres;Casos UCI;9;
-De 30 a 34 años;Hombres;% pirámide;0,9259259259259258;
-De 30 a 34 años;Mujeres;Casos UCI;6;
-De 30 a 34 años;Mujeres;% pirámide;0,6172839506172839;
-De 25 a 29 años;Hombres;Casos UCI;6;
-De 25 a 29 años;Hombres;% pirámide;0,6172839506172839;
-De 25 a 29 años;Mujeres;Casos UCI;4;
-De 25 a 29 años;Mujeres;% pirámide;0,411522633744856;
-De 20 a 24 años;Hombres;Casos UCI;6;
-De 20 a 24 años;Hombres;% pirámide;0,6172839506172839;
-De 20 a 24 años;Mujeres;Casos UCI;3;
-De 20 a 24 años;Mujeres;% pirámide;0,30864197530864196;
-De 15 a 19 años;Hombres;Casos UCI;4;
-De 15 a 19 años;Hombres;% pirámide;0,411522633744856;
-De 15 a 19 años;Mujeres;Casos UCI;0;
-De 15 a 19 años;Mujeres;% pirámide;0;
-De 10 a 14 años;Hombres;Casos UCI;2;
-De 10 a 14 años;Hombres;% pirámide;0,205761316872428;
-De 10 a 14 años;Mujeres;Casos UCI;0;
-De 10 a 14 años;Mujeres;% pirámide;0;
-De 5 a 9 años;Hombres;Casos UCI;0;
-De 5 a 9 años;Hombres;% pirámide;0;
-De 5 a 9 años;Mujeres;Casos UCI;0;
-De 5 a 9 años;Mujeres;% pirámide;0;
-De 0 a 4 años;Hombres;Casos UCI;2;
-De 0 a 4 años;Hombres;% pirámide;0,205761316872428;
-De 0 a 4 años;Mujeres;Casos UCI;0;
-De 0 a 4 años;Mujeres;% pirámide;0;
+Edad;Medida;Sexo;Valor;
+De 100 y más años; ;Hombres;0;
+De 100 y más años; ;Mujeres;0;
+De 95 a 99 años; ;Hombres;0;
+De 95 a 99 años; ;Mujeres;0;
+De 90 a 94 años; ;Hombres;0,0968054211035818;
+De 90 a 94 años; ;Mujeres;0;
+De 85 a 89 años; ;Hombres;0,0968054211035818;
+De 85 a 89 años; ;Mujeres;0,0968054211035818;
+De 80 a 84 años; ;Hombres;2,1297192642787994;
+De 80 a 84 años; ;Mujeres;1,6456921587608906;
+De 75 a 79 años; ;Hombres;8,03484995159729;
+De 75 a 79 años; ;Mujeres;3,6786060019361084;
+De 70 a 74 años; ;Hombres;10,551790900290415;
+De 70 a 74 años; ;Mujeres;5,033881897386254;
+De 65 a 69 años; ;Hombres;10,939012584704743;
+De 65 a 69 años; ;Mujeres;3,4849951597289452;
+De 60 a 64 años; ;Hombres;12,003872216844142;
+De 60 a 64 años; ;Mujeres;3,4849951597289452;
+De 55 a 59 años; ;Hombres;8,518877057115198;
+De 55 a 59 años; ;Mujeres;2,904162633107454;
+De 50 a 54 años; ;Hombres;9,002904162633108;
+De 50 a 54 años; ;Mujeres;2,032913843175218;
+De 45 a 49 años; ;Hombres;4,937076476282671;
+De 45 a 49 años; ;Mujeres;1,6456921587608906;
+De 40 a 44 años; ;Hombres;1,6456921587608906;
+De 40 a 44 años; ;Mujeres;1,0648596321393997;
+De 35 a 39 años; ;Hombres;1,9361084220716358;
+De 35 a 39 años; ;Mujeres;0,6776379477250726;
+De 30 a 34 años; ;Hombres;0,9680542110358179;
+De 30 a 34 años; ;Mujeres;0,6776379477250726;
+De 25 a 29 años; ;Hombres;0,5808325266214909;
+De 25 a 29 años; ;Mujeres;0,48402710551790895;
+De 20 a 24 años; ;Hombres;0,5808325266214909;
+De 20 a 24 años; ;Mujeres;0,29041626331074544;
+De 15 a 19 años; ;Hombres;0,3872216844143272;
+De 15 a 19 años; ;Mujeres;0;
+De 10 a 14 años; ;Hombres;0,1936108422071636;
+De 10 a 14 años; ;Mujeres;0;
+De 5 a 9 años; ;Hombres;0;
+De 5 a 9 años; ;Mujeres;0;
+De 0 a 4 años; ;Hombres;0,1936108422071636;
+De 0 a 4 años; ;Mujeres;0;
 
           
                
@@ -90,23 +48,10 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
-               
-               
           
           
                
                     
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
                
                
                
@@ -117,23 +62,10 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
-               
-               
           
           
                
                     
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
                
                
                
@@ -144,23 +76,10 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
-               
-               
           
           
                
                     
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
                
                
                
@@ -171,23 +90,10 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
-               
-               
           
           
                
                     
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
                
                
                
@@ -198,23 +104,10 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
-               
-               
           
           
                
                     
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
                
                
                
@@ -225,23 +118,10 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
-               
-               
           
           
                
                     
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
                
                
                
@@ -252,6 +132,11 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
+          
+          
+               
+                    
+               
                
                
           
@@ -261,6 +146,11 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                
                
                
+          
+          
+               
+                    
+               
                
                
           
@@ -269,6 +159,32 @@ De 0 a 4 años;Mujeres;% pirámide;0;
                     
                
                
+               
+          
+          
+               
+                    
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+          
+          
+               
+                    
                
                
                
