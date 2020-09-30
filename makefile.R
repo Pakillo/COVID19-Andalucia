@@ -3,7 +3,7 @@ library(dplyr)
 
 ## Datos municipios
 
-fecha.munis <- as.Date("2020-09-28")
+fecha.munis <- as.Date("2020-09-29")
 
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000)
@@ -55,5 +55,6 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
 ## Render
 
 rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
+
 
 
