@@ -1168,16 +1168,16 @@ def.edad.sexo <- read_csv2("datos/edad.sexo/datos_def_edad_sexo.csv",
   right_join(casos.edad.sexo[, c("Edad", "Sexo")], by = c("Edad", "Sexo")) %>%
   mutate(Medida = "% Defunciones")
 
-
-recup.edad.sexo <- read_csv2("datos/edad.sexo/datos_curados_edad_sexo.csv",
-                          locale = locale(date_names = "es", 
-                                          decimal_mark = ",",
-                                          grouping_mark = "."),
-                          skip_empty_rows = TRUE) %>%
-  select(-X5) %>%
-  filter(Medida == "% pirámide") %>%
-  mutate(Medida = "% Recuperados") %>%
-  filter(!is.na(Edad))
+# Sept 2020: ya no proveen esta información
+# recup.edad.sexo <- read_csv2("datos/edad.sexo/datos_curados_edad_sexo.csv",
+#                           locale = locale(date_names = "es", 
+#                                           decimal_mark = ",",
+#                                           grouping_mark = "."),
+#                           skip_empty_rows = TRUE) %>%
+#   select(-X5) %>%
+#   filter(Medida == "% pirámide") %>%
+#   mutate(Medida = "% Recuperados") %>%
+#   filter(!is.na(Edad))
 
 
 ## Obtener etiquetas edades
@@ -1196,12 +1196,11 @@ edades <- casos.edad.sexo %>%
 todo.edad.sexo <- bind_rows(casos.edad.sexo, 
                             hosp.edad.sexo,
                             uci.edad.sexo,
-                            def.edad.sexo,
-                            recup.edad.sexo) %>%
+                            def.edad.sexo) %>%
   group_by(Sexo, Medida) %>%
   mutate(edades = factor(edades, levels = edades)) %>%
   ungroup() %>%
-  mutate(Medida = factor(Medida, levels = c("% Casos", "% Recuperados",
+  mutate(Medida = factor(Medida, levels = c("% Casos", 
                                             "% Hospitalizaciones", "% UCI", "% Defunciones")))
 
 
