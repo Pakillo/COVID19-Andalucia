@@ -92,7 +92,7 @@ datos <- readr::read_csv2("datos/datos_provincias_raw.csv",
 datos <- datos %>%
   tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
   rename(Fecha = `Fecha diagnóstico`, 
-         ConfirmadosPCR = `Confirmados PCR`, 
+         ConfirmadosPCR = `Confirmados PDIA`, 
          ConfirmadosTotal = `Total confirmados`) %>%
   dplyr::select(Fecha, Territorio, ConfirmadosPCR, ConfirmadosTotal, everything()) %>%
   arrange(Fecha) %>%
@@ -152,10 +152,10 @@ datos.andal.long <- datos.andal %>%
   filter(indic != "Curados") %>%
   mutate(indic = ifelse(indic == "Hospitalizados", "Hospitalizaciones", indic)) %>%
   mutate(indic = ifelse(indic == "UCI", "Ingresos UCI", indic)) %>%
-  mutate(indic = ifelse(indic == "ConfirmadosPCR", "Confirmados PCR", indic)) %>%
+  mutate(indic = ifelse(indic == "ConfirmadosPCR", "Casos confirmados", indic)) %>%
   # mutate(indic = ifelse(indic == "CamasOcup", "Camas ocupadas", indic)) %>%
   mutate(indic = factor(indic, 
-                        levels = c("Confirmados PCR", "Hospitalizaciones", 
+                        levels = c("Casos confirmados", "Hospitalizaciones", 
                                    "Ingresos UCI", "Defunciones")))
 
 ggplot(datos.andal.long) +
@@ -203,10 +203,10 @@ datos.last <- datos.andal %>%
   dplyr::select(Fecha:Defunciones) %>%#
   bind_rows(datos.provs) %>%
   dplyr::select(-ConfirmadosTotal) %>%
-  #rename(Recuperados = Curados) %>%
-  #dplyr::select(-Recuperados, Recuperados) %>%
   filter(Fecha == max(Fecha)) %>%
-  mutate_at(3:ncol(.), function(x) {ifelse(is.na(x), 0, x)})
+  mutate_at(3:ncol(.), function(x) {ifelse(is.na(x), 0, x)}) %>% 
+  rename(`Confirmados PCR/Antígeno` = ConfirmadosPCR)
+
 
 kable(datos.last[, -1])
 
@@ -242,6 +242,7 @@ datos.minist %>%
   kable()
 ```
 
+(Confirmados PDIA = Confirmados mediante PCR o test de antígeno)
 
 <br>
 
@@ -251,7 +252,7 @@ datos.minist %>%
 
 <br>
 
-En primer lugar se muestra el número de casos confirmados diariamente mediante técnica PCR. 
+En primer lugar se muestra el número de casos confirmados diariamente mediante PCR o test rápido de antígeno (Pruebas Diagnósticas de Infección Activa). 
 
 <br>
 
@@ -287,7 +288,7 @@ ggplot(datos.andal) +
             fill = "#ff7f00") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = "")) +
   labs(x = "", y = "Nuevas detecciones\n",
-       title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
+       title = "Casos diarios de COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(limits = c(as.Date("2020-03-01"), NA), 
@@ -302,7 +303,7 @@ Debe tenerse en cuenta que el [número de casos confirmados depende en gran medi
 
 <br>
 
-Casos confirmados por PCR en los últimos 14 días:
+Casos confirmados por PCR o test de antígeno en los últimos 14 días:
 
 <br>
 
@@ -315,7 +316,7 @@ ggplot() +
             fill = "#ff7f00") +
   scale_y_continuous(limits = c(0, NA)) +
   labs(x = "", y = "Nuevas detecciones\n",
-       title = "Casos de COVID-19 confirmados diariamente por PCR en Andalucía",
+       title = "Casos diarios de COVID-19 en Andalucía",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
@@ -405,7 +406,7 @@ ggplot(datos.andal) +
 
 <br>
 
-A continuación se presentan los **casos confirmados mediante PCR en cada provincia**:
+A continuación se presentan los **casos confirmados mediante PCR o test de antígeno en cada provincia**:
 
 <br>
 
@@ -417,8 +418,8 @@ ggplot(datos.provs) +
             fill = "#ff7f00") +
   ylim(0, NA) +
   labs(x = "", y = "Nuevas detecciones\n",
-       title = "Casos de COVID-19 confirmados por PCR en cada provincia",
-       subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente cada provincia",
+       title = "Casos diarios de COVID-19 en cada provincia",
+       subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), NA))
@@ -441,7 +442,7 @@ ggplot() +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
   labs(x = "", y = "Nuevas detecciones\n",
-       title = "Casos de COVID-19 confirmados por PCR en cada provincia",
+       title = "Casos diarios de COVID-19 en cada provincia",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
@@ -608,14 +609,14 @@ mapview(casos.dist, zcol = "casos",
         
 ```
 
-Este mapa de **casos confirmados en los últimos 14 días** es útil para saber dónde se encuentran los brotes activos en la actualidad:
+Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 días** es útil para saber dónde se encuentran los brotes activos en la actualidad:
 
 ```{r mapamunis_PCR_14d, out.width='100%'}
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000) %>%
   filter(Fecha == max(Fecha)) %>%
   rename(PROVINCIA = Provincia, MUNICIPIO = Municipio) %>%
-  mutate(ConfirmadosPCR14d = ifelse(ConfirmadosPCR14d < 1, NA, ConfirmadosPCR14d))
+  mutate(Confirmados.PCR.TA.14d = ifelse(Confirmados.PCR.TA.14d < 1, NA, Confirmados.PCR.TA.14d))
 
 
 
@@ -632,16 +633,16 @@ muni.lite <- st_read("datos/municipios_lite.gpkg",
                      stringsAsFactors = FALSE, quiet = TRUE)
 
 muni.14d <- left_join(select(muni.lite, PROVINCIA, MUNICIPIO),
-                      select(muni.data, PROVINCIA, MUNICIPIO, ConfirmadosPCR14d),
+                      select(muni.data, PROVINCIA, MUNICIPIO, Confirmados.PCR.TA.14d),
                       by = c("PROVINCIA", "MUNICIPIO")) %>%
-  mutate(casos = ifelse(is.na(ConfirmadosPCR14d), 0, ConfirmadosPCR14d),
+  mutate(casos = ifelse(is.na(Confirmados.PCR.TA.14d), 0, Confirmados.PCR.TA.14d),
          lab = paste(MUNICIPIO, casos, sep = ": "))
 
 library(ggiraph)
 
 mapa <- 
   ggplot(muni.14d) +
-  ggiraph::geom_sf_interactive(aes(fill = ConfirmadosPCR14d, tooltip = lab), 
+  ggiraph::geom_sf_interactive(aes(fill = Confirmados.PCR.TA.14d, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
                        na.value = "white") +
@@ -650,7 +651,7 @@ mapa <-
         panel.grid = element_blank(),
         legend.title = element_blank(),
         axis.ticks = element_blank()) +
-  labs(title = "Casos confirmados por PCR en cada municipio",
+  labs(title = "Casos confirmados en cada municipio",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
@@ -718,7 +719,7 @@ ggplot(ntest) +
 
 ### Casos confirmados por fecha y rango de edad
 
-Esta figura representa los rangos de edad de los casos confirmados por PCR a lo largo del tiempo (desde el 15 de Marzo de 2020). 
+Esta figura representa los rangos de edad de los casos confirmados por PCR o test de antígeno a lo largo del tiempo (desde el 15 de Marzo de 2020). 
 
 Mientras que en los meses de Marzo a Mayo sólo se detectaron los casos más graves, normalmente asociados a personas de mayor edad (>45 años), en la segunda oleada (a partir de Agosto), los casos comenzaron en personas jóvenes para extenderse paulatinamente a todas las edades.
 
@@ -750,7 +751,7 @@ casos.edad.fecha %>%
   geom_tile(aes(x = Fecha, y = edades, fill = Casos)) +
   scale_fill_viridis_c() +
   labs(y = "Edad", x = "",
-       title = "Edad de los casos confirmados por PCR",
+       title = "Edad de los casos confirmados",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
@@ -966,10 +967,10 @@ ggplot() +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasOcup + 150, label = paste0( "Total ", CamasOcup)),
+            aes(Fecha - 2, CamasOcup + 200, label = paste0( "Total ", CamasOcup)),
             colour = "#377eb8") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasUCI + 130, label = paste0("UCI ", CamasUCI)), 
+            aes(Fecha - 2, CamasUCI + 160, label = paste0("UCI ", CamasUCI)), 
             colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
