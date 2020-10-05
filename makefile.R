@@ -3,10 +3,15 @@ library(dplyr)
 
 ## Datos municipios
 
-fecha.munis <- as.Date("2020-10-01")
+fecha.munis <- as.Date("2020-10-04")
 
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000)
+
+# # 5 Oct: now including Test Antigeno + PCR
+# muni.data <- muni.data %>%
+#   rename(Confirmados.PCR.TA = ConfirmadosPCR,
+#          Confirmados.PCR.TA.14d = ConfirmadosPCR14d)
 
 munis <- readr::read_csv("datos/muni_prov_dist.csv")
 
@@ -20,27 +25,25 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
     #dplyr::select(-X4) %>%
     dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$Municipio)) %>%
     dplyr::filter(!is.na(Medida)) %>%
-    dplyr::filter(Medida != "Tasa PCR 14 días", Medida != "Población") %>%
+    dplyr::filter(Medida != "Tasa PDIA 14 días", Medida != "Población") %>%
     assertr::verify(unique(.$Medida) ==
-                      c("Confirmados PCR",
-                        "Confirmados PCR 14 días",
-                        "Confirmados PCR 7 días",
+                      c("Confirmados PDIA",
+                        "Confirmados PDIA 14 días",
+                        "Confirmados PDIA 7 días",
                         "Total Confirmados",
                         "Curados",
                         "Fallecidos")) %>%
-    mutate(Medida = ifelse(Medida == "Confirmados PCR 14 días", "ConfirmadosPCR14d", Medida)) %>%
-    mutate(Medida = ifelse(Medida == "Total Confirmados", "Confirmados total", Medida)) %>%
-    dplyr::filter(Medida == "Confirmados PCR" | Medida == "Confirmados total" | Medida == "Fallecidos" | Medida == "ConfirmadosPCR14d") %>%
-    #mutate(Valor = ifelse(is.na(Valor), 0, Valor)) %>%
+    mutate(Medida = ifelse(Medida == "Confirmados PDIA", "Confirmados.PCR.TA", Medida)) %>%
+    mutate(Medida = ifelse(Medida == "Confirmados PDIA 14 días", "Confirmados.PCR.TA.14d", Medida)) %>%
+    mutate(Medida = ifelse(Medida == "Total Confirmados", "ConfirmadosTotal", Medida)) %>%
+    mutate(Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida)) %>%
+    dplyr::filter(Medida == "Confirmados.PCR.TA" | Medida == "Confirmados.PCR.TA.14d" |
+                    Medida == "ConfirmadosTotal" | Medida == "Defunciones") %>%
     tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
-    rename(ConfirmadosPCR = `Confirmados PCR`,
-           ConfirmadosTotal = `Confirmados total`,
-           Defunciones = Fallecidos) %>%
     mutate(Fecha = fecha.munis) %>%
     right_join(munis, by = "Municipio") %>%
     dplyr::select(Fecha, Provincia, Distrito, Municipio,
-                  ConfirmadosPCR, ConfirmadosPCR14d, ConfirmadosTotal, Defunciones)
-
+                  Confirmados.PCR.TA, Confirmados.PCR.TA.14d, ConfirmadosTotal, Defunciones)
 
   muni.dia %>%
     assertr::verify(all.equal(names(muni.dia), names(muni.data)))
