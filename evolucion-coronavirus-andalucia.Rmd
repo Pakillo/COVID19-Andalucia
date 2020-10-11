@@ -613,7 +613,7 @@ Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 
 
 ```{r mapamunis_PCR_14d, out.width='100%'}
 
-muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000) %>%
+muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
   filter(Fecha == max(Fecha)) %>%
   rename(PROVINCIA = Provincia, MUNICIPIO = Municipio) %>%
   mutate(Confirmados.PCR.TA.14d = ifelse(Confirmados.PCR.TA.14d < 1, NA, Confirmados.PCR.TA.14d))
@@ -658,6 +658,38 @@ mapa <-
 girafe(ggobj = mapa)
 
 ```
+
+
+Este mapa muestra los casos confirmados por PCR o test de antígeno en los últimos 14 días **por cada 100.000 habitantes**:
+
+```{r mapamunis_PCR_14d_hab, out.width='100%'}
+
+muni.14d.hab <- left_join(select(muni.lite, PROVINCIA, MUNICIPIO),
+                      select(muni.data, PROVINCIA, MUNICIPIO, Conf14d_100.000hab),
+                      by = c("PROVINCIA", "MUNICIPIO")) %>%
+  mutate(casos = ifelse(is.na(Conf14d_100.000hab), 0, round(Conf14d_100.000hab)),
+         lab = paste(MUNICIPIO, casos, sep = ": "))
+
+mapa <- 
+  ggplot(muni.14d.hab) +
+  ggiraph::geom_sf_interactive(aes(fill = Conf14d_100.000hab, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
+  scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
+                       na.value = "white") +
+  #theme_minimal() +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Casos por 100.000 habitantes en cada municipio",
+       subtitle = "Últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+girafe(ggobj = mapa)
+
+```
+
+
 
 La Junta de Andalucía ha comenzado a visualizar los datos diarios por provincia, distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
 
@@ -967,10 +999,10 @@ ggplot() +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasOcup + 200, label = paste0( "Total ", CamasOcup)),
+            aes(Fecha - 2, CamasOcup + 250, label = paste0( "Total ", CamasOcup)),
             colour = "#377eb8") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasUCI + 160, label = paste0("UCI ", CamasUCI)), 
+            aes(Fecha - 2, CamasUCI + 200, label = paste0("UCI ", CamasUCI)), 
             colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
