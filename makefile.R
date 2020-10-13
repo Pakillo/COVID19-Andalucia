@@ -3,18 +3,11 @@ library(dplyr)
 
 ## Datos municipios
 
-fecha.munis <- as.Date("2020-10-08")
+fecha.munis <- as.Date("2020-10-11")
 
-
-muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 50000)
-
-# # 5 Oct: now including Test Antigeno + PCR
-# muni.data <- muni.data %>%
-#   rename(Confirmados.PCR.TA = ConfirmadosPCR,
-#          Confirmados.PCR.TA.14d = ConfirmadosPCR14d)
-# muni.data <- muni.data %>%
-#   mutate(Conf14d_100.000hab = NA_real_) %>%
-#   relocate(Conf14d_100.000hab, .before = ConfirmadosTotal)
+muni.data <- readr::read_csv("datos/municipios.csv",
+                             col_types = "Dcccddddd",
+                             guess_max = 50000)
 
 munis <- readr::read_csv("datos/muni_prov_dist.csv")
 
