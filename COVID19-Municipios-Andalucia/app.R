@@ -41,13 +41,13 @@ make_plot <- function(df, municipio) {
 
 #### LOAD DATA ####
 
-datos.muni <- readr::read_csv("https://raw.githubusercontent.com/Pakillo/COVID19-Andalucia/master/datos/municipios.csv", guess_max = 50000)
+datos.muni <- readr::read_csv("https://raw.githubusercontent.com/Pakillo/COVID19-Andalucia/master/datos/municipios.csv",
+                              col_types = "Dcccddddd")
 
-datos.muni <- rename(datos.muni,
-                     ConfirmadosPCR = Confirmados.PCR.TA,
-                     ConfirmadosPCR14d = Confirmados.PCR.TA.14d)
-
-#datos.muni <- readr::read_csv("../datos/municipios.csv", guess_max = 10000)
+datos.muni <- datos.muni %>%
+    select(-Conf14d_100.000hab) %>%
+    rename(ConfirmadosPCR = Confirmados.PCR.TA,
+           ConfirmadosPCR14d = Confirmados.PCR.TA.14d)
 
 provs <- c("Almería", "Cádiz", "Córdoba", "Granada",
            "Huelva", "Jaén", "Málaga", "Sevilla")
