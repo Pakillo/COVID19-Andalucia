@@ -824,6 +824,33 @@ anim_save("edad_casos_anim.gif")
 ```
 
 
+Aquí se representan los mismos datos (casos confirmados por categoría de edad) usando curvas suavizadas mediante *loess* (local polynomial regression) para reducir la variación diaria y facilitar la visualización de tendencias:
+
+
+```{r casos.edad.lines, out.width='100%'}
+
+# ggplot(casos.edad.fecha) +
+#   geom_line(aes(Fecha, Casos, colour = edades))
+
+casos.edad.fecha$edades <- factor(casos.edad.fecha$edades, 
+                                  levels = rev(levels(casos.edad.fecha$edades)))
+
+ggplot(casos.edad.fecha) +
+  geom_smooth(aes(Fecha, Casos, colour = edades), 
+              span = 0.3, se = FALSE, show.legend = TRUE) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), Sys.Date() - 4), expand = c(0, 20),
+               date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Casos\n", x = "",
+       title = "Casos confirmados por categoría de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
+                                "#377eb8", "#4daf4a", "#999999")) +
+  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
+  theme(legend.title = element_text(hjust = 0.5))
+```
+
+<br>
 
 ## Ingresos en centros hospitalarios
 
