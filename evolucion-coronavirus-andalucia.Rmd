@@ -838,7 +838,7 @@ casos.edad.fecha$edades <- factor(casos.edad.fecha$edades,
 ggplot(casos.edad.fecha) +
   geom_smooth(aes(Fecha, Casos, colour = edades), 
               span = 0.3, se = FALSE, show.legend = TRUE) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), Sys.Date() - 4), expand = c(0, 20),
+  scale_x_date(limits = c(as.Date("2020-07-01"), Sys.Date() - 5), expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
        title = "Casos confirmados por categoría de edad",
