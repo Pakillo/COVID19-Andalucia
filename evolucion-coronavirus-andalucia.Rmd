@@ -192,33 +192,25 @@ ggplot() +
 
 <br>
 
-**DATOS DEL DÍA:** `r max(datos.andal$Fecha)`
+
 
 ```{r datos.last, out.width='100%'}
 
-## Existen discordancias entre serie suministrada al ministerio y la depurada por la Junta a posteriori. Por tanto paso a usar la de la Junta siempre que se pueda
+## Existen discordancias entre serie suministrada al ministerio y la depurada por la Junta a posteriori. 
+## La de la Junta lleva mucho retraso últimamente. Paso a usar la del ministerio
 
-## Usando la serie de la Junta (1 día de retraso)
-datos.last <- datos.andal %>%
-  dplyr::select(Fecha:Defunciones) %>%#
-  bind_rows(datos.provs) %>%
-  dplyr::select(-ConfirmadosTotal) %>%
-  filter(Fecha == max(Fecha)) %>%
-  mutate_at(3:ncol(.), function(x) {ifelse(is.na(x), 0, x)}) %>% 
-  rename(`Confirmados PCR/Antígeno` = ConfirmadosPCR)
+# ## Usando la serie de la Junta (1 día de retraso)
+# datos.last <- datos.andal %>%
+#   dplyr::select(Fecha:Defunciones) %>%#
+#   bind_rows(datos.provs) %>%
+#   dplyr::select(-ConfirmadosTotal) %>%
+#   filter(Fecha == max(Fecha)) %>%
+#   mutate_at(3:ncol(.), function(x) {ifelse(is.na(x), 0, x)}) %>% 
+#   rename(`Confirmados PCR/Antígeno` = ConfirmadosPCR)
+# 
+# 
+# kable(datos.last[, -1])
 
-
-kable(datos.last[, -1])
-
-```
-
-
-<br>
-
-**DATOS ACUMULADOS:**
-
-```{r datos.acum, out.width='100%'}
-# Estos datos normalmente un día por delante de la serie de la Junta
 
 datos.minist <- read_csv2("datos/acumulados.csv", 
                         col_types = "Dcci-",
@@ -228,6 +220,8 @@ datos.minist <- read_csv2("datos/acumulados.csv",
                                           date_format = "%d/%m/%Y"),
                           skip_empty_rows = TRUE) %>%
   filter(Medida != "Total confirmados") %>%
+  mutate(Medida = stringr::str_replace_all(Medida, " PDIA", "")) %>% 
+  mutate(Medida = stringr::str_replace_all(Medida, " días", "d")) %>% 
   mutate(Medida = ifelse(Medida == "Confirmados PCR", "ConfirmadosPCR", Medida),
          Medida = ifelse(Medida == "Total UCI", "UCI", Medida),
          Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida),
@@ -236,13 +230,37 @@ datos.minist <- read_csv2("datos/acumulados.csv",
   arrange(Fecha)
 
 
+ayer <- datos.minist %>% 
+  group_by(Territorio) %>% 
+  mutate(across(.cols = c(Confirmados, Hospitalizados:Recuperados), 
+         .fns = function(x) {x - lag(x)})) %>% 
+  filter(Fecha == max(Fecha))
+ 
+```
+
+
+**DATOS DEL DÍA:** `r unique(ayer$Fecha)`
+
+```{r out.width='100%'}
+kable(ayer[, -1])
+```
+
+<br>
+
+
+
+**DATOS ACUMULADOS:**
+
+```{r datos.acum, out.width='100%'}
+# Estos datos normalmente un día por delante de la serie de la Junta
+
 datos.minist %>%
   filter(Fecha == max(Fecha)) %>%
   select(-Fecha) %>%
   kable()
 ```
 
-(Confirmados PDIA = Confirmados mediante PCR o test de antígeno)
+(Confirmados = Confirmados mediante PCR o test de antígeno)
 
 <br>
 
