@@ -234,15 +234,20 @@ ayer <- datos.minist %>%
   group_by(Territorio) %>% 
   mutate(across(.cols = c(Confirmados, Hospitalizados:Recuperados), 
          .fns = function(x) {x - lag(x)})) %>% 
-  filter(Fecha == max(Fecha))
+  mutate(Fecha.lag = Fecha - lag(Fecha))
+
+last.day.valid <- ayer %>% 
+  filter(Fecha.lag < 2) %>% 
+  filter(Fecha == max(Fecha)) %>% 
+  select(-Fecha.lag)
  
 ```
 
 
-**DATOS DEL DÍA:** `r unique(ayer$Fecha)`
+**DATOS DEL DÍA:** `r unique(last.day.valid$Fecha)`
 
 ```{r out.width='100%'}
-kable(ayer[, -1])
+kable(last.day.valid[, -1])
 ```
 
 <br>
@@ -627,7 +632,7 @@ mapview(casos.dist, zcol = "casos",
         
 ```
 
-Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 días** es útil para saber dónde se encuentran los brotes activos en la actualidad:
+Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 días** es útil para saber dónde se encuentran los brotes activos en la actualidad. Pasa el cursor sobre el mapa para ver los valores concretos por municipio.
 
 ```{r mapamunis_PCR_14d, out.width='100%'}
 
