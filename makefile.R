@@ -1,9 +1,10 @@
 
 library(dplyr)
 
-## Datos municipios
 
-fecha.munis <- as.Date("2020-10-20")
+#### Datos municipios ####
+
+fecha.munis <- as.Date("2020-10-21")
 
 muni.data <- readr::read_csv("datos/municipios.csv",
                              col_types = "Dcccddddd",
@@ -53,6 +54,63 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
     readr::write_csv(file = "datos/municipios.csv")
 
 }
+
+
+
+
+#### Casos, Ingresados, Defunciones, etc por edad
+
+datos.edad.sexo <- readr::read_csv("datos/datos_edad_sexo.csv")
+
+if (!fecha.munis %in% as.Date(datos.edad.sexo$Fecha)) {
+
+casos.dia <- readr::read_csv2("datos/edad.sexo/datos_casos_edad_sexo.csv",
+                              col_types = "cccd_") %>%
+  filter(Medida != "% pirámide") %>%
+  rename(Confirmados = Valor) %>%
+  select(-Medida) %>%
+  mutate(Fecha = fecha.munis) %>%
+  relocate(Fecha)
+
+hosp.dia <- readr::read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
+                              col_types = "cccd_") %>%
+  filter(Medida != "% pirámide") %>%
+  rename(Hospitalizados = Valor) %>%
+  select(-Medida) %>%
+  mutate(Fecha = fecha.munis) %>%
+  relocate(Fecha)
+
+uci.dia <- readr::read_csv2("datos/edad.sexo/datos_uci_edad_sexo.csv",
+                             col_types = "cccd_") %>%
+  filter(Medida != "% pirámide") %>%
+  rename(UCI = Valor) %>%
+  select(-Medida) %>%
+  mutate(Fecha = fecha.munis) %>%
+  relocate(Fecha)
+
+def.dia <- readr::read_csv2("datos/edad.sexo/datos_def_edad_sexo.csv",
+                             col_types = "cccd_") %>%
+  filter(Medida != "% pirámide") %>%
+  rename(Defunciones = Valor) %>%
+  select(-Medida) %>%
+  mutate(Fecha = fecha.munis) %>%
+  relocate(Fecha)
+
+datos.edad.sexo.dia <- casos.dia %>%
+  left_join(hosp.dia, by = c("Fecha", "Edad", "Sexo")) %>%
+  left_join(uci.dia, by = c("Fecha", "Edad", "Sexo")) %>%
+  left_join(def.dia, by = c("Fecha", "Edad", "Sexo"))
+
+datos.edad.sexo.dia %>%
+  assertr::verify(all.equal(names(datos.edad.sexo.dia), names(datos.edad.sexo)))
+
+datos.edad.sexo <- dplyr::bind_rows(datos.edad.sexo, datos.edad.sexo.dia) %>%
+  arrange(Fecha, Edad, Sexo) %>%
+  readr::write_csv(file = "datos/datos_edad_sexo.csv")
+
+}
+
+
 
 
 ## Render
