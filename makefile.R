@@ -4,7 +4,7 @@ library(dplyr)
 
 #### Datos municipios ####
 
-fecha.munis <- as.Date("2020-10-21")
+fecha.munis <- as.Date("2020-10-22")
 
 muni.data <- readr::read_csv("datos/municipios.csv",
                              col_types = "Dcccddddd",
@@ -116,6 +116,5 @@ datos.edad.sexo <- dplyr::bind_rows(datos.edad.sexo, datos.edad.sexo.dia) %>%
 ## Render
 
 rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
-
 
 
