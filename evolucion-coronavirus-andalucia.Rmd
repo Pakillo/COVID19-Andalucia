@@ -26,7 +26,7 @@ output:
 
 ```{r setup, include=FALSE}
 library(knitr)
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, out.width = "100%")
 
 # Garrick Adenbuie's gist to place TOC anywhere
 # devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
@@ -52,7 +52,7 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas** (no acumuladas).
+Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), el [Ministerio de Sanidad](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas** (no acumuladas).
 
 Los datos se **actualizan diariamente**. En esta [cuenta de twitter](https://twitter.com/covid_andalucia) compartiremos la información más relevante. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia). 
 
@@ -116,31 +116,323 @@ datos.provs %>%
 
 ```{r datos.andal}
 
-test.andal <- readxl::read_excel("datos/test_Andalucia.xlsx")
-test.andal$Fecha <- as.Date(test.andal$Fecha)
+## Datos test de Junta Andalucía
+# test.andal <- readxl::read_excel("datos/test_Andalucia.xlsx")
+# test.andal$Fecha <- as.Date(test.andal$Fecha)
 
 datos.andal <- datos %>%
-  filter(Territorio == "Andalucía") %>%
-  left_join(test.andal[, c("Fecha", "Ntest.dia", "Confirmados.acum", "Prop.Positivos")], 
-            by = "Fecha") %>%
-  group_by(Fecha) %>%
-  mutate(Prop.Positivos = 100 * Prop.Positivos) %>%
-  ungroup()
+  filter(Territorio == "Andalucía") 
+  # left_join(test.minist, by = "Fecha") 
+  
+```
 
-# add datos camas ocupadas
+```{r casos.edad.fecha}
+
+library(stringr)
+
+casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
+                          skip_empty_rows = TRUE) %>%
+  select(-Medida, - X5) %>%
+  filter(!is.na(Edad)) %>%
+  tidyr::separate(col = "Fecha diagnóstico", into = c("Dia", "Mes"), sep = "/", remove = TRUE) %>%
+  mutate(Fecha = paste("2020", Mes, Dia, sep = "-")) %>%
+  mutate(Fecha = as.Date(Fecha)) %>%
+  mutate(edades = str_replace(Edad, "De ", "")) %>%
+  mutate(edades = str_replace(edades, " a ", " - ")) %>%
+  mutate(edades = str_replace(edades, " años", "")) %>%
+  mutate(edades = factor(edades,
+                         levels = rev(c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
+  rename(Casos = Valor) %>%
+  mutate(Casos = ifelse(is.na(Casos), 0, Casos)) %>% 
+  select(-Dia, -Mes) %>% 
+  select(Fecha, everything())
+
+
+## incidencia acumulada >65 años
+
+# Nº personas >=65 años: 1440102
+# Datos de 2019 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974)
+
+casos.65 <- casos.edad.fecha %>% 
+  filter(Edad == "De 65 a 84 años" | Edad == "De 85 y más años") %>% 
+  group_by(Fecha) %>% 
+  summarise(Casos = sum(Casos)) %>% 
+  mutate(Casos.acum = cumsum(Casos)) %>% 
+  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 13),
+         Casos.7d = Casos.acum - lag(Casos.acum, n = 6)) %>% 
+  mutate(Tasa.14d.65a = Casos.14d * 100000 / 1440102,
+         Tasa.7d.65a = Casos.7d * 100000 / 1440102) %>% 
+  mutate(Territorio = "Andalucía")
+  
+  
+```
+
+
+```{r datos.minist}
+
+datos.minist <- read_csv2("datos/acumulados.csv", 
+                        col_types = "Dcci-",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = ".",
+                                          date_format = "%d/%m/%Y"),
+                          skip_empty_rows = TRUE) %>%
+  filter(Medida != "Total confirmados") %>%
+  mutate(Medida = stringr::str_replace_all(Medida, " PDIA", "")) %>% 
+  mutate(Medida = stringr::str_replace_all(Medida, " días", "d")) %>% 
+  mutate(Medida = ifelse(Medida == "Confirmados PCR", "ConfirmadosPCR", Medida),
+         Medida = ifelse(Medida == "Total UCI", "UCI", Medida),
+         Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida),
+         Medida = ifelse(Medida == "Curados", "Recuperados", Medida)) %>%
+  tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
+  arrange(Fecha) %>% 
+  mutate(Tasa.14d = `Confirmados 14d` *100000 / 8414240,  # Poblacion Andalucia = 8414240
+         Tasa.7d = `Confirmados 7d` *100000 / 8414240)
+
+
+## Add tasas mayores de 65 años
+datos.minist <- datos.minist %>% 
+  left_join(casos.65, by = c("Fecha", "Territorio"))
+
+## Add datos positividad + trazabilidad
+test.minist <- readxl::read_excel("datos/positividad_Ministerio.xlsx")
+test.minist$Fecha <- as.Date(test.minist$Fecha)
+
+datos.minist <- datos.minist %>% 
+  full_join(test.minist, by = c("Fecha", "Territorio"))
+
+
+# Add datos camas ocupadas
 camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
   mutate(Fecha = as.Date(Fecha)) %>%
   rename(CamasUCI = UCI)
 
-datos.andal <- datos.andal %>%
-  left_join(camas, by = c("Fecha", "Territorio"))
+datos.minist <- datos.minist %>%
+  left_join(camas, by = c("Fecha", "Territorio")) %>% 
+  arrange(Fecha)
+
+datos.minist.andal <- datos.minist %>% 
+  filter(Territorio == "Andalucía")
+
+```
+
+
+
+<br>
+
+
+## Indicadores Ministerio Sanidad (semáforo)
+
+Las siguientes gráficas muestran la evolución de cada uno de los [indicadores](https://www.scribd.com/document/481185389/Actuaciones-de-respuesta-coordinada-para-el-control-de-la-transmision-de-COVID-19) aprobados por el Consejo Interterritorial de Salud.
+
+Los distintos colores representan niveles crecientes de riesgo, desde el verde ("nueva normalidad") al morado ("riesgo extremo").
+
+<br>
+
+### Bloque 1: Nivel de Transmisión
+
+<br>
+
+```{r IA14, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(Tasa.14d)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, Tasa.14d), size = 2) +
+  annotate("text", x = max(datos.plot$Fecha), y = 20 + datos.plot$Tasa.14d[nrow(datos.plot)],
+           label = round(datos.plot$Tasa.14d[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 150), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = 250), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 250, ymax = max(Tasa.14d)), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Incidencia Acumulada 14 días",
+       subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
+```
+
+
+```{r IA7, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(Tasa.7d)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, Tasa.7d), size = 2) +
+  annotate("text", x = max(datos.plot$Fecha), y = 10 + datos.plot$Tasa.7d[nrow(datos.plot)],
+           label = round(datos.plot$Tasa.7d[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 75), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 75, ymax = 125), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 125, ymax = max(Tasa.7d)), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Incidencia Acumulada 7 días",
+       subtitle = "Casos confirmados en los últimos 7 días por cada 100.000 habitantes",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
+```
+
+
+
+```{r IA14.65a, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(Tasa.14d.65a)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, Tasa.14d.65a), size = 2) +
+  annotate("text", x = 4 + max(datos.plot$Fecha), 
+           y = datos.plot$Tasa.14d.65a[nrow(datos.plot)],
+           label = round(datos.plot$Tasa.14d.65a[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 20), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 20, ymax = 50), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 100), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 100, ymax = 150), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = max(Tasa.14d.65a)), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Incidencia Acumulada 14 días (> 65 años)",
+       subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes > 65 años",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
+```
+
+
+```{r IA7.65a, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(Tasa.7d.65a)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, Tasa.7d.65a), size = 2) +
+  annotate("text", x = 3 + max(datos.plot$Fecha), 
+           y = datos.plot$Tasa.7d.65a[nrow(datos.plot)],
+           label = round(datos.plot$Tasa.7d.65a[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 75), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 75, ymax = max(Tasa.7d.65a)), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Incidencia Acumulada 7 días (> 65 años)",
+       subtitle = "Casos confirmados en los últimos 7 días por cada 100.000 habitantes > 65 años",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
+```
+
+
+
+```{r Positividad, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(Positividad.7d)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, Positividad.7d), size = 2) +
+  annotate("text", x = 0.4 + max(datos.plot$Fecha), 
+           y = datos.plot$Positividad.7d[nrow(datos.plot)],
+           label = round(datos.plot$Positividad.7d[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 4, ymax = 7), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 7, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = max(Positividad.7d)), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Positividad de las PCR + Test Antígeno",
+       subtitle = "% Positivos última semana",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
+```
+
+
+```{r Trazabilidad, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(Trazabilidad)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, Trazabilidad), size = 2) +
+  annotate("text", x = 0.4 + max(datos.plot$Fecha), 
+           y = datos.plot$Trazabilidad[nrow(datos.plot)],
+           label = round(datos.plot$Trazabilidad[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 80, ymax = 100), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 65, ymax = 80), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 65), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 30, ymax = 50), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 30), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Trazabilidad de los casos",
+       subtitle = "% casos que son contactos de positivo conocido",
+       caption = "https://tiny.cc/COVID19-Andalucia")
   
 ```
 
 <br>
 
+### Bloque 2: Capacidad Asistencial
 
-## Resumen
+<br>
+
+```{r ocup.hospi, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(`%CamasOcup.Minist`)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, `%CamasOcup.Minist`), size = 2) +
+  annotate("text", x = 0.5 + max(datos.plot$Fecha), 
+           y = datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)],
+           label = round(datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 2), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 2, ymax = 5), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 5, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = pmax(15, `%CamasOcup.Minist`)), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Ocupación hospitalaria",
+       subtitle = "% camas ocupadas por COVID-19",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+```
+
+
+```{r ocup.uci, fig.height=4}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(`%UCI.Minist`)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, `%UCI.Minist`), size = 2) +
+  annotate("text", x = 0.5 + max(datos.plot$Fecha), 
+           y = datos.plot$`%UCI.Minist`[nrow(datos.plot)],
+           label = round(datos.plot$`%UCI.Minist`[nrow(datos.plot)])) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 5), fill = "#4daf4a", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 5, ymax = 10), fill = "#ffff33", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#ff7f00", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 25), fill = "#e41a1c", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = pmax(25, `%UCI.Minist`)), 
+              fill = "#984ea3", alpha = 0.3) +
+  labs(x = "", y = "",
+       title = "Ocupación UCI",
+       subtitle = "% camas UCI ocupadas por COVID-19",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+```
+
+<br>
+
+
+## Resumen de casos, ingresos y defunciones
 
 <br>
 
@@ -212,24 +504,6 @@ ggplot() +
 # kable(datos.last[, -1])
 
 
-datos.minist <- read_csv2("datos/acumulados.csv", 
-                        col_types = "Dcci-",
-                          locale = locale(date_names = "es", 
-                                          decimal_mark = ",",
-                                          grouping_mark = ".",
-                                          date_format = "%d/%m/%Y"),
-                          skip_empty_rows = TRUE) %>%
-  filter(Medida != "Total confirmados") %>%
-  mutate(Medida = stringr::str_replace_all(Medida, " PDIA", "")) %>% 
-  mutate(Medida = stringr::str_replace_all(Medida, " días", "d")) %>% 
-  mutate(Medida = ifelse(Medida == "Confirmados PCR", "ConfirmadosPCR", Medida),
-         Medida = ifelse(Medida == "Total UCI", "UCI", Medida),
-         Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida),
-         Medida = ifelse(Medida == "Curados", "Recuperados", Medida)) %>%
-  tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
-  arrange(Fecha)
-
-
 ayer <- datos.minist %>% 
   group_by(Territorio) %>% 
   mutate(across(.cols = c(Confirmados, Hospitalizados:Recuperados), 
@@ -247,7 +521,12 @@ last.day.valid <- ayer %>%
 **DATOS DEL DÍA:** `r unique(last.day.valid$Fecha)`
 
 ```{r out.width='100%'}
-kable(last.day.valid[, -1])
+
+last.day.valid %>% 
+  select(Territorio, Casos = Confirmados, Casos.14d = `Confirmados 14d`,
+         Casos.7d = `Confirmados 7d`, Ingresos = Hospitalizados, UCI, Defunciones) %>% 
+  kable()
+
 ```
 
 <br>
@@ -261,8 +540,10 @@ kable(last.day.valid[, -1])
 
 datos.minist %>%
   filter(Fecha == max(Fecha)) %>%
-  select(-Fecha) %>%
+  select(Territorio, Casos = Confirmados, Casos.14d = `Confirmados 14d`,
+         Casos.7d = `Confirmados 7d`, Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   kable()
+
 ```
 
 (Confirmados = Confirmados mediante PCR o test de antígeno)
@@ -781,24 +1062,8 @@ Mientras que en los meses de Marzo a Mayo sólo se detectaron los casos más gra
 <br>
 
 
-```{r casos.edad.fecha, out.width='100%', fig.height=2.5}
+```{r casos.edad.heatmap, out.width='100%', fig.height=2.5}
 
-library(stringr)
-
-casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
-                          skip_empty_rows = TRUE) %>%
-  select(-Medida, - X5) %>%
-  filter(!is.na(Edad)) %>%
-  tidyr::separate(col = "Fecha diagnóstico", into = c("Dia", "Mes"), sep = "/", remove = TRUE) %>%
-  mutate(Fecha = paste("2020", Mes, Dia, sep = "-")) %>%
-  mutate(Fecha = as.Date(Fecha)) %>%
-  mutate(edades = str_replace(Edad, "De ", "")) %>%
-  mutate(edades = str_replace(edades, " a ", " - ")) %>%
-  mutate(edades = str_replace(edades, " años", "")) %>%
-  mutate(edades = factor(edades,
-                         levels = rev(c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
-  rename(Casos = Valor) %>%
-  mutate(Casos = ifelse(is.na(Casos), 0, Casos))
 
 casos.edad.fecha %>%
   filter(Fecha > "2020-03-14") %>%
@@ -1025,19 +1290,25 @@ ggplot(datos.provs) +
 
 <br>
 
-Número de pacientes ingresados en centros hospitalarios, incluyendo aquellos en cuidados intensivos (UCI). El pico máximo de camas ocupadas se alcanzó el 30 de Marzo con 2708 pacientes ingresados (438 en UCI).
+Número de pacientes ingresados en centros hospitalarios, incluyendo aquellos en cuidados intensivos (UCI), según los datos proporcionados diariamente por la Junta de Andalucía. 
+
+El pico máximo de camas ocupadas se alcanzó el 30 de Marzo con 2708 pacientes ingresados (438 en UCI).
 
 <br>
 
 ```{r camas.ocupadas, out.width='100%', fig.height=3}
 
-camas.last <- datos.andal %>%
+camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
+  mutate(Fecha = as.Date(Fecha)) %>%
+  rename(CamasUCI = UCI)
+
+camas.last <- camas %>%
   filter(!is.na(CamasOcup)) %>%
   slice_tail()
 
 pico30Marzo <- data.frame(Fecha = as.Date("2020-03-30"), CamasOcup = 2708, CamasUCI = 438)
 
-datos.andal %>%
+camas %>%
   filter(Fecha > "2020-04-04") %>%
 ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
