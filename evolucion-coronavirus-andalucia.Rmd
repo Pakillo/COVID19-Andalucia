@@ -540,8 +540,9 @@ last.day.valid %>%
 
 datos.minist %>%
   filter(Fecha == max(Fecha)) %>%
-  select(Territorio, Casos = Confirmados, Casos.14d = `Confirmados 14d`,
-         Casos.7d = `Confirmados 7d`, Ingresos = Hospitalizados, UCI, Defunciones) %>% 
+  select(Territorio, Casos = Confirmados, 
+         #Casos.14d = `Confirmados 14d`, Casos.7d = `Confirmados 7d`, 
+         Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   kable()
 
 ```

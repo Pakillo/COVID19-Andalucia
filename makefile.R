@@ -4,7 +4,7 @@ library(dplyr)
 
 #### Datos municipios ####
 
-fecha.munis <- as.Date("2020-10-22")
+fecha.munis <- as.Date("2020-10-25")
 
 muni.data <- readr::read_csv("datos/municipios.csv",
                              col_types = "Dcccddddd",
@@ -60,16 +60,18 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
 
 #### Casos, Ingresados, Defunciones, etc por edad
 
+fecha.edad <- as.Date("2020-10-22")
+
 datos.edad.sexo <- readr::read_csv("datos/datos_edad_sexo.csv")
 
-if (!fecha.munis %in% as.Date(datos.edad.sexo$Fecha)) {
+if (!fecha.edad %in% as.Date(datos.edad.sexo$Fecha)) {
 
 casos.dia <- readr::read_csv2("datos/edad.sexo/datos_casos_edad_sexo.csv",
                               col_types = "cccd_") %>%
   filter(Medida != "% pirámide") %>%
   rename(Confirmados = Valor) %>%
   select(-Medida) %>%
-  mutate(Fecha = fecha.munis) %>%
+  mutate(Fecha = fecha.edad) %>%
   relocate(Fecha)
 
 hosp.dia <- readr::read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
@@ -77,7 +79,7 @@ hosp.dia <- readr::read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
   filter(Medida != "% pirámide") %>%
   rename(Hospitalizados = Valor) %>%
   select(-Medida) %>%
-  mutate(Fecha = fecha.munis) %>%
+  mutate(Fecha = fecha.edad) %>%
   relocate(Fecha)
 
 uci.dia <- readr::read_csv2("datos/edad.sexo/datos_uci_edad_sexo.csv",
@@ -85,7 +87,7 @@ uci.dia <- readr::read_csv2("datos/edad.sexo/datos_uci_edad_sexo.csv",
   filter(Medida != "% pirámide") %>%
   rename(UCI = Valor) %>%
   select(-Medida) %>%
-  mutate(Fecha = fecha.munis) %>%
+  mutate(Fecha = fecha.edad) %>%
   relocate(Fecha)
 
 def.dia <- readr::read_csv2("datos/edad.sexo/datos_def_edad_sexo.csv",
@@ -93,7 +95,7 @@ def.dia <- readr::read_csv2("datos/edad.sexo/datos_def_edad_sexo.csv",
   filter(Medida != "% pirámide") %>%
   rename(Defunciones = Valor) %>%
   select(-Medida) %>%
-  mutate(Fecha = fecha.munis) %>%
+  mutate(Fecha = fecha.edad) %>%
   relocate(Fecha)
 
 datos.edad.sexo.dia <- casos.dia %>%
