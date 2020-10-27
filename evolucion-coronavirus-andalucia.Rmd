@@ -221,11 +221,11 @@ datos.minist.andal <- datos.minist %>%
 <br>
 
 
-## Indicadores Ministerio Sanidad (semáforo)
+## Indicadores Ministerio Sanidad
 
 Las siguientes gráficas muestran la evolución de cada uno de los [indicadores](https://www.scribd.com/document/481185389/Actuaciones-de-respuesta-coordinada-para-el-control-de-la-transmision-de-COVID-19) aprobados por el Consejo Interterritorial de Salud.
 
-Los distintos colores representan niveles crecientes de riesgo, desde el verde ("nueva normalidad") al morado ("riesgo extremo").
+Los distintos colores representan [niveles crecientes de riesgo](https://twitter.com/DadosdeLaplace/status/1319326140671066113/photo/1), desde el verde ("nueva normalidad") al morado ("riesgo extremo").
 
 <br>
 
@@ -283,7 +283,8 @@ ggplot(datos.plot) +
 ```{r IA14.65a, fig.height=4}
 
 datos.plot <- datos.minist.andal %>% 
-  filter(!is.na(Tasa.14d.65a)) 
+  filter(!is.na(Tasa.14d.65a)) %>% 
+  filter(Fecha < Sys.Date() - 3)
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.14d.65a), size = 2) +
@@ -307,7 +308,8 @@ ggplot(datos.plot) +
 ```{r IA7.65a, fig.height=4}
 
 datos.plot <- datos.minist.andal %>% 
-  filter(!is.na(Tasa.7d.65a)) 
+  filter(!is.na(Tasa.7d.65a)) %>% 
+  filter(Fecha < Sys.Date() - 3)
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.7d.65a), size = 2) +
@@ -1335,12 +1337,10 @@ ggplot() +
 <br>
 
 
-## Personas curadas
-
-<br>
-
 
 ```{r curadas_Andalucia, fig.height=3, out.width='100%', eval=FALSE}
+
+## Personas curadas
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Curados), 
@@ -1353,10 +1353,6 @@ ggplot(datos.andal) +
   scale_x_date(limits = c(as.Date("2020-03-01"), NA))
 
 ```
-
-
-<br>
-<br>
 
 
 ```{r curadas_provincias, out.width='100%', eval=FALSE}
@@ -1474,6 +1470,7 @@ include_app("https://frodsan.shinyapps.io/COVID19-Municipios-Andalucia/",
 
 ## Distribucion por edad y sexo
 
+Cada barra representa el % de casos, ingresos, o defunciones representado por personas de dicho sexo y categoría de edad.
 <br>
 
 ```{r dist.edad.sexo, out.width='100%', fig.height=4}
