@@ -4,7 +4,7 @@ library(dplyr)
 
 #### Datos municipios ####
 
-fecha.munis <- as.Date("2020-10-25")
+fecha.munis <- as.Date("2020-10-26")
 
 muni.data <- readr::read_csv("datos/municipios.csv",
                              col_types = "Dcccddddd",
