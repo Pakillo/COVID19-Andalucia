@@ -12,7 +12,7 @@ select_data <- function(df, provincia, municipio, start, end) {
 
     df %>%
         filter(Provincia == provincia, Municipio == municipio) %>%
-        dplyr::select(-Provincia, -Distrito, -Municipio, -ConfirmadosPCR14d) %>%
+        dplyr::select(-Provincia, -Distrito, -Municipio) %>%
         filter(Fecha >= start, Fecha <= end)
 
 }
@@ -22,14 +22,18 @@ make_plot <- function(df, municipio) {
     df %>%
         #dplyr::select(-Provincia, -Distrito, -Municipio, -ConfirmadosPCR14d) %>%
         #mutate_at(4:6, function(x) {x - lag(x)}) %>%  # daily numbers rather than cumulative?
-        tidyr::pivot_longer(cols = `ConfirmadosPCR`:Defunciones,
+        tidyr::pivot_longer(cols = `Casos acumulados`:`Defunciones (acumuladas)`,
                             names_to = "vble", values_to = "valor") %>%
+        mutate(vble = factor(vble,
+                             levels = c("Casos acumulados",
+                                        "Incidencia Acumulada\n(Casos/100.000 hab últimos 14 días)",
+                                        "Defunciones (acumuladas)"))) %>%
         ggplot() +
         facet_wrap(~vble, ncol = 1, scales = "free_y") +
         geom_line(aes(Fecha, valor, colour = vble), lwd = 2) +
         scale_colour_manual(values = c("#ff7f00", "#377eb8", "grey40")) +
         #scale_y_continuous(limits = c(0, NA)) +
-        labs(x = "", y = "Nº personas\n", title = municipio,
+        labs(x = "", y = "", title = municipio,
              caption = "https://tiny.cc/COVID19-Andalucia") +
         theme_minimal(base_size = 12) +
         theme(legend.position = "none",
@@ -45,9 +49,10 @@ datos.muni <- readr::read_csv("https://raw.githubusercontent.com/Pakillo/COVID19
                               col_types = "Dcccddddd")
 
 datos.muni <- datos.muni %>%
-    select(-Conf14d_100.000hab) %>%
-    rename(ConfirmadosPCR = Confirmados.PCR.TA,
-           ConfirmadosPCR14d = Confirmados.PCR.TA.14d)
+    select(-ConfirmadosTotal, -Confirmados.PCR.TA.14d) %>%
+    rename(`Casos acumulados`= Confirmados.PCR.TA,
+           `Incidencia Acumulada\n(Casos/100.000 hab últimos 14 días)` = Conf14d_100.000hab,
+           `Defunciones (acumuladas)` = Defunciones)
 
 provs <- c("Almería", "Cádiz", "Córdoba", "Granada",
            "Huelva", "Jaén", "Málaga", "Sevilla")
