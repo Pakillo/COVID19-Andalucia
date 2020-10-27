@@ -50,6 +50,7 @@ datos.muni <- readr::read_csv("https://raw.githubusercontent.com/Pakillo/COVID19
 
 datos.muni <- datos.muni %>%
     select(-ConfirmadosTotal, -Confirmados.PCR.TA.14d) %>%
+    mutate(Conf14d_100.000hab = round(Conf14d_100.000hab)) %>%
     rename(`Casos acumulados`= Confirmados.PCR.TA,
            `Incidencia Acumulada\n(Casos/100.000 hab últimos 14 días)` = Conf14d_100.000hab,
            `Defunciones (acumuladas)` = Defunciones)
