@@ -4,7 +4,7 @@ library(dplyr)
 
 #### Datos municipios ####
 
-fecha.munis <- as.Date("2020-10-28")
+fecha.munis <- as.Date("2020-10-29")
 
 muni.data <- readr::read_csv("datos/municipios.csv",
                              col_types = "Dcccddddd",
@@ -60,7 +60,7 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
 
 #### Casos, Ingresados, Defunciones, etc por edad
 
-fecha.edad <- as.Date("2020-10-22")
+fecha.edad <- as.Date("2020-10-29")
 
 datos.edad.sexo <- readr::read_csv("datos/datos_edad_sexo.csv")
 

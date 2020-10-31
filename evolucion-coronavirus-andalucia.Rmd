@@ -223,7 +223,7 @@ datos.minist.andal <- datos.minist %>%
 
 ## Indicadores Ministerio Sanidad
 
-Las siguientes gráficas muestran la evolución de cada uno de los [indicadores](https://www.scribd.com/document/481185389/Actuaciones-de-respuesta-coordinada-para-el-control-de-la-transmision-de-COVID-19) aprobados por el Consejo Interterritorial de Salud.
+Las siguientes gráficas muestran la evolución de cada uno de los [indicadores](https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/Documents/2020/221020_ActuacionesrespuestaCOVID.pdf) aprobados por el Consejo Interterritorial de Salud.
 
 Los distintos colores representan [niveles crecientes de riesgo](https://twitter.com/DadosdeLaplace/status/1319326140671066113/photo/1), desde el verde ("nueva normalidad") al morado ("riesgo extremo").
 
@@ -1130,7 +1130,7 @@ casos.edad.fecha$edades <- factor(casos.edad.fecha$edades,
 ggplot(casos.edad.fecha) +
   geom_smooth(aes(Fecha, Casos, colour = edades), 
               span = 0.3, se = FALSE, show.legend = TRUE) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), Sys.Date() - 4), expand = c(0, 20),
+  scale_x_date(limits = c(as.Date("2020-07-01"), Sys.Date() - 5), expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
        title = "Casos confirmados por categoría de edad",
@@ -1179,7 +1179,7 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "2 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = Hospitalizados + 8, label = Hospitalizados),
+  geom_text(aes(Fecha, y = Hospitalizados + 12, label = Hospitalizados),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
   
 
@@ -1324,10 +1324,10 @@ ggplot() +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasOcup + 250, label = paste0( "Total ", CamasOcup)),
+            aes(Fecha - 3, CamasOcup + 250, label = paste0( "Total ", CamasOcup)),
             colour = "#377eb8") +
   geom_text(data = camas.last, 
-            aes(Fecha - 2, CamasUCI + 200, label = paste0("UCI ", CamasUCI)), 
+            aes(Fecha - 3, CamasUCI + 200, label = paste0("UCI ", CamasUCI)), 
             colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
