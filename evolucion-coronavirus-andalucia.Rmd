@@ -243,7 +243,7 @@ datos.minist.andal <- datos.minist %>%
 <br>
 
 
-## Indicadores Ministerio Sanidad
+## Indicadores Ministerio Sanidad (semáforo)
 
 Las siguientes gráficas muestran la evolución de cada uno de los [indicadores](https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/Documents/2020/221020_ActuacionesrespuestaCOVID.pdf) aprobados por el Consejo Interterritorial de Salud.
 
@@ -1372,7 +1372,7 @@ ggplot(datos.provs) +
 
 Número de pacientes ingresados en centros hospitalarios, incluyendo aquellos en cuidados intensivos (UCI), según los datos proporcionados diariamente por la Junta de Andalucía. 
 
-El pico máximo de camas ocupadas se alcanzó el 30 de Marzo con 2708 pacientes ingresados (438 en UCI).
+El pico máximo de camas ocupadas de la "primera ola" se alcanzó el 30 de Marzo con 2708 pacientes ingresados (438 en UCI). Ese número se rebasó el 2 de Noviembre con 2764 personas ingresadas (381 en UCI).
 
 <br>
 
