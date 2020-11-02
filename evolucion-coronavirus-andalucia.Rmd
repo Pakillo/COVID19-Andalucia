@@ -145,8 +145,30 @@ casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
   rename(Casos = Valor) %>%
   mutate(Casos = ifelse(is.na(Casos), 0, Casos)) %>% 
   select(-Dia, -Mes) %>% 
-  select(Fecha, everything())
+  select(Fecha, everything()) 
 
+## Nº de habitantes en cada categoria
+# Datos de 2019 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974) 
+nhab.edad.sexo <- data.frame(
+  Edad = sort(unique(casos.edad.fecha$Edad)),
+  nhab = c(
+    1322951, #0-14
+    1380773, #15-29
+    1869844, #30-44
+    2400570, #45-64
+    1236622, #65-84 (estimado as Casos*100000 / Tasa)
+    203606 #85+ (estimado as Casos*100000 / Tasa)
+  )
+)
+
+
+casos.edad.fecha <- casos.edad.fecha %>% 
+  left_join(nhab.edad.sexo, by = "Edad") %>% 
+  group_by(Edad) %>% 
+  mutate(Casos.acum = cumsum(Casos)) %>% 
+  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14)) %>% 
+  mutate(IA.14d = Casos.14d*100000 / nhab) %>% 
+  ungroup()
 
 ## incidencia acumulada >65 años
 
@@ -158,11 +180,11 @@ casos.65 <- casos.edad.fecha %>%
   group_by(Fecha) %>% 
   summarise(Casos = sum(Casos)) %>% 
   mutate(Casos.acum = cumsum(Casos)) %>% 
-  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 13),
-         Casos.7d = Casos.acum - lag(Casos.acum, n = 6)) %>% 
+  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14),
+         Casos.7d = Casos.acum - lag(Casos.acum, n = 7)) %>% 
   mutate(Tasa.14d.65a = Casos.14d * 100000 / 1440102,
          Tasa.7d.65a = Casos.7d * 100000 / 1440102) %>% 
-  mutate(Territorio = "Andalucía")
+  mutate(Territorio = "Andalucía") 
   
   
 ```
@@ -1116,7 +1138,7 @@ anim_save("edad_casos_anim.gif")
 ```
 
 
-Aquí se representan los mismos datos (casos confirmados por categoría de edad) usando curvas suavizadas mediante *loess* (local polynomial regression) para reducir la variación diaria y facilitar la visualización de tendencias:
+Aquí se representan los mismos datos (casos diarios confirmados por categoría de edad) usando curvas suavizadas mediante *loess* (local polynomial regression) para reducir la variación diaria y facilitar la visualización de tendencias:
 
 
 ```{r casos.edad.lines, out.width='100%'}
@@ -1130,10 +1152,10 @@ casos.edad.fecha$edades <- factor(casos.edad.fecha$edades,
 ggplot(casos.edad.fecha) +
   geom_smooth(aes(Fecha, Casos, colour = edades), 
               span = 0.3, se = FALSE, show.legend = TRUE) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), Sys.Date() - 5), expand = c(0, 20),
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 3), expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
-       title = "Casos confirmados por categoría de edad",
+       title = "Casos diarios por franja de edad",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
   scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
@@ -1143,6 +1165,60 @@ ggplot(casos.edad.fecha) +
 ```
 
 <br>
+
+La siguiente figura muestra la Incidencia Acumulada (número de casos en los últimos 14 días por cada 100.000 habitantes) teniendo en cuenta el número de personas en cada franja de edad:
+
+```{r ia14.edad}
+
+ggplot(casos.edad.fecha) +
+  geom_smooth(aes(Fecha, IA.14d, colour = edades), 
+              span = 0.3, se = FALSE, show.legend = TRUE) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 3), 
+               expand = c(0, 20),
+               date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Casos\n", x = "",
+       title = "Incidencia Acumulada 14 días por franja de edad",
+       subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
+                                "#377eb8", "#4daf4a", "#999999")) +
+  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
+  theme(legend.title = element_text(hjust = 0.5))
+```
+
+
+
+```{r casos.sexo.edad.5a, eval=FALSE}
+
+# Esta figura representa la variación semanal en número de casos detectados según sexo y edad (en intervalos de 5 años): 
+  
+datos.edad.sexo <- readr::read_csv("datos/datos_edad_sexo.csv") %>% 
+  filter(Fecha > as.Date("2020-10-21")) %>% 
+  mutate(edades = str_replace(Edad, "De ", "")) %>%
+  mutate(edades = str_replace(edades, " a ", " - ")) %>%
+  mutate(edades = str_replace(edades, " años", "")) %>% 
+  mutate(edades = str_replace(edades, " y más", "+")) %>% 
+  mutate(edades = factor(edades, levels = gtools::mixedsort(unique(edades))))
+
+casos.sexo.edad.5a <- datos.edad.sexo %>% 
+  select(Fecha, edades, Sexo, Confirmados) %>% 
+  group_by(edades, Sexo) %>% 
+  mutate(Casos.week = Confirmados - lag(Confirmados)) %>% 
+  filter(Fecha > as.Date("2020-10-22"))
+
+ggplot(casos.sexo.edad.5a) + 
+  geom_point(aes(x = Fecha, y = Casos.week, colour = Sexo)) +
+  facet_wrap(~edades, ncol = 1) +
+  scale_colour_manual(values = c("#ff7f00", "#984ea3")) +
+  labs(y = "Casos\n", x = "",
+       title = "Casos semanales por intervalo de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(legend.position = "top", legend.title = element_blank())
+  
+  
+```
+
 
 ## Ingresos en centros hospitalarios
 
