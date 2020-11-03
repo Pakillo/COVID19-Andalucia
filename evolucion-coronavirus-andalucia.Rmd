@@ -368,7 +368,7 @@ ggplot(datos.plot) +
   geom_ribbon(aes(x = Fecha, ymin = 4, ymax = 7), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 7, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = max(Positividad.7d)), 
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 20), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Positividad de las PCR + Test Antígeno",
@@ -421,7 +421,7 @@ ggplot(datos.plot) +
   geom_ribbon(aes(x = Fecha, ymin = 2, ymax = 5), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 5, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = pmax(15, `%CamasOcup.Minist`)), 
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 20), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Ocupación hospitalaria",
@@ -445,7 +445,7 @@ ggplot(datos.plot) +
   geom_ribbon(aes(x = Fecha, ymin = 5, ymax = 10), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 25), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = pmax(25, `%UCI.Minist`)), 
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 30), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Ocupación UCI",
@@ -1176,7 +1176,7 @@ ggplot(casos.edad.fecha) +
   scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 3), 
                expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
-  labs(y = "Casos\n", x = "",
+  labs(y = "Incidencia Acumulada\n", x = "",
        title = "Incidencia Acumulada 14 días por franja de edad",
        subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
        caption = "https://tiny.cc/COVID19-Andalucia",
