@@ -262,7 +262,8 @@ datos.plot <- datos.minist.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.14d), size = 2) +
-  annotate("text", x = max(datos.plot$Fecha), y = 20 + datos.plot$Tasa.14d[nrow(datos.plot)],
+  annotate("text", x = 4 + max(datos.plot$Fecha), 
+           y = datos.plot$Tasa.14d[nrow(datos.plot)],
            label = round(datos.plot$Tasa.14d[nrow(datos.plot)])) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3) +
