@@ -1139,7 +1139,7 @@ anim_save("edad_casos_anim.gif")
 ```
 
 
-Aquí se representan los mismos datos (casos diarios confirmados por categoría de edad) usando curvas suavizadas mediante *loess* (local polynomial regression) para reducir la variación diaria y facilitar la visualización de tendencias:
+Aquí se representan los mismos datos (casos diarios confirmados por categoría de edad) usando medias móviles a 14 días para reducir la variación diaria y facilitar la visualización de tendencias:
 
 
 ```{r casos.edad.lines, out.width='100%'}
@@ -1151,8 +1151,8 @@ casos.edad.fecha$edades <- factor(casos.edad.fecha$edades,
                                   levels = rev(levels(casos.edad.fecha$edades)))
 
 ggplot(casos.edad.fecha) +
-  geom_smooth(aes(Fecha, Casos, colour = edades), 
-              span = 0.3, se = FALSE, show.legend = TRUE) +
+  tidyquant::geom_ma(aes(Fecha, Casos, colour = edades), ma_fun = SMA, n = 14,
+                     show.legend = TRUE, linetype = "solid", size = 1.5) +
   scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 3), expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
@@ -1172,8 +1172,8 @@ La siguiente figura muestra la Incidencia Acumulada (número de casos en los úl
 ```{r ia14.edad}
 
 ggplot(casos.edad.fecha) +
-  geom_smooth(aes(Fecha, IA.14d, colour = edades), 
-              span = 0.3, se = FALSE, show.legend = TRUE) +
+  tidyquant::geom_ma(aes(Fecha, IA.14d, colour = edades), ma_fun = SMA, n = 14,
+                     show.legend = TRUE, linetype = "solid", size = 1.5) +
   scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 3), 
                expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
