@@ -539,7 +539,30 @@ ayer <- datos.minist %>%
 last.day.valid <- ayer %>% 
   filter(Fecha.lag < 2) %>% 
   filter(Fecha == max(Fecha)) %>% 
-  select(-Fecha.lag)
+  select(-Fecha.lag) %>% 
+  mutate(Tasa.14d = case_when(  # dividir por tamaño de población
+    Territorio == "Andalucía" ~ 100000*`Confirmados 14d` / 8414240,
+    Territorio == "Almería" ~ 100000*`Confirmados 14d` / 716820,
+    Territorio == "Cádiz" ~ 100000*`Confirmados 14d` / 1240155,
+    Territorio == "Córdoba" ~ 100000*`Confirmados 14d` / 786635,
+    Territorio == "Granada" ~ 100000*`Confirmados 14d` / 914678,
+    Territorio == "Huelva" ~ 100000*`Confirmados 14d` / 510743,
+    Territorio == "Jaén" ~ 100000*`Confirmados 14d` / 633564,
+    Territorio == "Málaga" ~ 100000*`Confirmados 14d` / 1661785,
+    Territorio == "Sevilla" ~ 100000*`Confirmados 14d` / 1949860,
+  )) %>% 
+  mutate(Tasa.7d = case_when(  # dividir por tamaño de población
+    Territorio == "Andalucía" ~ 100000*`Confirmados 7d` / 8414240,
+    Territorio == "Almería" ~ 100000*`Confirmados 7d` / 716820,
+    Territorio == "Cádiz" ~ 100000*`Confirmados 7d` / 1240155,
+    Territorio == "Córdoba" ~ 100000*`Confirmados 7d` / 786635,
+    Territorio == "Granada" ~ 100000*`Confirmados 7d` / 914678,
+    Territorio == "Huelva" ~ 100000*`Confirmados 7d` / 510743,
+    Territorio == "Jaén" ~ 100000*`Confirmados 7d` / 633564,
+    Territorio == "Málaga" ~ 100000*`Confirmados 7d` / 1661785,
+    Territorio == "Sevilla" ~ 100000*`Confirmados 7d` / 1949860,
+  )) %>% 
+  mutate(Tasa.14d = round(Tasa.14d), Tasa.7d = round(Tasa.7d))
  
 ```
 
@@ -549,8 +572,10 @@ last.day.valid <- ayer %>%
 ```{r out.width='100%'}
 
 last.day.valid %>% 
-  select(Territorio, Casos = Confirmados, Casos.14d = `Confirmados 14d`,
-         Casos.7d = `Confirmados 7d`, Ingresos = Hospitalizados, UCI, Defunciones) %>% 
+  select(Territorio, Casos = Confirmados, 
+         Casos.14d = `Confirmados 14d`, IA.14d = Tasa.14d,
+         Casos.7d = `Confirmados 7d`, IA.7d = Tasa.7d,
+         Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   kable()
 
 ```
@@ -652,7 +677,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 130, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 150, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 4) 
 
 ```
