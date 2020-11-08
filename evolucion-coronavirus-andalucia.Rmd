@@ -362,7 +362,7 @@ datos.plot <- datos.minist.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Positividad.7d), size = 2) +
-  annotate("text", x = 0.4 + max(datos.plot$Fecha), 
+  annotate("text", x = 1 + max(datos.plot$Fecha), 
            y = datos.plot$Positividad.7d[nrow(datos.plot)],
            label = round(datos.plot$Positividad.7d[nrow(datos.plot)])) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
@@ -386,7 +386,7 @@ datos.plot <- datos.minist.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Trazabilidad), size = 2) +
-  annotate("text", x = 0.4 + max(datos.plot$Fecha), 
+  annotate("text", x = 1 + max(datos.plot$Fecha), 
            y = datos.plot$Trazabilidad[nrow(datos.plot)],
            label = round(datos.plot$Trazabilidad[nrow(datos.plot)])) +
   geom_ribbon(aes(x = Fecha, ymin = 80, ymax = 100), fill = "#4daf4a", alpha = 0.3) +
@@ -415,7 +415,7 @@ datos.plot <- datos.minist.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%CamasOcup.Minist`), size = 2) +
-  annotate("text", x = 0.5 + max(datos.plot$Fecha), 
+  annotate("text", x = 1 + max(datos.plot$Fecha), 
            y = datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)],
            label = round(datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)])) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 2), fill = "#4daf4a", alpha = 0.3) +
@@ -439,7 +439,7 @@ datos.plot <- datos.minist.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%UCI.Minist`), size = 2) +
-  annotate("text", x = 0.5 + max(datos.plot$Fecha), 
+  annotate("text", x = 1 + max(datos.plot$Fecha), 
            y = datos.plot$`%UCI.Minist`[nrow(datos.plot)],
            label = round(datos.plot$`%UCI.Minist`[nrow(datos.plot)])) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 5), fill = "#4daf4a", alpha = 0.3) +
@@ -653,7 +653,7 @@ ggplot() +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
   geom_text(aes(Fecha, y = ConfirmadosPCR + 130, label = ConfirmadosPCR),
-            data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 3) 
+            data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 4) 
 
 ```
 
@@ -1690,7 +1690,7 @@ casos.edad.sexo <- read_csv2("datos/edad.sexo/datos_casos_edad_sexo.csv",
                                           grouping_mark = "."),
                           skip_empty_rows = TRUE) %>%
   select(-X5) %>%
-  filter(Medida == "Confirmado PCR") %>%
+  filter(Medida == "Confirmados PDIA") %>%
   filter(!is.na(Edad)) %>%
   rename(Casos = Valor) %>%
   select(-Medida)
