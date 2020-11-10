@@ -422,7 +422,7 @@ ggplot(datos.plot) +
   geom_ribbon(aes(x = Fecha, ymin = 2, ymax = 5), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 5, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 20), 
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 25), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Ocupación hospitalaria",
@@ -677,8 +677,8 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 150, label = ConfirmadosPCR),
-            data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 4) 
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 180, label = ConfirmadosPCR),
+            data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 3.5) 
 
 ```
 
