@@ -52,7 +52,7 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), el [Ministerio de Sanidad](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). A diferencia de otras visualizaciones más extendidas, que representan datos acumulados en el tiempo, aquí se enfatizan las **variaciones diarias absolutas** (no acumuladas).
+Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), el [Ministerio de Sanidad](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). Se incluyen datos de **casos detectados, ingresos, defunciones, letalidad, etc** a escala de **municipio, provincia y comunidad autónoma**.
 
 Los datos se **actualizan diariamente**. En esta [cuenta de twitter](https://twitter.com/covid_andalucia) compartiremos la información más relevante. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia). 
 
@@ -476,13 +476,20 @@ datos.andal.long <- datos.andal %>%
                         levels = c("Casos confirmados", "Hospitalizaciones", 
                                    "Ingresos UCI", "Defunciones")))
 
-ggplot(datos.andal.long) +
+datos.andal.long %>% 
+  group_by(indic) %>% 
+  mutate(value_ma = zoo::rollmean(value, 7, fill = NA)) %>%  # 7-day moving average
+  ungroup() %>% 
+  filter(Fecha >= as.Date("2020-03-01")) %>%
+ggplot() +
   facet_wrap(~indic, ncol = 1, scales = "free_y") + 
-  geom_col(aes(x = Fecha, y = value, fill = indic)) +
+  geom_col(aes(x = Fecha, y = value, fill = indic), alpha = 0.3) +
+  geom_line(aes(x = Fecha, y = value_ma, colour = indic), size = 1.5) +
   scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
+  scale_colour_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA), date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
   scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
@@ -641,7 +648,9 @@ ggplot(casos.pcr) +
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
-            fill = "#ff7f00") +
+            fill = "#ff7f00", alpha = 0.25) +
+  geom_line(aes(x = Fecha, y = zoo::rollmean(ConfirmadosPCR, 7, fill = NA)), 
+            colour = "#ff7f00", size = 1.5) +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = "")) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos diarios de COVID-19 en Andalucía",
@@ -768,10 +777,16 @@ A continuación se presentan los **casos confirmados mediante PCR o test de ant�
 
 ```{r casos_provincias, out.width = '100%', fig.height=6}
 
-ggplot(datos.provs) +
+datos.provs %>% 
+  group_by(Territorio) %>% 
+  mutate(Conf_ma = zoo::rollmean(ConfirmadosPCR, 7, fill = NA)) %>% 
+  ungroup() %>% 
+ggplot() +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
-            fill = "#ff7f00") +
+            fill = "#ff7f00", alpha = 0.2) +
+  geom_line(aes(x = Fecha, y = Conf_ma),
+            colour = "#ff7f00", size = 1.5) +
   ylim(0, NA) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos diarios de COVID-19 en cada provincia",
@@ -1164,7 +1179,7 @@ anim_save("edad_casos_anim.gif")
 ```
 
 
-Aquí se representan los mismos datos (casos diarios confirmados por categoría de edad) usando medias móviles a 14 días para reducir la variación diaria y facilitar la visualización de tendencias:
+Aquí se representan los mismos datos (casos diarios confirmados por categoría de edad) usando medias móviles a 7 días para reducir la variación diaria y facilitar la visualización de tendencias:
 
 
 ```{r casos.edad.lines, out.width='100%'}
@@ -1175,10 +1190,14 @@ Aquí se representan los mismos datos (casos diarios confirmados por categoría 
 casos.edad.fecha$edades <- factor(casos.edad.fecha$edades, 
                                   levels = rev(levels(casos.edad.fecha$edades)))
 
-ggplot(casos.edad.fecha) +
-  tidyquant::geom_ma(aes(Fecha, Casos, colour = edades), ma_fun = SMA, n = 14,
-                     show.legend = TRUE, linetype = "solid", size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 3), expand = c(0, 20),
+casos.edad.fecha %>% 
+  group_by(edades) %>% 
+  mutate(casos_ma = zoo::rollmean(Casos, 7, fill = NA)) %>% 
+  ungroup() %>% 
+ggplot() +
+  geom_line(aes(x = Fecha, y = casos_ma, colour = edades),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
        title = "Casos diarios por franja de edad",
@@ -1196,10 +1215,14 @@ La siguiente figura muestra la Incidencia Acumulada (número de casos en los úl
 
 ```{r ia14.edad}
 
-ggplot(casos.edad.fecha) +
-  tidyquant::geom_ma(aes(Fecha, IA.14d, colour = edades), ma_fun = SMA, n = 14,
-                     show.legend = TRUE, linetype = "solid", size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 3), 
+casos.edad.fecha %>% 
+  group_by(edades) %>% 
+  mutate(IA14_ma = zoo::rollmean(IA.14d, 7, fill = NA)) %>% 
+  ungroup() %>% 
+ggplot() +
+  geom_line(aes(x = Fecha, y = IA14_ma, colour = edades),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), 
                expand = c(0, 20),
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Incidencia Acumulada\n", x = "",
@@ -1255,7 +1278,9 @@ ggplot(casos.sexo.edad.5a) +
 
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
-            fill = "#377eb8") +
+            fill = "#377eb8", alpha = 0.2) +
+  geom_line(aes(x = Fecha, y = zoo::rollmean(Hospitalizados, 7, fill = NA)),
+            colour = "#377eb8", size = 1.5) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
@@ -1297,10 +1322,15 @@ ggplot(datos.andal) +
 
 ```{r ingresos_provincias, out.width='100%', fig.height=6}
 
-ggplot(datos.provs) +
+datos.provs %>% 
+  group_by(Territorio) %>% 
+  mutate(hosp_ma = zoo::rollmean(Hospitalizados, 7, fill = NA)) %>% 
+  ungroup() %>% 
+ggplot() +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
-            fill = "#377eb8") +
+            fill = "#377eb8", alpha = 0.2) +
+  geom_line(aes(x = Fecha, y = hosp_ma), colour = "#377eb8", size = 1.5) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
@@ -1343,7 +1373,9 @@ ggplot(datos.provs) +
 ```{r uci_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(datos.andal) +
-  geom_col(aes(x = Fecha, y = UCI), fill = "#e41a1c") +
+  geom_col(aes(x = Fecha, y = UCI), fill = "#e41a1c", alpha = 0.25) +
+  geom_line(aes(x = Fecha, y = zoo::rollmean(UCI, 7, fill = NA)),
+            colour = "#e41a1c", size = 1.5) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos UCI\n",
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
@@ -1484,7 +1516,9 @@ ggplot(datos.provs) +
 ```{r fallecidos_Andalucia, fig.height=3, out.width='100%'}
 
 ggplot(datos.andal) +
-  geom_col(aes(x = Fecha, y = Defunciones), fill = "grey40") +
+  geom_col(aes(x = Fecha, y = Defunciones), fill = "grey40", alpha = 0.25) +
+  geom_line(aes(x = Fecha, y = zoo::rollmean(Defunciones, 7, fill = NA)),
+            colour = "grey40", size = 1.5) +
   labs(x = "", y = "Nº Defunciones\n",
        title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
@@ -1517,13 +1551,17 @@ ggplot(datos.andal) +
 <br>
 
 ```{r fallecidos_provincias, eval = TRUE, out.width='100%', fig.height=6}
-         
-ggplot(datos.provs) +
-  facet_wrap(~Territorio, ncol = 2) +  
+     
+datos.provs %>% 
+  group_by(Territorio) %>% 
+  mutate(def_ma = zoo::rollmean(Defunciones, 7, fill = NA)) %>% 
+  ungroup() %>% 
+ggplot() +
+  facet_wrap(~Territorio, ncol = 2, scales = "free_y") +  
   geom_col(aes(x = Fecha, y = Defunciones), 
-            size = 1.5, fill = "grey40") +
+            size = 1.5, fill = "grey40", alpha = 0.2) +
+  geom_line(aes(x = Fecha, y = def_ma), colour = "grey40", size = 1.5) +
   scale_y_continuous(limits = c(0, NA)) +
-  #scale_x_date(limits = c(as.Date("2020-03-10"), NA)) +
   labs(x = "", y = "Nº Defunciones\n",
        title = "Defunciones diarias relacionadas con COVID-19 en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias, la escala del eje vertical es diferente en cada provincia",
@@ -1811,6 +1849,6 @@ ggplotly(
 
 <br>
 
-Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos](https://github.com/Pakillo/COVID19-Andalucia/tree/master/datos) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía, la Fundación CIVIO y Datadista. Reproducción permitida con fines no comerciales citando la fuente (CC-BY-NC 4.0).
+Realizado por [Francisco Rodríguez Sánchez](https://twitter.com/frod_san) a partir de los [datos](https://github.com/Pakillo/COVID19-Andalucia/tree/master/datos) ofrecidos por la Consejería de Salud y Familias de la Junta de Andalucía, el Ministerio de Sanidad, la Fundación CIVIO y Datadista. Reproducción permitida con fines no comerciales citando la fuente (CC-BY-NC 4.0).
 
 
