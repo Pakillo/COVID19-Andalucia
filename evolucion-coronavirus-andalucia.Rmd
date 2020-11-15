@@ -1062,6 +1062,36 @@ girafe(ggobj = mapa)
 
 
 
+## Datos por municipio
+
+
+
+<br>
+
+```{r tabla.muni, out.width='100%', eval=FALSE}
+# Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
+
+library(DT)
+
+muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
+#muni.data$Provincia <- as.factor(muni.data$Provincia)
+
+datatable(muni.data, rownames = FALSE, filter = "top")
+```
+
+
+Seleccione provincia y municipio para visualizar el número de casos confirmados, incidencia acumulada y defunciones por municipio.
+
+<br>
+
+```{r shiny.muni, out.width='100%'}
+include_app("https://frodsan.shinyapps.io/COVID19-Municipios-Andalucia/", 
+            height = '600px')
+```
+
+
+<br>
+
 La Junta de Andalucía ha comenzado a visualizar los datos diarios por provincia, distrito sanitario y municipio [aquí](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html).
 
 <br>
@@ -1574,38 +1604,6 @@ ggplot() +
 <br>
 
 
-
-
-
-## Datos por municipio
-
-
-
-<br>
-
-```{r tabla.muni, out.width='100%', eval=FALSE}
-# Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
-
-library(DT)
-
-muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
-#muni.data$Provincia <- as.factor(muni.data$Provincia)
-
-datatable(muni.data, rownames = FALSE, filter = "top")
-```
-
-
-Seleccione provincia y municipio para visualizar el número de casos confirmados y defunciones por municipio.
-
-<br>
-
-```{r shiny.muni, out.width='100%'}
-include_app("https://frodsan.shinyapps.io/COVID19-Municipios-Andalucia/", 
-            height = '600px')
-```
-
-
-<br>
 
 
 
