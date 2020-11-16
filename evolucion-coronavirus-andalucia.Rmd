@@ -1086,7 +1086,7 @@ Seleccione provincia y municipio para visualizar el número de casos confirmados
 
 ```{r shiny.muni, out.width='100%'}
 include_app("https://frodsan.shinyapps.io/COVID19-Municipios-Andalucia/", 
-            height = '600px')
+            height = '750px')
 ```
 
 

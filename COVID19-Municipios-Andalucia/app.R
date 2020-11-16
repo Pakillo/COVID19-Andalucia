@@ -105,7 +105,8 @@ server <- function(input, output, session) {
                     end = input$dateRange[2])})
 
     # grafica
-    output$plot1 <- renderPlot({make_plot(selectedData(), municipio = input$muni)})
+    output$plot1 <- renderPlot({make_plot(selectedData(), municipio = input$muni)},
+                               height = 600)
 
 
     # tabla datos
