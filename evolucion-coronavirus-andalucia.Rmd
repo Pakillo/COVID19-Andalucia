@@ -1286,15 +1286,21 @@ casos.sexo.edad.5a <- datos.edad.sexo %>%
   mutate(Casos.week = Confirmados - lag(Confirmados)) %>% 
   filter(Fecha > as.Date("2020-10-22"))
 
-ggplot(casos.sexo.edad.5a) + 
-  geom_point(aes(x = Fecha, y = Casos.week, colour = Sexo)) +
-  facet_wrap(~edades, ncol = 1) +
-  scale_colour_manual(values = c("#ff7f00", "#984ea3")) +
+casos.sexo.edad.5a %>% 
+  group_by(Fecha, edades) %>% 
+  summarise(Casos.week.ambosex = sum(Casos.week)) %>% 
+  # filter(! edades %in% c("100+")) %>%
+ggplot() + 
+  facet_wrap(~edades, ncol = 1, scales = "free_y") +
+  geom_line(aes(x = Fecha, y = Casos.week.ambosex), colour = "#ff7f00", size = 1.5) +
+  # scale_colour_manual(values = c("#ff7f00", "#984ea3")) +
   labs(y = "Casos\n", x = "",
        title = "Casos semanales por intervalo de edad",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(legend.position = "top", legend.title = element_blank())
-  
+  theme(legend.position = "top", legend.title = element_blank(),
+        strip.text = element_text(size = 8))
+
+# ggsave("casos_edad_largo.pdf", width = 5, height = 15)
   
 ```
 
