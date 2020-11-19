@@ -1494,10 +1494,10 @@ ggplot() +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   geom_text(data = camas.last, 
-            aes(Fecha - 3, CamasOcup + 250, label = paste0( "Total ", CamasOcup)),
+            aes(Fecha - 3, CamasOcup + 500, label = paste0( "Total ", CamasOcup)),
             colour = "#377eb8") +
   geom_text(data = camas.last, 
-            aes(Fecha - 3, CamasUCI + 200, label = paste0("UCI ", CamasUCI)), 
+            aes(Fecha - 3, CamasUCI + 300, label = paste0("UCI ", CamasUCI)), 
             colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
