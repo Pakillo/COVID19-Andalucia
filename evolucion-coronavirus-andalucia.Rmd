@@ -519,13 +519,13 @@ datos.andal.long <- datos.andal %>%
   # mutate(indic = ifelse(indic == "CamasOcup", "Camas ocupadas", indic)) %>%
   mutate(indic = factor(indic, 
                         levels = c("Casos confirmados", "Hospitalizaciones", 
-                                   "Ingresos UCI", "Defunciones")))
+                                   "Ingresos UCI", "Defunciones"))) %>% 
+  mutate(Fecha = as.Date(Fecha))
 
 datos.andal.long %>% 
   group_by(indic) %>% 
   mutate(value_ma = zoo::rollmean(value, 7, fill = NA)) %>%  # 7-day moving average
   ungroup() %>% 
-  filter(Fecha >= as.Date("2020-03-01")) %>%
 ggplot() +
   facet_wrap(~indic, ncol = 1, scales = "free_y") + 
   geom_col(aes(x = Fecha, y = value, fill = indic), alpha = 0.3) +
@@ -534,7 +534,8 @@ ggplot() +
   scale_colour_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b",
+               limits = c(as.Date("2020-03-01"), max(datos.andal.long$Fecha) - 5)) +
   scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
@@ -701,7 +702,7 @@ ggplot(datos.andal) +
        title = "Casos diarios de COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA), 
+  scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5), 
                date_breaks = "1 month", date_labels = "%b")
 
 ```
@@ -838,7 +839,7 @@ ggplot() +
        subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
 
 ```
 
@@ -1272,7 +1273,7 @@ casos.edad.fecha %>%
 ggplot() +
   geom_line(aes(x = Fecha, y = casos_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), expand = c(0, 20),
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 5), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
        title = "Casos diarios por franja de edad",
@@ -1297,8 +1298,7 @@ casos.edad.fecha %>%
 ggplot() +
   geom_line(aes(x = Fecha, y = IA14_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), 
-               expand = c(0, 20),
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 5), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Incidencia Acumulada\n", x = "",
        title = "Incidencia Acumulada 14 días por franja de edad",
@@ -1366,7 +1366,7 @@ ggplot(datos.andal) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA),
+  scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5),
                date_breaks = "1 month", date_labels = "%b")
 
 ```
@@ -1418,7 +1418,7 @@ ggplot() +
        subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
 
 ```
 
@@ -1461,7 +1461,7 @@ ggplot(datos.andal) +
   labs(x = "", y = "Nº Ingresos UCI\n",
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA),
+  scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5),
                date_breaks = "1 month", date_labels = "%b")
 
 ```
@@ -1559,7 +1559,7 @@ ggplot(datos.andal) +
        title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA),
+  scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5),
                date_breaks = "1 month", date_labels = "%b")
 
 ```
@@ -1603,7 +1603,7 @@ ggplot() +
        subtitle = "Para facilitar la visualización de tendencias, la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
+  scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
 
 ```
 
