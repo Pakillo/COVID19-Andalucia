@@ -732,7 +732,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 180, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 50, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 3.5) 
 
 ```
