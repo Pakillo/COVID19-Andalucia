@@ -382,13 +382,13 @@ ggplot(datos.plot) +
 ```{r Trazabilidad, fig.height=4}
 
 datos.plot <- datos.minist.andal %>% 
-  filter(!is.na(Trazabilidad)) 
+  filter(!is.na(Trazab_indic)) 
 
 ggplot(datos.plot) +
-  geom_line(aes(Fecha, Trazabilidad), size = 2) +
+  geom_line(aes(Fecha, Trazab_indic), size = 2) +
   annotate("text", x = 1 + max(datos.plot$Fecha), 
-           y = datos.plot$Trazabilidad[nrow(datos.plot)],
-           label = round(datos.plot$Trazabilidad[nrow(datos.plot)])) +
+           y = datos.plot$Trazab_indic[nrow(datos.plot)],
+           label = round(datos.plot$Trazab_indic[nrow(datos.plot)])) +
   geom_ribbon(aes(x = Fecha, ymin = 80, ymax = 100), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 65, ymax = 80), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 65), fill = "#ff7f00", alpha = 0.3) +
