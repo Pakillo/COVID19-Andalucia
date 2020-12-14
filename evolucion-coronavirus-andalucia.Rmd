@@ -52,7 +52,7 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), el [Ministerio de Sanidad](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). Se incluyen datos de **casos detectados, ingresos, defunciones, letalidad, etc** a escala de **municipio, provincia y comunidad autónoma**.
+Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), el [Ministerio de Sanidad](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). Se incluyen **casos detectados, ingresos, defunciones, letalidad, etc** a escala de **municipio, provincia y comunidad autónoma**.
 
 Los datos se **actualizan diariamente**. En esta [cuenta de twitter](https://twitter.com/covid_andalucia) compartiremos la información más relevante. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia). 
 
@@ -244,6 +244,49 @@ datos.minist.andal <- datos.minist %>%
 
 
 ## Indicadores Ministerio Sanidad (semáforo)
+
+```{r indicadores.datos}
+
+datos.indic <- readxl::read_excel("datos/indicadores_sanidad.xlsx") %>% 
+  mutate(Fecha = as.Date(Fecha)) %>% 
+  filter(Fecha == max(Fecha)) %>% 
+  rename(`%OcupHosp` = CamasOcup, `%OcupUCI` = UCI)
+```
+
+<br>
+
+```{r indic.colors}
+
+indic.color.riesgo <- Vectorize(function(value) {
+  
+  ri.color <- data.frame(
+    ri = c("NORMAL", "BAJO", "MEDIO", "ALTO", "EXTREMO"),
+    colores = c("#4daf4a4D", "#ffff334D", "#ff7f004D", "#e41a1c4D", "#984ea34D")
+  )
+  
+  color <- ri.color$colores[ri.color$ri == value]
+}, vectorize.args = "value")
+
+
+```
+
+
+```{r indicadores.tabla}
+
+library(flextable)
+
+datos.indic %>% 
+  select(-Fecha) %>% 
+  select(Territorio, Riesgo, everything()) %>% 
+  flextable() %>% 
+  colformat_num(j = 3:10, digits = 0) %>% 
+  bg(j = "Riesgo", part = 'body', bg = indic.color.riesgo)
+
+```
+
+Datos referidos al `r unique(datos.indic$Fecha)`
+
+<br>
 
 Las siguientes gráficas muestran la evolución de cada uno de los [indicadores](https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/Documents/2020/221020_ActuacionesrespuestaCOVID.pdf) aprobados por el Consejo Interterritorial de Salud.
 
@@ -629,7 +672,7 @@ last.day.valid %>%
          Casos.14d = `Confirmados 14d`, IA.14d = Tasa.14d,
          Casos.7d = `Confirmados 7d`, IA.7d = Tasa.7d,
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
-  kable()
+  flextable()
 
 ```
 
@@ -647,11 +690,9 @@ datos.minist %>%
   select(Territorio, Casos = Confirmados, 
          #Casos.14d = `Confirmados 14d`, Casos.7d = `Confirmados 7d`, 
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
-  kable()
+  flextable()
 
 ```
-
-(Confirmados = Confirmados mediante PCR o test de antígeno)
 
 <br>
 
