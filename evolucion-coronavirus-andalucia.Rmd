@@ -1132,11 +1132,12 @@ muni.14d.hab <- left_join(select(muni.lite, PROVINCIA, MUNICIPIO),
                       select(muni.data, PROVINCIA, MUNICIPIO, Conf14d_100.000hab),
                       by = c("PROVINCIA", "MUNICIPIO")) %>%
   mutate(casos = ifelse(is.na(Conf14d_100.000hab), 0, round(Conf14d_100.000hab)),
-         lab = paste(MUNICIPIO, casos, sep = ": "))
+         lab = paste(MUNICIPIO, casos, sep = ": "),
+         casos = ifelse(Conf14d_100.000hab < 1, NA, casos))
 
 mapa <- 
   ggplot(muni.14d.hab) +
-  ggiraph::geom_sf_interactive(aes(fill = Conf14d_100.000hab, tooltip = lab), 
+  ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
                        na.value = "white") +
