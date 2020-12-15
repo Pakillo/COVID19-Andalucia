@@ -58,6 +58,8 @@ Los datos se **actualizan diariamente**. En esta [cuenta de twitter](https://twi
 
 Última actualización: `r Sys.Date()`
 
+### Índice
+
 ```{r render.toc}
 render_toc("evolucion-coronavirus-andalucia.Rmd", base_level = 2, toc_depth = 1)
 ```
@@ -257,16 +259,22 @@ datos.indic <- readxl::read_excel("datos/indicadores_sanidad.xlsx") %>%
 
 ```{r indic.colors}
 
-indic.color.riesgo <- Vectorize(function(value) {
-  
-  ri.color <- data.frame(
-    ri = c("NORMAL", "BAJO", "MEDIO", "ALTO", "EXTREMO"),
-    colores = c("#4daf4a4D", "#ffff334D", "#ff7f004D", "#e41a1c4D", "#984ea34D")
-  )
-  
-  color <- ri.color$colores[ri.color$ri == value]
-}, vectorize.args = "value")
+indic.umbrales <- readxl::read_excel("datos/indicadores_umbrales.xlsx")
 
+indic.color.riesgo <- Vectorize(function(value, umbrales = indic.umbrales) {
+
+  color <- umbrales$Color[umbrales$Riesgo == value]
+  
+}, vectorize.args = "value")
+# 
+# calc_riesgo <- function(value, umbrales = indic.umbrales) {
+#   
+#   riesgo <- "NORMAL"
+#   riesgo <- ifelse(value > )
+# }
+# 
+# 
+# for ()
 
 ```
 
@@ -504,8 +512,6 @@ ggplot(datos.plot) +
 ### Camas ocupadas
 
 <br>
-
-Número de pacientes ingresados en centros hospitalarios, incluyendo aquellos en cuidados intensivos (UCI), según los datos proporcionados diariamente por la Junta de Andalucía. 
 
 El pico máximo de camas ocupadas de la "primera ola" se alcanzó el 30 de Marzo con 2708 pacientes ingresados (438 en UCI). Ese número se rebasó el 2 de Noviembre con 2764 personas ingresadas (381 en UCI).
 
