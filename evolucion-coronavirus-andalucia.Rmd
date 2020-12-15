@@ -879,7 +879,7 @@ ggplot() +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00", alpha = 0.2) +
   geom_line(aes(x = Fecha, y = Conf_ma),
-            colour = "#ff7f00", size = 1.5) +
+            colour = "#ff7f00", size = 1) +
   ylim(0, NA) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos diarios de COVID-19 en cada provincia",
@@ -1459,7 +1459,7 @@ ggplot() +
   facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
   geom_col(aes(x = Fecha, y = Hospitalizados), 
             fill = "#377eb8", alpha = 0.2) +
-  geom_line(aes(x = Fecha, y = hosp_ma), colour = "#377eb8", size = 1.5) +
+  geom_line(aes(x = Fecha, y = hosp_ma), colour = "#377eb8", size = 1) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
@@ -1644,7 +1644,7 @@ ggplot() +
   facet_wrap(~Territorio, ncol = 2, scales = "free_y") +  
   geom_col(aes(x = Fecha, y = Defunciones), 
             size = 1.5, fill = "grey40", alpha = 0.2) +
-  geom_line(aes(x = Fecha, y = def_ma), colour = "grey40", size = 1.5) +
+  geom_line(aes(x = Fecha, y = def_ma), colour = "grey40", size = 1) +
   scale_y_continuous(limits = c(0, NA)) +
   labs(x = "", y = "Nº Defunciones\n",
        title = "Defunciones diarias relacionadas con COVID-19 en cada provincia",
