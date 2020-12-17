@@ -245,7 +245,7 @@ datos.minist.andal <- datos.minist %>%
 <br>
 
 
-## Indicadores Ministerio Sanidad (semáforo)
+## Indicadores Ministerio Sanidad (semáforo) {#semaforo}
 
 ```{r indicadores.datos}
 
@@ -552,7 +552,7 @@ ggplot(camas) +
 <br>
 
 
-## Resumen de casos, ingresos y defunciones
+## Resumen de casos, ingresos y defunciones {#resumen}
 
 <br>
 
@@ -1661,7 +1661,7 @@ ggplot() +
 
 
 
-## Distribucion por edad y sexo
+## Distribución por edad y sexo {#edad-sexo}
 
 Cada barra representa el % de casos, ingresos, o defunciones representado por personas de dicho sexo y categoría de edad.
 <br>
@@ -1844,7 +1844,7 @@ ggplot(cfr) +
 
 <br>
 
-## Comparacion con otras CCAA
+## Comparación con otras CCAA {#ccaa}
 
 <br>
 
