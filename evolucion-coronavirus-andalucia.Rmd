@@ -61,7 +61,7 @@ Los datos se **actualizan diariamente**. En esta [cuenta de twitter](https://twi
 ### Índice
 
 ```{r render.toc}
-render_toc("evolucion-coronavirus-andalucia.Rmd", base_level = 2, toc_depth = 1)
+render_toc("evolucion-coronavirus-andalucia.Rmd", base_level = 2, toc_depth = 2)
 ```
 
 
@@ -917,9 +917,6 @@ ggplot() +
 
 <br>
 
-Pulse [aquí](#datos-por-municipio) para ver los **datos por municipio**. 
-
-<br>
 
 
 ```{r distritos, eval=FALSE}
@@ -1038,7 +1035,10 @@ ggplot(distri.data2plot) +
 ```
 
 
-### Mapas
+
+### Datos por Municipio
+
+#### Mapas
 
 
 ```{r mapa_distritos, out.width='100%', eval=FALSE}
@@ -1156,7 +1156,7 @@ girafe(ggobj = mapa)
 
 
 
-## Datos por municipio
+#### Evolución de casos, incidencia acumulada y defunciones por municipio
 
 
 
