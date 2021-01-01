@@ -261,20 +261,42 @@ datos.indic <- readxl::read_excel("datos/indicadores_sanidad.xlsx") %>%
 
 indic.umbrales <- readxl::read_excel("datos/indicadores_umbrales.xlsx")
 
-indic.color.riesgo <- Vectorize(function(value, umbrales = indic.umbrales) {
+indic.color.riesgo <- Vectorize(function(value, umbrales.df = indic.umbrales) {
 
-  color <- umbrales$Color[umbrales$Riesgo == value]
+  color <- umbrales.df$Color[umbrales.df$Riesgo == value]
   
 }, vectorize.args = "value")
-# 
-# calc_riesgo <- function(value, umbrales = indic.umbrales) {
-#   
-#   riesgo <- "NORMAL"
-#   riesgo <- ifelse(value > )
-# }
-# 
-# 
-# for ()
+
+
+indic.color.numeric <- function(vble, 
+                                indic.df = datos.indic, 
+                                umbrales.df = indic.umbrales) {
+  
+  indic.df <- indic.df %>% 
+    rename(CamasOcup = `%OcupHosp`, 
+           UCI = `%OcupUCI`)
+  
+  if (vble == "Trazabilidad") {
+    umbrales.df <- arrange(umbrales.df, Trazabilidad)
+  }
+  intervalo <- findInterval(indic.df[[vble]], umbrales.df[[vble]])
+  color <- umbrales.df$Color[intervalo]
+  
+}
+
+
+## Add colors to data table
+datos.indic <- datos.indic %>% 
+  mutate(Riesgo.col = indic.color.riesgo(datos.indic$Riesgo),
+         IA14.col = indic.color.numeric("IA14"),
+         IA7.col = indic.color.numeric("IA7"),
+         IA14.65yr.col = indic.color.numeric("IA14.65yr"),
+         IA7.65yr.col = indic.color.numeric("IA7.65yr"),
+         Positividad.col = indic.color.numeric("Positividad"),
+         Trazabilidad.col = indic.color.numeric("Trazabilidad"),
+         OcupHosp.col = indic.color.numeric("CamasOcup"),
+         OcupUCI.col = indic.color.numeric("UCI")
+         )
 
 ```
 
@@ -285,14 +307,22 @@ library(flextable)
 
 datos.indic %>% 
   select(-Fecha) %>% 
-  select(Territorio, Riesgo, everything()) %>% 
+  select(Territorio, Riesgo, IA14:`%OcupUCI`) %>% 
   flextable() %>% 
   colformat_num(j = 3:10, digits = 0) %>% 
-  bg(j = "Riesgo", part = 'body', bg = indic.color.riesgo)
-
+  bg(j = "Riesgo", part = 'body', bg = indic.color.riesgo) %>% 
+  bg(j = "IA14", bg = datos.indic$IA14.col) %>% 
+  bg(j = "IA7", bg = datos.indic$IA7.col) %>%
+  bg(j = "IA14.65yr", bg = datos.indic$IA14.65yr.col) %>% 
+  bg(j = "IA7.65yr", bg = datos.indic$IA7.65yr.col) %>% 
+  bg(j = "Positividad", bg = datos.indic$Positividad.col) %>% 
+  bg(j = "Trazabilidad", bg = datos.indic$Trazabilidad.col) %>% 
+  bg(j = "%OcupHosp", bg = datos.indic$OcupHosp.col) %>% 
+  bg(j = "%OcupUCI", bg = datos.indic$OcupUCI.col)
+  
 ```
 
-Datos referidos al `r unique(datos.indic$Fecha)`
+Datos referidos al `r unique(datos.indic$Fecha)` (último [informe](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad)
 
 <br>
 
