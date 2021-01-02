@@ -734,7 +734,8 @@ datos.minist %>%
   select(Territorio, Casos = Confirmados, 
          #Casos.14d = `Confirmados 14d`, Casos.7d = `Confirmados 7d`, 
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
-  flextable()
+  flextable() %>% 
+  width(width = 2)
 
 ```
 
@@ -1162,7 +1163,24 @@ girafe(ggobj = mapa)
 ```
 
 
-Este mapa muestra los casos confirmados por PCR o test de antígeno en los últimos 14 días **por cada 100.000 habitantes**:
+**MUNICIPIOS CON MAYOR NÚMERO DE CASOS DETECTADOS (últimos 14 días)**
+
+Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Datos correspondientes al `r max(muni.data$Fecha)`:
+
+```{r}
+muni.data %>% 
+  arrange(desc(Confirmados.PCR.TA.14d)) %>%
+  select(PROVINCIA, MUNICIPIO, CASOS.14D = Confirmados.PCR.TA.14d,
+         IA.14D = Conf14d_100.000hab) %>% 
+  head(20) %>% 
+  flextable() %>% 
+  width(j = "MUNICIPIO", width = 2.5)
+```
+
+
+<br>
+
+Este mapa muestra la Incidencia Acumulada (casos confirmados por PCR o test de antígeno en los últimos 14 días **por cada 100.000 habitantes**):
 
 ```{r mapamunis_PCR_14d_hab, out.width='100%'}
 
@@ -1190,6 +1208,22 @@ mapa <-
 
 girafe(ggobj = mapa)
 
+```
+
+
+**MUNICIPIOS CON MAYOR INCIDENCIA ACUMULADA**
+
+Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Nótese que, en municipios pequeños, un número pequeño de casos puede dar lugar a valores de incidencia acumulada (casos por 100.000 habitantes) muy altos. Datos correspondientes al `r max(muni.data$Fecha)`:
+
+```{r}
+muni.data %>% 
+  arrange(desc(Conf14d_100.000hab)) %>%
+  select(PROVINCIA, MUNICIPIO, 
+         IA.14D = Conf14d_100.000hab,
+         CASOS.14D = Confirmados.PCR.TA.14d) %>% 
+  head(20) %>% 
+  flextable() %>% 
+  width(j = "MUNICIPIO", width = 2.5)
 ```
 
 
