@@ -272,9 +272,12 @@ indic.color.numeric <- function(vble,
                                 indic.df = datos.indic, 
                                 umbrales.df = indic.umbrales) {
   
-  indic.df <- indic.df %>% 
-    rename(CamasOcup = `%OcupHosp`, 
+  if ("%OcupHosp" %in% names(indic.df)) {
+    indic.df <- indic.df %>% 
+      rename(CamasOcup = `%OcupHosp`, 
            UCI = `%OcupUCI`)
+  }
+
   
   if (vble == "Trazabilidad") {
     umbrales.df <- arrange(umbrales.df, Trazabilidad)
@@ -666,7 +669,8 @@ ayer <- datos.minist %>%
   group_by(Territorio) %>% 
   mutate(across(.cols = c(Confirmados, Hospitalizados:Recuperados), 
          .fns = function(x) {x - lag(x)})) %>% 
-  mutate(Fecha.lag = Fecha - lag(Fecha))
+  mutate(Fecha.lag = Fecha - lag(Fecha)) %>% 
+  ungroup()
 
 last.day.valid <- ayer %>% 
   filter(Fecha.lag < 2) %>% 
@@ -694,7 +698,9 @@ last.day.valid <- ayer %>%
     Territorio == "Málaga" ~ 100000*`Confirmados 7d` / 1661785,
     Territorio == "Sevilla" ~ 100000*`Confirmados 7d` / 1949860,
   )) %>% 
-  mutate(Tasa.14d = round(Tasa.14d), Tasa.7d = round(Tasa.7d))
+  mutate(IA14 = round(Tasa.14d), IA7 = round(Tasa.7d)) %>% 
+  mutate(IA14.col = indic.color.numeric("IA14", indic.df = .),
+         IA7.col = indic.color.numeric("IA7", indic.df = .))
  
 ```
 
@@ -705,10 +711,12 @@ last.day.valid <- ayer %>%
 
 last.day.valid %>% 
   select(Territorio, Casos = Confirmados, 
-         Casos.14d = `Confirmados 14d`, IA.14d = Tasa.14d,
-         Casos.7d = `Confirmados 7d`, IA.7d = Tasa.7d,
+         Casos.14d = `Confirmados 14d`, IA.14d = IA14,
+         Casos.7d = `Confirmados 7d`, IA.7d = IA7,
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
-  flextable()
+  flextable() %>% 
+  bg(j = "IA.14d", bg = last.day.valid$IA14.col) %>% 
+  bg(j = "IA.7d", bg = last.day.valid$IA7.col)
 
 ```
 
@@ -1066,9 +1074,9 @@ ggplot(distri.data2plot) +
 
 
 
-### Datos por Municipio
+## Datos por Municipio
 
-#### Mapas
+### Mapas
 
 
 ```{r mapa_distritos, out.width='100%', eval=FALSE}
@@ -1186,7 +1194,7 @@ girafe(ggobj = mapa)
 
 
 
-#### Evolución de casos, incidencia acumulada y defunciones por municipio
+### Evolución de casos, incidencia acumulada y defunciones por municipio
 
 
 
