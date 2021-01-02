@@ -1,5 +1,5 @@
 ---
-title: "Informe diario sobre la enfermedad por coronavirus (COVID-19) en Andalucía: Evolución y situación actual"
+title: "Informe diario sobre la COVID-19 en Andalucía: Evolución y situación actual"
 output: 
   html_document: 
     fig_caption: yes
@@ -240,6 +240,22 @@ datos.minist.andal <- datos.minist %>%
 
 ```
 
+
+
+```{r datos.diarios.iscii}
+
+## Agrupar datos provinciales a nivel de Com Aut
+datos.diarios.iscii <- read_csv("datos/casos_hosp_uci_def_sexo_edad_provres.csv") %>% 
+  filter(provincia_iso %in% c("AL", "CA", "CO", "GR", "HU", "J", "MA", "SE")) %>% 
+  group_by(sexo, grupo_edad, fecha) %>% 
+  summarise(casos = sum(num_casos), hosp = sum(num_hosp), 
+            uci = sum(num_uci), def = sum(num_def))
+
+datos.diarios.iscii.notna <- datos.diarios.iscii %>% 
+  filter(sexo != "NC") %>% 
+  filter(grupo_edad != "NC")
+
+```
 
 
 <br>
@@ -1185,11 +1201,13 @@ girafe(ggobj = mapa)
 
 Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Datos correspondientes al `r max(muni.data$Fecha)`:
 
+<br>
+
 ```{r}
 muni.data %>% 
   arrange(desc(Confirmados.PCR.TA.14d)) %>%
-  select(PROVINCIA, MUNICIPIO, CASOS.14D = Confirmados.PCR.TA.14d,
-         IA.14D = Conf14d_100.000hab) %>% 
+  select(PROVINCIA, MUNICIPIO, CASOS.14d = Confirmados.PCR.TA.14d,
+         IA.14d = Conf14d_100.000hab) %>% 
   head(20) %>% 
   flextable() %>% 
   width(j = "MUNICIPIO", width = 2.5)
@@ -1233,18 +1251,20 @@ girafe(ggobj = mapa)
 
 Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Nótese que, en municipios pequeños, un número pequeño de casos puede dar lugar a valores de incidencia acumulada (casos por 100.000 habitantes) muy altos. Datos correspondientes al `r max(muni.data$Fecha)`:
 
+<br>
+
 ```{r}
 muni.data %>% 
   arrange(desc(Conf14d_100.000hab)) %>%
   select(PROVINCIA, MUNICIPIO, 
-         IA.14D = Conf14d_100.000hab,
-         CASOS.14D = Confirmados.PCR.TA.14d) %>% 
+         IA.14d = Conf14d_100.000hab,
+         CASOS.14d = Confirmados.PCR.TA.14d) %>% 
   head(20) %>% 
   flextable() %>% 
   width(j = "MUNICIPIO", width = 2.5)
 ```
 
-
+<br>
 
 ### Evolución de casos, incidencia acumulada y defunciones por municipio
 
@@ -1336,17 +1356,14 @@ ggplot(ntest) +
 
 
 
-## Casos confirmados por rango de edad
+## Casos confirmados por sexo y rango de edad
 
 Esta figura representa los rangos de edad de los casos confirmados por PCR o test de antígeno a lo largo del tiempo (desde el 15 de Marzo de 2020). 
-
-Mientras que en los meses de Marzo a Mayo sólo se detectaron los casos más graves, normalmente asociados a personas de mayor edad (>45 años), en la segunda oleada (a partir de Agosto), los casos comenzaron en personas jóvenes para extenderse paulatinamente a todas las edades.
 
 <br>
 
 
 ```{r casos.edad.heatmap, out.width='100%', fig.height=2.5}
-
 
 casos.edad.fecha %>%
   filter(Fecha > "2020-03-14") %>%
@@ -1489,6 +1506,53 @@ ggplot() +
   
 ```
 
+<br>
+
+
+A continuación se representan los **casos confirmados por sexo y rango de edad**:
+
+```{r casos.heatmap.edad.hombres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "H") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(casos = sum(casos)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = casos)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de los casos confirmados",
+       subtitle = "Hombres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Casos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+```
+
+
+```{r casos.heatmap.edad.mujeres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "M") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(casos = sum(casos)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = casos)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de los casos confirmados",
+       subtitle = "Mujeres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Casos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
+
+
+<br>
 
 ## Ingresos en centros hospitalarios
 
@@ -1541,6 +1605,8 @@ ggplot(datos.andal) +
 <br>
 
 
+
+
 ```{r ingresos_provincias, out.width='100%', fig.height=6}
 
 datos.provs %>% 
@@ -1585,8 +1651,75 @@ ggplot(datos.provs) +
 
 <br>
 
+### Ingresos hospitalarios por sexo y rango de edad
 
-### Ingresos en cuidados intensivos (UCI)
+<br>
+
+```{r ingresos.heatmap.edad, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(hosp = sum(hosp)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = hosp)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas ingresadas",
+       subtitle = "Ambos sexos",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Ingresos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
+
+
+```{r ingresos.heatmap.edad.hombres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "H") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(hosp = sum(hosp)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = hosp)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas ingresadas",
+       subtitle = "Hombres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Ingresos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
+
+
+```{r ingresos.heatmap.edad.mujeres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "M") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(hosp = sum(hosp)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = hosp)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas ingresadas",
+       subtitle = "Mujeres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Ingresos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
+
+
+
+
+## Ingresos en cuidados intensivos (UCI)
 
 <br>
 
@@ -1645,7 +1778,72 @@ ggplot(datos.provs) +
 ```
 
 
+<br>
 
+### Ingresos en UCI por sexo y rango de edad
+
+<br>
+
+```{r uci.heatmap.edad, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(uci = sum(uci)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = uci)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas ingresadas en UCI",
+       subtitle = "Ambos sexos",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Ingresos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
+
+
+```{r uci.heatmap.edad.hombres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "H") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(uci = sum(uci)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = uci)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas ingresadas en UCI",
+       subtitle = "Hombres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Ingresos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
+
+
+```{r uci.heatmap.edad.mujeres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "M") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(uci = sum(uci)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = uci)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas ingresadas en UCI",
+       subtitle = "Mujeres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Ingresos\ndiarios") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
 
 
 
@@ -1749,8 +1947,72 @@ ggplot() +
 
 <br>
 
+### Defunciones por sexo y rango de edad
+
+<br>
+
+```{r def.heatmap.edad, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(def = sum(def)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = def)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas fallecidas",
+       subtitle = "Ambos sexos",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Defunciones\ndiarias") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
 
 
+```{r def.heatmap.edad.hombres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "H") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(def = sum(def)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = def)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas fallecidas",
+       subtitle = "Hombres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Defunciones\ndiarias") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+```
+
+
+```{r def.heatmap.edad.mujeres, out.width='100%', fig.height=3}
+
+datos.diarios.iscii.notna %>% 
+  filter(sexo == "M") %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(def = sum(def)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
+  ggplot() +
+  geom_tile(aes(x = fecha, y = edades, fill = def)) +
+  scale_fill_viridis_c() +
+  labs(y = "Edad", x = "",
+       title = "Edad de las personas fallecidas",
+       subtitle = "Mujeres",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       fill = "Defunciones\ndiarias") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+
+```
+
+
+<br>
 
 
 ## Distribución por edad y sexo {#edad-sexo}
