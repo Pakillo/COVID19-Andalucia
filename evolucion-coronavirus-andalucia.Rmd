@@ -1846,39 +1846,6 @@ datos.diarios.iscii.notna %>%
 ```
 
 
-
-```{r curadas_Andalucia, fig.height=3, out.width='100%', eval=FALSE}
-
-## Personas curadas
-
-ggplot(datos.andal) +
-  geom_col(aes(x = Fecha, y = Curados), 
-            size = 1.5, fill = "#4daf4a") +
-  ylim(0, NA) +
-  #scale_x_date(limits = c(as.Date("2020-03-23"), NA)) +
-  labs(x = "", y = "Nº Personas\n",
-       title = "Personas curadas de COVID-19 diariamente en Andalucía",
-       caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(as.Date("2020-03-01"), NA))
-
-```
-
-
-```{r curadas_provincias, out.width='100%', eval=FALSE}
-
-ggplot(datos.provs) +
-  facet_wrap(~Territorio, scales = "free_y", ncol = 2) +
-  geom_col(aes(x = Fecha, y = Curados), 
-            size = 1.5, fill = "#4daf4a") +
-  ylim(0, NA) +
-  labs(x = "", y = "Nº Personas\n",
-       title = "Personas curadas diariamente en cada provincia",
-       caption = "Nótese que, para facilitar la visualización de tendencias, la escala del eje vertical varía para cada provincia") +
-  theme(axis.text.x = element_text(size = 8))
-
-```
-
-
 <br>
 
 
@@ -1924,7 +1891,7 @@ ggplot(datos.andal) +
 
 <br>
 
-```{r fallecidos_provincias, eval = TRUE, out.width='100%', fig.height=6}
+```{r fallecidos_provincias, out.width='100%', fig.height=6}
      
 datos.provs %>% 
   group_by(Territorio) %>% 
