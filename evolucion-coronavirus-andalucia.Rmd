@@ -1503,7 +1503,7 @@ ggplot(datos.provs) +
 
 <br>
 
-### Ingresos hospitalarios por sexo y rango de edad
+### Ingresos por sexo y rango de edad
 
 <br>
 
@@ -1834,7 +1834,7 @@ datos.diarios.iscii.notna %>%
 <br>
 
 
-## Distribución por edad y sexo {#edad-sexo}
+## Distribución global por edad y sexo {#edad-sexo}
 
 Cada barra representa el % de casos, ingresos, o defunciones representado por personas de dicho sexo y categoría de edad.
 <br>

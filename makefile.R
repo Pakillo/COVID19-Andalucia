@@ -115,6 +115,10 @@ datos.edad.sexo <- dplyr::bind_rows(datos.edad.sexo, datos.edad.sexo.dia) %>%
 }
 
 
+#### Descargar datos CNE ####
+
+download.file("https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv",
+              destfile = "datos/casos_hosp_uci_def_sexo_edad_provres.csv")
 
 
 ## Render
