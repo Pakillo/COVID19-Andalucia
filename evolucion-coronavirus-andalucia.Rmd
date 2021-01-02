@@ -1,5 +1,5 @@
 ---
-title: "Evolución de la enfermedad por coronavirus (COVID-19) en Andalucía"
+title: "Informe diario sobre la enfermedad por coronavirus (COVID-19) en Andalucía: Evolución y situación actual"
 output: 
   html_document: 
     fig_caption: yes
@@ -458,6 +458,24 @@ ggplot(datos.plot) +
   labs(x = "", y = "",
        title = "Positividad de las PCR + Test Antígeno",
        subtitle = "% Positivos última semana",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+  
+```
+
+
+```{r Ntest, fig.height=3}
+
+datos.plot <- datos.minist.andal %>% 
+  filter(!is.na(N.PCR.TA.7d)) 
+
+ggplot(datos.plot) +
+  geom_line(aes(Fecha, N.PCR.TA.7d), size = 2) +
+  annotate("text", x = 5 + max(datos.plot$Fecha), 
+           y = datos.plot$N.PCR.TA.7d[nrow(datos.plot)],
+           label = round(datos.plot$N.PCR.TA.7d[nrow(datos.plot)])) +
+  labs(x = "", y = "",
+       title = "Número de pruebas realizadas",
+       subtitle = "Pruebas realizadas en la última semana (PCR + Test Antígeno)",
        caption = "https://tiny.cc/COVID19-Andalucia")
   
 ```
@@ -1265,12 +1283,14 @@ La Junta de Andalucía ha comenzado a visualizar los datos diarios por provincia
 
 
 
+
+
+
+```{r test.posit, out.width='100%', eval=FALSE}
+
 ### Porcentaje de PCR positivas
 
-Aquí se muestra el número de PCR realizadas en Andalucía cada semana (según los datos ofrecidos por [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019)), el número de casos detectados esa semana y, en consecuencia, el porcentaje de PCR positivas. Si el porcentaje de pruebas positivas es elevado es probable que no se estén detectando todos los casos y por tanto no se estén cortando bien las cadenas de transmisión. La OMS recomienda que este porcentaje se mantenga por debajo del 5%. 
-
-
-```{r test.posit, out.width='100%'}
+# Aquí se muestra el número de PCR realizadas en Andalucía cada semana (según los datos ofrecidos por [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019)), el número de casos detectados esa semana y, en consecuencia, el porcentaje de PCR positivas. Si el porcentaje de pruebas positivas es elevado es probable que no se estén detectando todos los casos y por tanto no se estén cortando bien las cadenas de transmisión. La OMS recomienda que este porcentaje se mantenga por debajo del 5%. 
 
 ntest <- readr::read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_test_realizados.csv") %>%
   filter(cod_ine == "01") %>%
@@ -1316,7 +1336,7 @@ ggplot(ntest) +
 
 
 
-### Casos confirmados por fecha y rango de edad
+## Casos confirmados por rango de edad
 
 Esta figura representa los rangos de edad de los casos confirmados por PCR o test de antígeno a lo largo del tiempo (desde el 15 de Marzo de 2020). 
 
