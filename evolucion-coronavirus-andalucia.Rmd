@@ -351,7 +351,7 @@ Los distintos colores representan [niveles crecientes de riesgo](https://twitter
 
 <br>
 
-### Bloque 1: Nivel de Transmisión
+### Bloque 1: Nivel de Transmisión {#bloqueI}
 
 <br>
 
@@ -522,7 +522,7 @@ ggplot(datos.plot) +
 
 <br>
 
-### Bloque 2: Capacidad Asistencial
+### Bloque 2: Capacidad Asistencial {#bloqueII}
 
 <br>
 
@@ -769,7 +769,7 @@ datos.minist %>%
          #Casos.14d = `Confirmados 14d`, Casos.7d = `Confirmados 7d`, 
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   flextable() %>% 
-  width(width = 2)
+  width(width = 1.5)
 
 ```
 
@@ -829,7 +829,9 @@ ggplot(datos.andal) +
 
 <br>
 
-Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad. Durante los primeros meses de la pandemia (Marzo-Mayo 2020) solo se realizó PCR a los pacientes más graves, dejando sin detectar probablemente [más del 90% de los casos](https://www.eldiario.es/sociedad/porcentaje-poblacion-contagiada-explosivo-COVID-19_0_1026798481.html), por lo que el número de casos diarios no es comparable entre periodos con distinta intensidad de muestreo como la primavera y el otoño. 
+Debe tenerse en cuenta que el [número de casos confirmados depende en gran medida del número de test realizados](https://ourworldindata.org/covid-testing). Por tanto, un aumento o disminución en el número de casos confirmados puede deberse a haber realizado más o menos tests, no a variaciones en la incidencia de la enfermedad. 
+
+Durante los primeros meses de la pandemia (Marzo-Mayo 2020) solo se realizó PCR a los pacientes más graves, dejando sin detectar probablemente [más del 90% de los casos](https://www.eldiario.es/sociedad/porcentaje-poblacion-contagiada-explosivo-COVID-19_0_1026798481.html), por lo que el número de casos diarios no es comparable entre periodos con distinta intensidad de muestreo como la primavera y el otoño. 
 
 
 <br>
@@ -1051,7 +1053,9 @@ girafe(ggobj = mapa)
 
 **MUNICIPIOS CON MAYOR NÚMERO DE CASOS DETECTADOS (últimos 14 días)**
 
-Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Datos correspondientes al `r max(muni.data$Fecha)`:
+Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días).
+
+Datos correspondientes al `r max(muni.data$Fecha)`:
 
 <br>
 
@@ -1090,8 +1094,8 @@ mapa <-
         panel.grid = element_blank(),
         legend.title = element_blank(),
         axis.ticks = element_blank()) +
-  labs(title = "Casos por 100.000 habitantes en cada municipio",
-       subtitle = "Últimos 14 días",
+  labs(title = "Incidencia Acumulada en cada municipio",
+       subtitle = "Casos por 100.000 habitantes en los últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 girafe(ggobj = mapa)
@@ -1101,7 +1105,9 @@ girafe(ggobj = mapa)
 
 **MUNICIPIOS CON MAYOR INCIDENCIA ACUMULADA**
 
-Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Nótese que, en municipios pequeños, un número pequeño de casos puede dar lugar a valores de incidencia acumulada (casos por 100.000 habitantes) muy altos. Datos correspondientes al `r max(muni.data$Fecha)`:
+Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Nótese que, en municipios pequeños, un número pequeño de casos puede dar lugar a valores de incidencia acumulada (casos por 100.000 habitantes) muy altos. 
+
+Datos correspondientes al `r max(muni.data$Fecha)`:
 
 <br>
 
@@ -1118,22 +1124,39 @@ muni.data %>%
 
 <br>
 
-### Evolución de casos, incidencia acumulada y defunciones por municipio
 
+### Tabla interactiva de municipios
 
+<br>
+Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
+
+Datos correspondientes al `r max(muni.data$Fecha)`:
 
 <br>
 
-```{r tabla.muni, out.width='100%', eval=FALSE}
-# Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
+
+```{r tabla.muni, out.width='100%'}
+
+muni.dt <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
+  filter(Fecha == max(Fecha)) %>%
+  select(PROVINCIA = Provincia, MUNICIPIO = Municipio,
+         IA.14d = Conf14d_100.000hab, CASOS.14d = Confirmados.PCR.TA.14d,
+         `CASOS ACUM` = Confirmados.PCR.TA,
+         `DEFUNCIONES ACUM` = Defunciones) %>%
+  mutate(IA.14d = round(IA.14d))
 
 library(DT)
 
-muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 10000)
-#muni.data$Provincia <- as.factor(muni.data$Provincia)
-
-datatable(muni.data, rownames = FALSE, filter = "top")
+datatable(muni.dt, rownames = FALSE, filter = "top")
 ```
+
+<br>
+<br>
+
+### Evolución de casos, incidencia acumulada y defunciones por municipio {#appmunicipios}
+
+
+<br>
 
 
 Seleccione provincia y municipio para visualizar el número de casos confirmados, incidencia acumulada y defunciones por municipio.
@@ -1571,7 +1594,7 @@ datos.diarios.iscii.notna %>%
 
 
 
-## Ingresos en cuidados intensivos (UCI)
+## Ingresos en cuidados intensivos (UCI) {#uci}
 
 <br>
 
