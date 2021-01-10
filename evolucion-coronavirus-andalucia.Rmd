@@ -136,8 +136,8 @@ casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
                           skip_empty_rows = TRUE) %>%
   select(-Medida, - X5) %>%
   filter(!is.na(Edad)) %>%
-  tidyr::separate(col = "Fecha diagnóstico", into = c("Dia", "Mes"), sep = "/", remove = TRUE) %>%
-  mutate(Fecha = paste("2020", Mes, Dia, sep = "-")) %>%
+  tidyr::separate(col = "Fecha diagnóstico", into = c("Dia", "Mes", "Año"), sep = "/", remove = TRUE) %>%
+  mutate(Fecha = paste(`Año`, Mes, Dia, sep = "-")) %>%
   mutate(Fecha = as.Date(Fecha)) %>%
   mutate(edades = str_replace(Edad, "De ", "")) %>%
   mutate(edades = str_replace(edades, " a ", " - ")) %>%
