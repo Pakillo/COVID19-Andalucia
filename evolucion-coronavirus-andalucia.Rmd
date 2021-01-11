@@ -358,13 +358,15 @@ Los distintos colores representan [niveles crecientes de riesgo](https://twitter
 ```{r IA14, fig.height=4}
 
 datos.plot <- datos.minist.andal %>% 
-  filter(!is.na(Tasa.14d)) 
+  filter(!is.na(Tasa.14d))
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.14d), size = 2) +
   annotate("text", x = 7 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.14d[nrow(datos.plot)],
            label = round(datos.plot$Tasa.14d[nrow(datos.plot)])) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+               date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 150), fill = "#ff7f00", alpha = 0.3) +
@@ -389,6 +391,8 @@ ggplot(datos.plot) +
   annotate("text", x = 7 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.7d[nrow(datos.plot)],
            label = round(datos.plot$Tasa.7d[nrow(datos.plot)])) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+               date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 75), fill = "#ff7f00", alpha = 0.3) +
@@ -415,6 +419,8 @@ ggplot(datos.plot) +
   annotate("text", x = 7 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.14d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.14d.65a[nrow(datos.plot)])) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+               date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 20), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 20, ymax = 50), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 100), fill = "#ff7f00", alpha = 0.3) +
@@ -440,6 +446,8 @@ ggplot(datos.plot) +
   annotate("text", x = 7 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.7d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.7d.65a[nrow(datos.plot)])) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+               date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ff7f00", alpha = 0.3) +
