@@ -1111,6 +1111,54 @@ girafe(ggobj = mapa)
 ```
 
 
+```{r mapamunis_IA500, out.width='100%'}
+
+mapa <- muni.14d.hab %>% 
+  filter(casos > 500) %>% 
+  ggplot() +
+  ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
+  scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
+                       na.value = "white") +
+  #theme_minimal() +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Municipios con Incidencia Acumulada\n>500 casos por 100.000 habitantes",
+       # subtitle = "Casos por 100.000 habitantes en los últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+girafe(ggobj = mapa)
+
+```
+
+
+
+```{r mapamunis_IA1000, out.width='100%'}
+
+mapa <- muni.14d.hab %>% 
+  filter(casos > 1000) %>% 
+  ggplot() +
+  ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
+  scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
+                       na.value = "white") +
+  #theme_minimal() +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Municipios con Incidencia Acumulada\n>1000 casos por 100.000 habitantes",
+       # subtitle = "Casos por 100.000 habitantes en los últimos 14 días",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+girafe(ggobj = mapa)
+
+```
+
+
+
 **MUNICIPIOS CON MAYOR INCIDENCIA ACUMULADA**
 
 Se muestran los casos totales y la incidencia acumulada (casos por 100.000 habitantes en los últimos 14 días). Nótese que, en municipios pequeños, un número pequeño de casos puede dar lugar a valores de incidencia acumulada (casos por 100.000 habitantes) muy altos. 
@@ -1136,7 +1184,7 @@ muni.data %>%
 ### Tabla interactiva de municipios
 
 <br>
-Esta tabla contiene los datos de casos confirmados y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
+Esta tabla contiene los datos de casos confirmados, incidencia acumulada y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
 
 Datos correspondientes al `r max(muni.data$Fecha)`:
 
