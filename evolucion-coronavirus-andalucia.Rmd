@@ -1,5 +1,5 @@
 ---
-title: "Informe diario sobre la COVID-19 en Andalucía: Evolución y situación actual"
+title: "Datos COVID-19 Andalucía: Evolución y situación actual"
 output: 
   html_document: 
     fig_caption: yes
@@ -1125,8 +1125,8 @@ mapa <- muni.14d.hab %>%
         panel.grid = element_blank(),
         legend.title = element_blank(),
         axis.ticks = element_blank()) +
-  labs(title = "Municipios con Incidencia Acumulada\n>500 casos por 100.000 habitantes",
-       # subtitle = "Casos por 100.000 habitantes en los últimos 14 días",
+  labs(title = "Municipios con Incidencia Acumulada >500",
+       subtitle = ">500 casos por 100.000 habitantes en los últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 girafe(ggobj = mapa)
@@ -1149,8 +1149,8 @@ mapa <- muni.14d.hab %>%
         panel.grid = element_blank(),
         legend.title = element_blank(),
         axis.ticks = element_blank()) +
-  labs(title = "Municipios con Incidencia Acumulada\n>1000 casos por 100.000 habitantes",
-       # subtitle = "Casos por 100.000 habitantes en los últimos 14 días",
+  labs(title = "Municipios con Incidencia Acumulada >1000",
+       subtitle = ">1000 casos por 100.000 habitantes en los últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 girafe(ggobj = mapa)
