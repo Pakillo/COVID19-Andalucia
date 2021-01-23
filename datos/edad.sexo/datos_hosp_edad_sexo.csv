@@ -1,85 +1,276 @@
 Edad;Sexo;Medida;Valor;
 De 100 y más años;Hombres;Hospitalizados;1;
 De 100 y más años;Hombres;% pirámide;0,00;
-De 100 y más años;Mujeres;Hospitalizados;14;
+De 100 y más años;Mujeres;Hospitalizados;15;
 De 100 y más años;Mujeres;% pirámide;0,06;
-De 95 a 99 años;Hombres;Hospitalizados;78;
-De 95 a 99 años;Hombres;% pirámide;0,31207489797551413;
-De 95 a 99 años;Mujeres;Hospitalizados;195;
-De 95 a 99 años;Mujeres;% pirámide;0,7801872449387853;
-De 90 a 94 años;Hombres;Hospitalizados;403;
-De 90 a 94 años;Hombres;% pirámide;1,6123869728734899;
-De 90 a 94 años;Mujeres;Hospitalizados;629;
-De 90 a 94 años;Mujeres;% pirámide;2,5166039849563897;
-De 85 a 89 años;Hombres;Hospitalizados;1073;
-De 85 a 89 años;Hombres;% pirámide;4,293030327278547;
-De 85 a 89 años;Mujeres;Hospitalizados;1294;
-De 85 a 89 años;Mujeres;% pirámide;5,17724253820917;
-De 80 a 84 años;Hombres;Hospitalizados;1299;
-De 80 a 84 años;Hombres;% pirámide;5,1972473393614464;
-De 80 a 84 años;Mujeres;Hospitalizados;1350;
-De 80 a 84 años;Mujeres;% pirámide;5,401296311114667;
-De 75 a 79 años;Hombres;Hospitalizados;1506;
-De 75 a 79 años;Hombres;% pirámide;6,0254461070656955;
-De 75 a 79 años;Mujeres;Hospitalizados;1245;
-De 75 a 79 años;Mujeres;% pirámide;4,98119548691686;
-De 70 a 74 años;Hombres;Hospitalizados;1534;
-De 70 a 74 años;Hombres;% pirámide;6,137472993518445;
-De 70 a 74 años;Mujeres;Hospitalizados;1055;
-De 70 a 74 años;Mujeres;% pirámide;4,221013043130351;
-De 65 a 69 años;Hombres;Hospitalizados;1501;
-De 65 a 69 años;Hombres;% pirámide;6,005441305913419;
-De 65 a 69 años;Mujeres;Hospitalizados;904;
-De 65 a 69 años;Mujeres;% pirámide;3,6168680483315994;
-De 60 a 64 años;Hombres;Hospitalizados;1556;
-De 60 a 64 años;Hombres;% pirámide;6,225494118588461;
-De 60 a 64 años;Mujeres;Hospitalizados;976;
-De 60 a 64 años;Mujeres;% pirámide;3,904937184924382;
-De 55 a 59 años;Hombres;Hospitalizados;1362;
-De 55 a 59 años;Hombres;% pirámide;5,449307833880131;
-De 55 a 59 años;Mujeres;Hospitalizados;792;
-De 55 a 59 años;Mujeres;% pirámide;3,1687605025206045;
-De 50 a 54 años;Hombres;Hospitalizados;1189;
-De 50 a 54 años;Hombres;% pirámide;4,757141714011363;
-De 50 a 54 años;Mujeres;Hospitalizados;648;
-De 50 a 54 años;Mujeres;% pirámide;2,5926222293350407;
-De 45 a 49 años;Hombres;Hospitalizados;894;
-De 45 a 49 años;Hombres;% pirámide;3,5768584460270465;
-De 45 a 49 años;Mujeres;Hospitalizados;486;
-De 45 a 49 años;Mujeres;% pirámide;1,9444666720012802;
-De 40 a 44 años;Hombres;Hospitalizados;588;
-De 40 a 44 años;Hombres;% pirámide;2,352564615507722;
-De 40 a 44 años;Mujeres;Hospitalizados;389;
-De 40 a 44 años;Mujeres;% pirámide;1,5563735296471153;
-De 35 a 39 años;Hombres;Hospitalizados;380;
-De 35 a 39 años;Hombres;% pirámide;1,5203648875730176;
-De 35 a 39 años;Mujeres;Hospitalizados;326;
-De 35 a 39 años;Mujeres;% pirámide;1,3043130351284309;
-De 30 a 34 años;Hombres;Hospitalizados;208;
-De 30 a 34 años;Hombres;% pirámide;0,8321997279347043;
-De 30 a 34 años;Mujeres;Hospitalizados;286;
-De 30 a 34 años;Mujeres;% pirámide;1,1442746259102183;
-De 25 a 29 años;Hombres;Hospitalizados;141;
-De 25 a 29 años;Hombres;% pirámide;0,5641353924941985;
-De 25 a 29 años;Mujeres;Hospitalizados;187;
-De 25 a 29 años;Mujeres;% pirámide;0,7481795630951429;
-De 20 a 24 años;Hombres;Hospitalizados;97;
-De 20 a 24 años;Hombres;% pirámide;0,388093142354165;
-De 20 a 24 años;Mujeres;Hospitalizados;122;
-De 20 a 24 años;Mujeres;% pirámide;0,48811714811554774;
-De 15 a 19 años;Hombres;Hospitalizados;35;
-De 15 a 19 años;Hombres;% pirámide;0,14003360806593582;
-De 15 a 19 años;Mujeres;Hospitalizados;50;
-De 15 a 19 años;Mujeres;% pirámide;0,20004801152276544;
+De 95 a 99 años;Hombres;Hospitalizados;81;
+De 95 a 99 años;Hombres;% pirámide;0,3059836808703536;
+De 95 a 99 años;Mujeres;Hospitalizados;206;
+De 95 a 99 años;Mujeres;% pirámide;0,7781807192505289;
+De 90 a 94 años;Hombres;Hospitalizados;426;
+De 90 a 94 años;Hombres;% pirámide;1,6092475067996375;
+De 90 a 94 años;Mujeres;Hospitalizados;660;
+De 90 a 94 años;Mujeres;% pirámide;2,493200362647326;
+De 85 a 89 años;Hombres;Hospitalizados;1139;
+De 85 a 89 años;Hombres;% pirámide;4,302659413720157;
+De 85 a 89 años;Mujeres;Hospitalizados;1369;
+De 85 a 89 años;Mujeres;% pirámide;5,171501964339679;
+De 80 a 84 años;Hombres;Hospitalizados;1394;
+De 80 a 84 años;Hombres;% pirámide;5,265941372015714;
+De 80 a 84 años;Mujeres;Hospitalizados;1433;
+De 80 a 84 años;Mujeres;% pirámide;5,41326684799033;
+De 75 a 79 años;Hombres;Hospitalizados;1594;
+De 75 a 79 años;Hombres;% pirámide;6,021456633423996;
+De 75 a 79 años;Mujeres;Hospitalizados;1319;
+De 75 a 79 años;Mujeres;% pirámide;4,98262314898761;
+De 70 a 74 años;Hombres;Hospitalizados;1629;
+De 70 a 74 años;Hombres;% pirámide;6,153671804170444;
+De 70 a 74 años;Mujeres;Hospitalizados;1115;
+De 70 a 74 años;Mujeres;% pirámide;4,211997582351164;
+De 65 a 69 años;Hombres;Hospitalizados;1601;
+De 65 a 69 años;Hombres;% pirámide;6,047899667573285;
+De 65 a 69 años;Mujeres;Hospitalizados;961;
+De 65 a 69 años;Mujeres;% pirámide;3,6302508310667876;
+De 60 a 64 años;Hombres;Hospitalizados;1645;
+De 60 a 64 años;Hombres;% pirámide;6,2141130250831065;
+De 60 a 64 años;Mujeres;Hospitalizados;1032;
+De 60 a 64 años;Mujeres;% pirámide;3,8984587488667275;
+De 55 a 59 años;Hombres;Hospitalizados;1441;
+De 55 a 59 años;Hombres;% pirámide;5,443487458446661;
+De 55 a 59 años;Mujeres;Hospitalizados;849;
+De 55 a 59 años;Mujeres;% pirámide;3,2071622846781507;
+De 50 a 54 años;Hombres;Hospitalizados;1266;
+De 50 a 54 años;Hombres;% pirámide;4,782411604714415;
+De 50 a 54 años;Mujeres;Hospitalizados;683;
+De 50 a 54 años;Mujeres;% pirámide;2,5800846177092778;
+De 45 a 49 años;Hombres;Hospitalizados;941;
+De 45 a 49 años;Hombres;% pirámide;3,5546993049259594;
+De 45 a 49 años;Mujeres;Hospitalizados;516;
+De 45 a 49 años;Mujeres;% pirámide;1,9492293744333637;
+De 40 a 44 años;Hombres;Hospitalizados;626;
+De 40 a 44 años;Hombres;% pirámide;2,364762768207918;
+De 40 a 44 años;Mujeres;Hospitalizados;407;
+De 40 a 44 años;Mujeres;% pirámide;1,5374735569658506;
+De 35 a 39 años;Hombres;Hospitalizados;400;
+De 35 a 39 años;Hombres;% pirámide;1,5110305228165608;
+De 35 a 39 años;Mujeres;Hospitalizados;342;
+De 35 a 39 años;Mujeres;% pirámide;1,2919310970081597;
+De 30 a 34 años;Hombres;Hospitalizados;215;
+De 30 a 34 años;Hombres;% pirámide;0,8121789060139014;
+De 30 a 34 años;Mujeres;Hospitalizados;293;
+De 30 a 34 años;Mujeres;% pirámide;1,1068298579631308;
+De 25 a 29 años;Hombres;Hospitalizados;144;
+De 25 a 29 años;Hombres;% pirámide;0,543970988213962;
+De 25 a 29 años;Mujeres;Hospitalizados;193;
+De 25 a 29 años;Mujeres;% pirámide;0,7290722272589907;
+De 20 a 24 años;Hombres;Hospitalizados;105;
+De 20 a 24 años;Hombres;% pirámide;0,3966455122393473;
+De 20 a 24 años;Mujeres;Hospitalizados;129;
+De 20 a 24 años;Mujeres;% pirámide;0,48730734360834094;
+De 15 a 19 años;Hombres;Hospitalizados;36;
+De 15 a 19 años;Hombres;% pirámide;0,1359927470534905;
+De 15 a 19 años;Mujeres;Hospitalizados;54;
+De 15 a 19 años;Mujeres;% pirámide;0,20398912058023572;
 De 10 a 14 años;Hombres;Hospitalizados;23;
 De 10 a 14 años;Hombres;% pirámide;0,09;
 De 10 a 14 años;Mujeres;Hospitalizados;23;
 De 10 a 14 años;Mujeres;% pirámide;0,09;
-De 5 a 9 años;Hombres;Hospitalizados;16;
-De 5 a 9 años;Hombres;% pirámide;0,06;
-De 5 a 9 años;Mujeres;Hospitalizados;13;
-De 5 a 9 años;Mujeres;% pirámide;0,05;
-De 0 a 4 años;Hombres;Hospitalizados;69;
-De 0 a 4 años;Hombres;% pirámide;0,2760662559014163;
-De 0 a 4 años;Mujeres;Hospitalizados;52;
-De 0 a 4 años;Mujeres;% pirámide;0,20804993198367608;
+De 5 a 9 años;Hombres;Hospitalizados;18;
+De 5 a 9 años;Hombres;% pirámide;0,07;
+De 5 a 9 años;Mujeres;Hospitalizados;15;
+De 5 a 9 años;Mujeres;% pirámide;0,06;
+De 0 a 4 años;Hombres;Hospitalizados;73;
+De 0 a 4 años;Hombres;% pirámide;0,27576307041402237;
+De 0 a 4 años;Mujeres;Hospitalizados;55;
+De 0 a 4 años;Mujeres;% pirámide;0,2077666968872771;
+
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+          
+     
