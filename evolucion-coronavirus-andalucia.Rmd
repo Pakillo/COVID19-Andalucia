@@ -1693,6 +1693,47 @@ datos.diarios.iscii.notna %>%
 ```
 
 
+<br>
+
+Y aquí el número de personas ingresadas por cada rango de edad desde el inicio de la pandemia:
+
+<br>
+
+```{r edad.ingresos}
+hosp.edad <- read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = "."),
+                          skip_empty_rows = TRUE) %>%
+  select(-X5) %>%
+  filter(Medida == "Hospitalizados") %>%
+  filter(!is.na(Edad)) %>% 
+  mutate(edad.grupo = factor(sort(rep(1:21, 2)))) %>% 
+  group_by(Edad, edad.grupo) %>% 
+  summarise(n = sum(Valor)) %>% 
+  ungroup()
+  
+
+## Obtener etiquetas edades
+library(stringr)
+hosp.edad <- hosp.edad %>%
+  mutate(edades = str_replace(Edad, "De ", "")) %>%
+  mutate(edades = str_replace(edades, " a ", " - ")) %>%
+  mutate(edades = str_replace(edades, " años", "")) %>% 
+  arrange(edad.grupo) %>% 
+  mutate(edades.f = factor(edades, levels = edades))
+
+
+ggplot(hosp.edad) +
+  coord_flip() +
+  geom_col(aes(x = edades.f, y = n), fill = "#377eb8") + 
+  geom_text(aes(x = edades.f, y = n + 100, label = n), size = 3) +
+  labs(x = "Edad (años)", y = "", title = "Número de ingresos por rango de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+```
+
+<br>
 
 
 ## Ingresos en cuidados intensivos (UCI) {#uci}
