@@ -192,9 +192,9 @@ casos.65 <- casos.edad.fecha %>%
 ```
 
 
-```{r datos.minist}
+```{r datos.acum}
 
-datos.minist <- read_csv2("datos/acumulados.csv", 
+datos.acum <- read_csv2("datos/acumulados.csv", 
                         col_types = "Dcci-",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
@@ -215,14 +215,14 @@ datos.minist <- read_csv2("datos/acumulados.csv",
 
 
 ## Add tasas mayores de 65 años
-datos.minist <- datos.minist %>% 
+datos.acum <- datos.acum %>% 
   left_join(casos.65, by = c("Fecha", "Territorio"))
 
 ## Add datos positividad + trazabilidad
 test.minist <- readxl::read_excel("datos/positividad_Ministerio.xlsx")
 test.minist$Fecha <- as.Date(test.minist$Fecha)
 
-datos.minist <- datos.minist %>% 
+datos.acum <- datos.acum %>% 
   full_join(test.minist, by = c("Fecha", "Territorio"))
 
 
@@ -231,11 +231,11 @@ camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
   mutate(Fecha = as.Date(Fecha)) %>%
   rename(CamasUCI = UCI)
 
-datos.minist <- datos.minist %>%
+datos.acum <- datos.acum %>%
   left_join(camas, by = c("Fecha", "Territorio")) %>% 
   arrange(Fecha)
 
-datos.minist.andal <- datos.minist %>% 
+datos.acum.andal <- datos.acum %>% 
   filter(Territorio == "Andalucía")
 
 ```
@@ -357,7 +357,7 @@ Los distintos colores representan [niveles crecientes de riesgo](https://twitter
 
 ```{r IA14, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Tasa.14d))
 
 ggplot(datos.plot) +
@@ -383,7 +383,7 @@ ggplot(datos.plot) +
 
 ```{r IA7, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Tasa.7d)) 
 
 ggplot(datos.plot) +
@@ -410,9 +410,9 @@ ggplot(datos.plot) +
 
 ```{r IA14.65a, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Tasa.14d.65a)) %>% 
-  filter(Fecha < Sys.Date() - 3)
+  filter(Fecha <= max(casos.edad.fecha$Fecha) - 1)
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.14d.65a), size = 2) +
@@ -437,9 +437,9 @@ ggplot(datos.plot) +
 
 ```{r IA7.65a, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
-  filter(!is.na(Tasa.7d.65a)) %>% 
-  filter(Fecha < Sys.Date() - 3)
+datos.plot <- datos.acum.andal %>% 
+  filter(!is.na(Tasa.7d.65a)) %>%  
+  filter(Fecha <= max(casos.edad.fecha$Fecha) - 1)
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.7d.65a), size = 2) +
@@ -465,7 +465,7 @@ ggplot(datos.plot) +
 
 ```{r Positividad, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Positividad.7d)) 
 
 ggplot(datos.plot) +
@@ -489,12 +489,12 @@ ggplot(datos.plot) +
 
 ```{r Ntest, fig.height=3}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(N.PCR.TA.7d)) 
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, N.PCR.TA.7d), size = 2) +
-  annotate("text", x = 5 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$N.PCR.TA.7d[nrow(datos.plot)],
            label = round(datos.plot$N.PCR.TA.7d[nrow(datos.plot)])) +
   labs(x = "", y = "",
@@ -507,7 +507,7 @@ ggplot(datos.plot) +
 
 ```{r Trazabilidad, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Trazab_indic)) 
 
 ggplot(datos.plot) +
@@ -536,7 +536,7 @@ ggplot(datos.plot) +
 
 ```{r ocup.hospi, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(`%CamasOcup.Minist`)) 
 
 ggplot(datos.plot) +
@@ -560,7 +560,7 @@ ggplot(datos.plot) +
 
 ```{r ocup.uci, fig.height=4}
 
-datos.plot <- datos.minist.andal %>% 
+datos.plot <- datos.acum.andal %>% 
   filter(!is.na(`%UCI.Minist`)) 
 
 ggplot(datos.plot) +
@@ -752,7 +752,7 @@ ggplot() +
 # kable(datos.last[, -1])
 
 
-ayer <- datos.minist %>% 
+ayer <- datos.acum %>% 
   group_by(Territorio) %>% 
   mutate(across(.cols = c(Confirmados, Hospitalizados:Recuperados), 
          .fns = function(x) {x - lag(x)})) %>% 
@@ -813,10 +813,10 @@ last.day.valid %>%
 
 **DATOS ACUMULADOS:**
 
-```{r datos.acum, out.width='100%'}
+```{r datos.acum.tabla, out.width='100%'}
 # Estos datos normalmente un día por delante de la serie de la Junta
 
-datos.minist %>%
+datos.acum %>%
   filter(Fecha == max(Fecha)) %>%
   select(Territorio, Casos = Confirmados, 
          #Casos.14d = `Confirmados 14d`, Casos.7d = `Confirmados 7d`, 
