@@ -626,6 +626,51 @@ ggplot(camas) +
 
 <br>
 
+## Vacunación {#vacunacion}
+
+<br>
+
+```{r datos.vacunas}
+# datos de Datadista
+datos.vacu <- read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_vacunas.csv", locale = locale(decimal_mark = ",", grouping_mark = ".")) %>% 
+   filter(CCAA == "Andalucía") %>% 
+  mutate(entregadas = ifelse(`Fecha publicación` < as.Date("2021-01-14"), `Dosis entregadas Pfizer`, `Dosis entregadas totales`)) %>% 
+  mutate(`Personas con pauta completa` = ifelse(`Fecha publicación` < as.Date("2021-01-16"), 0, `Personas con pauta completa`)) %>% 
+  mutate(personas1dosis = `Dosis administradas` - 2*`Personas con pauta completa`) %>% 
+  select(Fecha = `Fecha publicación`, entregadas, administradas = `Dosis administradas`, personas1dosis, personas2dosis = `Personas con pauta completa`) %>% 
+  mutate(prop.poblacion = 100*personas2dosis/8464411)
+
+```
+
+
+```{r fig.vacunas.dosis, fig.height=4}
+datos.vacu %>% 
+  select(Fecha, entregadas, administradas) %>% 
+  tidyr::pivot_longer(cols = c("entregadas", "administradas")) %>% 
+ggplot() + 
+  geom_line(aes(Fecha, value, colour = name), size = 2) +
+  scale_colour_manual(values = c("Lime Green", "Dark Green"), name = "") +
+  scale_x_date(date_labels = "%d %b") +
+  labs(x = "", y = "Nº dosis\n", 
+       title = "Número de dosis entregadas y administradas", 
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(legend.position = "top")
+```
+
+
+```{r fig.vacunas.poblacion, fig.height=4}
+ggplot(datos.vacu) + 
+  geom_line(aes(Fecha, prop.poblacion), size = 2, colour = "Forest Green") +
+  scale_y_continuous(sec.axis = sec_axis(trans = function(x) {round(x*8464411/100)}, name = "Nº personas\n")) +
+  scale_x_date(date_labels = "%d %b") +
+  labs(x = "", y = "% población vacunada\n", 
+       title = "Porcentaje de población vacunada", 
+       subtitle = "Personas con vacunación completa (2 dosis)",
+       caption = "https://tiny.cc/COVID19-Andalucia") 
+```
+
+
+<br>
 
 ## Resumen de casos, ingresos y defunciones {#resumen}
 
