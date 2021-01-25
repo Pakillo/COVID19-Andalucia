@@ -1239,9 +1239,9 @@ muni.data %>%
 ### Tabla interactiva de municipios
 
 <br>
-Esta tabla contiene los datos de casos confirmados, incidencia acumulada y defunciones acumuladas por municipio. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
+Esta tabla contiene los datos de **casos confirmados, incidencia acumulada y defunciones** acumuladas **por municipio**. Se pueden realizar búsquedas en toda la tabla o filtrar valores en cada columna.
 
-Datos correspondientes al `r max(muni.data$Fecha)`:
+Datos correspondientes al `r max(muni.data$Fecha)`.
 
 <br>
 
@@ -1258,7 +1258,8 @@ muni.dt <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
 
 library(DT)
 
-datatable(muni.dt, rownames = FALSE, filter = "top")
+datatable(muni.dt, rownames = FALSE, filter = "top", 
+          options = list(language = list(url = '//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json')))
 ```
 
 <br>
