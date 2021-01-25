@@ -23,6 +23,16 @@ output:
 </script>
 
 
+```{r, echo=FALSE}
+library(metathis)
+meta() %>% 
+  meta_description("Información actualizada diariamente sobre casos detectados, ingresos, defunciones, vacunación, etc. a escala de municipio, provincia y comunidad autónoma") %>% 
+  meta_subject("COVID-19 en Andalucía: datos por municipio, provincia y comunidad autónoma") %>% 
+  meta_geo(geo_placename = "Andalucia",
+           geo_region = "ES-AN")
+```
+
+
 
 ```{r setup, include=FALSE}
 library(knitr)
@@ -1631,6 +1641,51 @@ ggplot(datos.provs) +
 
 <br>
 
+Número de personas ingresadas por cada rango de edad desde el inicio de la pandemia:
+
+<br>
+
+```{r edad.ingresos}
+hosp.edad <- read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
+                          locale = locale(date_names = "es", 
+                                          decimal_mark = ",",
+                                          grouping_mark = "."),
+                          skip_empty_rows = TRUE) %>%
+  select(-X5) %>%
+  filter(Medida == "Hospitalizados") %>%
+  filter(!is.na(Edad)) %>% 
+  mutate(edad.grupo = factor(sort(rep(1:21, 2)))) %>% 
+  group_by(Edad, edad.grupo) %>% 
+  summarise(n = sum(Valor)) %>% 
+  ungroup()
+  
+
+## Obtener etiquetas edades
+library(stringr)
+hosp.edad <- hosp.edad %>%
+  mutate(edades = str_replace(Edad, "De ", "")) %>%
+  mutate(edades = str_replace(edades, " a ", " - ")) %>%
+  mutate(edades = str_replace(edades, " años", "")) %>% 
+  arrange(edad.grupo) %>% 
+  mutate(edades.f = factor(edades, levels = edades))
+
+
+ggplot(hosp.edad) +
+  coord_flip() +
+  geom_col(aes(x = edades.f, y = n), fill = "#377eb8") + 
+  geom_text(aes(x = edades.f, y = n + 100, label = n), size = 3) +
+  labs(x = "Edad (años)", y = "", title = "Número de ingresos por rango de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+```
+
+
+<br>
+
+A continuación el número de ingresos diarios por rango de edad y sexo:
+
+<br>
+
 ```{r ingresos.heatmap.edad, out.width='100%', fig.height=3}
 
 datos.diarios.iscii.notna %>% 
@@ -1695,45 +1750,6 @@ datos.diarios.iscii.notna %>%
 
 <br>
 
-Y aquí el número de personas ingresadas por cada rango de edad desde el inicio de la pandemia:
-
-<br>
-
-```{r edad.ingresos}
-hosp.edad <- read_csv2("datos/edad.sexo/datos_hosp_edad_sexo.csv",
-                          locale = locale(date_names = "es", 
-                                          decimal_mark = ",",
-                                          grouping_mark = "."),
-                          skip_empty_rows = TRUE) %>%
-  select(-X5) %>%
-  filter(Medida == "Hospitalizados") %>%
-  filter(!is.na(Edad)) %>% 
-  mutate(edad.grupo = factor(sort(rep(1:21, 2)))) %>% 
-  group_by(Edad, edad.grupo) %>% 
-  summarise(n = sum(Valor)) %>% 
-  ungroup()
-  
-
-## Obtener etiquetas edades
-library(stringr)
-hosp.edad <- hosp.edad %>%
-  mutate(edades = str_replace(Edad, "De ", "")) %>%
-  mutate(edades = str_replace(edades, " a ", " - ")) %>%
-  mutate(edades = str_replace(edades, " años", "")) %>% 
-  arrange(edad.grupo) %>% 
-  mutate(edades.f = factor(edades, levels = edades))
-
-
-ggplot(hosp.edad) +
-  coord_flip() +
-  geom_col(aes(x = edades.f, y = n), fill = "#377eb8") + 
-  geom_text(aes(x = edades.f, y = n + 100, label = n), size = 3) +
-  labs(x = "Edad (años)", y = "", title = "Número de ingresos por rango de edad",
-       caption = "https://tiny.cc/COVID19-Andalucia")
-
-```
-
-<br>
 
 
 ## Ingresos en cuidados intensivos (UCI) {#uci}
