@@ -663,6 +663,7 @@ ggplot() +
   geom_line(aes(Fecha, value, colour = name), size = 2) +
   scale_colour_manual(values = c("Lime Green", "Dark Green"), name = "") +
   scale_x_date(date_labels = "%d %b") +
+  scale_y_continuous(labels = comma_format(big.mark = ".", decimal.mark = ",")) +
   labs(x = "", y = "Nº dosis\n", 
        title = "Número de dosis entregadas y administradas", 
        caption = "https://tiny.cc/COVID19-Andalucia") +
