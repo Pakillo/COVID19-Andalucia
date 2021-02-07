@@ -674,7 +674,9 @@ ggplot() +
 ```{r fig.vacunas.poblacion, fig.height=4}
 ggplot(datos.vacu) + 
   geom_line(aes(Fecha, prop.poblacion), size = 2, colour = "Forest Green") +
-  scale_y_continuous(sec.axis = sec_axis(trans = function(x) {round(x*8464411/100)}, name = "Nº personas\n")) +
+  scale_y_continuous(sec.axis = sec_axis(trans = function(x) {round(x*8464411/100)}, 
+                                         name = "Nº personas\n"),
+                     labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
   scale_x_date(date_labels = "%d %b") +
   labs(x = "", y = "% población vacunada\n", 
        title = "Porcentaje de población vacunada", 
