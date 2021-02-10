@@ -644,7 +644,7 @@ ggplot(camas) +
 
 ```{r datos.vacunas}
 # datos de Datadista
-datos.vacu <- read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_vacunas.csv", locale = locale(decimal_mark = ",", grouping_mark = ".")) %>% 
+datos.vacu <- read_csv2("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_vacunas.csv", locale = locale(decimal_mark = ",", grouping_mark = ".")) %>% 
    filter(CCAA == "Andalucía") %>% 
   mutate(entregadas = ifelse(`Fecha publicación` < as.Date("2021-01-14"), `Dosis entregadas Pfizer`, `Dosis entregadas totales`)) %>% 
   mutate(`Personas con pauta completa` = ifelse(`Fecha publicación` < as.Date("2021-01-16"), 0, `Personas con pauta completa`)) %>% 
@@ -675,7 +675,8 @@ ggplot() +
 ggplot(datos.vacu) + 
   geom_line(aes(Fecha, prop.poblacion), size = 2, colour = "Forest Green") +
   scale_y_continuous(sec.axis = sec_axis(trans = function(x) {round(x*8464411/100)}, 
-                                         name = "Nº personas\n"),
+                                         name = "Nº personas\n",
+                                         labels = scales::label_number(big.mark = ".", decimal.mark = ",")),
                      labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
   scale_x_date(date_labels = "%d %b") +
   labs(x = "", y = "% población vacunada\n", 
