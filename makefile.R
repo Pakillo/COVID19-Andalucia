@@ -2,7 +2,7 @@
 library(dplyr)
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-02-04")
+fecha.munis <- as.Date("2021-02-09")
 
 fecha.edad <- as.Date("2021-02-08")
 
@@ -32,6 +32,8 @@ download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografi
 # Jaén
 # Málaga
 # Sevilla
+# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=82c9ab4e-c505-4997-83c7-37fc83504a9f&type=3&codConsulta=42798&consTipoVisua=TJP",
+#               destfile = "datos/municipios.dia/Municipios_todos_datoshoy.csv", mode = "wb")
 
 
 # Piramides
@@ -66,21 +68,30 @@ munis <- readr::read_csv("datos/muni_prov_dist.csv")
 
 if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
 
-  munis.dia <- list.files("datos/municipios.dia/", pattern = ".csv", full.names = TRUE)
+  ## Using big CSV from https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/42798?CodOper=b3_2314&codConsulta=42798
+  muni.dia <- readr::read_csv2("datos/municipios.dia/Municipios_todos_datoshoy.csv", col_types = "ccd_")
 
-  muni.dia <- purrr::map_df(munis.dia, readr::read_csv2, col_types = "ccd_") %>%
+  ## Using CSV by province
+  # munis.dia <- list.files("datos/municipios.dia/", pattern = ".csv", full.names = TRUE)
+  # muni.dia <- purrr::map_df(munis.dia, readr::read_csv2, col_types = "ccd_")
+
+  muni.dia <- muni.dia %>%
     rename(Municipio = `Lugar de residencia`) %>%
     #dplyr::select(-X4) %>%
     dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$Municipio)) %>%
     dplyr::filter(!is.na(Medida)) %>%
     dplyr::filter(Medida != "Población") %>%
+    dplyr::filter(Medida != "Tasa PDIA") %>%
+    dplyr::filter(Medida != "Confirmados PDIA 7 días") %>%
+    dplyr::filter(Medida != "Tasa PDIA 7 dias") %>%
+    dplyr::filter(Medida != "Tasa total confirmados") %>%
+    dplyr::filter(Medida != "Curados") %>%
+    mutate(Medida = ifelse(Medida == "Tasa PDIA 14 dias", "Tasa PDIA 14 días", Medida)) %>%
     assertr::verify(unique(.$Medida) ==
                       c("Confirmados PDIA",
                         "Confirmados PDIA 14 días",
                         "Tasa PDIA 14 días",
-                        "Confirmados PDIA 7 días",
                         "Total Confirmados",
-                        "Curados",
                         "Fallecidos")) %>%
     mutate(Medida = ifelse(Medida == "Tasa PDIA 14 días", "Conf14d_100.000hab", Medida)) %>%
     mutate(Medida = ifelse(Medida == "Confirmados PDIA", "Confirmados.PCR.TA", Medida)) %>%
@@ -90,6 +101,12 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
     dplyr::filter(Medida == "Confirmados.PCR.TA" | Medida == "Confirmados.PCR.TA.14d" |
                     Medida == "Conf14d_100.000hab" |
                     Medida == "ConfirmadosTotal" | Medida == "Defunciones") %>%
+    mutate(rownumber = 1:nrow(.)) %>%
+    group_by(Municipio) %>%
+    arrange(rownumber) %>%
+    slice_tail(n = 5) %>%
+    ungroup() %>%
+    select(-rownumber) %>%
     tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
     mutate(Fecha = fecha.munis) %>%
     right_join(munis, by = "Municipio") %>%
