@@ -8,55 +8,6 @@ fecha.edad <- as.Date("2021-02-08")
 
 
 
-
-## Descargar datos IECA
-
-# Acumulados
-download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=d8aa0b74-f3ed-4db7-adef-c45fd2680f2e&type=3&foto=si&ejecutaDesde=&codConsulta=38228&consTipoVisua=JP",
-              destfile = "datos/acumulados.csv", mode = "wb")
-
-# Provincias
-download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=1fe435eb-a064-4f01-8dcf-cfe132996c14&type=3&foto=si&ejecutaDesde=&codConsulta=39409&consTipoVisua=JP",
-              destfile = "datos_provincias_raw.csv", mode = "wb")
-
-# Edad Confirmados
-download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=8f2cc994-051e-415f-b2f4-50d6fc8c9a3d&type=3&foto=si&ejecutaDesde=&codConsulta=41135&consTipoVisua=JP",
-              destfile = "datos/confPCR_edad_fecha.csv", mode = "wb")
-
-# Municipios
-# Almeria
-# Cádiz
-# Córdoba
-# Granada
-# Huelva
-# Jaén
-# Málaga
-# Sevilla
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=82c9ab4e-c505-4997-83c7-37fc83504a9f&type=3&codConsulta=42798&consTipoVisua=TJP",
-#               destfile = "datos/municipios.dia/Municipios_todos_datoshoy.csv", mode = "wb")
-
-
-# Piramides
-# Casos
-download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=91072e3b-fc90-4f37-9d95-91f78304f63f&type=3&codConsulta=39356&consTipoVisua=TJP",
-              destfile = "datos/edad.sexo/datos_casos_edad_sexo.csv", mode = "wb")
-
-# Hosp
-download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=604fd587-141a-4b2c-9a93-32d1f9bd5ca0&type=3&foto=si&ejecutaDesde=&codConsulta=39351&consTipoVisua=JP",
-              destfile = "datos/edad.sexo/datos_hosp_edad_sexo.csv", mode = "wb")
-
-# UCI
-download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=640a40a8-bdf3-4fce-a6ea-051d42e36973&type=3&foto=si&ejecutaDesde=&codConsulta=39355&consTipoVisua=JP",
-              destfile = "datos/edad.sexo/datos_uci_edad_sexo.csv", mode = "wb")
-
-# Defunciones
-download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=ee25daa4-2a05-4960-adca-fc451a8d15cc&type=3&foto=si&ejecutaDesde=&codConsulta=39354&consTipoVisua=JP",
-              destfile = "datos/edad.sexo/datos_def_edad_sexo.csv", mode = "wb")
-
-
-
-
-
 #### Datos municipios #####
 
 muni.data <- readr::read_csv("datos/municipios.csv",
