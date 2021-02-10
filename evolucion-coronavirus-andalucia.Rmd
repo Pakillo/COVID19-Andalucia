@@ -334,11 +334,13 @@ datos.indic <- datos.indic %>%
 
 library(flextable)
 
+set_flextable_defaults(digits = 0, big.mark = ".", decimal.mark = ",")
+
 datos.indic %>% 
   select(-Fecha) %>% 
   select(Territorio, Riesgo, IA14:`%OcupUCI`) %>% 
   flextable() %>% 
-  colformat_num(j = 3:10, digits = 0) %>% 
+  # colformat_num(j = 3:10, digits = 0) %>% 
   bg(j = "Riesgo", part = 'body', bg = indic.color.riesgo) %>% 
   bg(j = "IA14", bg = datos.indic$IA14.col) %>% 
   bg(j = "IA7", bg = datos.indic$IA7.col) %>%
@@ -644,7 +646,8 @@ ggplot(camas) +
 
 ```{r datos.vacunas}
 # datos de Datadista
-datos.vacu <- read_csv2("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_vacunas.csv", locale = locale(decimal_mark = ",", grouping_mark = ".")) %>% 
+datos.vacu <- read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_vacunas.csv", 
+                        locale = locale(decimal_mark = ",", grouping_mark = ".")) %>% 
    filter(CCAA == "Andalucía") %>% 
   mutate(entregadas = ifelse(`Fecha publicación` < as.Date("2021-01-14"), `Dosis entregadas Pfizer`, `Dosis entregadas totales`)) %>% 
   mutate(`Personas con pauta completa` = ifelse(`Fecha publicación` < as.Date("2021-01-16"), 0, `Personas con pauta completa`)) %>% 
@@ -818,6 +821,7 @@ last.day.valid %>%
          Casos.7d = `Confirmados 7d`, IA.7d = IA7,
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   flextable() %>% 
+  
   bg(j = "IA.14d", bg = last.day.valid$IA14.col) %>% 
   bg(j = "IA.7d", bg = last.day.valid$IA7.col)
 
@@ -1076,7 +1080,7 @@ Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
   filter(Fecha == max(Fecha)) %>%
   rename(PROVINCIA = Provincia, MUNICIPIO = Municipio) %>%
-  mutate(Confirmados.PCR.TA.14d = ifelse(Confirmados.PCR.TA.14d < 1, NA, Confirmados.PCR.TA.14d))
+  mutate(Confirmados.PCR.TA.14d = ifelse(Confirmados.PCR.TA.14d < 1, NA, as.integer(Confirmados.PCR.TA.14d)))
 
 
 
@@ -1681,7 +1685,9 @@ ggplot(hosp.edad) +
   coord_flip() +
   geom_col(aes(x = edades.f, y = n), fill = "#377eb8") + 
   geom_text(aes(x = edades.f, y = n + 100, label = n), size = 3) +
-  labs(x = "Edad (años)", y = "", title = "Número de ingresos por rango de edad",
+  labs(x = "Edad (años)", y = "", 
+       title = "Número de ingresos por rango de edad",
+       subtitle = paste0("Total de ingresados = ", sum(hosp.edad$n), ". Datos con fecha ", fecha.edad),
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 ```
