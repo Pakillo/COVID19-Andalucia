@@ -1,276 +1,85 @@
 Edad;Sexo;Medida;Valor;
 De 100 y más años;Hombres;Confirmados PDIA;25;
 De 100 y más años;Hombres;% pirámide;0,01;
-De 100 y más años;Mujeres;Confirmados PDIA;121;
+De 100 y más años;Mujeres;Confirmados PDIA;123;
 De 100 y más años;Mujeres;% pirámide;0,03;
-De 95 a 99 años;Hombres;Confirmados PDIA;245;
+De 95 a 99 años;Hombres;Confirmados PDIA;250;
 De 95 a 99 años;Hombres;% pirámide;0,06;
-De 95 a 99 años;Mujeres;Confirmados PDIA;893;
-De 95 a 99 años;Mujeres;% pirámide;0,20155556659007706;
-De 90 a 94 años;Hombres;Confirmados PDIA;1279;
-De 90 a 94 años;Hombres;% pirámide;0,2886781295282291;
-De 90 a 94 años;Mujeres;Confirmados PDIA;3159;
-De 90 a 94 años;Mujeres;% pirámide;0,7130056381389176;
-De 85 a 89 años;Hombres;Confirmados PDIA;3117;
-De 85 a 89 años;Hombres;% pirámide;0,7035259810316575;
-De 85 a 89 años;Mujeres;Confirmados PDIA;5630;
-De 85 a 89 años;Mujeres;% pirámide;1,2707254646160513;
-De 80 a 84 años;Hombres;Confirmados PDIA;4197;
-De 80 a 84 años;Hombres;% pirámide;0,947288592361202;
-De 80 a 84 años;Mujeres;Confirmados PDIA;6133;
-De 80 a 84 años;Mujeres;% pirámide;1,3842556437815707;
-De 75 a 79 años;Hombres;Confirmados PDIA;5489;
-De 75 a 79 años;Hombres;% pirámide;1,2389009014702497;
-De 75 a 79 años;Mujeres;Confirmados PDIA;6439;
-De 75 a 79 años;Mujeres;% pirámide;1,4533217169916082;
-De 70 a 74 años;Hombres;Confirmados PDIA;6917;
-De 70 a 74 años;Hombres;% pirámide;1,5612092431170919;
-De 70 a 74 años;Mujeres;Confirmados PDIA;7266;
-De 70 a 74 años;Mujeres;% pirámide;1,6399806795559908;
-De 65 a 69 años;Hombres;Confirmados PDIA;8702;
-De 65 a 69 años;Hombres;% pirámide;1,9640946701756443;
-De 65 a 69 años;Mujeres;Confirmados PDIA;8634;
-De 65 a 69 años;Mujeres;% pirámide;1,9487466539067473;
-De 60 a 64 años;Hombres;Confirmados PDIA;12077;
-De 60 a 64 años;Hombres;% pirámide;2,725852830580471;
-De 60 a 64 años;Mujeres;Confirmados PDIA;12570;
-De 60 a 64 años;Mujeres;% pirámide;2,8371259485299762;
-De 55 a 59 años;Hombres;Confirmados PDIA;15009;
-De 55 a 59 años;Hombres;% pirámide;3,387623179115864;
-De 55 a 59 años;Mujeres;Confirmados PDIA;16719;
-De 55 a 59 años;Mujeres;% pirámide;3,7735806470543096;
-De 50 a 54 años;Hombres;Confirmados PDIA;16768;
-De 50 a 54 años;Hombres;% pirámide;3,784640247012779;
-De 50 a 54 años;Mujeres;Confirmados PDIA;19438;
-De 50 a 54 años;Mujeres;% pirámide;4,3872755916885975;
-De 45 a 49 años;Hombres;Confirmados PDIA;17752;
-De 45 a 49 años;Hombres;% pirámide;4,0067350706685865;
-De 45 a 49 años;Mujeres;Confirmados PDIA;20171;
-De 45 a 49 años;Mujeres;% pirámide;4,552718178822445;
-De 40 a 44 años;Hombres;Confirmados PDIA;17382;
-De 40 a 44 años;Hombres;% pirámide;3,923223805676058;
-De 40 a 44 años;Mujeres;Confirmados PDIA;19944;
-De 40 a 44 años;Mujeres;% pirámide;4,501482889218921;
-De 35 a 39 años;Hombres;Confirmados PDIA;15436;
-De 35 a 39 años;Hombres;% pirámide;3,4839996930396744;
-De 35 a 39 años;Mujeres;Confirmados PDIA;17648;
-De 35 a 39 años;Mujeres;% pirámide;3,983261634022038;
-De 30 a 34 años;Hombres;Confirmados PDIA;14409;
-De 30 a 34 años;Hombres;% pirámide;3,252199506155006;
-De 30 a 34 años;Mujeres;Confirmados PDIA;16820;
-De 30 a 34 años;Mujeres;% pirámide;3,796376965336054;
-De 25 a 29 años;Hombres;Confirmados PDIA;14903;
-De 25 a 29 años;Hombres;% pirámide;3,363698330226112;
-De 25 a 29 años;Mujeres;Confirmados PDIA;16859;
-De 25 a 29 años;Mujeres;% pirámide;3,8051795040785095;
-De 20 a 24 años;Hombres;Confirmados PDIA;14028;
-De 20 a 24 años;Hombres;% pirámide;3,166205473824861;
-De 20 a 24 años;Mujeres;Confirmados PDIA;15633;
-De 20 a 24 años;Mujeres;% pirámide;3,5284637989951566;
-De 15 a 19 años;Hombres;Confirmados PDIA;13743;
-De 15 a 19 años;Hombres;% pirámide;3,1018792291684534;
-De 15 a 19 años;Mujeres;Confirmados PDIA;14165;
-De 15 a 19 años;Mujeres;% pirámide;3,197127212484257;
-De 10 a 14 años;Hombres;Confirmados PDIA;12087;
-De 10 a 14 años;Hombres;% pirámide;2,7281098917964854;
-De 10 a 14 años;Mujeres;Confirmados PDIA;11801;
-De 10 a 14 años;Mujeres;% pirámide;2,6635579410184764;
-De 5 a 9 años;Hombres;Confirmados PDIA;8583;
-De 5 a 9 años;Hombres;% pirámide;1,9372356417050745;
-De 5 a 9 años;Mujeres;Confirmados PDIA;8543;
-De 5 a 9 años;Mujeres;% pirámide;1,9282073968410172;
-De 0 a 4 años;Hombres;Confirmados PDIA;6169;
-De 0 a 4 años;Hombres;% pirámide;1,3923810641592222;
-De 0 a 4 años;Mujeres;Confirmados PDIA;5926;
-De 0 a 4 años;Mujeres;% pirámide;1,3375344766100745;
-
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-     
+De 95 a 99 años;Mujeres;Confirmados PDIA;899;
+De 95 a 99 años;Mujeres;% pirámide;0,1986178495364847;
+De 90 a 94 años;Hombres;Confirmados PDIA;1306;
+De 90 a 94 años;Hombres;% pirámide;0,28853716517758515;
+De 90 a 94 años;Mujeres;Confirmados PDIA;3207;
+De 90 a 94 años;Mujeres;% pirámide;0,7085288581351573;
+De 85 a 89 años;Hombres;Confirmados PDIA;3166;
+De 85 a 89 años;Hombres;% pirámide;0,6994706469772086;
+De 85 a 89 años;Mujeres;Confirmados PDIA;5736;
+De 85 a 89 años;Mujeres;% pirámide;1,267265834194968;
+De 80 a 84 años;Hombres;Confirmados PDIA;4288;
+De 80 a 84 años;Hombres;% pirámide;0,9473563279337558;
+De 80 a 84 años;Mujeres;Confirmados PDIA;6260;
+De 80 a 84 años;Mujeres;% pirámide;1,3830341914331417;
+De 75 a 79 años;Hombres;Confirmados PDIA;5629;
+De 75 a 79 años;Hombres;% pirámide;1,2436261123925165;
+De 75 a 79 años;Mujeres;Confirmados PDIA;6589;
+De 75 a 79 años;Mujeres;% pirámide;1,4557208126761934;
+De 70 a 74 años;Hombres;Confirmados PDIA;7057;
+De 70 a 74 años;Hombres;% pirámide;1,5591169790644857;
+De 70 a 74 años;Mujeres;Confirmados PDIA;7405;
+De 70 a 74 años;Mujeres;% pirámide;1,6360013079173186;
+De 65 a 69 años;Hombres;Confirmados PDIA;8906;
+De 65 a 69 años;Hombres;% pirámide;1,9676202090900252;
+De 65 a 69 años;Mujeres;Confirmados PDIA;8827;
+De 65 a 69 años;Mujeres;% pirámide;1,9501665827125143;
+De 60 a 64 años;Hombres;Confirmados PDIA;12299;
+De 60 a 64 años;Hombres;% pirámide;2,717242415405145;
+De 60 a 64 años;Mujeres;Confirmados PDIA;12816;
+De 60 a 64 años;Mujeres;% pirámide;2,8314642487870834;
+De 55 a 59 años;Hombres;Confirmados PDIA;15322;
+De 55 a 59 años;Hombres;% pirámide;3,3851197893192646;
+De 55 a 59 años;Mujeres;Confirmados PDIA;17055;
+De 55 a 59 años;Mujeres;% pirámide;3,767994909727193;
+De 50 a 54 años;Hombres;Confirmados PDIA;17127;
+De 50 a 54 años;Hombres;% pirámide;3,7839020122484692;
+De 50 a 54 años;Mujeres;Confirmados PDIA;19847;
+De 50 a 54 años;Mujeres;% pirámide;4,384836996385553;
+De 45 a 49 años;Hombres;Confirmados PDIA;18162;
+De 45 a 49 años;Hombres;% pirámide;4,012566610991808;
+De 45 a 49 años;Mujeres;Confirmados PDIA;20635;
+De 45 a 49 años;Mujeres;% pirámide;4,5589313962017375;
+De 40 a 44 años;Hombres;Confirmados PDIA;17788;
+De 40 a 44 años;Hombres;% pirámide;3,929938050672959;
+De 40 a 44 años;Mujeres;Confirmados PDIA;20394;
+De 40 a 44 años;Mujeres;% pirámide;4,505686789151356;
+De 35 a 39 años;Hombres;Confirmados PDIA;15759;
+De 35 a 39 años;Hombres;% pirámide;3,4816670643442302;
+De 35 a 39 años;Mujeres;Confirmados PDIA;18036;
+De 35 a 39 años;Mujeres;% pirámide;3,984729181579575;
+De 30 a 34 años;Hombres;Confirmados PDIA;14699;
+De 30 a 34 años;Hombres;% pirámide;3,2474791661143367;
+De 30 a 34 años;Mujeres;Confirmados PDIA;17135;
+De 30 a 34 años;Mujeres;% pirámide;3,7856694680841665;
+De 25 a 29 años;Hombres;Confirmados PDIA;15157;
+De 25 a 29 años;Hombres;% pirámide;3,3486660127080077;
+De 25 a 29 años;Mujeres;Confirmados PDIA;17135;
+De 25 a 29 años;Mujeres;% pirámide;3,7856694680841665;
+De 20 a 24 años;Hombres;Confirmados PDIA;14291;
+De 20 a 24 años;Hombres;% pirámide;3,1573389184937737;
+De 20 a 24 años;Mujeres;Confirmados PDIA;15900;
+De 20 a 24 años;Mujeres;% pirámide;3,5128184734483945;
+De 15 a 19 años;Hombres;Confirmados PDIA;14046;
+De 15 a 19 años;Hombres;% pirámide;3,103210583525544;
+De 15 a 19 años;Mujeres;Confirmados PDIA;14443;
+De 15 a 19 años;Mujeres;% pirámide;3,190920579372023;
+De 10 a 14 años;Hombres;Confirmados PDIA;12474;
+De 10 a 14 años;Hombres;% pirámide;2,7559055118110236;
+De 10 a 14 años;Mujeres;Confirmados PDIA;12136;
+De 10 a 14 años;Mujeres;% pirámide;2,6812305027528125;
+De 5 a 9 años;Hombres;Confirmados PDIA;8846;
+De 5 a 9 años;Hombres;% pirámide;1,9543642903222955;
+De 5 a 9 años;Mujeres;Confirmados PDIA;8791;
+De 5 a 9 años;Mujeres;% pirámide;1,9422130314518764;
+De 0 a 4 años;Hombres;Confirmados PDIA;6360;
+De 0 a 4 años;Hombres;% pirámide;1,4051273893793579;
+De 0 a 4 años;Mujeres;Confirmados PDIA;6081;
+De 0 a 4 años;Mujeres;% pirámide;1,3434873671094143;
