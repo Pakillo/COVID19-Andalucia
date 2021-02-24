@@ -2,7 +2,7 @@
 library(dplyr)
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-02-22")
+fecha.munis <- as.Date("2021-02-23")
 
 fecha.edad <- as.Date("2021-02-18")
 
