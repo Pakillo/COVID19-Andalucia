@@ -632,7 +632,7 @@ ggplot(camas) +
   annotate("text", x = max(camas.last$Fecha) + 18, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b", 
-               limits = c(as.Date("2020-04-05"), NA), expand = c(0, 20))
+               limits = c(as.Date("2020-04-05"), NA), expand = c(0, 30))
   
 
 ```
@@ -1083,9 +1083,9 @@ muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
   mutate(CASOS.14d = ifelse(Confirmados.PCR.TA.14d < 1, NA, as.integer(Confirmados.PCR.TA.14d))) %>% 
   mutate(IA.14d = round(Conf14d_100.000hab))
 
-
-
 library(sf)
+
+Andal.border <- st_read("datos/Andalucia_contorno.gpkg", quiet = TRUE)
 
 # muni.gpkg <- st_read("datos/municipios.gpkg", 
 #                      stringsAsFactors = FALSE, quiet = TRUE) 
@@ -1107,6 +1107,7 @@ library(ggiraph)
 
 mapa <- 
   ggplot(muni.14d) +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
   ggiraph::geom_sf_interactive(aes(fill = CASOS.14d, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1158,6 +1159,7 @@ muni.14d.hab <- left_join(select(muni.lite, PROVINCIA, MUNICIPIO),
 
 mapa <- 
   ggplot(muni.14d.hab) +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
   ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1181,6 +1183,7 @@ girafe(ggobj = mapa)
 mapa <- muni.14d.hab %>% 
   filter(casos > 500) %>% 
   ggplot() +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
   ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1205,6 +1208,7 @@ girafe(ggobj = mapa)
 mapa <- muni.14d.hab %>% 
   filter(casos > 1000) %>% 
   ggplot() +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
   ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1685,7 +1689,7 @@ ggplot(hosp.edad) +
   geom_text(aes(x = edades.f, y = n + 100, label = n), size = 3) +
   labs(x = "Edad (años)", y = "", 
        title = "Número de ingresos por rango de edad",
-       subtitle = paste0("Total de ingresados = ", sum(hosp.edad$n), ". Datos con fecha ", fecha.edad),
+       subtitle = paste0("Total de ingresados: ", sum(hosp.edad$n), " (con fecha ", fecha.edad, ")"),
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 ```
