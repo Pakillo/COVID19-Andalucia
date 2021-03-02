@@ -1248,6 +1248,100 @@ muni.data %>%
 <br>
 
 
+
+```{r mapamunis_proporciones}
+muni.dia <- readr::read_csv2("datos/municipios.dia/Municipios_todos_datoshoy.csv", col_types = "ccd_")
+
+muni.dia <- muni.dia %>%
+    rename(Municipio = `Lugar de residencia`) %>%
+    dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$MUNICIPIO)) %>%
+    dplyr::filter(!is.na(Medida)) %>%
+    dplyr::filter(Medida == "Población" | Medida == "Confirmados PDIA" | 
+                    Medida == "Tasa PDIA 14 dias" |
+                    Medida == "Total Confirmados" | Medida == "Fallecidos") %>%
+    mutate(rownumber = 1:nrow(.)) %>%
+    group_by(Municipio) %>%
+    arrange(rownumber) %>%
+    slice_tail(n = 5) %>%
+    ungroup() %>%
+    select(-rownumber) %>%
+    tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
+    mutate(Prop.Casos.Pop = 100*`Total Confirmados`/`Población`,
+           Prop.Def.Pop = 100*Fallecidos/`Población`,
+           Prop.Def.Casos = 100*Fallecidos/`Total Confirmados`) %>% 
+    rename(MUNICIPIO = Municipio)
+
+muni.dia <- left_join(muni.lite, muni.dia, by = "MUNICIPIO") 
+
+```
+
+
+```{r mapamunis_propcasos}
+mapa <- muni.dia %>% 
+  mutate(lab = paste0(MUNICIPIO, ": ", round(Prop.Casos.Pop), "%")) %>% 
+  ggplot() +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  ggiraph::geom_sf_interactive(aes(fill = Prop.Casos.Pop, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
+  scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
+                       na.value = "white") +
+  #theme_minimal() +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Porcentaje de población contagiada por municipio",
+       subtitle = "Desde el inicio de la pandemia\nImportante: Este mapa solo tiene en cuenta los casos detectados oficialmente.\nEl porcentaje real de personas contagiadas podría ser muy superior",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+girafe(ggobj = mapa)
+
+```
+
+
+
+```{r mapamunis_propdef}
+mapa <- muni.dia %>% 
+  mutate(lab = paste0(MUNICIPIO, ": ", round(Prop.Def.Pop, digits = 1), "%")) %>% 
+  ggplot() +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  ggiraph::geom_sf_interactive(aes(fill = Prop.Def.Pop, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
+  scale_fill_gradient(low = "white", high = "black", na.value = "white") +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Porcentaje de población fallecida por municipio",
+       subtitle = "Importante: Este mapa solo tiene en cuenta los fallecimientos oficiales por COVID",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+girafe(ggobj = mapa)
+
+```
+
+```{r mapamunis_pop}
+mapa <- muni.dia %>% 
+  mutate(lab = paste0(MUNICIPIO, ": ", round(`Población`))) %>% 
+  ggplot() +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  ggiraph::geom_sf_interactive(aes(fill = `Población`, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
+  scale_fill_gradient(low = "white", high = "black", na.value = "white",
+                      labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Número de habitantes por municipio",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+girafe(ggobj = mapa)
+
+```
+
+
+
 ### Tabla interactiva de municipios
 
 <br>
