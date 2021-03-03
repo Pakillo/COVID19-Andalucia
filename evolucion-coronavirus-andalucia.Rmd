@@ -1327,8 +1327,9 @@ mapa <- muni.dia %>%
   geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
   ggiraph::geom_sf_interactive(aes(fill = `Población`, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
-  scale_fill_gradient(low = "white", high = "black", na.value = "white",
-                      labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_distiller(type = "seq", palette = "Purples", direction = 1,
+                       na.value = "white",
+                       labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
   theme(axis.text = element_blank(),
         panel.grid = element_blank(),
         legend.title = element_blank(),
