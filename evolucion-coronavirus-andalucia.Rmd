@@ -627,9 +627,9 @@ ggplot(camas) +
        x = "", y = "Camas ocupadas\n") +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
-  annotate("text", x = max(camas.last$Fecha) + 20, y = camas.last$CamasOcup, 
+  annotate("text", x = max(camas.last$Fecha) + 21, y = camas.last$CamasOcup, 
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8") +
-  annotate("text", x = max(camas.last$Fecha) + 18, y = camas.last$CamasUCI,
+  annotate("text", x = max(camas.last$Fecha) + 20, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b", 
                limits = c(as.Date("2020-04-05"), NA), expand = c(0, 30))
@@ -927,7 +927,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 200, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 100, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 3) 
 
 ```
@@ -1781,7 +1781,7 @@ hosp.edad <- hosp.edad %>%
 ggplot(hosp.edad) +
   coord_flip() +
   geom_col(aes(x = edades.f, y = n), fill = "#377eb8") + 
-  geom_text(aes(x = edades.f, y = n + 100, label = n), size = 3) +
+  geom_text(aes(x = edades.f, y = n + 150, label = n), size = 3) +
   labs(x = "Edad (años)", y = "", 
        title = "Número de ingresos por rango de edad",
        subtitle = paste0("Total de ingresados: ", sum(hosp.edad$n), " (con fecha ", fecha.edad, ")"),
