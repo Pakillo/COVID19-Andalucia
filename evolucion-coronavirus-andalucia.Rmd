@@ -62,7 +62,11 @@ theme_set(mytheme)
 
 <br>
 
-Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), el [Ministerio de Sanidad](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). Se incluyen **casos detectados, ingresos, defunciones, letalidad, etc** a escala de **municipio, provincia y comunidad autónoma**.
+**Datos diarios de casos, ingresos y defunciones por rango de edad, municipio, provincia y comunidad autónoma.**
+
+---
+
+Aquí se visualiza la evolución de la enfermedad COVID-19 causada por el coronavirus SARS-CoV2 en Andalucía, según los datos ofrecidos por la [Junta de Andalucía](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html), el [Ministerio de Sanidad](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/), la [Fundación CIVIO](https://datos.civio.es/) y [Datadista](https://github.com/datadista/datasets/tree/master/COVID%2019). Se incluyen casos detectados, ingresos, defunciones, letalidad, etc por rango de edad y a escala de municipio, provincia y comunidad autónoma.
 
 Los datos se **actualizan diariamente**. En esta [cuenta de twitter](https://twitter.com/covid_andalucia) compartiremos la información más relevante. Tanto los datos como el código empleado para generar estas visualizaciones está disponible [aquí](https://github.com/Pakillo/COVID19-Andalucia). 
 
