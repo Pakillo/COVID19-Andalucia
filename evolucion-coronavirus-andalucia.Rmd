@@ -181,6 +181,7 @@ nhab.edad.sexo <- data.frame(
 casos.edad.fecha <- casos.edad.fecha %>% 
   left_join(nhab.edad.sexo, by = "Edad") %>% 
   group_by(Edad) %>% 
+  arrange(Fecha) %>% 
   mutate(Casos.acum = cumsum(Casos)) %>% 
   mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14)) %>% 
   mutate(IA.14d = Casos.14d*100000 / nhab) %>% 
@@ -528,7 +529,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Trazab_indic), size = 2) +
-  annotate("text", x = 1 + max(datos.plot$Fecha), 
+  annotate("text", x = 2 + max(datos.plot$Fecha), 
            y = datos.plot$Trazab_indic[nrow(datos.plot)],
            label = round(datos.plot$Trazab_indic[nrow(datos.plot)])) +
   geom_ribbon(aes(x = Fecha, ymin = 80, ymax = 100), fill = "#4daf4a", alpha = 0.3) +
