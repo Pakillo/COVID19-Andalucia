@@ -26,7 +26,7 @@ output:
 ```{r, echo=FALSE}
 library(metathis)
 meta() %>% 
-  meta_description("Información actualizada diariamente sobre casos detectados, ingresos, defunciones, vacunación, etc. a escala de municipio, provincia y comunidad autónoma") %>% 
+  meta_description("Información diaria sobre casos detectados, ingresos, defunciones, vacunación, etc. a escala de municipio, provincia y comunidad autónoma") %>% 
   meta_subject("COVID-19 en Andalucía: datos por municipio, provincia y comunidad autónoma") %>% 
   meta_geo(geo_placename = "Andalucia",
            geo_region = "ES-AN")
@@ -37,6 +37,8 @@ meta() %>%
 ```{r setup, include=FALSE}
 library(knitr)
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, out.width = "100%")
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
 # Garrick Adenbuie's gist to place TOC anywhere
 # devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
@@ -49,11 +51,11 @@ library(dplyr)
 library(ggplot2)
 #library(plotly)
 
-mytheme <- theme_minimal(base_size = 12) +
+mytheme <- theme_minimal(base_size = 14) +
   theme(panel.grid.minor = element_blank(),
         panel.grid.major.x = element_blank(),
         plot.caption = element_text(size = 8, face = "italic", colour = "grey60"),
-        plot.subtitle = element_text(size = 9, face = "plain", colour = "grey50"),
+        plot.subtitle = element_text(size = 11, face = "plain", colour = "grey50"),
         axis.ticks = element_line(colour = "grey80"),
         axis.ticks.length = unit(3, "pt"),
         strip.text = element_text(size = 12))
@@ -335,7 +337,7 @@ datos.indic <- datos.indic %>%
 ```
 
 
-```{r indicadores.tabla}
+```{r indicadores.tabla, crop = TRUE}
 
 library(flextable)
 
@@ -354,7 +356,9 @@ datos.indic %>%
   bg(j = "Positividad", bg = datos.indic$Positividad.col) %>% 
   bg(j = "Trazabilidad", bg = datos.indic$Trazabilidad.col) %>% 
   bg(j = "%OcupHosp", bg = datos.indic$OcupHosp.col) %>% 
-  bg(j = "%OcupUCI", bg = datos.indic$OcupUCI.col)
+  bg(j = "%OcupUCI", bg = datos.indic$OcupUCI.col) %>% 
+  autofit() %>% 
+  plot()
   
 ```
 
@@ -487,9 +491,9 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Positividad.7d), size = 2) +
-  annotate("text", x = 3 + max(datos.plot$Fecha), 
+  annotate("text", x = 8 + max(datos.plot$Fecha), 
            y = datos.plot$Positividad.7d[nrow(datos.plot)],
-           label = round(datos.plot$Positividad.7d[nrow(datos.plot)])) +
+           label = paste(round(datos.plot$Positividad.7d[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 4, ymax = 7), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 7, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
@@ -529,9 +533,9 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Trazab_indic), size = 2) +
-  annotate("text", x = 2 + max(datos.plot$Fecha), 
+  annotate("text", x = 8 + max(datos.plot$Fecha), 
            y = datos.plot$Trazab_indic[nrow(datos.plot)],
-           label = round(datos.plot$Trazab_indic[nrow(datos.plot)])) +
+           label = paste(round(datos.plot$Trazab_indic[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 80, ymax = 100), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 65, ymax = 80), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 65), fill = "#ff7f00", alpha = 0.3) +
@@ -558,9 +562,9 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%CamasOcup.Minist`), size = 2) +
-  annotate("text", x = 5 + max(datos.plot$Fecha), 
+  annotate("text", x = 7 + max(datos.plot$Fecha), 
            y = datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)],
-           label = round(datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)])) +
+           label = paste(round(datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 2), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 2, ymax = 5), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 5, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
@@ -582,9 +586,9 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%UCI.Minist`), size = 2) +
-  annotate("text", x = 5 + max(datos.plot$Fecha), 
+  annotate("text", x = 7 + max(datos.plot$Fecha), 
            y = datos.plot$`%UCI.Minist`[nrow(datos.plot)],
-           label = round(datos.plot$`%UCI.Minist`[nrow(datos.plot)])) +
+           label = paste(round(datos.plot$`%UCI.Minist`[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 5), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 5, ymax = 10), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#ff7f00", alpha = 0.3) +
@@ -627,14 +631,14 @@ ggplot(camas) +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   ylim(0, NA) +
-  labs(title = "Pacientes ingresados con COVID-19 en hospitales andaluces",
+  labs(title = "Pacientes ingresados con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "", y = "Camas ocupadas\n") +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
-  annotate("text", x = max(camas.last$Fecha) + 21, y = camas.last$CamasOcup, 
+  annotate("text", x = max(camas.last$Fecha) + 26, y = camas.last$CamasOcup, 
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8") +
-  annotate("text", x = max(camas.last$Fecha) + 20, y = camas.last$CamasUCI,
+  annotate("text", x = max(camas.last$Fecha) + 25, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b", 
                limits = c(as.Date("2020-04-05"), NA), expand = c(0, 30))
@@ -818,7 +822,7 @@ last.day.valid <- ayer %>%
 
 **DATOS DEL DÍA:** `r unique(last.day.valid$Fecha)`
 
-```{r out.width='100%'}
+```{r out.width='100%', crop = TRUE}
 
 last.day.valid %>% 
   select(Territorio, Casos = Confirmados, 
@@ -826,9 +830,10 @@ last.day.valid %>%
          Casos.7d = `Confirmados 7d`, IA.7d = IA7,
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   flextable() %>% 
-  
   bg(j = "IA.14d", bg = last.day.valid$IA14.col) %>% 
-  bg(j = "IA.7d", bg = last.day.valid$IA7.col)
+  bg(j = "IA.7d", bg = last.day.valid$IA7.col) %>% 
+  autofit() %>% 
+  plot()
 
 ```
 
@@ -838,7 +843,7 @@ last.day.valid %>%
 
 **DATOS ACUMULADOS:**
 
-```{r datos.acum.tabla, out.width='100%'}
+```{r datos.acum.tabla, out.width='100%', crop = TRUE}
 # Estos datos normalmente un día por delante de la serie de la Junta
 
 datos.acum %>%
@@ -847,7 +852,7 @@ datos.acum %>%
          #Casos.14d = `Confirmados 14d`, Casos.7d = `Confirmados 7d`, 
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   flextable() %>% 
-  width(width = 1.5)
+  width(width = 1.4)
 
 ```
 
@@ -1038,7 +1043,9 @@ ggplot() +
        title = "Casos diarios de COVID-19 en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8)) +
+  theme(axis.text.x = element_text(size = 8),
+        plot.subtitle = element_text(size = 9),
+        axis.text.y = element_text(size = 10)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
 
 ```
@@ -1296,7 +1303,7 @@ mapa <- muni.dia %>%
         legend.title = element_blank(),
         axis.ticks = element_blank()) +
   labs(title = "Porcentaje de población contagiada por municipio",
-       subtitle = "Desde el inicio de la pandemia\nImportante: Este mapa solo tiene en cuenta los casos detectados oficialmente.\nEl porcentaje real de personas contagiadas podría ser muy superior",
+       subtitle = "Desde el inicio de la pandemia.\nEste mapa solo tiene en cuenta los casos detectados oficialmente.\nEl porcentaje real de personas contagiadas podría ser muy superior",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 girafe(ggobj = mapa)
@@ -1318,7 +1325,7 @@ mapa <- muni.dia %>%
         legend.title = element_blank(),
         axis.ticks = element_blank()) +
   labs(title = "Porcentaje de población fallecida por municipio",
-       subtitle = "Importante: Este mapa solo tiene en cuenta los fallecimientos oficiales por COVID",
+       subtitle = "Este mapa solo tiene en cuenta los fallecimientos oficiales por COVID",
        caption = "https://tiny.cc/COVID19-Andalucia")
 
 girafe(ggobj = mapa)
@@ -1370,8 +1377,9 @@ muni.dt <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
 
 library(DT)
 
-datatable(muni.dt, rownames = FALSE, filter = "top", 
-          options = list(language = list(url = '//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json')))
+datatable(muni.dt, rownames = FALSE, filter = "top", width = '100%', 
+          options = list(scrollX = TRUE,
+                         language = list(url = '//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json')))
 ```
 
 <br>
@@ -1473,7 +1481,8 @@ casos.edad.fecha %>%
        title = "Edad de los casos confirmados",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -1626,7 +1635,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 ```
 
 
@@ -1646,7 +1656,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -1790,7 +1801,7 @@ ggplot(hosp.edad) +
   labs(x = "Edad (años)", y = "", 
        title = "Número de ingresos por rango de edad",
        subtitle = paste0("Total de ingresados: ", sum(hosp.edad$n), " (con fecha ", fecha.edad, ")"),
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") 
 
 ```
 
@@ -1816,7 +1827,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Ambos sexos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -1837,7 +1849,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -1858,7 +1871,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -1947,7 +1961,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Ambos sexos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -1968,7 +1983,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -1989,7 +2005,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -2009,7 +2026,7 @@ ggplot(datos.andal) +
   geom_line(aes(x = Fecha, y = zoo::rollmean(Defunciones, 7, fill = NA)),
             colour = "grey40", size = 1.5) +
   labs(x = "", y = "Nº Defunciones\n",
-       title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
+       title = "Defunciones diarias con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5),
@@ -2024,7 +2041,7 @@ ggplot(datos.andal) +
 ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Defunciones), fill = "grey40") +
   labs(x = "", y = "Nº Defunciones\n",
-       title = "Defunciones diarias relacionadas con COVID-19 en Andalucía",
+       title = "Defunciones diarias con COVID-19 en Andalucía",
        subtitle = "Últimos 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
@@ -2052,8 +2069,8 @@ ggplot() +
   geom_line(aes(x = Fecha, y = def_ma), colour = "grey40", size = 1) +
   scale_y_continuous(limits = c(0, NA)) +
   labs(x = "", y = "Nº Defunciones\n",
-       title = "Defunciones diarias relacionadas con COVID-19 en cada provincia",
-       subtitle = "Para facilitar la visualización de tendencias, la escala del eje vertical es diferente en cada provincia",
+       title = "Defunciones diarias con COVID-19 en cada provincia",
+       subtitle = "La escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
@@ -2081,7 +2098,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Ambos sexos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
@@ -2102,7 +2120,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 ```
 
 
@@ -2122,7 +2141,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme(legend.title = element_text(size = 12))
 
 ```
 
