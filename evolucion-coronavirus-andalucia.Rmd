@@ -843,7 +843,7 @@ last.day.valid %>%
 
 **DATOS ACUMULADOS:**
 
-```{r datos.acum.tabla, out.width='60%', crop = TRUE}
+```{r datos.acum.tabla, out.width='80%', crop = TRUE, fig.align='center'}
 # Estos datos normalmente un día por delante de la serie de la Junta
 
 datos.acum %>%
