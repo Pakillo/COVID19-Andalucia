@@ -358,7 +358,7 @@ datos.indic %>%
   bg(j = "%OcupHosp", bg = datos.indic$OcupHosp.col) %>% 
   bg(j = "%OcupUCI", bg = datos.indic$OcupUCI.col) %>% 
   autofit() %>% 
-  plot()
+  plot(zoom = 1)
   
 ```
 
@@ -822,7 +822,7 @@ last.day.valid <- ayer %>%
 
 **DATOS DEL DÍA:** `r unique(last.day.valid$Fecha)`
 
-```{r out.width='100%', crop = TRUE}
+```{r tabla.datos.dia, out.width='100%', crop = TRUE}
 
 last.day.valid %>% 
   select(Territorio, Casos = Confirmados, 
@@ -833,7 +833,7 @@ last.day.valid %>%
   bg(j = "IA.14d", bg = last.day.valid$IA14.col) %>% 
   bg(j = "IA.7d", bg = last.day.valid$IA7.col) %>% 
   autofit() %>% 
-  plot()
+  plot(zoom = 1)
 
 ```
 
@@ -843,7 +843,7 @@ last.day.valid %>%
 
 **DATOS ACUMULADOS:**
 
-```{r datos.acum.tabla, out.width='100%', crop = TRUE}
+```{r datos.acum.tabla, out.width='60%', crop = TRUE}
 # Estos datos normalmente un día por delante de la serie de la Junta
 
 datos.acum %>%
@@ -852,7 +852,8 @@ datos.acum %>%
          #Casos.14d = `Confirmados 14d`, Casos.7d = `Confirmados 7d`, 
          Ingresos = Hospitalizados, UCI, Defunciones) %>% 
   flextable() %>% 
-  width(width = 1.4)
+  width(width = 1.4) %>% 
+  plot(zoom = 1)
 
 ```
 
