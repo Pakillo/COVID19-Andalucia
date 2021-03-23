@@ -660,9 +660,10 @@ datos.vacu <- read_csv("https://raw.githubusercontent.com/datadista/datasets/mas
    filter(CCAA == "Andalucía") %>% 
   mutate(entregadas = ifelse(`Fecha publicación` < as.Date("2021-01-14"), `Dosis entregadas Pfizer`, `Dosis entregadas totales`)) %>% 
   mutate(`Personas con pauta completa` = ifelse(`Fecha publicación` < as.Date("2021-01-16"), 0, `Personas con pauta completa`)) %>% 
-  mutate(personas1dosis = `Dosis administradas` - 2*`Personas con pauta completa`) %>% 
-  select(Fecha = `Fecha publicación`, entregadas, administradas = `Dosis administradas`, personas1dosis, personas2dosis = `Personas con pauta completa`) %>% 
-  mutate(prop.poblacion = 100*personas2dosis/8464411)
+  mutate(personas1dosis = `Dosis administradas` - 2*`Personas con pauta completa`) %>% #NB: this won't work with single-dose vaccines 
+  select(Fecha = `Fecha publicación`, entregadas, administradas = `Dosis administradas`, 
+         personas1dosis, perscompletas = `Personas con pauta completa`) %>% 
+  mutate(prop.poblacion = 100*perscompletas/8464411)
 
 ```
 
@@ -693,7 +694,7 @@ ggplot(datos.vacu) +
   scale_x_date(date_labels = "%d %b") +
   labs(x = "", y = "% población vacunada\n", 
        title = "Porcentaje de población vacunada", 
-       subtitle = "Personas con vacunación completa (2 dosis)",
+       subtitle = "Personas con vacunación completa",
        caption = "https://tiny.cc/COVID19-Andalucia") 
 ```
 
