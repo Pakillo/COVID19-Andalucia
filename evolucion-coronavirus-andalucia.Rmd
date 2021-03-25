@@ -346,6 +346,7 @@ set_flextable_defaults(digits = 0, big.mark = ".", decimal.mark = ",")
 datos.indic %>% 
   select(-Fecha) %>% 
   select(Territorio, Riesgo, IA14:`%OcupUCI`) %>% 
+  mutate(across(IA14:`%OcupUCI`, round)) %>% 
   flextable() %>% 
   # colformat_num(j = 3:10, digits = 0) %>% 
   bg(j = "Riesgo", part = 'body', bg = indic.color.riesgo) %>% 
