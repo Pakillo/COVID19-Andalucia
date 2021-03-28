@@ -610,9 +610,11 @@ ggplot(datos.plot) +
 
 <br>
 
-El pico máximo de camas ocupadas de la "primera ola" se alcanzó el 30 de Marzo con 2708 pacientes ingresados (438 en UCI). Ese número se rebasó el 2 de Noviembre con 2764 personas ingresadas (381 en UCI). 
+El pico máximo de camas ocupadas de la "primera ola" se alcanzó el 30 de Marzo de 2020 con 2708 pacientes ingresados (438 en UCI). Ese número se rebasó el 2 de Noviembre (ya en la segunda ola) con 2764 personas ingresadas (381 en UCI). 
 
-El pico de ingresados de la 2ª ola se alcanzó el 9 de Noviembre con 3478 personas ingresadas (460 en UCI). El 17 de Noviembre había 528 pacientes en UCI. Este número se rebasó el 24 de Enero de 2021 con 552 pacientes en UCI.
+El pico de ingresados de la 2ª ola se alcanzó el 9 de Noviembre con 3478 personas ingresadas (460 en UCI). El 17 de Noviembre había 528 pacientes en UCI. 
+
+El pico de ingresados de la 3ª ola se alcanzó el 2 de Febrero de 2021 con 4911 ingresados. El 6 de Febrero llegó a haber 735 pacientes ingresados en UCI. 
 
 <br>
 
@@ -1085,6 +1087,8 @@ ggplot() +
 
 ## Datos por Municipio
 
+Consulta https://www.mapacovid.es para conocer el nivel de alerta y restricciones oficiales por municipio. 
+
 ### Mapas
 
 
@@ -1122,7 +1126,7 @@ library(ggiraph)
 
 mapa <- 
   ggplot(muni.14d) +
-  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.3) +
   ggiraph::geom_sf_interactive(aes(fill = CASOS.14d, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1174,7 +1178,7 @@ muni.14d.hab <- left_join(select(muni.lite, PROVINCIA, MUNICIPIO),
 
 mapa <- 
   ggplot(muni.14d.hab) +
-  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.3) +
   ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1198,7 +1202,7 @@ girafe(ggobj = mapa)
 mapa <- muni.14d.hab %>% 
   filter(casos > 500) %>% 
   ggplot() +
-  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.3) +
   ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1223,7 +1227,7 @@ girafe(ggobj = mapa)
 mapa <- muni.14d.hab %>% 
   filter(casos > 1000) %>% 
   ggplot() +
-  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.3) +
   ggiraph::geom_sf_interactive(aes(fill = casos, tooltip = lab), 
                                colour = "grey85", size = 0.1) +
   scale_fill_distiller(type = "seq", palette = "Oranges", direction = 1, 
@@ -1528,9 +1532,6 @@ Aquí se representan los mismos datos (casos diarios confirmados por categoría 
 
 ```{r casos.edad.lines, out.width='100%'}
 
-# ggplot(casos.edad.fecha) +
-#   geom_line(aes(Fecha, Casos, colour = edades))
-
 casos.edad.fecha$edades <- factor(casos.edad.fecha$edades, 
                                   levels = rev(levels(casos.edad.fecha$edades)))
 
@@ -1541,7 +1542,7 @@ casos.edad.fecha %>%
 ggplot() +
   geom_line(aes(x = Fecha, y = casos_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 5), 
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
        title = "Casos diarios por franja de edad",
@@ -1551,6 +1552,7 @@ ggplot() +
                                 "#377eb8", "#4daf4a", "#999999")) +
   # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
   theme(legend.title = element_text(hjust = 0.5))
+
 ```
 
 <br>
@@ -1566,7 +1568,7 @@ casos.edad.fecha %>%
 ggplot() +
   geom_line(aes(x = Fecha, y = IA14_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 5), 
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Incidencia Acumulada\n", x = "",
        title = "Incidencia Acumulada 14 días por franja de edad",
@@ -1577,6 +1579,7 @@ ggplot() +
                                 "#377eb8", "#4daf4a", "#999999")) +
   # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
   theme(legend.title = element_text(hjust = 0.5))
+
 ```
 
 
@@ -1882,6 +1885,37 @@ datos.diarios.iscii.notna %>%
 
 <br>
 
+Aquí se representan los mismos datos (ingresos diarios por franja de edad) usando medias móviles a 7 días para facilitar la visualización de tendencias:
+
+
+```{r ingresos.edad.lines, out.width='100%'}
+
+datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(hosp = sum(hosp)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
+  group_by(edades) %>% 
+  mutate(hosp_ma = zoo::rollmean(hosp, 7, fill = NA)) %>% 
+  ungroup() %>% 
+  ggplot() +
+  geom_line(aes(x = fecha, y = hosp_ma, colour = edades),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(datos.diarios.iscii.notna$fecha) - 4), 
+               date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Ingresos\n", x = "",
+       title = "Ingresos diarios por franja de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
+  #                               "#377eb8", "#4daf4a", "#999999")) +
+  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
+  theme(legend.title = element_text(hjust = 0.5))
+
+```
+
+<br>
 
 
 ## Ingresos en cuidados intensivos (UCI) {#uci}
@@ -2018,6 +2052,8 @@ datos.diarios.iscii.notna %>%
 
 
 
+
+
 ## Defunciones
 
 <br>
@@ -2151,6 +2187,9 @@ datos.diarios.iscii.notna %>%
 
 
 <br>
+
+
+
 
 
 ## Distribución global por edad y sexo {#edad-sexo}
