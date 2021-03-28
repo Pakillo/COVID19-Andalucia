@@ -2,9 +2,9 @@
 library(dplyr)
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-03-24")
+fecha.munis <- as.Date("2021-03-25")
 
-fecha.edad <- as.Date("2021-03-19")
+fecha.edad <- as.Date("2021-03-25")
 
 
 
@@ -132,8 +132,11 @@ datos.edad.sexo <- dplyr::bind_rows(datos.edad.sexo, datos.edad.sexo.dia) %>%
 
 #### Descargar datos CNE ####
 
-download.file("https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv",
+url.iscii.edad <- "https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv"
+if (!httr::http_error(url.iscii.edad)) {
+  download.file("https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv",
               destfile = "datos/casos_hosp_uci_def_sexo_edad_provres.csv")
+}
 
 
 ## Render
