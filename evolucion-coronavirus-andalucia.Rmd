@@ -1083,7 +1083,86 @@ ggplot() +
 <br>
 
 
+## Movilidad
 
+Variación de la movilidad según los [datos de Google](https://www.google.com/covid19/mobility/). Estos datos comparan el número de visitas o tiempo empleado en distintos lugares en relación a la mediana del mismo día de la semana en el período comprendido entre el 3 de enero y el 6 de febrero de 2020 (período de referencia).
+
+
+```{r mobidata}
+if (! file.exists("datos/2021_ES_Region_Mobility_Report.csv")) {
+  unzip("datos/Region_Mobility_Report_CSVs.zip", 
+        files = "2021_ES_Region_Mobility_Report.csv", 
+        exdir = "datos")
+}
+
+mobidata <- read_csv("./2021_ES_Region_Mobility_Report.csv") %>% 
+  filter(sub_region_1 == "Andalusia") %>% 
+  select(-"grocery_and_pharmacy_percent_change_from_baseline") %>% 
+  rename("tiendas y ocio" = "retail_and_recreation_percent_change_from_baseline",
+         "parques y playas" = "parks_percent_change_from_baseline",
+         "transporte público" = "transit_stations_percent_change_from_baseline",
+         "trabajo" = "workplaces_percent_change_from_baseline",
+         "residencial" = "residential_percent_change_from_baseline") %>% 
+  pivot_longer(cols = starts_with("tiendas"):starts_with("residencial"), 
+               names_to = "place", values_to = "change")
+
+library(directlabels)
+
+```
+
+<br>
+
+```{r mobi.andal}
+
+mobidata %>% 
+  filter(is.na(sub_region_2)) %>% 
+  group_by(place) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 7, fill = NA)) %>% 
+  ungroup() %>% 
+  filter(date > as.Date("2021-01-06")) %>% 
+  ggplot() +
+  aes(x = date, y = change_ma) +
+  geom_line(aes(colour = place), size = 1.5) + 
+  scale_colour_manual(values = c("#4DAF4A", "#984EA3", "#E41A1C", "#377EB8", "#999999"),
+                      name = "", ) +
+  geom_hline(yintercept = 0, colour = "black", size = 1, lty = 2) +
+  labs(x = "", y = "Diferencia en la movilidad (%)\n",
+       title = "Cambios en la movilidad (Andalucía)",
+       subtitle = "Medias móviles a 7 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(legend.position = "none") +
+  geom_dl(aes(label = paste("", place), colour = place), method = "last.points") +
+  scale_x_date(#date_breaks = "1 month", date_labels = "%b", 
+               expand = expansion(add = c(10, 25)))
+
+```
+
+<br>
+
+```{r mobi.provs, fig.height=10}
+
+mobidata %>% 
+  filter(!is.na(sub_region_2)) %>% 
+  group_by(sub_region_2, place) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 7, fill = NA)) %>% 
+  ungroup() %>% 
+  filter(date > as.Date("2021-01-06")) %>% 
+  ggplot() +
+  facet_wrap(~sub_region_2, ncol = 2) +
+  aes(x = date, y = change_ma) +
+  geom_line(aes(colour = place), size = 1) + 
+  scale_colour_manual(values = c("#4DAF4A", "#984EA3", "#E41A1C", "#377EB8", "#999999"),
+                      name = "", ) +
+  geom_hline(yintercept = 0, colour = "black", size = 1, lty = 2) +
+  labs(x = "", y = "Diferencia en la movilidad (%)\n",
+       title = "Cambios en la movilidad (provincias)",
+       subtitle = "Medias móviles a 7 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(legend.position = "top")
+
+```
+
+<br>
 
 ## Datos por Municipio
 
