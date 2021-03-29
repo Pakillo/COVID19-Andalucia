@@ -93,12 +93,13 @@ library(assertr)
 # http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html
 
 datos <- readr::read_csv2("datos/datos_provincias_raw.csv", 
-                          col_types = "Dcci-",
+                          col_types = "Dcccci-",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = ".",
                                           date_format = "%d/%m/%Y"),
                           skip_empty_rows = TRUE) %>%
+  select(-CODIGO_INE1, -CODIGO_INE2) %>% 
   filter(!is.na(Medida)) %>%
   mutate(Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida))
 
@@ -1095,7 +1096,7 @@ if (! file.exists("datos/2021_ES_Region_Mobility_Report.csv")) {
         exdir = "datos")
 }
 
-mobidata <- read_csv("./2021_ES_Region_Mobility_Report.csv") %>% 
+mobidata <- read_csv("datos/2021_ES_Region_Mobility_Report.csv") %>% 
   filter(sub_region_1 == "Andalusia") %>% 
   select(-"grocery_and_pharmacy_percent_change_from_baseline") %>% 
   rename("tiendas y ocio" = "retail_and_recreation_percent_change_from_baseline",
@@ -1103,7 +1104,7 @@ mobidata <- read_csv("./2021_ES_Region_Mobility_Report.csv") %>%
          "transporte público" = "transit_stations_percent_change_from_baseline",
          "trabajo" = "workplaces_percent_change_from_baseline",
          "residencial" = "residential_percent_change_from_baseline") %>% 
-  pivot_longer(cols = starts_with("tiendas"):starts_with("residencial"), 
+  tidyr::pivot_longer(cols = starts_with("tiendas"):starts_with("residencial"), 
                names_to = "place", values_to = "change")
 
 library(directlabels)
@@ -1117,7 +1118,7 @@ library(directlabels)
 mobidata %>% 
   filter(is.na(sub_region_2)) %>% 
   group_by(place) %>% 
-  mutate(change_ma = zoo::rollmean(change, k = 7, fill = NA)) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 14, fill = NA)) %>% 
   ungroup() %>% 
   filter(date > as.Date("2021-01-06")) %>% 
   ggplot() +
@@ -1128,7 +1129,7 @@ mobidata %>%
   geom_hline(yintercept = 0, colour = "black", size = 1, lty = 2) +
   labs(x = "", y = "Diferencia en la movilidad (%)\n",
        title = "Cambios en la movilidad (Andalucía)",
-       subtitle = "Medias móviles a 7 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
+       subtitle = "Medias móviles a 14 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
   geom_dl(aes(label = paste("", place), colour = place), method = "last.points") +
@@ -1144,7 +1145,7 @@ mobidata %>%
 mobidata %>% 
   filter(!is.na(sub_region_2)) %>% 
   group_by(sub_region_2, place) %>% 
-  mutate(change_ma = zoo::rollmean(change, k = 7, fill = NA)) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 14, fill = NA)) %>% 
   ungroup() %>% 
   filter(date > as.Date("2021-01-06")) %>% 
   ggplot() +
@@ -1156,9 +1157,10 @@ mobidata %>%
   geom_hline(yintercept = 0, colour = "black", size = 1, lty = 2) +
   labs(x = "", y = "Diferencia en la movilidad (%)\n",
        title = "Cambios en la movilidad (provincias)",
-       subtitle = "Medias móviles a 7 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
+       subtitle = "Medias móviles a 14 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(legend.position = "top")
+  theme(legend.position = "top") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
 
 ```
 
