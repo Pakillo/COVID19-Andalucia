@@ -93,13 +93,13 @@ library(assertr)
 # http://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/COVID19.html
 
 datos <- readr::read_csv2("datos/datos_provincias_raw.csv", 
-                          col_types = "Dcccci-",
+                          col_types = "Dcci-",
                           locale = locale(date_names = "es", 
                                           decimal_mark = ",",
                                           grouping_mark = ".",
                                           date_format = "%d/%m/%Y"),
                           skip_empty_rows = TRUE) %>%
-  select(-CODIGO_INE1, -CODIGO_INE2) %>% 
+  # select(-CODIGO_INE1, -CODIGO_INE2) %>% 
   filter(!is.na(Medida)) %>%
   mutate(Medida = ifelse(Medida == "Fallecidos", "Defunciones", Medida))
 
