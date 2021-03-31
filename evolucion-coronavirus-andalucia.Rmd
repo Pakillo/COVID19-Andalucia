@@ -1643,11 +1643,11 @@ La siguiente figura muestra la Incidencia Acumulada (número de casos en los úl
 ```{r ia14.edad}
 
 casos.edad.fecha %>% 
-  group_by(edades) %>% 
-  mutate(IA14_ma = zoo::rollmean(IA.14d, 7, fill = NA)) %>% 
-  ungroup() %>% 
+  # group_by(edades) %>% 
+  # mutate(IA14_ma = zoo::rollmean(IA.14d, 7, fill = NA)) %>% 
+  # ungroup() %>% 
 ggplot() +
-  geom_line(aes(x = Fecha, y = IA14_ma, colour = edades),
+  geom_line(aes(x = Fecha, y = IA.14d, colour = edades),
             size = 1.5) +
   scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), 
                date_breaks = "1 month", date_labels = "%b") +
