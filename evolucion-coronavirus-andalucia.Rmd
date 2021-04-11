@@ -23,7 +23,7 @@ output:
 </script>
 
 
-```{r, echo=FALSE}
+```{r metathis, echo=FALSE}
 library(metathis)
 meta() %>% 
   meta_description("Información diaria sobre casos detectados, ingresos, defunciones, vacunación, etc. a escala de municipio, provincia y comunidad autónoma") %>% 
@@ -167,16 +167,16 @@ casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
   select(Fecha, everything()) 
 
 ## Nº de habitantes en cada categoria
-# Datos de 2019 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974) 
+# Datos de 2020 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974) 
 nhab.edad.sexo <- data.frame(
   Edad = sort(unique(casos.edad.fecha$Edad)),
   nhab = c(
-    1322951, #0-14
-    1380773, #15-29
-    1869844, #30-44
-    2400570, #45-64
-    1236622, #65-84 (estimado as Casos*100000 / Tasa)
-    203606 #85+ (estimado as Casos*100000 / Tasa)
+    1307411, #0-14
+    1386604, #15-29
+    1843446, #30-44
+    2456137, #45-64
+    1259766, #65-84 (estimado as Casos*100000 / Tasa)
+    211048 #85+ (estimado as Casos*100000 / Tasa)
   )
 )
 
@@ -186,28 +186,69 @@ casos.edad.fecha <- casos.edad.fecha %>%
   group_by(Edad) %>% 
   arrange(Fecha) %>% 
   mutate(Casos.acum = cumsum(Casos)) %>% 
-  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14)) %>% 
-  mutate(IA.14d = Casos.14d*100000 / nhab) %>% 
+  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14),
+         Casos.7d = Casos.acum - lag(Casos.acum, n = 7)) %>% 
+  mutate(IA.14d = Casos.14d*100000 / nhab,
+         IA.7d = Casos.7d*100000 / nhab) %>% 
   ungroup()
 
 ## incidencia acumulada >65 años
 
 # Nº personas >=65 años: 1440102
-# Datos de 2019 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974)
+# Datos de 2020 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974)
 
 casos.65 <- casos.edad.fecha %>% 
   filter(Edad == "De 65 a 84 años" | Edad == "De 85 y más años") %>% 
   group_by(Fecha) %>% 
-  summarise(Casos = sum(Casos)) %>% 
-  mutate(Casos.acum = cumsum(Casos)) %>% 
-  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14),
-         Casos.7d = Casos.acum - lag(Casos.acum, n = 7)) %>% 
-  mutate(Tasa.14d.65a = Casos.14d * 100000 / 1440102,
-         Tasa.7d.65a = Casos.7d * 100000 / 1440102) %>% 
+  # summarise(Casos = sum(Casos)) %>% 
+  # mutate(Casos.acum = cumsum(Casos)) %>% 
+  summarise(Casos.14d.65a = sum(Casos.14d),
+         Casos.7d.65a = sum(Casos.7d)) %>% 
+  mutate(Tasa.14d.65a = Casos.14d.65a * 100000 / 1470813,
+         Tasa.7d.65a = Casos.7d.65a * 100000 / 1470813) %>% 
   mutate(Territorio = "Andalucía") 
   
   
 ```
+
+
+
+```{r casos.edad.provs}
+
+casos.edad.provs <- read_csv2("datos/casos_edad_provs.csv",
+                              skip_empty_rows = TRUE) %>%
+  select(-X6) %>%
+  filter(Sexo == "Ambos sexos") %>% 
+  filter(!is.na(Edad)) %>%
+  tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>% 
+  rename(Territorio = "Lugar de residencia",
+         Casos.14d = `Confirmados PDIA 14 días`,
+         Casos.7d = `Confirmados PDIA 7 días`,
+         IA.14d = `Tasa PDIA 14 dias`,
+         IA.7d = `Tasa PDIA 7 dias`)
+
+ia.provs <- casos.edad.provs %>% 
+  filter(Edad == "TOTAL")  
+  
+
+## Nº de habitantes en cada categoria
+# Datos de 2020 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974)
+nhab.provs <- read_csv("datos/Nhab_provincias.csv")
+
+## IA mayores 65 años
+ia.provs.65yr <- casos.edad.provs %>% 
+  filter(Edad == "De 65 a 84 años" | Edad == "De 85 y más años") %>% 
+  group_by(Territorio) %>% 
+  summarise(Casos.14d.65yr = sum(Casos.14d),
+            Casos.7d.65yr = sum(Casos.7d)) %>% 
+  left_join(nhab.provs, by = "Territorio") %>% 
+  mutate(IA.14d.65yr = round(100000*Casos.14d.65yr/Nhab.65yr),
+         IA.7d.65yr = round(100000*Casos.7d.65yr/Nhab.65yr)) %>% 
+  mutate(Tlevel = ifelse(Territorio == "Andalucía", 1, 2)) %>% 
+  arrange(Tlevel)
+  
+```
+
 
 
 ```{r datos.acum}
@@ -228,8 +269,10 @@ datos.acum <- read_csv2("datos/acumulados.csv",
          Medida = ifelse(Medida == "Curados", "Recuperados", Medida)) %>%
   tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
   arrange(Fecha) %>% 
-  mutate(Tasa.14d = `Confirmados 14d` *100000 / 8414240,  # Poblacion Andalucia = 8414240
-         Tasa.7d = `Confirmados 7d` *100000 / 8414240)
+  left_join(nhab.provs, by = "Territorio") %>% 
+  mutate(IA14 = round(100000*`Confirmados 14d` / Nhab.total),
+         IA7 = round(100000*`Confirmados 7d` / Nhab.total)) 
+
 
 
 ## Add tasas mayores de 65 años
@@ -276,22 +319,44 @@ datos.diarios.iscii.notna <- datos.diarios.iscii %>%
 ```
 
 
-<br>
+```{r datos.camas.minist}
+datos.camas.minist <- read_csv2("datos/datos_camas_ministerio.csv", locale = locale(encoding = "latin1")) %>%
+  filter(CCAA == "ANDALUCÍA") %>% 
+  assert(in_set("U. Críticas SIN respirador", "Hospitalización convencional", "U. Críticas CON respirador"), Unidad) %>% 
+  mutate(tipo = ifelse(Unidad == "Hospitalización convencional", "Convencional", "UCI")) %>% 
+  group_by(Fecha, Provincia, tipo) %>% 
+  summarise(total = sum(TOTAL_CAMAS),
+            covid = sum(OCUPADAS_COVID19),
+            nocovid = sum(OCUPADAS_NO_COVID19)) %>% 
+  tidyr::pivot_wider(names_from = "tipo", values_from = c("total", "covid", "nocovid")) %>% 
+  ungroup() %>% 
+  rename(Territorio = Provincia) %>% 
+  mutate(Tlevel = 2)
 
 
-## Indicadores Ministerio Sanidad (semáforo) {#semaforo}
+datos.camas.minist.Andal <- datos.camas.minist %>% 
+  group_by(Fecha) %>% 
+  summarise(across(-Territorio, .fns = sum)) %>% 
+  mutate(Territorio = "Andalucía",
+         Tlevel = 1) %>% 
+  relocate(Territorio, .after = Fecha)
+  
 
-```{r indicadores.datos}
+datos.camas.minist <- datos.camas.minist %>% 
+  bind_rows(datos.camas.minist.Andal) %>% 
+  arrange(Fecha, Tlevel, Territorio) %>% 
+  mutate(`%OcupHosp` = round(100*covid_Convencional/total_Convencional),
+         `%OcupUCI` = round(100*covid_UCI/total_UCI))
 
-datos.indic <- readxl::read_excel("datos/indicadores_sanidad.xlsx") %>% 
-  mutate(Fecha = as.Date(Fecha)) %>% 
-  filter(Fecha == max(Fecha)) %>% 
-  rename(`%OcupHosp` = CamasOcup, `%OcupUCI` = UCI)
+
+datos.camas.minist.last.day <- datos.camas.minist %>% 
+  filter(Fecha == max(Fecha))
+
+
 ```
 
-<br>
 
-```{r indic.colors}
+```{r bg.color.funs}
 
 indic.umbrales <- readxl::read_excel("datos/indicadores_umbrales.xlsx")
 
@@ -321,6 +386,94 @@ indic.color.numeric <- function(vble,
   
 }
 
+```
+
+
+```{r datos.last}
+
+## Existen discordancias entre serie suministrada al ministerio y la depurada por la Junta a posteriori. 
+## La de la Junta lleva mucho retraso últimamente. Paso a usar la del ministerio
+
+# ## Usando la serie de la Junta (1 día de retraso)
+# datos.last <- datos.andal %>%
+#   dplyr::select(Fecha:Defunciones) %>%#
+#   bind_rows(datos.provs) %>%
+#   dplyr::select(-ConfirmadosTotal) %>%
+#   filter(Fecha == max(Fecha)) %>%
+#   mutate_at(3:ncol(.), function(x) {ifelse(is.na(x), 0, x)}) %>% 
+#   rename(`Confirmados PCR/Antígeno` = ConfirmadosPCR)
+# 
+# 
+# kable(datos.last[, -1])
+
+
+ayer <- datos.acum %>% 
+  group_by(Territorio) %>% 
+  mutate(across(.cols = c(Confirmados, Hospitalizados:Recuperados), 
+         .fns = function(x) {x - lag(x)})) %>% 
+  mutate(Fecha.lag = Fecha - lag(Fecha)) %>% 
+  ungroup()
+
+last.day.valid <- ayer %>% 
+  filter(Fecha.lag < 2) %>% 
+  filter(Fecha == max(Fecha)) %>% 
+  select(-Fecha.lag) %>% 
+  # mutate(Tasa.14d = case_when(  # dividir por tamaño de población
+  #   Territorio == "Andalucía" ~ 100000*`Confirmados 14d` / 8414240,
+  #   Territorio == "Almería" ~ 100000*`Confirmados 14d` / 716820,
+  #   Territorio == "Cádiz" ~ 100000*`Confirmados 14d` / 1240155,
+  #   Territorio == "Córdoba" ~ 100000*`Confirmados 14d` / 786635,
+  #   Territorio == "Granada" ~ 100000*`Confirmados 14d` / 914678,
+  #   Territorio == "Huelva" ~ 100000*`Confirmados 14d` / 510743,
+  #   Territorio == "Jaén" ~ 100000*`Confirmados 14d` / 633564,
+  #   Territorio == "Málaga" ~ 100000*`Confirmados 14d` / 1661785,
+  #   Territorio == "Sevilla" ~ 100000*`Confirmados 14d` / 1949860,
+  # )) %>% 
+  # mutate(Tasa.7d = case_when(  # dividir por tamaño de población
+  #   Territorio == "Andalucía" ~ 100000*`Confirmados 7d` / 8414240,
+  #   Territorio == "Almería" ~ 100000*`Confirmados 7d` / 716820,
+  #   Territorio == "Cádiz" ~ 100000*`Confirmados 7d` / 1240155,
+  #   Territorio == "Córdoba" ~ 100000*`Confirmados 7d` / 786635,
+  #   Territorio == "Granada" ~ 100000*`Confirmados 7d` / 914678,
+  #   Territorio == "Huelva" ~ 100000*`Confirmados 7d` / 510743,
+  #   Territorio == "Jaén" ~ 100000*`Confirmados 7d` / 633564,
+  #   Territorio == "Málaga" ~ 100000*`Confirmados 7d` / 1661785,
+  #   Territorio == "Sevilla" ~ 100000*`Confirmados 7d` / 1949860,
+  # )) %>% 
+  # mutate(IA14 = round(Tasa.14d), IA7 = round(Tasa.7d)) %>% 
+  mutate(IA14.col = indic.color.numeric("IA14", indic.df = .),
+         IA7.col = indic.color.numeric("IA7", indic.df = .))
+ 
+```
+
+<br>
+
+
+## Indicadores Ministerio Sanidad (semáforo) {#semaforo}
+
+```{r indicadores.datos}
+
+datos.indic <- readxl::read_excel("datos/indicadores_sanidad.xlsx") %>% 
+  mutate(Fecha = as.Date(Fecha)) %>% 
+  filter(Fecha == max(Fecha)) %>% 
+  rename(`%OcupHosp` = CamasOcup, `%OcupUCI` = UCI)
+
+
+
+## Update datos del informe de Sanidad con los últimos datos de la Junta
+datos.indic <- datos.indic %>% 
+  mutate(Fecha = last.day.valid$Fecha - 1) %>% 
+  mutate(IA14 = ia.provs$IA.14d,
+         IA7 = ia.provs$IA.7d,
+         IA14.65yr = ia.provs.65yr$IA.14d.65yr,
+         IA7.65yr = ia.provs.65yr$IA.7d.65yr,
+         `%OcupHosp` = datos.camas.minist.last.day$`%OcupHosp`,
+         `%OcupUCI` = datos.camas.minist.last.day$`%OcupUCI`)
+```
+
+<br>
+
+```{r indic.colors}
 
 ## Add colors to data table
 datos.indic <- datos.indic %>% 
@@ -338,6 +491,13 @@ datos.indic <- datos.indic %>%
 ```
 
 
+Las siguientes tablas y gráficas muestran la evolución de cada uno de los [indicadores](https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/Documents/2020/221020_ActuacionesrespuestaCOVID.pdf) aprobados por el Consejo Interterritorial de Salud.
+
+Los distintos colores representan [niveles crecientes de riesgo](https://twitter.com/DadosdeLaplace/status/1319326140671066113/photo/1), desde el **verde ("nueva normalidad") al morado ("riesgo extremo")**, pasando por amarillo (riesgo bajo), naranja (riesgo medio), y rojo (riesgo alto).
+
+<br>
+
+
 ```{r indicadores.tabla, crop = TRUE}
 
 library(flextable)
@@ -345,12 +505,12 @@ library(flextable)
 set_flextable_defaults(digits = 0, big.mark = ".", decimal.mark = ",")
 
 datos.indic %>% 
-  select(-Fecha) %>% 
-  select(Territorio, Riesgo, IA14:`%OcupUCI`) %>% 
+  select(-Fecha, -Riesgo) %>% 
+  select(Territorio, IA14:`%OcupUCI`) %>% 
   mutate(across(IA14:`%OcupUCI`, round)) %>% 
   flextable() %>% 
   # colformat_num(j = 3:10, digits = 0) %>% 
-  bg(j = "Riesgo", part = 'body', bg = indic.color.riesgo) %>% 
+  # bg(j = "Riesgo", part = 'body', bg = indic.color.riesgo) %>% 
   bg(j = "IA14", bg = datos.indic$IA14.col) %>% 
   bg(j = "IA7", bg = datos.indic$IA7.col) %>%
   bg(j = "IA14.65yr", bg = datos.indic$IA14.65yr.col) %>% 
@@ -364,15 +524,11 @@ datos.indic %>%
   
 ```
 
-Datos referidos al `r unique(datos.indic$Fecha)` (último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad). Más abajo aparecen datos más actualizados para muchas de estas variables, obtenidos a partir de los informes diarios de la Junta de Andalucía. 
+Datos relativos al `r unique(datos.indic$Fecha)`, salvo para `Positividad` y `Trazabilidad`, que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
 
 <br>
 
-Las siguientes gráficas muestran la evolución de cada uno de los [indicadores](https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/Documents/2020/221020_ActuacionesrespuestaCOVID.pdf) aprobados por el Consejo Interterritorial de Salud.
 
-Los distintos colores representan [niveles crecientes de riesgo](https://twitter.com/DadosdeLaplace/status/1319326140671066113/photo/1), desde el **verde ("nueva normalidad") al morado ("riesgo extremo")**.
-
-<br>
 
 ### Bloque 1: Nivel de Transmisión {#bloqueI}
 
@@ -381,20 +537,20 @@ Los distintos colores representan [niveles crecientes de riesgo](https://twitter
 ```{r IA14, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(Tasa.14d))
+  filter(!is.na(IA14))
 
 ggplot(datos.plot) +
-  geom_line(aes(Fecha, Tasa.14d), size = 2) +
+  geom_line(aes(Fecha, IA14), size = 2) +
   annotate("text", x = 7 + max(datos.plot$Fecha), 
-           y = datos.plot$Tasa.14d[nrow(datos.plot)],
-           label = round(datos.plot$Tasa.14d[nrow(datos.plot)])) +
+           y = datos.plot$IA14[nrow(datos.plot)],
+           label = round(datos.plot$IA14[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 150), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 150, ymax = 250), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 250, ymax = max(Tasa.14d)), 
+  geom_ribbon(aes(x = Fecha, ymin = 250, ymax = max(IA14)), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Incidencia Acumulada 14 días",
@@ -407,20 +563,20 @@ ggplot(datos.plot) +
 ```{r IA7, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(Tasa.7d)) 
+  filter(!is.na(IA7)) 
 
 ggplot(datos.plot) +
-  geom_line(aes(Fecha, Tasa.7d), size = 2) +
+  geom_line(aes(Fecha, IA7), size = 2) +
   annotate("text", x = 7 + max(datos.plot$Fecha), 
-           y = datos.plot$Tasa.7d[nrow(datos.plot)],
-           label = round(datos.plot$Tasa.7d[nrow(datos.plot)])) +
+           y = datos.plot$IA7[nrow(datos.plot)],
+           label = round(datos.plot$IA7[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 75), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 75, ymax = 125), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 125, ymax = max(Tasa.7d)), 
+  geom_ribbon(aes(x = Fecha, ymin = 125, ymax = max(IA7)), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Incidencia Acumulada 7 días",
@@ -434,8 +590,8 @@ ggplot(datos.plot) +
 ```{r IA14.65a, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(Tasa.14d.65a)) %>% 
-  filter(Fecha <= max(casos.edad.fecha$Fecha) - 1)
+  filter(!is.na(Tasa.14d.65a)) 
+  # filter(Fecha <= max(casos.edad.fecha$Fecha) - 1)
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.14d.65a), size = 2) +
@@ -461,8 +617,8 @@ ggplot(datos.plot) +
 ```{r IA7.65a, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(Tasa.7d.65a)) %>%  
-  filter(Fecha <= max(casos.edad.fecha$Fecha) - 1)
+  filter(!is.na(Tasa.7d.65a)) 
+  # filter(Fecha <= max(casos.edad.fecha$Fecha) - 1)
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.7d.65a), size = 2) +
@@ -766,63 +922,6 @@ ggplot() +
 <br>
 
 
-
-```{r datos.last, out.width='100%'}
-
-## Existen discordancias entre serie suministrada al ministerio y la depurada por la Junta a posteriori. 
-## La de la Junta lleva mucho retraso últimamente. Paso a usar la del ministerio
-
-# ## Usando la serie de la Junta (1 día de retraso)
-# datos.last <- datos.andal %>%
-#   dplyr::select(Fecha:Defunciones) %>%#
-#   bind_rows(datos.provs) %>%
-#   dplyr::select(-ConfirmadosTotal) %>%
-#   filter(Fecha == max(Fecha)) %>%
-#   mutate_at(3:ncol(.), function(x) {ifelse(is.na(x), 0, x)}) %>% 
-#   rename(`Confirmados PCR/Antígeno` = ConfirmadosPCR)
-# 
-# 
-# kable(datos.last[, -1])
-
-
-ayer <- datos.acum %>% 
-  group_by(Territorio) %>% 
-  mutate(across(.cols = c(Confirmados, Hospitalizados:Recuperados), 
-         .fns = function(x) {x - lag(x)})) %>% 
-  mutate(Fecha.lag = Fecha - lag(Fecha)) %>% 
-  ungroup()
-
-last.day.valid <- ayer %>% 
-  filter(Fecha.lag < 2) %>% 
-  filter(Fecha == max(Fecha)) %>% 
-  select(-Fecha.lag) %>% 
-  mutate(Tasa.14d = case_when(  # dividir por tamaño de población
-    Territorio == "Andalucía" ~ 100000*`Confirmados 14d` / 8414240,
-    Territorio == "Almería" ~ 100000*`Confirmados 14d` / 716820,
-    Territorio == "Cádiz" ~ 100000*`Confirmados 14d` / 1240155,
-    Territorio == "Córdoba" ~ 100000*`Confirmados 14d` / 786635,
-    Territorio == "Granada" ~ 100000*`Confirmados 14d` / 914678,
-    Territorio == "Huelva" ~ 100000*`Confirmados 14d` / 510743,
-    Territorio == "Jaén" ~ 100000*`Confirmados 14d` / 633564,
-    Territorio == "Málaga" ~ 100000*`Confirmados 14d` / 1661785,
-    Territorio == "Sevilla" ~ 100000*`Confirmados 14d` / 1949860,
-  )) %>% 
-  mutate(Tasa.7d = case_when(  # dividir por tamaño de población
-    Territorio == "Andalucía" ~ 100000*`Confirmados 7d` / 8414240,
-    Territorio == "Almería" ~ 100000*`Confirmados 7d` / 716820,
-    Territorio == "Cádiz" ~ 100000*`Confirmados 7d` / 1240155,
-    Territorio == "Córdoba" ~ 100000*`Confirmados 7d` / 786635,
-    Territorio == "Granada" ~ 100000*`Confirmados 7d` / 914678,
-    Territorio == "Huelva" ~ 100000*`Confirmados 7d` / 510743,
-    Territorio == "Jaén" ~ 100000*`Confirmados 7d` / 633564,
-    Territorio == "Málaga" ~ 100000*`Confirmados 7d` / 1661785,
-    Territorio == "Sevilla" ~ 100000*`Confirmados 7d` / 1949860,
-  )) %>% 
-  mutate(IA14 = round(Tasa.14d), IA7 = round(Tasa.7d)) %>% 
-  mutate(IA14.col = indic.color.numeric("IA14", indic.df = .),
-         IA7.col = indic.color.numeric("IA7", indic.df = .))
- 
-```
 
 
 **DATOS DEL DÍA:** `r unique(last.day.valid$Fecha)`
