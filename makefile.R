@@ -2,9 +2,9 @@
 library(dplyr)
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-04-07")
+fecha.munis <- as.Date("2021-04-08")
 
-fecha.edad <- as.Date("2021-04-04")
+fecha.edad <- as.Date("2021-04-08")
 
 
 
@@ -137,6 +137,18 @@ if (!httr::http_error(url.iscii.edad)) {
   download.file("https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv",
               destfile = "datos/casos_hosp_uci_def_sexo_edad_provres.csv")
 }
+
+
+#### Descarga datos Ocupación Hospitalaria Minist. Sanidad
+fecha.informe <- Sys.Date()
+url.camas.minist <- paste0("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Datos_Capacidad_Asistencial_Historico_",
+                           format(fecha.informe, "%d%m%Y"), ".csv")
+while (httr::http_error(url.camas.minist)) {
+  fecha.informe <- fecha.informe - 1
+  url.camas.minist <- paste0("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Datos_Capacidad_Asistencial_Historico_",
+                             format(fecha.informe, "%d%m%Y"), ".csv")
+}
+download.file(url.camas.minist, destfile = "datos/datos_camas_ministerio.csv")
 
 
 ## Render
