@@ -524,7 +524,7 @@ datos.indic %>%
   
 ```
 
-Datos relativos al `r unique(datos.indic$Fecha)`, salvo para `Positividad` y `Trazabilidad`, que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
+Datos relativos al `r unique(datos.indic$Fecha)`, salvo para 'Positividad' y 'Trazabilidad', que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
 
 <br>
 
