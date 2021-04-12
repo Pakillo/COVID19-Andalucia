@@ -139,6 +139,7 @@ if (!httr::http_error(url.iscii.edad)) {
 }
 
 
+
 #### Descarga datos Ocupación Hospitalaria Minist. Sanidad
 fecha.informe <- Sys.Date()
 url.camas.minist <- paste0("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Datos_Capacidad_Asistencial_Historico_",
