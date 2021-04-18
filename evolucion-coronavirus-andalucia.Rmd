@@ -541,9 +541,12 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA14), size = 2) +
-  annotate("text", x = 7 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha),
            y = datos.plot$IA14[nrow(datos.plot)],
            label = round(datos.plot$IA14[nrow(datos.plot)])) +
+  # scale_y_continuous(sec.axis = dup_axis(
+  #   breaks = datos.plot$IA14[nrow(datos.plot)],
+  #   labels = round(datos.plot$IA14[nrow(datos.plot)]))) +
   scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3) +
@@ -567,7 +570,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA7), size = 2) +
-  annotate("text", x = 7 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$IA7[nrow(datos.plot)],
            label = round(datos.plot$IA7[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
@@ -595,7 +598,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.14d.65a), size = 2) +
-  annotate("text", x = 7 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.14d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.14d.65a[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
@@ -622,7 +625,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.7d.65a), size = 2) +
-  annotate("text", x = 7 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.7d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.7d.65a[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
@@ -673,7 +676,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, N.PCR.TA.7d), size = 2) +
-  annotate("text", x = 8 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$N.PCR.TA.7d[nrow(datos.plot)],
            label = round(datos.plot$N.PCR.TA.7d[nrow(datos.plot)])) +
   labs(x = "", y = "",
@@ -775,7 +778,7 @@ El pico de ingresados de la 3ª ola se alcanzó el 2 de Febrero de 2021 con 4911
 
 <br>
 
-```{r camas.ocupadas, out.width='100%', fig.height=3}
+```{r camas.ocupadas, fig.height=4}
 
 camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
   mutate(Fecha = as.Date(Fecha)) %>%
@@ -796,7 +799,7 @@ ggplot(camas) +
        x = "", y = "Camas ocupadas\n") +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
-  annotate("text", x = max(camas.last$Fecha) + 26, y = camas.last$CamasOcup, 
+  annotate("text", x = max(camas.last$Fecha) + 28, y = camas.last$CamasOcup, 
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8") +
   annotate("text", x = max(camas.last$Fecha) + 25, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
@@ -900,19 +903,19 @@ ggplot() +
 
 <br>
 
-Evolución en las **últimas dos semanas**:
+Evolución en las **últimas cuatro semanas**:
 
-```{r fig.resumen.14d, out.width='100%', fig.height=6}
+```{r fig.resumen.14d, fig.height=6}
 
 datos.andal.long %>%
-  filter(Fecha > as.Date(Sys.Date() - 16)) %>%
+  filter(Fecha > max(datos.andal.long$Fecha) - 28) %>%
 ggplot() +
   facet_wrap(~indic, ncol = 1, scales = "free_y") + 
   geom_col(aes(x = Fecha, y = value, fill = indic)) +
   scale_fill_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas\n", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
+  scale_x_date(date_breaks = "7 days", date_labels = "%d %b") +
   scale_y_continuous(sec.axis = dup_axis(name = ""))
 
 ```
@@ -924,7 +927,7 @@ ggplot() +
 
 
 
-**DATOS DEL DÍA:** `r unique(last.day.valid$Fecha)`
+**DATOS DEL DÍA:** `r unique(last.day.valid$Fecha) - 1`
 
 ```{r tabla.datos.dia, out.width='100%', crop = TRUE}
 
@@ -1031,7 +1034,7 @@ Casos confirmados por PCR o test de antígeno en los últimos 14 días:
 ```{r casos.pcr.14d, fig.height=4, out.width='100%'}
 
 datos.andal %>%
-  filter(Fecha > as.Date(Sys.Date() - 16)) %>%
+  filter(Fecha > max(datos.andal$Fecha) - 14) %>%
 ggplot() +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
@@ -1043,7 +1046,7 @@ ggplot() +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
   geom_text(aes(Fecha, y = ConfirmadosPCR + 100, label = ConfirmadosPCR),
-            data = subset(datos.andal, Fecha > (Sys.Date() - 16)), size = 3) 
+            data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 14), size = 3) 
 
 ```
 
