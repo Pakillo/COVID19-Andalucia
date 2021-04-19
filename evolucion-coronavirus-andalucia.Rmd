@@ -322,6 +322,7 @@ datos.diarios.iscii.notna <- datos.diarios.iscii %>%
 ```{r datos.camas.minist}
 datos.camas.minist <- read_csv2("datos/datos_camas_ministerio.csv", locale = locale(encoding = "latin1")) %>%
   filter(CCAA == "ANDALUCÍA") %>% 
+  mutate(Fecha = as.Date(Fecha, format = "%d/%m/%Y")) %>% 
   assert(in_set("U. Críticas SIN respirador", "Hospitalización convencional", "U. Críticas CON respirador"), Unidad) %>% 
   mutate(tipo = ifelse(Unidad == "Hospitalización convencional", "Convencional", "UCI")) %>% 
   group_by(Fecha, Provincia, tipo) %>% 
@@ -462,7 +463,7 @@ datos.indic <- readxl::read_excel("datos/indicadores_sanidad.xlsx") %>%
 
 ## Update datos del informe de Sanidad con los últimos datos de la Junta
 datos.indic <- datos.indic %>% 
-  mutate(Fecha = last.day.valid$Fecha - 1) %>% 
+  mutate(Fecha = last.day.valid$Fecha) %>% 
   mutate(IA14 = ia.provs$IA.14d,
          IA7 = ia.provs$IA.7d,
          IA14.65yr = ia.provs.65yr$IA.14d.65yr,
@@ -524,7 +525,7 @@ datos.indic %>%
   
 ```
 
-Datos relativos al `r unique(datos.indic$Fecha)`, salvo para 'Positividad' y 'Trazabilidad', que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
+Datos relativos al `r max(datos.acum$Fecha)`, salvo para 'Positividad' y 'Trazabilidad', que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
 
 <br>
 
