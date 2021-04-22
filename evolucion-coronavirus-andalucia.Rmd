@@ -2236,6 +2236,34 @@ datos.diarios.iscii.notna %>%
 
 
 
+```{r uci.edad.lines}
+
+datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(uci = sum(uci)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
+  group_by(edades) %>% 
+  mutate(uci_ma = zoo::rollmean(uci, 7, fill = NA)) %>% 
+  ungroup() %>% 
+  ggplot() +
+  geom_line(aes(x = fecha, y = uci_ma, colour = edades),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date("2021-01-01"), max(datos.diarios.iscii.notna$fecha) - 4), 
+               date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Ingresos UCI\n", x = "",
+       title = "Ingresos diarios en UCI por franja de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
+  #                               "#377eb8", "#4daf4a", "#999999")) +
+  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
+  theme(legend.title = element_text(hjust = 0.5))
+
+```
+
+<br>
 
 
 ## Defunciones
@@ -2373,6 +2401,35 @@ datos.diarios.iscii.notna %>%
 <br>
 
 
+
+```{r def.edad.lines}
+
+datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(def = sum(def)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
+  group_by(edades) %>% 
+  mutate(def_ma = zoo::rollmean(def, 7, fill = NA)) %>% 
+  ungroup() %>% 
+  ggplot() +
+  geom_line(aes(x = fecha, y = def_ma, colour = edades),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date("2021-01-01"), max(datos.diarios.iscii.notna$fecha) - 4), 
+               date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Defunciones\n", x = "",
+       title = "Defunciones diarias por franja de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
+  #                               "#377eb8", "#4daf4a", "#999999")) +
+  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
+  theme(legend.title = element_text(hjust = 0.5))
+
+```
+
+<br>
 
 
 
