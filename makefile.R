@@ -1,12 +1,12 @@
 
-library(dplyr)
-
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-04-21")
+fecha.munis <- as.Date("2021-04-22")
 
-fecha.edad <- as.Date("2021-04-15")
+fecha.edad <- as.Date("2021-04-22")
 
 
+
+library(dplyr)
 
 #### Datos municipios #####
 
