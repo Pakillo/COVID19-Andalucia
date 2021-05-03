@@ -1278,6 +1278,43 @@ mobidata %>%
 
 Consulta https://www.mapacovid.es para conocer el nivel de alerta y restricciones oficiales por municipio. 
 
+En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en cada municipio de Andalucía, y el cambio que dicho valor de IA representa respecto a la IA de catorce días previos. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Pase el cursor sobre los puntos para ver el nombre del municipio.
+
+
+```{r muni.ia.cambio}
+
+library(ggiraph)
+
+muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
+  mutate(IA.14d = round(Conf14d_100.000hab)) %>% 
+  padr::pad(interval = "day", group = c("Provincia", "Distrito", "Municipio")) %>% 
+  group_by(Provincia, Distrito, Municipio) %>% 
+  mutate(IA.14d.prev = lag(IA.14d, n = 14)) %>% 
+  mutate(IA.14d.prev = ifelse(IA.14d.prev == 0, NA, IA.14d.prev)) %>% 
+  mutate(IA.cambio = round(100*(IA.14d - IA.14d.prev)/IA.14d.prev))
+
+ia.cambio <- muni.todo %>% 
+  filter(Fecha == max(Fecha)) %>% 
+  ggplot() +
+  geom_point_interactive(aes(x = IA.14d, y = IA.cambio, tooltip = Municipio)) +
+  geom_hline(yintercept = 0) +
+  scale_y_continuous(limits = c(-100, 100)) +
+  scale_x_continuous(limits = c(0, 1000)) +
+  labs(title = "Tendencias en Incidencia Acumulada por Municipio",
+       subtitle = "Cambio en la IA por municipio respecto a la IA en los 14 días previos\n(se excluyen municipios con IA > 1000 y aumentos > 100%)",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       x = "IA actual",
+       y = "Cambio en la IA respecto a los 14 días previos") +
+  theme(plot.title = element_text(size = rel(0.9)),
+        plot.subtitle = element_text(size = rel(0.7)),
+        axis.title = element_text(size = rel(0.8)))
+  
+girafe(ggobj = ia.cambio)
+
+```
+
+
+
 ### Mapas
 
 
