@@ -1296,18 +1296,22 @@ muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
 ia.cambio <- muni.todo %>% 
   filter(Fecha == max(Fecha)) %>% 
   ggplot() +
-  geom_point_interactive(aes(x = IA.14d, y = IA.cambio, tooltip = Municipio)) +
+  geom_point_interactive(aes(x = IA.14d, y = IA.cambio, tooltip = Municipio,
+                             colour = Provincia)) +
   geom_hline(yintercept = 0) +
-  scale_y_continuous(limits = c(-100, 100)) +
+  scale_y_continuous(limits = c(-100, 200)) +
+  scale_color_viridis_d_interactive() +
+  # scale_color_brewer(type = "qual", palette = "Accent") +
   scale_x_continuous(limits = c(0, 1000)) +
   labs(title = "Tendencias en Incidencia Acumulada por Municipio",
-       subtitle = "Cambio en la IA por municipio respecto a la IA en los 14 días previos\n(se excluyen municipios con IA > 1000 y aumentos > 100%)",
+       subtitle = "Cambio en la IA por municipio respecto a la IA en los 14 días previos\n(se excluyen municipios con IA > 1000 y aumentos > 200%)",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "IA actual",
        y = "Cambio en la IA respecto a los 14 días previos") +
   theme(plot.title = element_text(size = rel(0.9)),
         plot.subtitle = element_text(size = rel(0.7)),
-        axis.title = element_text(size = rel(0.8)))
+        axis.title = element_text(size = rel(0.8)),
+        legend.position = "top", legend.title = element_blank())
   
 girafe(ggobj = ia.cambio)
 
