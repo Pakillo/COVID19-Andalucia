@@ -2131,7 +2131,7 @@ datos.diarios.iscii.notna %>%
   ggplot() +
   geom_line(aes(x = fecha, y = hosp_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(datos.diarios.iscii.notna$fecha) - 4), 
+  scale_x_date(limits = c(as.Date("2020-07-01"), max(datos.diarios.iscii.notna$fecha) - 5), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Ingresos\n", x = "",
        title = "Ingresos diarios por franja de edad",
