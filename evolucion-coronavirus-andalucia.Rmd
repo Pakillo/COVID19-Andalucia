@@ -677,7 +677,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, N.PCR.TA.7d), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 14 + max(datos.plot$Fecha), 
            y = datos.plot$N.PCR.TA.7d[nrow(datos.plot)],
            label = round(datos.plot$N.PCR.TA.7d[nrow(datos.plot)])) +
   labs(x = "", y = "",
@@ -724,7 +724,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%CamasOcup.Minist`), size = 2) +
-  annotate("text", x = 7 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)],
            label = paste(round(datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 2), fill = "#4daf4a", alpha = 0.3) +
@@ -748,7 +748,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%UCI.Minist`), size = 2) +
-  annotate("text", x = 7 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$`%UCI.Minist`[nrow(datos.plot)],
            label = paste(round(datos.plot$`%UCI.Minist`[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 5), fill = "#4daf4a", alpha = 0.3) +
@@ -933,9 +933,12 @@ ggplot() +
 
 
 
-**DATOS DEL DÍA:** `r unique(last.day.valid$Fecha) - 1`
 
-```{r tabla.datos.dia, out.width='100%', crop = TRUE}
+
+```{r tabla.datos.dia, out.width='100%', crop = TRUE, eval=FALSE}
+
+# **DATOS DEL DÍA:** `r unique(last.day.valid$Fecha) - 1`
+
 
 last.day.valid %>% 
   select(Territorio, Casos = Confirmados, 
@@ -1226,7 +1229,7 @@ library(directlabels)
 mobidata %>% 
   filter(is.na(sub_region_2)) %>% 
   group_by(place) %>% 
-  mutate(change_ma = zoo::rollmean(change, k = 14, fill = NA)) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 30, fill = NA)) %>% 
   ungroup() %>% 
   filter(date > as.Date("2021-01-06")) %>% 
   ggplot() +
@@ -1237,7 +1240,7 @@ mobidata %>%
   geom_hline(yintercept = 0, colour = "black", size = 1, lty = 2) +
   labs(x = "", y = "Diferencia en la movilidad (%)\n",
        title = "Cambios en la movilidad (Andalucía)",
-       subtitle = "Medias móviles a 14 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
+       subtitle = "Medias móviles mensuales de la diferencia en uso del espacio\nrespecto a la mediana diaria del periodo 3 Ene - 6 Feb 2020",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
   geom_dl(aes(label = paste("", place), colour = place), method = "last.points") +
@@ -1253,7 +1256,7 @@ mobidata %>%
 mobidata %>% 
   filter(!is.na(sub_region_2)) %>% 
   group_by(sub_region_2, place) %>% 
-  mutate(change_ma = zoo::rollmean(change, k = 14, fill = NA)) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 30, fill = NA)) %>% 
   ungroup() %>% 
   filter(date > as.Date("2021-01-06")) %>% 
   ggplot() +
@@ -1265,7 +1268,7 @@ mobidata %>%
   geom_hline(yintercept = 0, colour = "black", size = 1, lty = 2) +
   labs(x = "", y = "Diferencia en la movilidad (%)\n",
        title = "Cambios en la movilidad (provincias)",
-       subtitle = "Medias móviles a 14 días de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
+       subtitle = "Medias móviles mensuales de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "top") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
@@ -1280,6 +1283,7 @@ Consulta https://www.mapacovid.es para conocer el nivel de alerta y restriccione
 
 En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en cada municipio de Andalucía, y el cambio que dicho valor de IA representa respecto a la IA de catorce días previos. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Pase el cursor sobre los puntos para ver el nombre del municipio.
 
+<br>
 
 ```{r muni.ia.cambio}
 
@@ -1769,10 +1773,11 @@ casos.edad.fecha %>%
   group_by(edades) %>% 
   mutate(casos_ma = zoo::rollmean(Casos, 7, fill = NA)) %>% 
   ungroup() %>% 
+  filter(Fecha >= as.Date("2020-07-01")) %>% 
 ggplot() +
   geom_line(aes(x = Fecha, y = casos_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), 
+  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha$Fecha) - 4), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
        title = "Casos diarios por franja de edad",
@@ -1795,10 +1800,11 @@ casos.edad.fecha %>%
   # group_by(edades) %>% 
   # mutate(IA14_ma = zoo::rollmean(IA.14d, 7, fill = NA)) %>% 
   # ungroup() %>% 
+  filter(Fecha >= as.Date("2020-07-01")) %>% 
 ggplot() +
   geom_line(aes(x = Fecha, y = IA.14d, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(casos.edad.fecha$Fecha) - 4), 
+  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha$Fecha) - 1), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Incidencia Acumulada\n", x = "",
        title = "Incidencia Acumulada 14 días por franja de edad",
@@ -2123,7 +2129,7 @@ Aquí se representan los mismos datos (ingresos diarios por franja de edad) usan
 datos.diarios.iscii.notna %>% 
   group_by(fecha, grupo_edad) %>% 
   summarise(hosp = sum(hosp)) %>% 
-  filter(fecha >= as.Date("2020-03-01")) %>% 
+  filter(fecha >= as.Date("2021-01-01")) %>% 
   mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
   group_by(edades) %>% 
   mutate(hosp_ma = zoo::rollmean(hosp, 7, fill = NA)) %>% 
@@ -2131,7 +2137,7 @@ datos.diarios.iscii.notna %>%
   ggplot() +
   geom_line(aes(x = fecha, y = hosp_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), max(datos.diarios.iscii.notna$fecha) - 5), 
+  scale_x_date(limits = c(as.Date(NA), max(datos.diarios.iscii.notna$fecha) - 7), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Ingresos\n", x = "",
        title = "Ingresos diarios por franja de edad",
@@ -2336,7 +2342,7 @@ datos.diarios.iscii.notna %>%
   filter(fecha >= as.Date("2020-03-01")) %>% 
   mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
   group_by(edades) %>% 
-  mutate(uci_ma = zoo::rollmean(uci, 7, fill = NA)) %>% 
+  mutate(uci_ma = zoo::rollmean(uci, 14, fill = NA)) %>% 
   ungroup() %>% 
   ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
@@ -2345,6 +2351,7 @@ datos.diarios.iscii.notna %>%
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Ingresos UCI\n", x = "",
        title = "Ingresos diarios en UCI por franja de edad",
+       subtitle = "Medias móviles a 14 días",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
