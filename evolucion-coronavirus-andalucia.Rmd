@@ -1773,7 +1773,7 @@ casos.edad.fecha %>%
   group_by(edades) %>% 
   mutate(casos_ma = zoo::rollmean(Casos, 7, fill = NA)) %>% 
   ungroup() %>% 
-  filter(Fecha >= as.Date("2020-07-01")) %>% 
+  filter(Fecha >= as.Date("2021-01-01")) %>% 
 ggplot() +
   geom_line(aes(x = Fecha, y = casos_ma, colour = edades),
             size = 1.5) +
@@ -1800,7 +1800,7 @@ casos.edad.fecha %>%
   # group_by(edades) %>% 
   # mutate(IA14_ma = zoo::rollmean(IA.14d, 7, fill = NA)) %>% 
   # ungroup() %>% 
-  filter(Fecha >= as.Date("2020-07-01")) %>% 
+  filter(Fecha >= as.Date("2021-01-01")) %>% 
 ggplot() +
   geom_line(aes(x = Fecha, y = IA.14d, colour = edades),
             size = 1.5) +
