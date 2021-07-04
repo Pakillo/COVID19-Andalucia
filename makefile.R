@@ -1,8 +1,8 @@
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-06-30")
+fecha.munis <- as.Date("2021-07-01")
 
-fecha.edad <- as.Date("2021-06-24")
+fecha.edad <- as.Date("2021-07-01")
 
 
 
@@ -12,7 +12,8 @@ library(dplyr)
 
 muni.data <- readr::read_csv("datos/municipios.csv",
                              col_types = "Dcccddddd",
-                             guess_max = 50000)
+                             guess_max = 50000) %>%
+  slice(1:241780)
 
 munis <- readr::read_csv("datos/muni_prov_dist.csv")
 
