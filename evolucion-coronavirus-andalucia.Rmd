@@ -316,6 +316,39 @@ datos.diarios.iscii.notna <- datos.diarios.iscii %>%
   filter(sexo != "NC") %>% 
   filter(grupo_edad != "NC")
 
+
+## 2021-07-11: data from ISCII
+
+casos.edad.fecha.iscii <- datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(casos = sum(casos),
+            hosp = sum(hosp),
+            uci = sum(uci),
+            def = sum(def)) %>% 
+  group_by(grupo_edad) %>%
+  mutate(casos_ma = zoo::rollmean(casos, 7, fill = NA)) %>%
+  ungroup()
+
+
+## Numero habitantes calculated reversely from datos casos and IA from IECA
+# see nhab_edades.xls
+nhab.edad <- data.frame(
+  grupo_edad = sort(unique(datos.diarios.iscii.notna$grupo_edad)),
+  nhab = c(814255L, 951088L, 928672L, 1140217L, 1385114L, 1265021L, 916147L, 650381L, 413516L))
+
+
+## Calculate IA
+casos.edad.fecha.iscii <- casos.edad.fecha.iscii %>%
+  left_join(nhab.edad, by = "grupo_edad") %>% 
+  group_by(grupo_edad) %>% 
+  arrange(fecha) %>% 
+  mutate(Casos.acum = cumsum(casos)) %>% 
+  mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14),
+         Casos.7d = Casos.acum - lag(Casos.acum, n = 7)) %>% 
+  mutate(IA.14d = Casos.14d*100000 / nhab,
+         IA.7d = Casos.7d*100000 / nhab) %>% 
+  ungroup()
+
 ```
 
 
@@ -653,7 +686,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Positividad.7d), size = 2) +
-  annotate("text", x = 8 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$Positividad.7d[nrow(datos.plot)],
            label = paste(round(datos.plot$Positividad.7d[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
@@ -1706,6 +1739,22 @@ ggplot(ntest) +
 
 ## Casos confirmados por sexo y rango de edad
 
+<br>
+
+Número de casos e Incidencia Acumulada por franja de edad:
+
+<br>
+
+```{r }
+casos.edad.provs %>% 
+  filter(Territorio == "Andalucía", Edad != "TOTAL") %>% 
+  select(Edad, Casos.14d, IA.14d, Casos.7d, IA.7d) %>% 
+  kable(digits = 0)
+  
+```
+
+<br>
+
 Esta figura representa los rangos de edad de los casos confirmados por PCR o test de antígeno a lo largo del tiempo (desde el 15 de Marzo de 2020). 
 
 <br>
@@ -1713,17 +1762,36 @@ Esta figura representa los rangos de edad de los casos confirmados por PCR o tes
 
 ```{r casos.edad.heatmap, out.width='100%', fig.height=2.5}
 
-casos.edad.fecha %>%
-  filter(Fecha > "2020-03-14") %>%
+## 2021-07-11: now using data from ISCII
+
+# casos.edad.fecha %>%
+#   filter(Fecha > "2020-03-14") %>%
+#   ggplot() +
+#   geom_tile(aes(x = Fecha, y = edades, fill = Casos)) +
+#   scale_fill_viridis_c() +
+#   labs(y = "Edad", x = "",
+#        title = "Edad de los casos confirmados",
+#        caption = "https://tiny.cc/COVID19-Andalucia",
+#        fill = "Casos\ndiarios") +
+#   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+#   theme(legend.title = element_text(size = 12))
+
+
+datos.diarios.iscii.notna %>% 
+  group_by(fecha, grupo_edad) %>% 
+  summarise(casos = sum(casos)) %>% 
+  filter(fecha >= as.Date("2020-03-01")) %>% 
+  mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
   ggplot() +
-  geom_tile(aes(x = Fecha, y = edades, fill = Casos)) +
+  geom_tile(aes(x = fecha, y = edades, fill = casos)) +
   scale_fill_viridis_c() +
   labs(y = "Edad", x = "",
        title = "Edad de los casos confirmados",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -1764,17 +1832,18 @@ anim_save("edad_casos_anim.gif")
 Aquí se representan los mismos datos (casos diarios confirmados por categoría de edad) usando medias móviles a 7 días para reducir la variación diaria y facilitar la visualización de tendencias:
 
 
+
 ```{r casos.edad.lines, out.width='100%'}
 
-casos.edad.fecha$edades <- factor(casos.edad.fecha$edades, 
+casos.edad.fecha$edades <- factor(casos.edad.fecha$edades,
                                   levels = rev(levels(casos.edad.fecha$edades)))
 
-casos.edad.fecha %>% 
-  group_by(edades) %>% 
-  mutate(casos_ma = zoo::rollmean(Casos, 7, fill = NA)) %>% 
-  ungroup() %>% 
-  filter(Fecha >= as.Date("2021-01-01")) %>% 
-ggplot() +
+casos.edad.fecha %>%
+  group_by(edades) %>%
+  mutate(casos_ma = zoo::rollmean(Casos, 7, fill = NA)) %>%
+  ungroup() %>%
+  filter(Fecha >= as.Date("2021-01-01")) %>%
+  ggplot() +
   geom_line(aes(x = Fecha, y = casos_ma, colour = edades),
             size = 1.5) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha$Fecha) - 4), 
@@ -1783,9 +1852,30 @@ ggplot() +
        title = "Casos diarios por franja de edad",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
+    scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
                                 "#377eb8", "#4daf4a", "#999999")) +
-  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  theme(legend.title = element_text(hjust = 0.5))
+
+```
+
+
+```{r casos.edad.lines.iscii, eval=FALSE}
+
+## using data from ISCII
+
+casos.edad.fecha.iscii %>% 
+  filter(fecha >= as.Date("2021-01-01")) %>%
+  ggplot() +
+  geom_line(aes(x = fecha, y = casos_ma, colour = grupo_edad),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 5), 
+               date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Casos\n", x = "",
+       title = "Casos diarios por franja de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
   theme(legend.title = element_text(hjust = 0.5))
 
 ```
@@ -1795,7 +1885,6 @@ ggplot() +
 La siguiente figura muestra la Incidencia Acumulada (número de casos en los últimos 14 días por cada 100.000 habitantes) teniendo en cuenta el número de personas en cada franja de edad:
 
 ```{r ia14.edad}
-
 casos.edad.fecha %>% 
   # group_by(edades) %>% 
   # mutate(IA14_ma = zoo::rollmean(IA.14d, 7, fill = NA)) %>% 
@@ -1813,7 +1902,25 @@ ggplot() +
        colour = "Edad") +
   scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
                                 "#377eb8", "#4daf4a", "#999999")) +
-  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
+  theme(legend.title = element_text(hjust = 0.5))
+```
+
+
+```{r ia14.edad.iscii, eval = FALSE}
+
+casos.edad.fecha.iscii %>% 
+  filter(fecha >= as.Date("2021-01-01")) %>% 
+ggplot() +
+  geom_line(aes(x = fecha, y = IA.14d, colour = grupo_edad),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 1), 
+               date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Incidencia Acumulada\n", x = "",
+       title = "Incidencia Acumulada 14 días por franja de edad",
+       subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
   theme(legend.title = element_text(hjust = 0.5))
 
 ```
@@ -1878,7 +1985,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 ```
 
 
@@ -1899,7 +2007,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2070,7 +2179,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2092,7 +2202,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2114,7 +2225,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2281,7 +2393,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2303,7 +2416,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2325,7 +2439,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2494,7 +2609,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
@@ -2516,7 +2632,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 ```
 
 
@@ -2537,7 +2654,8 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  theme(legend.title = element_text(size = 12))
+  theme(legend.title = element_text(size = 12),
+        axis.text = element_text(size = 10))
 
 ```
 
