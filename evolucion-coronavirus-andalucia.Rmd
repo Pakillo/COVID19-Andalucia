@@ -511,7 +511,8 @@ datos.indic <- datos.indic %>%
 
 ## Add colors to data table
 datos.indic <- datos.indic %>% 
-  mutate(Riesgo.col = indic.color.riesgo(datos.indic$Riesgo),
+  mutate(
+    # Riesgo.col = indic.color.riesgo(datos.indic$Riesgo),
          IA14.col = indic.color.numeric("IA14"),
          IA7.col = indic.color.numeric("IA7"),
          IA14.65yr.col = indic.color.numeric("IA14.65yr"),
@@ -575,7 +576,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA14), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha),
+  annotate("text", x = 15 + max(datos.plot$Fecha),
            y = datos.plot$IA14[nrow(datos.plot)],
            label = round(datos.plot$IA14[nrow(datos.plot)])) +
   # scale_y_continuous(sec.axis = dup_axis(
@@ -604,7 +605,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA7), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$IA7[nrow(datos.plot)],
            label = round(datos.plot$IA7[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
@@ -682,11 +683,12 @@ ggplot(datos.plot) +
 ```{r Positividad, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(Positividad.7d)) 
+  filter(!is.na(Positividad.7d)) %>% 
+  filter(Fecha >= as.Date("2021-01-01"))
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Positividad.7d), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$Positividad.7d[nrow(datos.plot)],
            label = paste(round(datos.plot$Positividad.7d[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
@@ -706,11 +708,12 @@ ggplot(datos.plot) +
 ```{r Ntest, fig.height=3}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(N.PCR.TA.7d)) 
+  filter(!is.na(N.PCR.TA.7d))  %>% 
+  filter(Fecha >= as.Date("2021-01-01"))
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, N.PCR.TA.7d), size = 2) +
-  annotate("text", x = 14 + max(datos.plot$Fecha), 
+  annotate("text", x = 20 + max(datos.plot$Fecha), 
            y = datos.plot$N.PCR.TA.7d[nrow(datos.plot)],
            label = round(datos.plot$N.PCR.TA.7d[nrow(datos.plot)])) +
   labs(x = "", y = "",
@@ -724,11 +727,12 @@ ggplot(datos.plot) +
 ```{r Trazabilidad, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(Trazab_indic)) 
+  filter(!is.na(Trazab_indic)) %>% 
+  filter(Fecha >= as.Date("2021-01-01"))
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Trazab_indic), size = 2) +
-  annotate("text", x = 8 + max(datos.plot$Fecha), 
+  annotate("text", x = 12 + max(datos.plot$Fecha), 
            y = datos.plot$Trazab_indic[nrow(datos.plot)],
            label = paste(round(datos.plot$Trazab_indic[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 80, ymax = 100), fill = "#4daf4a", alpha = 0.3) +
@@ -753,7 +757,8 @@ ggplot(datos.plot) +
 ```{r ocup.hospi, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(`%CamasOcup.Minist`)) 
+  filter(!is.na(`%CamasOcup.Minist`)) %>% 
+  filter(Fecha >= as.Date("2021-01-01"))
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%CamasOcup.Minist`), size = 2) +
@@ -777,7 +782,8 @@ ggplot(datos.plot) +
 ```{r ocup.uci, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(`%UCI.Minist`)) 
+  filter(!is.na(`%UCI.Minist`)) %>% 
+  filter(Fecha >= as.Date("2021-01-01"))
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%UCI.Minist`), size = 2) +
@@ -853,7 +859,8 @@ ggplot(camas) +
 ```{r datos.vacunas}
 # datos de Datadista
 datos.vacu <- read_csv("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_vacunas.csv", 
-                        locale = locale(decimal_mark = ",", grouping_mark = ".")) %>% 
+                        locale = locale(decimal_mark = ",", grouping_mark = "."), 
+                       guess_max = 10000) %>% 
    filter(CCAA == "Andalucía") %>% 
   mutate(entregadas = ifelse(`Fecha publicación` < as.Date("2021-01-14"), `Dosis entregadas Pfizer`, `Dosis entregadas totales`)) %>% 
   mutate(`Personas con pauta completa` = ifelse(`Fecha publicación` < as.Date("2021-01-16"), 0, `Personas con pauta completa`)) %>% 
