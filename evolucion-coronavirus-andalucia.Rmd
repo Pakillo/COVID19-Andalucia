@@ -590,7 +590,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA14), size = 2) +
-  annotate("text", x = 15 + max(datos.plot$Fecha),
+  annotate("text", x = 10 + max(datos.plot$Fecha),
            y = datos.plot$IA14[nrow(datos.plot)],
            label = round(datos.plot$IA14[nrow(datos.plot)])) +
   # scale_y_continuous(sec.axis = dup_axis(
@@ -619,7 +619,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA7), size = 2) +
-  annotate("text", x = 15 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$IA7[nrow(datos.plot)],
            label = round(datos.plot$IA7[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
@@ -702,7 +702,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Positividad.7d), size = 2) +
-  annotate("text", x = 15 + max(datos.plot$Fecha), 
+  annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$Positividad.7d[nrow(datos.plot)],
            label = paste(round(datos.plot$Positividad.7d[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
@@ -863,8 +863,22 @@ ggplot(camas) +
   annotate("text", x = max(camas.last$Fecha) + 28, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b", 
-               limits = c(as.Date("2020-04-05"), NA), expand = c(0, 30))
-  
+               limits = c(as.Date("2020-04-05"), NA), expand = c(0, 30)) 
+
+camas %>% 
+  filter(Fecha >= as.Date("2021-06-01")) %>% 
+ggplot() +
+  geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
+  geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
+  ylim(0, NA) +
+  labs(title = "\nPacientes ingresados con COVID-19 en Andalucía",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       x = "", y = "Camas ocupadas\n") +
+  annotate("text", x = max(camas.last$Fecha) + 4, y = camas.last$CamasOcup, 
+           label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8") +
+  annotate("text", x = max(camas.last$Fecha) + 4, y = camas.last$CamasUCI,
+           label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b", expand = c(0, 5)) 
 
 ```
 
@@ -886,7 +900,7 @@ datos.vacu <- read_csv("https://raw.githubusercontent.com/datadista/datasets/mas
   mutate(personas1dosis = `Dosis administradas` - 2*`Personas con pauta completa`) %>% #NB: this won't work with single-dose vaccines 
   select(Fecha = `Fecha publicación`, entregadas, administradas = `Dosis administradas`, 
          personas1dosis, perscompletas = `Personas con pauta completa`) %>% 
-  mutate(prop.poblacion = 100*perscompletas/8464411)
+  mutate(prop.poblacion = 100*perscompletas/8464411) 
 
 ```
 
@@ -894,13 +908,15 @@ datos.vacu <- read_csv("https://raw.githubusercontent.com/datadista/datasets/mas
 ```{r fig.vacunas.dosis, fig.height=4}
 datos.vacu %>% 
   select(Fecha, entregadas, administradas) %>% 
+  mutate(entregadas = entregadas/1000000,
+         administradas = administradas/1000000) %>% 
   tidyr::pivot_longer(cols = c("entregadas", "administradas")) %>% 
 ggplot() + 
   geom_line(aes(Fecha, value, colour = name), size = 2) +
   scale_colour_manual(values = c("Lime Green", "Dark Green"), name = "") +
-  scale_x_date(date_labels = "%d %b") +
+  scale_x_date(date_labels = "%b", date_breaks = "1 month") +
   scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
-  labs(x = "", y = "Nº dosis\n", 
+  labs(x = "", y = "Nº dosis (millones)\n", 
        title = "Número de dosis entregadas y administradas", 
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "top")
@@ -1779,12 +1795,10 @@ casos.edad.provs %>%
          Edad = str_remove(Edad, " años")) %>% 
   mutate(IA.14d = round(IA.14d),
          IA.7d = round(IA.7d)) %>% 
-  flextable() %>% 
-  width(width = 1.4) %>% 
-  plot(zoom = 1)
+  kable()
+
   
 ```
-
 <br>
 
 Esta figura representa los rangos de edad de los casos confirmados por PCR o test de antígeno a lo largo del tiempo (desde el 15 de Marzo de 2020). 
@@ -2270,15 +2284,17 @@ Aquí se representan los mismos datos (ingresos diarios por franja de edad) usan
 
 ```{r ingresos.edad.lines, out.width='100%'}
 
-datos.diarios.iscii.notna %>% 
+ing.lines <- datos.diarios.iscii.notna %>% 
   group_by(fecha, grupo_edad) %>% 
   summarise(hosp = sum(hosp)) %>% 
   filter(fecha >= as.Date("2021-01-01")) %>% 
   mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
   group_by(edades) %>% 
   mutate(hosp_ma = zoo::rollmean(hosp, 7, fill = NA)) %>% 
-  ungroup() %>% 
-  ggplot() +
+  ungroup() 
+
+
+ggplot(ing.lines) +
   geom_line(aes(x = fecha, y = hosp_ma, colour = edades),
             size = 1.5) +
   scale_x_date(limits = c(as.Date(NA), max(datos.diarios.iscii.notna$fecha) - 5), 
@@ -2288,10 +2304,22 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
-  # scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
-  #                               "#377eb8", "#4daf4a", "#999999")) +
-  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
-  theme(legend.title = element_text(hjust = 0.5))
+  theme(legend.title = element_text(hjust = 0.5)) 
+
+
+ing.lines %>% 
+  filter(fecha > "2021-06-01") %>% 
+ggplot() +
+  geom_line(aes(x = fecha, y = hosp_ma, colour = edades),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date(NA), max(ing.lines$fecha) - 5),
+               date_breaks = "1 week", date_labels = "%d %b") +
+  labs(y = "Ingresos\n", x = "",
+       title = "\nIngresos diarios por franja de edad",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  theme(legend.title = element_text(hjust = 0.5)) 
 
 ```
 
@@ -2483,15 +2511,17 @@ datos.diarios.iscii.notna %>%
 
 ```{r uci.edad.lines}
 
-datos.diarios.iscii.notna %>% 
+uci.lines <- datos.diarios.iscii.notna %>% 
   group_by(fecha, grupo_edad) %>% 
   summarise(uci = sum(uci)) %>% 
   filter(fecha >= as.Date("2020-03-01")) %>% 
   mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
   group_by(edades) %>% 
   mutate(uci_ma = zoo::rollmean(uci, 14, fill = NA)) %>% 
-  ungroup() %>% 
-  ggplot() +
+  ungroup() 
+
+
+ggplot(uci.lines) +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5) +
   scale_x_date(limits = c(as.Date("2021-01-01"), max(datos.diarios.iscii.notna$fecha) - 4), 
@@ -2502,10 +2532,24 @@ datos.diarios.iscii.notna %>%
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
-  # scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
-  #                               "#377eb8", "#4daf4a", "#999999")) +
-  # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
   theme(legend.title = element_text(hjust = 0.5))
+
+
+
+# uci.lines %>% 
+#   filter(fecha > as.Date("2021-06-01")) %>% 
+# ggplot() +
+#   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
+#             size = 1.5) +
+#   scale_x_date(limits = c(as.Date(NA), max(uci.lines$fecha) - 4), 
+#                date_breaks = "1 week", date_labels = "%d %b") +
+#   labs(y = "Ingresos UCI\n", x = "",
+#        title = "Ingresos diarios en UCI por franja de edad",
+#        subtitle = "Medias móviles a 14 días",
+#        caption = "https://tiny.cc/COVID19-Andalucia",
+#        colour = "Edad") +
+#   scale_color_brewer(type = "seq", palette = "YlGnBu") +
+#   theme(legend.title = element_text(hjust = 0.5))
 
 ```
 
