@@ -1464,7 +1464,7 @@ girafe(ggobj = ia.cambio)
 
 <br>
 
-En esta gráfica animada e interactiva se puede examinar con más detalle la evolución de la Incidencia Acumulada en las últimas semanas en **municipios de > 10.000 habitantes**. Pulsando sobre los nombres de provincia en la leyenda de la derecha se pueden resaltar/desactivar los municipios de cada provincia.
+En esta gráfica animada e interactiva se puede examinar con más detalle la evolución de la Incidencia Acumulada en las últimas semanas en **municipios de > 5.000 habitantes**. Pulsando sobre los nombres de provincia en la leyenda de la derecha se pueden resaltar/desactivar los municipios de cada provincia.
 
 <br>
 
@@ -1473,14 +1473,15 @@ library(plotly)
 
 fig <- muni.todo %>%
   filter(Fecha > as.Date(max(muni.todo$Fecha) - 30)) %>% 
-  filter(Poblacion > 10000) %>% 
+  filter(Poblacion > 5000) %>% 
   filter(IA.14d < 1000, IA.cambio < 200) %>%
   mutate(fecha = format(Fecha, "%m/%d")) %>%
+  select(fecha, IA.14d, IA.cambio, Provincia, Municipio) %>% 
   plot_ly(
     x = ~IA.14d, 
     y = ~IA.cambio, 
     ids = ~Municipio,
-    size = 5,
+    size = 1,
     color = ~Provincia, 
     frame = ~fecha, 
     text = ~Municipio, 
