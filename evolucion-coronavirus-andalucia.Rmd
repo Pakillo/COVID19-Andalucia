@@ -1356,62 +1356,17 @@ mobidata %>%
 
 Consulta https://www.mapacovid.es para conocer el nivel de alerta y restricciones oficiales por municipio. 
 
-En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en cada municipio de Andalucía, y el cambio que dicho valor de IA representa respecto a la IA de catorce días previos. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Pase el cursor sobre los puntos para ver el nombre del municipio.
-
-<br>
-
-```{r muni.ia.cambio}
-
-library(ggiraph)
-
-muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
-  mutate(IA.14d = round(Conf14d_100.000hab)) %>% 
-  padr::pad(interval = "day", group = c("Provincia", "Distrito", "Municipio")) %>% 
-  group_by(Provincia, Distrito, Municipio) %>% 
-  mutate(IA.14d.prev = lag(IA.14d, n = 14)) %>% 
-  mutate(IA.14d.prev = ifelse(IA.14d.prev == 0, NA, IA.14d.prev)) %>% 
-  mutate(IA.cambio = round(100*(IA.14d - IA.14d.prev)/IA.14d.prev))
-
-ia.cambio <- muni.todo %>% 
-  filter(Fecha == max(Fecha) - 1) %>% 
-  ggplot() +
-  geom_point_interactive(aes(x = IA.14d, y = IA.cambio, tooltip = Municipio,
-                             colour = Provincia)) +
-  geom_hline(yintercept = 0) +
-  scale_y_continuous(limits = c(-100, 200)) +
-  scale_color_viridis_d_interactive() +
-  # scale_color_brewer(type = "qual", palette = "Accent") +
-  scale_x_continuous(limits = c(0, 1000)) +
-  labs(title = "Tendencias en Incidencia Acumulada por Municipio",
-       subtitle = "Cambio en la IA por municipio respecto a la IA en los 14 días previos\n(se excluyen municipios con IA > 1000 y aumentos > 200%)",
-       caption = "https://tiny.cc/COVID19-Andalucia",
-       x = "IA actual",
-       y = "Cambio en la IA respecto a los 14 días previos") +
-  theme(plot.title = element_text(size = rel(0.9)),
-        plot.subtitle = element_text(size = rel(0.7)),
-        axis.title = element_text(size = rel(0.8)),
-        legend.position = "top", legend.title = element_blank())
-  
-girafe(ggobj = ia.cambio)
-
-```
 
 
+```{r muni.pop}
 
-### Mapas
-
-
-Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 días** es útil para saber dónde se encuentran los brotes activos en la actualidad. Pasa el cursor sobre el mapa para ver los valores concretos por municipio.
-
-```{r mapamunis_PCR_14d, out.width='100%'}
+library(sf)
 
 muni.data <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
   filter(Fecha == max(Fecha)) %>%
   rename(PROVINCIA = Provincia, MUNICIPIO = Municipio) %>%
   mutate(CASOS.14d = ifelse(Confirmados.PCR.TA.14d < 1, NA, as.integer(Confirmados.PCR.TA.14d))) %>% 
   mutate(IA.14d = round(Conf14d_100.000hab))
-
-library(sf)
 
 Andal.border <- st_read("datos/Andalucia_contorno.gpkg", quiet = TRUE)
 
@@ -1425,11 +1380,142 @@ Andal.border <- st_read("datos/Andalucia_contorno.gpkg", quiet = TRUE)
 muni.lite <- st_read("datos/municipios_lite.gpkg", 
                      stringsAsFactors = FALSE, quiet = TRUE)
 
+
 muni.14d <- left_join(select(muni.lite, PROVINCIA, MUNICIPIO),
                       select(muni.data, PROVINCIA, MUNICIPIO, CASOS.14d),
                       by = c("PROVINCIA", "MUNICIPIO")) %>%
   mutate(casos = ifelse(is.na(CASOS.14d), 0, CASOS.14d),
          lab = paste(MUNICIPIO, casos, sep = ": "))
+
+
+muni.dia <- readr::read_csv2("datos/municipios.dia/Municipios_todos_datoshoy.csv", col_types = "ccd_")
+
+muni.dia <- muni.dia %>%
+    rename(Municipio = `Lugar de residencia`) %>%
+    dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$MUNICIPIO)) %>%
+    dplyr::filter(!is.na(Medida)) %>%
+    dplyr::filter(Medida == "Población" | Medida == "Confirmados PDIA" | 
+                    Medida == "Tasa PDIA 14 dias" |
+                    Medida == "Total Confirmados" | Medida == "Fallecidos") %>%
+    mutate(rownumber = 1:nrow(.)) %>%
+    group_by(Municipio) %>%
+    arrange(rownumber) %>%
+    slice_tail(n = 5) %>%
+    ungroup() %>%
+    select(-rownumber) %>%
+    tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
+    mutate(Prop.Casos.Pop = 100*`Total Confirmados`/`Población`,
+           Prop.Def.Pop = 100*Fallecidos/`Población`,
+           Prop.Def.Casos = 100*Fallecidos/`Total Confirmados`) %>% 
+    rename(MUNICIPIO = Municipio)
+
+muni.dia <- left_join(muni.lite, muni.dia, by = "MUNICIPIO") 
+
+
+muni.pop <- muni.dia %>% 
+  sf::st_drop_geometry() %>% 
+  select(Provincia = PROVINCIA, Municipio = MUNICIPIO, Poblacion = `Población`)
+
+muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
+  mutate(IA.14d = round(Conf14d_100.000hab)) %>% 
+  padr::pad(interval = "day", group = c("Provincia", "Distrito", "Municipio")) %>% 
+  group_by(Provincia, Distrito, Municipio) %>% 
+  mutate(IA.14d.prev = lag(IA.14d, n = 14)) %>% 
+  mutate(IA.14d.prev = ifelse(IA.14d.prev == 0, NA, IA.14d.prev)) %>% 
+  mutate(IA.cambio = round(100*(IA.14d - IA.14d.prev)/IA.14d.prev)) %>% 
+  left_join(muni.pop)
+
+```
+
+
+
+En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en cada municipio de Andalucía, y el cambio que dicho valor de IA representa respecto a la IA de catorce días previos. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Pase el cursor sobre los puntos para ver el nombre del municipio.
+
+<br>
+
+```{r muni.ia.cambio}
+
+library(ggiraph)
+
+ia.cambio <- muni.todo %>% 
+  filter(Fecha == max(Fecha) - 1) %>% 
+  # filter(Poblacion > 5000) %>% 
+  filter(IA.14d < 1000, IA.cambio < 200) %>% 
+  ggplot() +
+  geom_point_interactive(aes(x = IA.14d, y = IA.cambio, 
+                             tooltip = Municipio,
+                             colour = Provincia)) +
+  geom_hline(yintercept = 0) +
+  scale_color_viridis_d_interactive() +
+  # scale_color_brewer(type = "qual", palette = "Accent") +
+  labs(title = "Tendencias en Incidencia Acumulada por Municipio",
+       subtitle = "Cambio en la IA por municipio respecto a la IA en los 14 días previos\n(se excluyen municipios con IA > 1000 y aumentos > 200%)",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       x = "\nIA actual",
+       y = "Cambio en la IA respecto a los 14 días previos\n") +
+  theme(plot.title = element_text(size = rel(0.9)),
+        plot.subtitle = element_text(size = rel(0.7)),
+        axis.title = element_text(size = rel(0.8)),
+        legend.position = "top", legend.title = element_blank())
+  
+girafe(ggobj = ia.cambio)
+
+```
+
+<br>
+
+En esta gráfica animada e interactiva se puede examinar con más detalle la evolución de la Incidencia Acumulada en las últimas semanas en **municipios de > 10.000 habitantes**. Pulsando sobre los nombres de provincia en la leyenda de la derecha se pueden resaltar/desactivar los municipios de cada provincia.
+
+<br>
+
+```{r muni.ia.cambio.anim}
+library(plotly)
+
+fig <- muni.todo %>%
+  filter(Fecha > as.Date(max(muni.todo$Fecha) - 30)) %>% 
+  filter(Poblacion > 10000) %>% 
+  filter(IA.14d < 1000, IA.cambio < 200) %>%
+  mutate(fecha = format(Fecha, "%m/%d")) %>%
+  plot_ly(
+    x = ~IA.14d, 
+    y = ~IA.cambio, 
+    ids = ~Municipio,
+    size = 5,
+    color = ~Provincia, 
+    frame = ~fecha, 
+    text = ~Municipio, 
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers'
+  ) %>% 
+  layout(
+    xaxis = list(title = "IA", tickfont = list(size = 15)),
+    yaxis = list(title = "Cambio en la IA respecto a los 14 días previos", 
+                 tickfont = list(size = 15))
+  ) %>%
+  animation_opts(
+    1000, redraw = FALSE
+  ) %>% 
+  animation_button(
+    x = 1, xanchor = "right", y = 0, yanchor = "bottom"
+  ) %>% 
+  animation_slider(
+    currentvalue = list(font = list(color = "black"))
+  )
+
+fig
+```
+
+<br>
+
+### Mapas
+
+
+Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 días** es útil para saber dónde se encuentran los brotes activos en la actualidad. Pasa el cursor sobre el mapa para ver los valores concretos por municipio.
+
+```{r mapamunis_PCR_14d, out.width='100%'}
+
+
 
 library(ggiraph)
 
@@ -1576,32 +1662,6 @@ muni.data %>%
 <br>
 
 
-
-```{r mapamunis_proporciones}
-muni.dia <- readr::read_csv2("datos/municipios.dia/Municipios_todos_datoshoy.csv", col_types = "ccd_")
-
-muni.dia <- muni.dia %>%
-    rename(Municipio = `Lugar de residencia`) %>%
-    dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$MUNICIPIO)) %>%
-    dplyr::filter(!is.na(Medida)) %>%
-    dplyr::filter(Medida == "Población" | Medida == "Confirmados PDIA" | 
-                    Medida == "Tasa PDIA 14 dias" |
-                    Medida == "Total Confirmados" | Medida == "Fallecidos") %>%
-    mutate(rownumber = 1:nrow(.)) %>%
-    group_by(Municipio) %>%
-    arrange(rownumber) %>%
-    slice_tail(n = 5) %>%
-    ungroup() %>%
-    select(-rownumber) %>%
-    tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
-    mutate(Prop.Casos.Pop = 100*`Total Confirmados`/`Población`,
-           Prop.Def.Pop = 100*Fallecidos/`Población`,
-           Prop.Def.Casos = 100*Fallecidos/`Total Confirmados`) %>% 
-    rename(MUNICIPIO = Municipio)
-
-muni.dia <- left_join(muni.lite, muni.dia, by = "MUNICIPIO") 
-
-```
 
 
 ```{r mapamunis_propcasos}
