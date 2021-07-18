@@ -596,7 +596,7 @@ ggplot(datos.plot) +
   # scale_y_continuous(sec.axis = dup_axis(
   #   breaks = datos.plot$IA14[nrow(datos.plot)],
   #   labels = round(datos.plot$IA14[nrow(datos.plot)]))) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+  scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3) +
@@ -622,7 +622,7 @@ ggplot(datos.plot) +
   annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$IA7[nrow(datos.plot)],
            label = round(datos.plot$IA7[nrow(datos.plot)])) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+  scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
@@ -650,7 +650,7 @@ ggplot(datos.plot) +
   annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.14d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.14d.65a[nrow(datos.plot)])) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+  scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 20), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 20, ymax = 50), fill = "#ffff33", alpha = 0.3) +
@@ -677,7 +677,7 @@ ggplot(datos.plot) +
   annotate("text", x = 10 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.7d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.7d.65a[nrow(datos.plot)])) +
-  scale_x_date(limits = c(as.Date("2020-07-01"), NA), 
+  scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
@@ -714,7 +714,8 @@ ggplot(datos.plot) +
   labs(x = "", y = "",
        title = "Positividad de las PCR + Test Antígeno",
        subtitle = "% Positivos última semana",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
 ```
 
@@ -733,7 +734,8 @@ ggplot(datos.plot) +
   labs(x = "", y = "",
        title = "Número de pruebas realizadas",
        subtitle = "Pruebas realizadas en la última semana (PCR + Test Antígeno)",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
 ```
 
@@ -758,7 +760,8 @@ ggplot(datos.plot) +
   labs(x = "", y = "",
        title = "Trazabilidad de los casos",
        subtitle = "% casos que son contactos de positivo conocido",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
 ```
 
@@ -788,7 +791,8 @@ ggplot(datos.plot) +
   labs(x = "", y = "",
        title = "Ocupación hospitalaria",
        subtitle = "% camas ocupadas por COVID-19",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
 
 ```
 
@@ -813,7 +817,8 @@ ggplot(datos.plot) +
   labs(x = "", y = "",
        title = "Ocupación UCI",
        subtitle = "% camas UCI ocupadas por COVID-19",
-       caption = "https://tiny.cc/COVID19-Andalucia")
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")
 
 ```
 
@@ -855,7 +860,7 @@ ggplot(camas) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   annotate("text", x = max(camas.last$Fecha) + 28, y = camas.last$CamasOcup, 
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8") +
-  annotate("text", x = max(camas.last$Fecha) + 25, y = camas.last$CamasUCI,
+  annotate("text", x = max(camas.last$Fecha) + 28, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b", 
                limits = c(as.Date("2020-04-05"), NA), expand = c(0, 30))
@@ -1352,7 +1357,7 @@ muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
   mutate(IA.cambio = round(100*(IA.14d - IA.14d.prev)/IA.14d.prev))
 
 ia.cambio <- muni.todo %>% 
-  filter(Fecha == max(Fecha)) %>% 
+  filter(Fecha == max(Fecha) - 1) %>% 
   ggplot() +
   geom_point_interactive(aes(x = IA.14d, y = IA.cambio, tooltip = Municipio,
                              colour = Provincia)) +
@@ -1770,7 +1775,13 @@ Número de casos e Incidencia Acumulada por franja de edad:
 casos.edad.provs %>% 
   filter(Territorio == "Andalucía", Edad != "TOTAL") %>% 
   select(Edad, Casos.14d, IA.14d, Casos.7d, IA.7d) %>% 
-  kable(digits = 0)
+  mutate(Edad = str_remove_all(Edad, "De "),
+         Edad = str_remove(Edad, " años")) %>% 
+  mutate(IA.14d = round(IA.14d),
+         IA.7d = round(IA.7d)) %>% 
+  flextable() %>% 
+  width(width = 1.4) %>% 
+  plot(zoom = 1)
   
 ```
 
