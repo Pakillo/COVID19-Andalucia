@@ -279,12 +279,26 @@ datos.acum <- read_csv2("datos/acumulados.csv",
 datos.acum <- datos.acum %>% 
   left_join(casos.65, by = c("Fecha", "Territorio"))
 
-## Add datos positividad + trazabilidad
-test.minist <- readxl::read_excel("datos/positividad_Ministerio.xlsx")
-test.minist$Fecha <- as.Date(test.minist$Fecha)
+
+## Add datos positividad
+# TODO 
+# test.minist <- read_csv2("datos/datos_test_ministerio.csv",
+#                          locale = locale(encoding = "ISO-8859-1")) %>%
+#   filter(PROVINCIA %in% unique(datos.acum$Territorio)) %>%
+#   mutate(Fecha = parse_date(FECHA_PRUEBA, format = "%d%b%Y",
+#                             locale = locale(date_names = "en"))) %>% 
+#   mutate(N.PCR.TA = N_ANT + N_PCR,
+#          Positividad = 100*(N_ANT_POSITIVOS + N_PCR_POSITIVOS)/N.PCR.TA)
+
+
+
+## Add datos posit + trazabilidad
+trazab.minist <- readxl::read_excel("datos/positividad_Ministerio.xlsx") %>% 
+  # select(Fecha, Territorio, Trazab_indic) %>% 
+  mutate(Fecha = as.Date(Fecha))
 
 datos.acum <- datos.acum %>% 
-  full_join(test.minist, by = c("Fecha", "Territorio"))
+  full_join(trazab.minist, by = c("Fecha", "Territorio"))
 
 
 # Add datos camas ocupadas
@@ -2256,7 +2270,7 @@ datos.diarios.iscii.notna %>%
   ggplot() +
   geom_line(aes(x = fecha, y = hosp_ma, colour = edades),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date(NA), max(datos.diarios.iscii.notna$fecha) - 7), 
+  scale_x_date(limits = c(as.Date(NA), max(datos.diarios.iscii.notna$fecha) - 5), 
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Ingresos\n", x = "",
        title = "Ingresos diarios por franja de edad",

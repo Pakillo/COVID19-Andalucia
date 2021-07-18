@@ -152,6 +152,20 @@ while (httr::http_error(url.camas.minist)) {
 download.file(url.camas.minist, destfile = "datos/datos_camas_ministerio.csv")
 
 
+
+#### Datos Minist Nº pruebas
+
+fecha.test <- Sys.Date()
+url.test.minist <- paste0("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Datos_Pruebas_Realizadas_Historico_",
+                           format(fecha.test, "%d%m%Y"), ".csv")
+while (httr::http_error(url.test.minist)) {
+  fecha.test <- fecha.test - 1
+  url.test.minist <- paste0("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Datos_Pruebas_Realizadas_Historico_",
+                             format(fecha.test, "%d%m%Y"), ".csv")
+}
+download.file(url.test.minist, destfile = "datos/datos_test_ministerio.csv")
+
+
 ## Render
 
 rmarkdown::render("evolucion-coronavirus-andalucia.Rmd")
