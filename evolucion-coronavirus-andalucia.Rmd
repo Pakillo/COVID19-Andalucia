@@ -1429,7 +1429,7 @@ muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
 
 
 
-En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en cada municipio de Andalucía, y el cambio que dicho valor de IA representa respecto a la IA de catorce días previos. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Pase el cursor sobre los puntos para ver el nombre del municipio.
+En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en cada municipio de >5.000 habitantes en Andalucía, y el cambio que dicho valor de IA representa respecto a la IA de catorce días previos. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Se excluyen de la gráfica valores de IA > 1000 y cambios en la IA > 500%. Pase el cursor sobre los puntos para ver el nombre del municipio.
 
 <br>
 
@@ -1438,9 +1438,10 @@ En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en
 library(ggiraph)
 
 ia.cambio <- muni.todo %>% 
-  filter(Fecha == max(Fecha) - 1) %>% 
-  # filter(Poblacion > 5000) %>% 
-  filter(IA.14d < 1000, IA.cambio < 200) %>% 
+  filter(Fecha == max(Fecha)) %>% 
+  filter(Poblacion > 5000) %>% 
+  filter(IA.14d < 1000, IA.cambio < 500) %>%
+  # filter(IA.14d < 1000, IA.cambio < 200) %>% 
   ggplot() +
   geom_point_interactive(aes(x = IA.14d, y = IA.cambio, 
                              tooltip = Municipio,
@@ -1449,7 +1450,7 @@ ia.cambio <- muni.todo %>%
   scale_color_viridis_d_interactive() +
   # scale_color_brewer(type = "qual", palette = "Accent") +
   labs(title = "Tendencias en Incidencia Acumulada por Municipio",
-       subtitle = "Cambio en la IA por municipio respecto a la IA en los 14 días previos\n(se excluyen municipios con IA > 1000 y aumentos > 200%)",
+       subtitle = "Cambio en la IA por municipio respecto a la IA en los 14 días previos\n",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "\nIA actual",
        y = "Cambio en la IA respecto a los 14 días previos\n") +
@@ -1464,7 +1465,7 @@ girafe(ggobj = ia.cambio)
 
 <br>
 
-En esta gráfica animada e interactiva se puede examinar con más detalle la evolución de la Incidencia Acumulada en las últimas semanas en **municipios de > 5.000 habitantes**. Pulsando sobre los nombres de provincia en la leyenda de la derecha se pueden resaltar/desactivar los municipios de cada provincia.
+En esta gráfica animada e interactiva se puede examinar con más detalle la **evolución de la Incidencia Acumulada en municipios de > 5.000 habitantes** en las últimas semanas. Pulsando sobre los nombres de provincia en la leyenda de la derecha se pueden resaltar/desactivar los municipios de cada provincia.
 
 <br>
 
@@ -1474,7 +1475,7 @@ library(plotly)
 fig <- muni.todo %>%
   filter(Fecha > as.Date(max(muni.todo$Fecha) - 30)) %>% 
   filter(Poblacion > 5000) %>% 
-  filter(IA.14d < 1000, IA.cambio < 200) %>%
+  filter(IA.14d < 1000, IA.cambio < 500) %>%
   mutate(fecha = format(Fecha, "%m/%d")) %>%
   select(fecha, IA.14d, IA.cambio, Provincia, Municipio) %>% 
   plot_ly(
