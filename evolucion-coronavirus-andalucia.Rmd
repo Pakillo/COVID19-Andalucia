@@ -878,7 +878,7 @@ ggplot() +
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8") +
   annotate("text", x = max(camas.last$Fecha) + 4, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b", expand = c(0, 5)) 
+  scale_x_date(date_breaks = "1 week", date_labels = "%d %b", expand = c(0, 5)) 
 
 ```
 
@@ -930,7 +930,7 @@ ggplot(datos.vacu) +
                                          name = "Nº personas\n",
                                          labels = scales::label_number(big.mark = ".", decimal.mark = ",")),
                      labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
-  scale_x_date(date_labels = "%d %b") +
+  scale_x_date(date_labels = "%b", date_breaks = "1 month") +
   labs(x = "", y = "% población vacunada\n", 
        title = "Porcentaje de población vacunada", 
        subtitle = "Personas con vacunación completa",
@@ -1429,7 +1429,7 @@ muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
 
 
 
-En esta figura interactiva se muestra la incidencia acumulada a 14 días (IA) en cada municipio de >5.000 habitantes en Andalucía, y el cambio que dicho valor de IA representa respecto a la IA de catorce días previos. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Se excluyen de la gráfica valores de IA > 1000 y cambios en la IA > 500%. Pase el cursor sobre los puntos para ver el nombre del municipio.
+En esta figura interactiva se muestra la **incidencia acumulada a 14 días (IA) en cada municipio de >5.000 habitantes** en Andalucía, y el **cambio (en %) que dicho valor de IA representa respecto a la IA de catorce días previos**. Cambios negativos implican un descenso de la IA en las últimas dos semanas, y cambios positivos implican aumentos de la IA. Por ejemplo, un cambio del 100% significa que la IA se ha duplicado (ha aumentado un 100%) en las últimas dos semanas. Se excluyen de la gráfica valores de IA > 1000 y cambios en la IA > 500%. Pase el cursor sobre los puntos para ver el nombre del municipio.
 
 <br>
 
@@ -1441,7 +1441,6 @@ ia.cambio <- muni.todo %>%
   filter(Fecha == max(Fecha)) %>% 
   filter(Poblacion > 5000) %>% 
   filter(IA.14d < 1000, IA.cambio < 500) %>%
-  # filter(IA.14d < 1000, IA.cambio < 200) %>% 
   ggplot() +
   geom_point_interactive(aes(x = IA.14d, y = IA.cambio, 
                              tooltip = Municipio,
