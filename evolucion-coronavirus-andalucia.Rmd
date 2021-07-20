@@ -1413,7 +1413,7 @@ muni.dia <- left_join(muni.lite, muni.dia, by = "MUNICIPIO")
 
 
 muni.pop <- muni.dia %>% 
-  sf::st_drop_geometry() %>% 
+  # sf::st_drop_geometry() %>%
   select(Provincia = PROVINCIA, Municipio = MUNICIPIO, Poblacion = `Población`)
 
 muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
@@ -1423,7 +1423,8 @@ muni.todo <- readr::read_csv("datos/municipios.csv", guess_max = 200000) %>%
   mutate(IA.14d.prev = lag(IA.14d, n = 14)) %>% 
   mutate(IA.14d.prev = ifelse(IA.14d.prev == 0, NA, IA.14d.prev)) %>% 
   mutate(IA.cambio = round(100*(IA.14d - IA.14d.prev)/IA.14d.prev)) %>% 
-  left_join(muni.pop)
+  left_join(muni.pop) %>% 
+  ungroup()
 
 ```
 
@@ -1516,8 +1517,6 @@ Este mapa de **casos confirmados por PCR o test de antígeno en los últimos 14 
 
 ```{r mapamunis_PCR_14d, out.width='100%'}
 
-
-
 library(ggiraph)
 
 mapa <- 
@@ -1593,6 +1592,8 @@ girafe(ggobj = mapa)
 ```
 
 
+
+
 ```{r mapamunis_IA500, out.width='100%'}
 
 mapa <- muni.14d.hab %>% 
@@ -1640,6 +1641,47 @@ mapa <- muni.14d.hab %>%
 girafe(ggobj = mapa)
 
 ```
+
+
+
+
+```{r biscalemap}
+library(biscale)
+library(cowplot)
+
+
+ia.cambio.sf <- muni.todo %>% 
+  sf::st_set_geometry(muni.todo$geom) %>% 
+  filter(Fecha == max(Fecha)) %>%
+  mutate(IA.14d.prev = ifelse(is.na(IA.14d.prev), 1, IA.14d.prev)) %>% 
+  mutate(IA.cambio = round(100*(IA.14d - IA.14d.prev)/IA.14d.prev)) %>% 
+  bi_class(x = IA.14d, y = IA.cambio, dim = 3, style = "quantile")
+  
+map <- ggplot() +
+  geom_sf(data = ia.cambio.sf, aes(fill = bi_class), 
+          size = 0.1, show.legend = FALSE) +
+  bi_scale_fill(pal = "DkViolet", dim = 3, na.value = "white") +
+  bi_theme() +
+  theme(
+    plot.title = element_text(size = 18),
+    plot.caption = element_text(size = 8, hjust = 0.7, 
+                                    face = "italic", colour = "grey60")) +
+  labs(title = "Incidencia Acumulada actual y tasa de cambio", 
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+legend <- bi_legend(pal = "DkViolet",
+                    dim = 3,
+                    xlab = "Mayor IA",
+                    ylab = "Mayor Aumento IA",
+                    size = 8)
+
+finalPlot <- ggdraw() +
+  draw_plot(map, 0, 0, 1, 1) +
+  draw_plot(legend, 0.02, 0.2, 0.2, 0.2)
+
+finalPlot
+```
+
 
 
 
