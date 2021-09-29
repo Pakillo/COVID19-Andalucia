@@ -864,12 +864,12 @@ ggplot(camas) +
   annotate("text", x = max(camas.last$Fecha) + 5, y = camas.last$CamasUCI,
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c",
            hjust = 0) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b", 
+  scale_x_date(date_breaks = "2 months", date_labels = "%b", 
                limits = c(as.Date("2020-04-05"), NA), 
                expand = expansion(add = c(10, 100))) 
 
 camas %>% 
-  filter(Fecha >= as.Date("2021-06-15")) %>% 
+  filter(Fecha >= as.Date("2021-07-15")) %>% 
 ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
@@ -985,7 +985,8 @@ ggplot() +
   theme(legend.position = "none") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b",
                limits = c(as.Date("2020-03-01"), max(datos.andal.long$Fecha) - 5)) +
-  scale_y_continuous(sec.axis = dup_axis(name = ""))
+  scale_y_continuous(sec.axis = dup_axis(name = "")) +
+  theme(axis.text.x = element_text(size = 8))
 
 ```
 
@@ -1105,7 +1106,8 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5), 
-               date_breaks = "1 month", date_labels = "%b")
+               date_breaks = "1 month", date_labels = "%b") +
+  theme(axis.text.x = element_text(size = 8))
 
 ```
 
@@ -1136,7 +1138,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 130, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 50, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 14), size = 3) 
 
 ```
@@ -1660,7 +1662,7 @@ girafe(ggobj = mapa)
 
 
 
-```{r biscalemap}
+```{r biscalemap, eval=FALSE}
 library(biscale)
 library(cowplot)
 
