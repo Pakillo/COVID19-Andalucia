@@ -2219,7 +2219,7 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(Sys.Date() - 16, NA), 
                date_breaks = "2 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = Hospitalizados + 15, label = Hospitalizados),
+  geom_text(aes(Fecha, y = Hospitalizados + 5, label = Hospitalizados),
             data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
   
 
@@ -2315,7 +2315,7 @@ hosp.edad <- hosp.edad %>%
 ggplot(hosp.edad) +
   coord_flip() +
   geom_col(aes(x = edades.f, y = n), fill = "#377eb8") + 
-  geom_text(aes(x = edades.f, y = n + 150, label = n), size = 3) +
+  geom_text(aes(x = edades.f, y = n + 180, label = n), size = 3) +
   labs(x = "Edad (años)", y = "", 
        title = "Número de ingresos por rango de edad",
        subtitle = paste0("Total de ingresados: ", sum(hosp.edad$n), " (con fecha ", fecha.edad, ")"),
@@ -2436,7 +2436,7 @@ ggplot(ing.lines) +
 # library(gghighlight)
 
 ing.lines.zoom <- ing.lines %>%
-  filter(fecha > "2021-06-01") %>%
+  filter(fecha > "2021-07-01") %>%
   filter(fecha < max(ing.lines$fecha) - 1)
 
 ggplot(data = ing.lines.zoom,
@@ -2568,7 +2568,7 @@ uci.edad <- uci.edad %>%
 ggplot(uci.edad) +
   coord_flip() +
   geom_col(aes(x = edades.f, y = n), fill = "#e41a1c") + 
-  geom_text(aes(x = edades.f, y = n + 20, label = n), size = 3) +
+  geom_text(aes(x = edades.f, y = n + 35, label = n), size = 3) +
   labs(x = "Edad (años)", y = "", 
        title = "Número de ingresos en UCI por rango de edad",
        subtitle = paste0("Total de ingresados: ", sum(uci.edad$n), " (con fecha ", fecha.edad, ")"),
@@ -2680,7 +2680,7 @@ ggplot(uci.lines) +
 
 
 uci.lines %>% 
-  filter(fecha > as.Date("2021-06-01")) %>% 
+  filter(fecha > as.Date("2021-08-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5, alpha = 0.8) +
@@ -2801,7 +2801,7 @@ def.edad <- def.edad %>%
 ggplot(def.edad) +
   coord_flip() +
   geom_col(aes(x = edades.f, y = n), fill = "grey40") + 
-  geom_text(aes(x = edades.f, y = n + 50, label = n), size = 3) +
+  geom_text(aes(x = edades.f, y = n + 60, label = n), size = 3) +
   labs(x = "Edad (años)", y = "", 
        title = "Defunciones por rango de edad",
        subtitle = paste0("Defunciones acumuladas: ", sum(def.edad$n), " (con fecha ", fecha.edad, ")"),
