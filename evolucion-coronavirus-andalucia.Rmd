@@ -858,7 +858,7 @@ ggplot(camas) +
        x = "", y = "Camas ocupadas\n") +
   geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
-  annotate("text", x = max(camas.last$Fecha) + 5, y = camas.last$CamasOcup, 
+  annotate("text", x = max(camas.last$Fecha) + 5, y = camas.last$CamasOcup + 200, 
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8",
            hjust = 0) +
   annotate("text", x = max(camas.last$Fecha) + 5, y = camas.last$CamasUCI,
@@ -869,7 +869,7 @@ ggplot(camas) +
                expand = expansion(add = c(10, 100))) 
 
 camas %>% 
-  filter(Fecha >= as.Date("2021-07-15")) %>% 
+  filter(Fecha >= as.Date("2021-08-01")) %>% 
 ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
@@ -1370,6 +1370,8 @@ mobidata %>%
 <br>
 
 ## Datos por Municipio
+
+<br>
 
 Consulta https://www.mapacovid.es para conocer el nivel de alerta y restricciones oficiales por municipio. 
 
@@ -2151,7 +2153,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 ```
@@ -2173,7 +2176,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2199,7 +2203,8 @@ ggplot(datos.andal) +
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5),
-               date_breaks = "1 month", date_labels = "%b")
+               date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month")
 
 ```
 
@@ -2345,7 +2350,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Ambos sexos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2368,7 +2374,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2391,7 +2398,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2486,7 +2494,8 @@ ggplot(datos.andal) +
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5),
-               date_breaks = "1 month", date_labels = "%b")
+               date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month")
 
 ```
 
@@ -2596,7 +2605,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Ambos sexos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2619,7 +2629,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2642,7 +2653,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Ingresos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2715,7 +2727,8 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5),
-               date_breaks = "1 month", date_labels = "%b")
+               date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month")
 
 ```
 
@@ -2828,7 +2841,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Ambos sexos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
@@ -2851,7 +2865,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Hombres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 ```
@@ -2873,7 +2888,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Mujeres",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Defunciones\ndiarias") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
+               date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
         axis.text = element_text(size = 10))
 
