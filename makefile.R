@@ -1,6 +1,6 @@
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-10-14")
+fecha.munis <- as.Date("2021-10-17")
 
 fecha.edad <- as.Date("2021-10-14")
 
