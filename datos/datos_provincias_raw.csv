@@ -1,51 +1,146 @@
 Fecha diagnóstico;Territorio;Medida;Valor;
-19/10/2021;Andalucía;Confirmados PDIA;59;
-19/10/2021;Andalucía;Total confirmados;59;
-19/10/2021;Andalucía;Hospitalizados;2;
+21/10/2021;Andalucía;Confirmados PDIA;44;
+21/10/2021;Andalucía;Total confirmados;44;
+21/10/2021;Andalucía;Hospitalizados;1;
+21/10/2021;Andalucía;UCI;0;
+21/10/2021;Andalucía;Fallecidos;0;
+21/10/2021;Almería;Confirmados PDIA;10;
+21/10/2021;Almería;Total confirmados;10;
+21/10/2021;Almería;Hospitalizados;1;
+21/10/2021;Almería;UCI;0;
+21/10/2021;Almería;Fallecidos;0;
+21/10/2021;Cádiz;Confirmados PDIA;3;
+21/10/2021;Cádiz;Total confirmados;3;
+21/10/2021;Cádiz;Hospitalizados;0;
+21/10/2021;Cádiz;UCI;0;
+21/10/2021;Cádiz;Fallecidos;0;
+21/10/2021;Córdoba;Confirmados PDIA;2;
+21/10/2021;Córdoba;Total confirmados;2;
+21/10/2021;Córdoba;Hospitalizados;0;
+21/10/2021;Córdoba;UCI;0;
+21/10/2021;Córdoba;Fallecidos;0;
+21/10/2021;Granada;Confirmados PDIA;1;
+21/10/2021;Granada;Total confirmados;1;
+21/10/2021;Granada;Hospitalizados;0;
+21/10/2021;Granada;UCI;0;
+21/10/2021;Granada;Fallecidos;0;
+21/10/2021;Huelva;Confirmados PDIA;10;
+21/10/2021;Huelva;Total confirmados;10;
+21/10/2021;Huelva;Hospitalizados;0;
+21/10/2021;Huelva;UCI;0;
+21/10/2021;Huelva;Fallecidos;0;
+21/10/2021;Jaén;Confirmados PDIA;4;
+21/10/2021;Jaén;Total confirmados;4;
+21/10/2021;Jaén;Hospitalizados;0;
+21/10/2021;Jaén;UCI;0;
+21/10/2021;Jaén;Fallecidos;0;
+21/10/2021;Málaga;Confirmados PDIA;12;
+21/10/2021;Málaga;Total confirmados;12;
+21/10/2021;Málaga;Hospitalizados;0;
+21/10/2021;Málaga;UCI;0;
+21/10/2021;Málaga;Fallecidos;0;
+21/10/2021;Sevilla;Confirmados PDIA;2;
+21/10/2021;Sevilla;Total confirmados;2;
+21/10/2021;Sevilla;Hospitalizados;0;
+21/10/2021;Sevilla;UCI;0;
+21/10/2021;Sevilla;Fallecidos;0;
+20/10/2021;Andalucía;Confirmados PDIA;267;
+20/10/2021;Andalucía;Total confirmados;267;
+20/10/2021;Andalucía;Hospitalizados;10;
+20/10/2021;Andalucía;UCI;1;
+20/10/2021;Andalucía;Fallecidos;0;
+20/10/2021;Almería;Confirmados PDIA;51;
+20/10/2021;Almería;Total confirmados;51;
+20/10/2021;Almería;Hospitalizados;3;
+20/10/2021;Almería;UCI;0;
+20/10/2021;Almería;Fallecidos;0;
+20/10/2021;Cádiz;Confirmados PDIA;23;
+20/10/2021;Cádiz;Total confirmados;23;
+20/10/2021;Cádiz;Hospitalizados;0;
+20/10/2021;Cádiz;UCI;0;
+20/10/2021;Cádiz;Fallecidos;0;
+20/10/2021;Córdoba;Confirmados PDIA;19;
+20/10/2021;Córdoba;Total confirmados;19;
+20/10/2021;Córdoba;Hospitalizados;2;
+20/10/2021;Córdoba;UCI;0;
+20/10/2021;Córdoba;Fallecidos;0;
+20/10/2021;Granada;Confirmados PDIA;21;
+20/10/2021;Granada;Total confirmados;21;
+20/10/2021;Granada;Hospitalizados;0;
+20/10/2021;Granada;UCI;0;
+20/10/2021;Granada;Fallecidos;0;
+20/10/2021;Huelva;Confirmados PDIA;24;
+20/10/2021;Huelva;Total confirmados;24;
+20/10/2021;Huelva;Hospitalizados;2;
+20/10/2021;Huelva;UCI;0;
+20/10/2021;Huelva;Fallecidos;0;
+20/10/2021;Jaén;Confirmados PDIA;30;
+20/10/2021;Jaén;Total confirmados;30;
+20/10/2021;Jaén;Hospitalizados;1;
+20/10/2021;Jaén;UCI;0;
+20/10/2021;Jaén;Fallecidos;0;
+20/10/2021;Málaga;Confirmados PDIA;56;
+20/10/2021;Málaga;Total confirmados;56;
+20/10/2021;Málaga;Hospitalizados;2;
+20/10/2021;Málaga;UCI;1;
+20/10/2021;Málaga;Fallecidos;0;
+20/10/2021;Sevilla;Confirmados PDIA;43;
+20/10/2021;Sevilla;Total confirmados;43;
+20/10/2021;Sevilla;Hospitalizados;0;
+20/10/2021;Sevilla;UCI;0;
+20/10/2021;Sevilla;Fallecidos;0;
+19/10/2021;Andalucía;Confirmados PDIA;251;
+19/10/2021;Andalucía;Total confirmados;251;
+19/10/2021;Andalucía;Hospitalizados;5;
 19/10/2021;Andalucía;UCI;0;
 19/10/2021;Andalucía;Fallecidos;0;
-19/10/2021;Almería;Confirmados PDIA;3;
-19/10/2021;Almería;Total confirmados;3;
-19/10/2021;Almería;Hospitalizados;0;
+19/10/2021;Almería;Confirmados PDIA;32;
+19/10/2021;Almería;Total confirmados;32;
+19/10/2021;Almería;Hospitalizados;2;
 19/10/2021;Almería;UCI;0;
 19/10/2021;Almería;Fallecidos;0;
-19/10/2021;Cádiz;Confirmados PDIA;3;
-19/10/2021;Cádiz;Total confirmados;3;
+19/10/2021;Cádiz;Confirmados PDIA;19;
+19/10/2021;Cádiz;Total confirmados;19;
 19/10/2021;Cádiz;Hospitalizados;0;
 19/10/2021;Cádiz;UCI;0;
 19/10/2021;Cádiz;Fallecidos;0;
-19/10/2021;Córdoba;Confirmados PDIA;12;
-19/10/2021;Córdoba;Total confirmados;12;
+19/10/2021;Córdoba;Confirmados PDIA;29;
+19/10/2021;Córdoba;Total confirmados;29;
 19/10/2021;Córdoba;Hospitalizados;0;
 19/10/2021;Córdoba;UCI;0;
 19/10/2021;Córdoba;Fallecidos;0;
-19/10/2021;Granada;Confirmados PDIA;2;
-19/10/2021;Granada;Total confirmados;2;
-19/10/2021;Granada;Hospitalizados;1;
+19/10/2021;Granada;Confirmados PDIA;28;
+19/10/2021;Granada;Total confirmados;28;
+19/10/2021;Granada;Hospitalizados;2;
 19/10/2021;Granada;UCI;0;
 19/10/2021;Granada;Fallecidos;0;
-19/10/2021;Huelva;Confirmados PDIA;20;
-19/10/2021;Huelva;Total confirmados;20;
+19/10/2021;Huelva;Confirmados PDIA;29;
+19/10/2021;Huelva;Total confirmados;29;
 19/10/2021;Huelva;Hospitalizados;1;
 19/10/2021;Huelva;UCI;0;
 19/10/2021;Huelva;Fallecidos;0;
-19/10/2021;Málaga;Confirmados PDIA;8;
-19/10/2021;Málaga;Total confirmados;8;
+19/10/2021;Jaén;Confirmados PDIA;18;
+19/10/2021;Jaén;Total confirmados;18;
+19/10/2021;Jaén;Hospitalizados;0;
+19/10/2021;Jaén;UCI;0;
+19/10/2021;Jaén;Fallecidos;0;
+19/10/2021;Málaga;Confirmados PDIA;58;
+19/10/2021;Málaga;Total confirmados;58;
 19/10/2021;Málaga;Hospitalizados;0;
 19/10/2021;Málaga;UCI;0;
 19/10/2021;Málaga;Fallecidos;0;
-19/10/2021;Sevilla;Confirmados PDIA;11;
-19/10/2021;Sevilla;Total confirmados;11;
+19/10/2021;Sevilla;Confirmados PDIA;38;
+19/10/2021;Sevilla;Total confirmados;38;
 19/10/2021;Sevilla;Hospitalizados;0;
 19/10/2021;Sevilla;UCI;0;
 19/10/2021;Sevilla;Fallecidos;0;
-18/10/2021;Andalucía;Confirmados PDIA;172;
-18/10/2021;Andalucía;Total confirmados;172;
-18/10/2021;Andalucía;Hospitalizados;7;
+18/10/2021;Andalucía;Confirmados PDIA;209;
+18/10/2021;Andalucía;Total confirmados;209;
+18/10/2021;Andalucía;Hospitalizados;8;
 18/10/2021;Andalucía;UCI;1;
 18/10/2021;Andalucía;Fallecidos;0;
-18/10/2021;Almería;Confirmados PDIA;32;
-18/10/2021;Almería;Total confirmados;32;
+18/10/2021;Almería;Confirmados PDIA;33;
+18/10/2021;Almería;Total confirmados;33;
 18/10/2021;Almería;Hospitalizados;1;
 18/10/2021;Almería;UCI;0;
 18/10/2021;Almería;Fallecidos;0;
@@ -59,8 +154,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 18/10/2021;Córdoba;Hospitalizados;1;
 18/10/2021;Córdoba;UCI;0;
 18/10/2021;Córdoba;Fallecidos;0;
-18/10/2021;Granada;Confirmados PDIA;23;
-18/10/2021;Granada;Total confirmados;23;
+18/10/2021;Granada;Confirmados PDIA;24;
+18/10/2021;Granada;Total confirmados;24;
 18/10/2021;Granada;Hospitalizados;1;
 18/10/2021;Granada;UCI;1;
 18/10/2021;Granada;Fallecidos;0;
@@ -74,23 +169,23 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 18/10/2021;Jaén;Hospitalizados;1;
 18/10/2021;Jaén;UCI;0;
 18/10/2021;Jaén;Fallecidos;0;
-18/10/2021;Málaga;Confirmados PDIA;36;
-18/10/2021;Málaga;Total confirmados;36;
-18/10/2021;Málaga;Hospitalizados;1;
+18/10/2021;Málaga;Confirmados PDIA;68;
+18/10/2021;Málaga;Total confirmados;68;
+18/10/2021;Málaga;Hospitalizados;2;
 18/10/2021;Málaga;UCI;0;
 18/10/2021;Málaga;Fallecidos;0;
-18/10/2021;Sevilla;Confirmados PDIA;27;
-18/10/2021;Sevilla;Total confirmados;27;
+18/10/2021;Sevilla;Confirmados PDIA;30;
+18/10/2021;Sevilla;Total confirmados;30;
 18/10/2021;Sevilla;Hospitalizados;1;
 18/10/2021;Sevilla;UCI;0;
 18/10/2021;Sevilla;Fallecidos;0;
-17/10/2021;Andalucía;Confirmados PDIA;73;
-17/10/2021;Andalucía;Total confirmados;73;
+17/10/2021;Andalucía;Confirmados PDIA;77;
+17/10/2021;Andalucía;Total confirmados;77;
 17/10/2021;Andalucía;Hospitalizados;4;
 17/10/2021;Andalucía;UCI;1;
 17/10/2021;Andalucía;Fallecidos;0;
-17/10/2021;Almería;Confirmados PDIA;15;
-17/10/2021;Almería;Total confirmados;15;
+17/10/2021;Almería;Confirmados PDIA;16;
+17/10/2021;Almería;Total confirmados;16;
 17/10/2021;Almería;Hospitalizados;1;
 17/10/2021;Almería;UCI;0;
 17/10/2021;Almería;Fallecidos;0;
@@ -104,8 +199,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 17/10/2021;Córdoba;Hospitalizados;1;
 17/10/2021;Córdoba;UCI;0;
 17/10/2021;Córdoba;Fallecidos;0;
-17/10/2021;Granada;Confirmados PDIA;4;
-17/10/2021;Granada;Total confirmados;4;
+17/10/2021;Granada;Confirmados PDIA;5;
+17/10/2021;Granada;Total confirmados;5;
 17/10/2021;Granada;Hospitalizados;0;
 17/10/2021;Granada;UCI;0;
 17/10/2021;Granada;Fallecidos;0;
@@ -114,8 +209,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 17/10/2021;Huelva;Hospitalizados;1;
 17/10/2021;Huelva;UCI;1;
 17/10/2021;Huelva;Fallecidos;0;
-17/10/2021;Jaén;Confirmados PDIA;7;
-17/10/2021;Jaén;Total confirmados;7;
+17/10/2021;Jaén;Confirmados PDIA;8;
+17/10/2021;Jaén;Total confirmados;8;
 17/10/2021;Jaén;Hospitalizados;1;
 17/10/2021;Jaén;UCI;0;
 17/10/2021;Jaén;Fallecidos;0;
@@ -124,14 +219,14 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 17/10/2021;Málaga;Hospitalizados;0;
 17/10/2021;Málaga;UCI;0;
 17/10/2021;Málaga;Fallecidos;0;
-17/10/2021;Sevilla;Confirmados PDIA;12;
-17/10/2021;Sevilla;Total confirmados;12;
+17/10/2021;Sevilla;Confirmados PDIA;13;
+17/10/2021;Sevilla;Total confirmados;13;
 17/10/2021;Sevilla;Hospitalizados;0;
 17/10/2021;Sevilla;UCI;0;
 17/10/2021;Sevilla;Fallecidos;0;
-16/10/2021;Andalucía;Confirmados PDIA;146;
-16/10/2021;Andalucía;Total confirmados;146;
-16/10/2021;Andalucía;Hospitalizados;8;
+16/10/2021;Andalucía;Confirmados PDIA;153;
+16/10/2021;Andalucía;Total confirmados;153;
+16/10/2021;Andalucía;Hospitalizados;11;
 16/10/2021;Andalucía;UCI;0;
 16/10/2021;Andalucía;Fallecidos;1;
 16/10/2021;Almería;Confirmados PDIA;10;
@@ -144,9 +239,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 16/10/2021;Cádiz;Hospitalizados;0;
 16/10/2021;Cádiz;UCI;0;
 16/10/2021;Cádiz;Fallecidos;0;
-16/10/2021;Córdoba;Confirmados PDIA;25;
-16/10/2021;Córdoba;Total confirmados;25;
-16/10/2021;Córdoba;Hospitalizados;0;
+16/10/2021;Córdoba;Confirmados PDIA;27;
+16/10/2021;Córdoba;Total confirmados;27;
+16/10/2021;Córdoba;Hospitalizados;1;
 16/10/2021;Córdoba;UCI;0;
 16/10/2021;Córdoba;Fallecidos;0;
 16/10/2021;Granada;Confirmados PDIA;14;
@@ -159,14 +254,14 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 16/10/2021;Huelva;Hospitalizados;0;
 16/10/2021;Huelva;UCI;0;
 16/10/2021;Huelva;Fallecidos;0;
-16/10/2021;Jaén;Confirmados PDIA;2;
-16/10/2021;Jaén;Total confirmados;2;
-16/10/2021;Jaén;Hospitalizados;0;
+16/10/2021;Jaén;Confirmados PDIA;5;
+16/10/2021;Jaén;Total confirmados;5;
+16/10/2021;Jaén;Hospitalizados;1;
 16/10/2021;Jaén;UCI;0;
 16/10/2021;Jaén;Fallecidos;0;
-16/10/2021;Málaga;Confirmados PDIA;33;
-16/10/2021;Málaga;Total confirmados;33;
-16/10/2021;Málaga;Hospitalizados;2;
+16/10/2021;Málaga;Confirmados PDIA;35;
+16/10/2021;Málaga;Total confirmados;35;
+16/10/2021;Málaga;Hospitalizados;3;
 16/10/2021;Málaga;UCI;0;
 16/10/2021;Málaga;Fallecidos;0;
 16/10/2021;Sevilla;Confirmados PDIA;37;
@@ -174,9 +269,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 16/10/2021;Sevilla;Hospitalizados;2;
 16/10/2021;Sevilla;UCI;0;
 16/10/2021;Sevilla;Fallecidos;1;
-15/10/2021;Andalucía;Confirmados PDIA;256;
+15/10/2021;Andalucía;Confirmados PDIA;257;
 15/10/2021;Andalucía;Total confirmados;257;
-15/10/2021;Andalucía;Hospitalizados;8;
+15/10/2021;Andalucía;Hospitalizados;12;
 15/10/2021;Andalucía;UCI;2;
 15/10/2021;Andalucía;Fallecidos;0;
 15/10/2021;Almería;Confirmados PDIA;49;
@@ -201,26 +296,26 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 15/10/2021;Granada;Fallecidos;0;
 15/10/2021;Huelva;Confirmados PDIA;28;
 15/10/2021;Huelva;Total confirmados;28;
-15/10/2021;Huelva;Hospitalizados;3;
+15/10/2021;Huelva;Hospitalizados;4;
 15/10/2021;Huelva;UCI;0;
 15/10/2021;Huelva;Fallecidos;0;
 15/10/2021;Jaén;Confirmados PDIA;12;
 15/10/2021;Jaén;Total confirmados;12;
-15/10/2021;Jaén;Hospitalizados;1;
+15/10/2021;Jaén;Hospitalizados;2;
 15/10/2021;Jaén;UCI;0;
 15/10/2021;Jaén;Fallecidos;0;
 15/10/2021;Málaga;Confirmados PDIA;52;
-15/10/2021;Málaga;Total confirmados;53;
+15/10/2021;Málaga;Total confirmados;52;
 15/10/2021;Málaga;Hospitalizados;0;
 15/10/2021;Málaga;UCI;0;
 15/10/2021;Málaga;Fallecidos;0;
-15/10/2021;Sevilla;Confirmados PDIA;41;
-15/10/2021;Sevilla;Total confirmados;41;
-15/10/2021;Sevilla;Hospitalizados;0;
+15/10/2021;Sevilla;Confirmados PDIA;42;
+15/10/2021;Sevilla;Total confirmados;42;
+15/10/2021;Sevilla;Hospitalizados;2;
 15/10/2021;Sevilla;UCI;0;
 15/10/2021;Sevilla;Fallecidos;0;
-14/10/2021;Andalucía;Confirmados PDIA;306;
-14/10/2021;Andalucía;Total confirmados;306;
+14/10/2021;Andalucía;Confirmados PDIA;311;
+14/10/2021;Andalucía;Total confirmados;311;
 14/10/2021;Andalucía;Hospitalizados;13;
 14/10/2021;Andalucía;UCI;0;
 14/10/2021;Andalucía;Fallecidos;0;
@@ -239,8 +334,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 14/10/2021;Córdoba;Hospitalizados;1;
 14/10/2021;Córdoba;UCI;0;
 14/10/2021;Córdoba;Fallecidos;0;
-14/10/2021;Granada;Confirmados PDIA;34;
-14/10/2021;Granada;Total confirmados;34;
+14/10/2021;Granada;Confirmados PDIA;35;
+14/10/2021;Granada;Total confirmados;35;
 14/10/2021;Granada;Hospitalizados;0;
 14/10/2021;Granada;UCI;0;
 14/10/2021;Granada;Fallecidos;0;
@@ -254,13 +349,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 14/10/2021;Jaén;Hospitalizados;1;
 14/10/2021;Jaén;UCI;0;
 14/10/2021;Jaén;Fallecidos;0;
-14/10/2021;Málaga;Confirmados PDIA;79;
-14/10/2021;Málaga;Total confirmados;79;
+14/10/2021;Málaga;Confirmados PDIA;82;
+14/10/2021;Málaga;Total confirmados;82;
 14/10/2021;Málaga;Hospitalizados;0;
 14/10/2021;Málaga;UCI;0;
 14/10/2021;Málaga;Fallecidos;0;
-14/10/2021;Sevilla;Confirmados PDIA;41;
-14/10/2021;Sevilla;Total confirmados;41;
+14/10/2021;Sevilla;Confirmados PDIA;42;
+14/10/2021;Sevilla;Total confirmados;42;
 14/10/2021;Sevilla;Hospitalizados;4;
 14/10/2021;Sevilla;UCI;0;
 14/10/2021;Sevilla;Fallecidos;0;
@@ -268,12 +363,12 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 13/10/2021;Andalucía;Total confirmados;231;
 13/10/2021;Andalucía;Hospitalizados;15;
 13/10/2021;Andalucía;UCI;1;
-13/10/2021;Andalucía;Fallecidos;0;
+13/10/2021;Andalucía;Fallecidos;1;
 13/10/2021;Almería;Confirmados PDIA;35;
 13/10/2021;Almería;Total confirmados;35;
 13/10/2021;Almería;Hospitalizados;2;
 13/10/2021;Almería;UCI;0;
-13/10/2021;Almería;Fallecidos;0;
+13/10/2021;Almería;Fallecidos;1;
 13/10/2021;Cádiz;Confirmados PDIA;16;
 13/10/2021;Cádiz;Total confirmados;16;
 13/10/2021;Cádiz;Hospitalizados;0;
@@ -309,11 +404,11 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 13/10/2021;Sevilla;Hospitalizados;5;
 13/10/2021;Sevilla;UCI;0;
 13/10/2021;Sevilla;Fallecidos;0;
-12/10/2021;Andalucía;Confirmados PDIA;147;
-12/10/2021;Andalucía;Total confirmados;147;
-12/10/2021;Andalucía;Hospitalizados;10;
+12/10/2021;Andalucía;Confirmados PDIA;149;
+12/10/2021;Andalucía;Total confirmados;149;
+12/10/2021;Andalucía;Hospitalizados;11;
 12/10/2021;Andalucía;UCI;1;
-12/10/2021;Andalucía;Fallecidos;1;
+12/10/2021;Andalucía;Fallecidos;2;
 12/10/2021;Almería;Confirmados PDIA;28;
 12/10/2021;Almería;Total confirmados;28;
 12/10/2021;Almería;Hospitalizados;0;
@@ -324,16 +419,16 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 12/10/2021;Cádiz;Hospitalizados;1;
 12/10/2021;Cádiz;UCI;1;
 12/10/2021;Cádiz;Fallecidos;0;
-12/10/2021;Córdoba;Confirmados PDIA;19;
-12/10/2021;Córdoba;Total confirmados;19;
+12/10/2021;Córdoba;Confirmados PDIA;20;
+12/10/2021;Córdoba;Total confirmados;20;
 12/10/2021;Córdoba;Hospitalizados;0;
 12/10/2021;Córdoba;UCI;0;
 12/10/2021;Córdoba;Fallecidos;1;
-12/10/2021;Granada;Confirmados PDIA;11;
-12/10/2021;Granada;Total confirmados;11;
+12/10/2021;Granada;Confirmados PDIA;12;
+12/10/2021;Granada;Total confirmados;12;
 12/10/2021;Granada;Hospitalizados;2;
 12/10/2021;Granada;UCI;0;
-12/10/2021;Granada;Fallecidos;0;
+12/10/2021;Granada;Fallecidos;1;
 12/10/2021;Huelva;Confirmados PDIA;13;
 12/10/2021;Huelva;Total confirmados;13;
 12/10/2021;Huelva;Hospitalizados;2;
@@ -346,7 +441,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 12/10/2021;Jaén;Fallecidos;0;
 12/10/2021;Málaga;Confirmados PDIA;32;
 12/10/2021;Málaga;Total confirmados;32;
-12/10/2021;Málaga;Hospitalizados;4;
+12/10/2021;Málaga;Hospitalizados;5;
 12/10/2021;Málaga;UCI;0;
 12/10/2021;Málaga;Fallecidos;0;
 12/10/2021;Sevilla;Confirmados PDIA;27;
@@ -358,7 +453,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 11/10/2021;Andalucía;Total confirmados;238;
 11/10/2021;Andalucía;Hospitalizados;17;
 11/10/2021;Andalucía;UCI;2;
-11/10/2021;Andalucía;Fallecidos;0;
+11/10/2021;Andalucía;Fallecidos;2;
 11/10/2021;Almería;Confirmados PDIA;34;
 11/10/2021;Almería;Total confirmados;34;
 11/10/2021;Almería;Hospitalizados;1;
@@ -389,19 +484,19 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 11/10/2021;Jaén;Hospitalizados;1;
 11/10/2021;Jaén;UCI;0;
 11/10/2021;Jaén;Fallecidos;0;
-11/10/2021;Málaga;Confirmados PDIA;59;
-11/10/2021;Málaga;Total confirmados;59;
+11/10/2021;Málaga;Confirmados PDIA;58;
+11/10/2021;Málaga;Total confirmados;58;
 11/10/2021;Málaga;Hospitalizados;6;
 11/10/2021;Málaga;UCI;0;
-11/10/2021;Málaga;Fallecidos;0;
-11/10/2021;Sevilla;Confirmados PDIA;46;
-11/10/2021;Sevilla;Total confirmados;46;
+11/10/2021;Málaga;Fallecidos;2;
+11/10/2021;Sevilla;Confirmados PDIA;47;
+11/10/2021;Sevilla;Total confirmados;47;
 11/10/2021;Sevilla;Hospitalizados;2;
 11/10/2021;Sevilla;UCI;0;
 11/10/2021;Sevilla;Fallecidos;0;
-10/10/2021;Andalucía;Confirmados PDIA;78;
-10/10/2021;Andalucía;Total confirmados;78;
-10/10/2021;Andalucía;Hospitalizados;5;
+10/10/2021;Andalucía;Confirmados PDIA;80;
+10/10/2021;Andalucía;Total confirmados;80;
+10/10/2021;Andalucía;Hospitalizados;6;
 10/10/2021;Andalucía;UCI;1;
 10/10/2021;Andalucía;Fallecidos;0;
 10/10/2021;Almería;Confirmados PDIA;15;
@@ -429,13 +524,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 10/10/2021;Huelva;Hospitalizados;1;
 10/10/2021;Huelva;UCI;0;
 10/10/2021;Huelva;Fallecidos;0;
-10/10/2021;Jaén;Confirmados PDIA;7;
-10/10/2021;Jaén;Total confirmados;7;
-10/10/2021;Jaén;Hospitalizados;0;
+10/10/2021;Jaén;Confirmados PDIA;8;
+10/10/2021;Jaén;Total confirmados;8;
+10/10/2021;Jaén;Hospitalizados;1;
 10/10/2021;Jaén;UCI;0;
 10/10/2021;Jaén;Fallecidos;0;
-10/10/2021;Málaga;Confirmados PDIA;19;
-10/10/2021;Málaga;Total confirmados;19;
+10/10/2021;Málaga;Confirmados PDIA;20;
+10/10/2021;Málaga;Total confirmados;20;
 10/10/2021;Málaga;Hospitalizados;2;
 10/10/2021;Málaga;UCI;0;
 10/10/2021;Málaga;Fallecidos;0;
@@ -444,13 +539,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 10/10/2021;Sevilla;Hospitalizados;1;
 10/10/2021;Sevilla;UCI;0;
 10/10/2021;Sevilla;Fallecidos;0;
-09/10/2021;Andalucía;Confirmados PDIA;143;
-09/10/2021;Andalucía;Total confirmados;143;
+09/10/2021;Andalucía;Confirmados PDIA;145;
+09/10/2021;Andalucía;Total confirmados;145;
 09/10/2021;Andalucía;Hospitalizados;10;
 09/10/2021;Andalucía;UCI;1;
 09/10/2021;Andalucía;Fallecidos;0;
-09/10/2021;Almería;Confirmados PDIA;37;
-09/10/2021;Almería;Total confirmados;37;
+09/10/2021;Almería;Confirmados PDIA;38;
+09/10/2021;Almería;Total confirmados;38;
 09/10/2021;Almería;Hospitalizados;1;
 09/10/2021;Almería;UCI;1;
 09/10/2021;Almería;Fallecidos;0;
@@ -474,8 +569,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 09/10/2021;Huelva;Hospitalizados;1;
 09/10/2021;Huelva;UCI;0;
 09/10/2021;Huelva;Fallecidos;0;
-09/10/2021;Jaén;Confirmados PDIA;1;
-09/10/2021;Jaén;Total confirmados;1;
+09/10/2021;Jaén;Confirmados PDIA;2;
+09/10/2021;Jaén;Total confirmados;2;
 09/10/2021;Jaén;Hospitalizados;0;
 09/10/2021;Jaén;UCI;0;
 09/10/2021;Jaén;Fallecidos;0;
@@ -489,9 +584,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 09/10/2021;Sevilla;Hospitalizados;2;
 09/10/2021;Sevilla;UCI;0;
 09/10/2021;Sevilla;Fallecidos;0;
-08/10/2021;Andalucía;Confirmados PDIA;218;
-08/10/2021;Andalucía;Total confirmados;218;
-08/10/2021;Andalucía;Hospitalizados;5;
+08/10/2021;Andalucía;Confirmados PDIA;219;
+08/10/2021;Andalucía;Total confirmados;219;
+08/10/2021;Andalucía;Hospitalizados;7;
 08/10/2021;Andalucía;UCI;0;
 08/10/2021;Andalucía;Fallecidos;0;
 08/10/2021;Almería;Confirmados PDIA;40;
@@ -526,17 +621,17 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 08/10/2021;Jaén;Fallecidos;0;
 08/10/2021;Málaga;Confirmados PDIA;70;
 08/10/2021;Málaga;Total confirmados;70;
-08/10/2021;Málaga;Hospitalizados;2;
+08/10/2021;Málaga;Hospitalizados;3;
 08/10/2021;Málaga;UCI;0;
 08/10/2021;Málaga;Fallecidos;0;
-08/10/2021;Sevilla;Confirmados PDIA;33;
-08/10/2021;Sevilla;Total confirmados;33;
-08/10/2021;Sevilla;Hospitalizados;0;
+08/10/2021;Sevilla;Confirmados PDIA;34;
+08/10/2021;Sevilla;Total confirmados;34;
+08/10/2021;Sevilla;Hospitalizados;1;
 08/10/2021;Sevilla;UCI;0;
 08/10/2021;Sevilla;Fallecidos;0;
 07/10/2021;Andalucía;Confirmados PDIA;222;
 07/10/2021;Andalucía;Total confirmados;222;
-07/10/2021;Andalucía;Hospitalizados;18;
+07/10/2021;Andalucía;Hospitalizados;20;
 07/10/2021;Andalucía;UCI;0;
 07/10/2021;Andalucía;Fallecidos;0;
 07/10/2021;Almería;Confirmados PDIA;53;
@@ -556,7 +651,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/10/2021;Córdoba;Fallecidos;0;
 07/10/2021;Granada;Confirmados PDIA;14;
 07/10/2021;Granada;Total confirmados;14;
-07/10/2021;Granada;Hospitalizados;0;
+07/10/2021;Granada;Hospitalizados;1;
 07/10/2021;Granada;UCI;0;
 07/10/2021;Granada;Fallecidos;0;
 07/10/2021;Huelva;Confirmados PDIA;19;
@@ -571,7 +666,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/10/2021;Jaén;Fallecidos;0;
 07/10/2021;Málaga;Confirmados PDIA;71;
 07/10/2021;Málaga;Total confirmados;71;
-07/10/2021;Málaga;Hospitalizados;10;
+07/10/2021;Málaga;Hospitalizados;11;
 07/10/2021;Málaga;UCI;0;
 07/10/2021;Málaga;Fallecidos;0;
 07/10/2021;Sevilla;Confirmados PDIA;37;
@@ -579,8 +674,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/10/2021;Sevilla;Hospitalizados;4;
 07/10/2021;Sevilla;UCI;0;
 07/10/2021;Sevilla;Fallecidos;0;
-06/10/2021;Andalucía;Confirmados PDIA;233;
-06/10/2021;Andalucía;Total confirmados;233;
+06/10/2021;Andalucía;Confirmados PDIA;234;
+06/10/2021;Andalucía;Total confirmados;234;
 06/10/2021;Andalucía;Hospitalizados;9;
 06/10/2021;Andalucía;UCI;0;
 06/10/2021;Andalucía;Fallecidos;0;
@@ -609,8 +704,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/10/2021;Huelva;Hospitalizados;0;
 06/10/2021;Huelva;UCI;0;
 06/10/2021;Huelva;Fallecidos;0;
-06/10/2021;Jaén;Confirmados PDIA;7;
-06/10/2021;Jaén;Total confirmados;7;
+06/10/2021;Jaén;Confirmados PDIA;8;
+06/10/2021;Jaén;Total confirmados;8;
 06/10/2021;Jaén;Hospitalizados;1;
 06/10/2021;Jaén;UCI;0;
 06/10/2021;Jaén;Fallecidos;0;
@@ -624,8 +719,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/10/2021;Sevilla;Hospitalizados;3;
 06/10/2021;Sevilla;UCI;0;
 06/10/2021;Sevilla;Fallecidos;0;
-05/10/2021;Andalucía;Confirmados PDIA;226;
-05/10/2021;Andalucía;Total confirmados;226;
+05/10/2021;Andalucía;Confirmados PDIA;227;
+05/10/2021;Andalucía;Total confirmados;227;
 05/10/2021;Andalucía;Hospitalizados;13;
 05/10/2021;Andalucía;UCI;0;
 05/10/2021;Andalucía;Fallecidos;4;
@@ -639,8 +734,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 05/10/2021;Cádiz;Hospitalizados;2;
 05/10/2021;Cádiz;UCI;0;
 05/10/2021;Cádiz;Fallecidos;0;
-05/10/2021;Córdoba;Confirmados PDIA;7;
-05/10/2021;Córdoba;Total confirmados;7;
+05/10/2021;Córdoba;Confirmados PDIA;8;
+05/10/2021;Córdoba;Total confirmados;8;
 05/10/2021;Córdoba;Hospitalizados;0;
 05/10/2021;Córdoba;UCI;0;
 05/10/2021;Córdoba;Fallecidos;0;
@@ -669,8 +764,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 05/10/2021;Sevilla;Hospitalizados;1;
 05/10/2021;Sevilla;UCI;0;
 05/10/2021;Sevilla;Fallecidos;0;
-04/10/2021;Andalucía;Confirmados PDIA;201;
-04/10/2021;Andalucía;Total confirmados;201;
+04/10/2021;Andalucía;Confirmados PDIA;202;
+04/10/2021;Andalucía;Total confirmados;202;
 04/10/2021;Andalucía;Hospitalizados;12;
 04/10/2021;Andalucía;UCI;0;
 04/10/2021;Andalucía;Fallecidos;1;
@@ -684,8 +779,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 04/10/2021;Cádiz;Hospitalizados;4;
 04/10/2021;Cádiz;UCI;0;
 04/10/2021;Cádiz;Fallecidos;0;
-04/10/2021;Córdoba;Confirmados PDIA;13;
-04/10/2021;Córdoba;Total confirmados;13;
+04/10/2021;Córdoba;Confirmados PDIA;14;
+04/10/2021;Córdoba;Total confirmados;14;
 04/10/2021;Córdoba;Hospitalizados;2;
 04/10/2021;Córdoba;UCI;0;
 04/10/2021;Córdoba;Fallecidos;0;
@@ -851,7 +946,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 01/10/2021;Sevilla;Fallecidos;0;
 30/09/2021;Andalucía;Confirmados PDIA;239;
 30/09/2021;Andalucía;Total confirmados;239;
-30/09/2021;Andalucía;Hospitalizados;8;
+30/09/2021;Andalucía;Hospitalizados;9;
 30/09/2021;Andalucía;UCI;1;
 30/09/2021;Andalucía;Fallecidos;0;
 30/09/2021;Almería;Confirmados PDIA;48;
@@ -871,7 +966,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 30/09/2021;Córdoba;Fallecidos;0;
 30/09/2021;Granada;Confirmados PDIA;15;
 30/09/2021;Granada;Total confirmados;15;
-30/09/2021;Granada;Hospitalizados;0;
+30/09/2021;Granada;Hospitalizados;1;
 30/09/2021;Granada;UCI;0;
 30/09/2021;Granada;Fallecidos;0;
 30/09/2021;Huelva;Confirmados PDIA;22;
@@ -1211,7 +1306,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 23/09/2021;Sevilla;Fallecidos;1;
 22/09/2021;Andalucía;Confirmados PDIA;405;
 22/09/2021;Andalucía;Total confirmados;405;
-22/09/2021;Andalucía;Hospitalizados;20;
+22/09/2021;Andalucía;Hospitalizados;21;
 22/09/2021;Andalucía;UCI;2;
 22/09/2021;Andalucía;Fallecidos;2;
 22/09/2021;Almería;Confirmados PDIA;72;
@@ -1231,7 +1326,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 22/09/2021;Córdoba;Fallecidos;0;
 22/09/2021;Granada;Confirmados PDIA;53;
 22/09/2021;Granada;Total confirmados;53;
-22/09/2021;Granada;Hospitalizados;5;
+22/09/2021;Granada;Hospitalizados;6;
 22/09/2021;Granada;UCI;0;
 22/09/2021;Granada;Fallecidos;0;
 22/09/2021;Huelva;Confirmados PDIA;32;
@@ -1391,7 +1486,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 19/09/2021;Sevilla;Fallecidos;0;
 18/09/2021;Andalucía;Confirmados PDIA;214;
 18/09/2021;Andalucía;Total confirmados;214;
-18/09/2021;Andalucía;Hospitalizados;14;
+18/09/2021;Andalucía;Hospitalizados;15;
 18/09/2021;Andalucía;UCI;1;
 18/09/2021;Andalucía;Fallecidos;1;
 18/09/2021;Almería;Confirmados PDIA;26;
@@ -1411,7 +1506,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 18/09/2021;Córdoba;Fallecidos;0;
 18/09/2021;Granada;Confirmados PDIA;11;
 18/09/2021;Granada;Total confirmados;11;
-18/09/2021;Granada;Hospitalizados;0;
+18/09/2021;Granada;Hospitalizados;1;
 18/09/2021;Granada;UCI;0;
 18/09/2021;Granada;Fallecidos;1;
 18/09/2021;Huelva;Confirmados PDIA;13;
@@ -1524,9 +1619,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 16/09/2021;Sevilla;Hospitalizados;4;
 16/09/2021;Sevilla;UCI;1;
 16/09/2021;Sevilla;Fallecidos;0;
-15/09/2021;Andalucía;Confirmados PDIA;458;
-15/09/2021;Andalucía;Total confirmados;458;
-15/09/2021;Andalucía;Hospitalizados;30;
+15/09/2021;Andalucía;Confirmados PDIA;459;
+15/09/2021;Andalucía;Total confirmados;459;
+15/09/2021;Andalucía;Hospitalizados;31;
 15/09/2021;Andalucía;UCI;3;
 15/09/2021;Andalucía;Fallecidos;5;
 15/09/2021;Almería;Confirmados PDIA;61;
@@ -1544,9 +1639,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 15/09/2021;Córdoba;Hospitalizados;0;
 15/09/2021;Córdoba;UCI;0;
 15/09/2021;Córdoba;Fallecidos;0;
-15/09/2021;Granada;Confirmados PDIA;41;
-15/09/2021;Granada;Total confirmados;41;
-15/09/2021;Granada;Hospitalizados;4;
+15/09/2021;Granada;Confirmados PDIA;42;
+15/09/2021;Granada;Total confirmados;42;
+15/09/2021;Granada;Hospitalizados;5;
 15/09/2021;Granada;UCI;1;
 15/09/2021;Granada;Fallecidos;0;
 15/09/2021;Huelva;Confirmados PDIA;27;
@@ -2068,7 +2163,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 03/09/2021;Andalucía;Total confirmados;803;
 03/09/2021;Andalucía;Hospitalizados;36;
 03/09/2021;Andalucía;UCI;4;
-03/09/2021;Andalucía;Fallecidos;8;
+03/09/2021;Andalucía;Fallecidos;9;
 03/09/2021;Almería;Confirmados PDIA;90;
 03/09/2021;Almería;Total confirmados;90;
 03/09/2021;Almería;Hospitalizados;8;
@@ -2103,14 +2198,14 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 03/09/2021;Málaga;Total confirmados;170;
 03/09/2021;Málaga;Hospitalizados;7;
 03/09/2021;Málaga;UCI;2;
-03/09/2021;Málaga;Fallecidos;4;
+03/09/2021;Málaga;Fallecidos;5;
 03/09/2021;Sevilla;Confirmados PDIA;215;
 03/09/2021;Sevilla;Total confirmados;215;
 03/09/2021;Sevilla;Hospitalizados;7;
 03/09/2021;Sevilla;UCI;2;
 03/09/2021;Sevilla;Fallecidos;1;
-02/09/2021;Andalucía;Confirmados PDIA;876;
-02/09/2021;Andalucía;Total confirmados;878;
+02/09/2021;Andalucía;Confirmados PDIA;874;
+02/09/2021;Andalucía;Total confirmados;876;
 02/09/2021;Andalucía;Hospitalizados;43;
 02/09/2021;Andalucía;UCI;5;
 02/09/2021;Andalucía;Fallecidos;6;
@@ -2144,8 +2239,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/09/2021;Jaén;Hospitalizados;1;
 02/09/2021;Jaén;UCI;0;
 02/09/2021;Jaén;Fallecidos;1;
-02/09/2021;Málaga;Confirmados PDIA;173;
-02/09/2021;Málaga;Total confirmados;173;
+02/09/2021;Málaga;Confirmados PDIA;171;
+02/09/2021;Málaga;Total confirmados;171;
 02/09/2021;Málaga;Hospitalizados;9;
 02/09/2021;Málaga;UCI;0;
 02/09/2021;Málaga;Fallecidos;0;
@@ -2154,11 +2249,11 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/09/2021;Sevilla;Hospitalizados;8;
 02/09/2021;Sevilla;UCI;1;
 02/09/2021;Sevilla;Fallecidos;2;
-01/09/2021;Andalucía;Confirmados PDIA;1015;
-01/09/2021;Andalucía;Total confirmados;1015;
+01/09/2021;Andalucía;Confirmados PDIA;1017;
+01/09/2021;Andalucía;Total confirmados;1017;
 01/09/2021;Andalucía;Hospitalizados;65;
 01/09/2021;Andalucía;UCI;6;
-01/09/2021;Andalucía;Fallecidos;7;
+01/09/2021;Andalucía;Fallecidos;8;
 01/09/2021;Almería;Confirmados PDIA;119;
 01/09/2021;Almería;Total confirmados;119;
 01/09/2021;Almería;Hospitalizados;8;
@@ -2173,7 +2268,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 01/09/2021;Córdoba;Total confirmados;54;
 01/09/2021;Córdoba;Hospitalizados;7;
 01/09/2021;Córdoba;UCI;2;
-01/09/2021;Córdoba;Fallecidos;1;
+01/09/2021;Córdoba;Fallecidos;2;
 01/09/2021;Granada;Confirmados PDIA;84;
 01/09/2021;Granada;Total confirmados;84;
 01/09/2021;Granada;Hospitalizados;7;
@@ -2189,8 +2284,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 01/09/2021;Jaén;Hospitalizados;4;
 01/09/2021;Jaén;UCI;1;
 01/09/2021;Jaén;Fallecidos;0;
-01/09/2021;Málaga;Confirmados PDIA;178;
-01/09/2021;Málaga;Total confirmados;178;
+01/09/2021;Málaga;Confirmados PDIA;180;
+01/09/2021;Málaga;Total confirmados;180;
 01/09/2021;Málaga;Hospitalizados;8;
 01/09/2021;Málaga;UCI;0;
 01/09/2021;Málaga;Fallecidos;1;
@@ -2518,7 +2613,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/08/2021;Andalucía;Total confirmados;1896;
 24/08/2021;Andalucía;Hospitalizados;81;
 24/08/2021;Andalucía;UCI;4;
-24/08/2021;Andalucía;Fallecidos;20;
+24/08/2021;Andalucía;Fallecidos;21;
 24/08/2021;Almería;Confirmados PDIA;140;
 24/08/2021;Almería;Total confirmados;140;
 24/08/2021;Almería;Hospitalizados;5;
@@ -2553,7 +2648,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/08/2021;Málaga;Total confirmados;321;
 24/08/2021;Málaga;Hospitalizados;16;
 24/08/2021;Málaga;UCI;0;
-24/08/2021;Málaga;Fallecidos;4;
+24/08/2021;Málaga;Fallecidos;5;
 24/08/2021;Sevilla;Confirmados PDIA;533;
 24/08/2021;Sevilla;Total confirmados;533;
 24/08/2021;Sevilla;Hospitalizados;22;
@@ -3144,9 +3239,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 11/08/2021;Sevilla;Hospitalizados;37;
 11/08/2021;Sevilla;UCI;3;
 11/08/2021;Sevilla;Fallecidos;7;
-10/08/2021;Andalucía;Confirmados PDIA;3538;
-10/08/2021;Andalucía;Total confirmados;3541;
-10/08/2021;Andalucía;Hospitalizados;155;
+10/08/2021;Andalucía;Confirmados PDIA;3537;
+10/08/2021;Andalucía;Total confirmados;3540;
+10/08/2021;Andalucía;Hospitalizados;154;
 10/08/2021;Andalucía;UCI;11;
 10/08/2021;Andalucía;Fallecidos;28;
 10/08/2021;Almería;Confirmados PDIA;320;
@@ -3184,14 +3279,14 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 10/08/2021;Málaga;Hospitalizados;35;
 10/08/2021;Málaga;UCI;2;
 10/08/2021;Málaga;Fallecidos;5;
-10/08/2021;Sevilla;Confirmados PDIA;867;
-10/08/2021;Sevilla;Total confirmados;867;
-10/08/2021;Sevilla;Hospitalizados;30;
+10/08/2021;Sevilla;Confirmados PDIA;866;
+10/08/2021;Sevilla;Total confirmados;866;
+10/08/2021;Sevilla;Hospitalizados;29;
 10/08/2021;Sevilla;UCI;1;
 10/08/2021;Sevilla;Fallecidos;8;
-09/08/2021;Andalucía;Confirmados PDIA;2688;
-09/08/2021;Andalucía;Total confirmados;2690;
-09/08/2021;Andalucía;Hospitalizados;155;
+09/08/2021;Andalucía;Confirmados PDIA;2689;
+09/08/2021;Andalucía;Total confirmados;2691;
+09/08/2021;Andalucía;Hospitalizados;156;
 09/08/2021;Andalucía;UCI;15;
 09/08/2021;Andalucía;Fallecidos;20;
 09/08/2021;Almería;Confirmados PDIA;206;
@@ -3229,9 +3324,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 09/08/2021;Málaga;Hospitalizados;31;
 09/08/2021;Málaga;UCI;4;
 09/08/2021;Málaga;Fallecidos;3;
-09/08/2021;Sevilla;Confirmados PDIA;639;
-09/08/2021;Sevilla;Total confirmados;639;
-09/08/2021;Sevilla;Hospitalizados;53;
+09/08/2021;Sevilla;Confirmados PDIA;640;
+09/08/2021;Sevilla;Total confirmados;640;
+09/08/2021;Sevilla;Hospitalizados;54;
 09/08/2021;Sevilla;UCI;5;
 09/08/2021;Sevilla;Fallecidos;10;
 08/08/2021;Andalucía;Confirmados PDIA;1350;
@@ -3279,9 +3374,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 08/08/2021;Sevilla;Hospitalizados;23;
 08/08/2021;Sevilla;UCI;3;
 08/08/2021;Sevilla;Fallecidos;5;
-07/08/2021;Andalucía;Confirmados PDIA;2503;
-07/08/2021;Andalucía;Total confirmados;2504;
-07/08/2021;Andalucía;Hospitalizados;105;
+07/08/2021;Andalucía;Confirmados PDIA;2502;
+07/08/2021;Andalucía;Total confirmados;2503;
+07/08/2021;Andalucía;Hospitalizados;104;
 07/08/2021;Andalucía;UCI;8;
 07/08/2021;Andalucía;Fallecidos;9;
 07/08/2021;Almería;Confirmados PDIA;210;
@@ -3319,16 +3414,16 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 07/08/2021;Málaga;Hospitalizados;22;
 07/08/2021;Málaga;UCI;0;
 07/08/2021;Málaga;Fallecidos;1;
-07/08/2021;Sevilla;Confirmados PDIA;632;
-07/08/2021;Sevilla;Total confirmados;632;
-07/08/2021;Sevilla;Hospitalizados;33;
+07/08/2021;Sevilla;Confirmados PDIA;631;
+07/08/2021;Sevilla;Total confirmados;631;
+07/08/2021;Sevilla;Hospitalizados;32;
 07/08/2021;Sevilla;UCI;1;
 07/08/2021;Sevilla;Fallecidos;4;
-06/08/2021;Andalucía;Confirmados PDIA;3915;
-06/08/2021;Andalucía;Total confirmados;3916;
-06/08/2021;Andalucía;Hospitalizados;153;
+06/08/2021;Andalucía;Confirmados PDIA;3916;
+06/08/2021;Andalucía;Total confirmados;3917;
+06/08/2021;Andalucía;Hospitalizados;154;
 06/08/2021;Andalucía;UCI;13;
-06/08/2021;Andalucía;Fallecidos;23;
+06/08/2021;Andalucía;Fallecidos;24;
 06/08/2021;Almería;Confirmados PDIA;281;
 06/08/2021;Almería;Total confirmados;281;
 06/08/2021;Almería;Hospitalizados;7;
@@ -3364,11 +3459,11 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/08/2021;Málaga;Hospitalizados;38;
 06/08/2021;Málaga;UCI;6;
 06/08/2021;Málaga;Fallecidos;10;
-06/08/2021;Sevilla;Confirmados PDIA;814;
-06/08/2021;Sevilla;Total confirmados;815;
-06/08/2021;Sevilla;Hospitalizados;35;
+06/08/2021;Sevilla;Confirmados PDIA;815;
+06/08/2021;Sevilla;Total confirmados;816;
+06/08/2021;Sevilla;Hospitalizados;36;
 06/08/2021;Sevilla;UCI;3;
-06/08/2021;Sevilla;Fallecidos;6;
+06/08/2021;Sevilla;Fallecidos;7;
 05/08/2021;Andalucía;Confirmados PDIA;4314;
 05/08/2021;Andalucía;Total confirmados;4315;
 05/08/2021;Andalucía;Hospitalizados;151;
@@ -3774,8 +3869,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 28/07/2021;Sevilla;Hospitalizados;42;
 28/07/2021;Sevilla;UCI;3;
 28/07/2021;Sevilla;Fallecidos;7;
-27/07/2021;Andalucía;Confirmados PDIA;4748;
-27/07/2021;Andalucía;Total confirmados;4751;
+27/07/2021;Andalucía;Confirmados PDIA;4750;
+27/07/2021;Andalucía;Total confirmados;4753;
 27/07/2021;Andalucía;Hospitalizados;145;
 27/07/2021;Andalucía;UCI;10;
 27/07/2021;Andalucía;Fallecidos;19;
@@ -3804,13 +3899,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/07/2021;Huelva;Hospitalizados;10;
 27/07/2021;Huelva;UCI;1;
 27/07/2021;Huelva;Fallecidos;0;
-27/07/2021;Jaén;Confirmados PDIA;393;
-27/07/2021;Jaén;Total confirmados;393;
+27/07/2021;Jaén;Confirmados PDIA;394;
+27/07/2021;Jaén;Total confirmados;394;
 27/07/2021;Jaén;Hospitalizados;5;
 27/07/2021;Jaén;UCI;0;
 27/07/2021;Jaén;Fallecidos;0;
-27/07/2021;Málaga;Confirmados PDIA;1217;
-27/07/2021;Málaga;Total confirmados;1217;
+27/07/2021;Málaga;Confirmados PDIA;1218;
+27/07/2021;Málaga;Total confirmados;1218;
 27/07/2021;Málaga;Hospitalizados;58;
 27/07/2021;Málaga;UCI;6;
 27/07/2021;Málaga;Fallecidos;9;
@@ -3819,8 +3914,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/07/2021;Sevilla;Hospitalizados;25;
 27/07/2021;Sevilla;UCI;1;
 27/07/2021;Sevilla;Fallecidos;1;
-26/07/2021;Andalucía;Confirmados PDIA;3622;
-26/07/2021;Andalucía;Total confirmados;3625;
+26/07/2021;Andalucía;Confirmados PDIA;3623;
+26/07/2021;Andalucía;Total confirmados;3626;
 26/07/2021;Andalucía;Hospitalizados;151;
 26/07/2021;Andalucía;UCI;13;
 26/07/2021;Andalucía;Fallecidos;13;
@@ -3839,8 +3934,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 26/07/2021;Córdoba;Hospitalizados;21;
 26/07/2021;Córdoba;UCI;1;
 26/07/2021;Córdoba;Fallecidos;3;
-26/07/2021;Granada;Confirmados PDIA;433;
-26/07/2021;Granada;Total confirmados;433;
+26/07/2021;Granada;Confirmados PDIA;434;
+26/07/2021;Granada;Total confirmados;434;
 26/07/2021;Granada;Hospitalizados;17;
 26/07/2021;Granada;UCI;2;
 26/07/2021;Granada;Fallecidos;0;
@@ -3909,8 +4004,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 25/07/2021;Sevilla;Hospitalizados;17;
 25/07/2021;Sevilla;UCI;1;
 25/07/2021;Sevilla;Fallecidos;3;
-24/07/2021;Andalucía;Confirmados PDIA;3259;
-24/07/2021;Andalucía;Total confirmados;3262;
+24/07/2021;Andalucía;Confirmados PDIA;3260;
+24/07/2021;Andalucía;Total confirmados;3263;
 24/07/2021;Andalucía;Hospitalizados;102;
 24/07/2021;Andalucía;UCI;7;
 24/07/2021;Andalucía;Fallecidos;22;
@@ -3919,8 +4014,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/07/2021;Almería;Hospitalizados;15;
 24/07/2021;Almería;UCI;3;
 24/07/2021;Almería;Fallecidos;5;
-24/07/2021;Cádiz;Confirmados PDIA;563;
-24/07/2021;Cádiz;Total confirmados;563;
+24/07/2021;Cádiz;Confirmados PDIA;564;
+24/07/2021;Cádiz;Total confirmados;564;
 24/07/2021;Cádiz;Hospitalizados;11;
 24/07/2021;Cádiz;UCI;0;
 24/07/2021;Cádiz;Fallecidos;1;
@@ -4044,8 +4139,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 22/07/2021;Sevilla;Hospitalizados;23;
 22/07/2021;Sevilla;UCI;5;
 22/07/2021;Sevilla;Fallecidos;2;
-21/07/2021;Andalucía;Confirmados PDIA;4633;
-21/07/2021;Andalucía;Total confirmados;4640;
+21/07/2021;Andalucía;Confirmados PDIA;4634;
+21/07/2021;Andalucía;Total confirmados;4641;
 21/07/2021;Andalucía;Hospitalizados;151;
 21/07/2021;Andalucía;UCI;10;
 21/07/2021;Andalucía;Fallecidos;14;
@@ -4064,8 +4159,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 21/07/2021;Córdoba;Hospitalizados;10;
 21/07/2021;Córdoba;UCI;2;
 21/07/2021;Córdoba;Fallecidos;3;
-21/07/2021;Granada;Confirmados PDIA;378;
-21/07/2021;Granada;Total confirmados;378;
+21/07/2021;Granada;Confirmados PDIA;379;
+21/07/2021;Granada;Total confirmados;379;
 21/07/2021;Granada;Hospitalizados;14;
 21/07/2021;Granada;UCI;1;
 21/07/2021;Granada;Fallecidos;3;
@@ -4181,7 +4276,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 19/07/2021;Sevilla;Fallecidos;1;
 18/07/2021;Andalucía;Confirmados PDIA;1838;
 18/07/2021;Andalucía;Total confirmados;1842;
-18/07/2021;Andalucía;Hospitalizados;98;
+18/07/2021;Andalucía;Hospitalizados;99;
 18/07/2021;Andalucía;UCI;15;
 18/07/2021;Andalucía;Fallecidos;16;
 18/07/2021;Almería;Confirmados PDIA;186;
@@ -4216,7 +4311,7 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 18/07/2021;Jaén;Fallecidos;0;
 18/07/2021;Málaga;Confirmados PDIA;522;
 18/07/2021;Málaga;Total confirmados;522;
-18/07/2021;Málaga;Hospitalizados;32;
+18/07/2021;Málaga;Hospitalizados;33;
 18/07/2021;Málaga;UCI;6;
 18/07/2021;Málaga;Fallecidos;5;
 18/07/2021;Sevilla;Confirmados PDIA;287;
@@ -4324,8 +4419,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 15/07/2021;Almería;Hospitalizados;5;
 15/07/2021;Almería;UCI;1;
 15/07/2021;Almería;Fallecidos;0;
-15/07/2021;Cádiz;Confirmados PDIA;711;
-15/07/2021;Cádiz;Total confirmados;711;
+15/07/2021;Cádiz;Confirmados PDIA;710;
+15/07/2021;Cádiz;Total confirmados;710;
 15/07/2021;Cádiz;Hospitalizados;14;
 15/07/2021;Cádiz;UCI;0;
 15/07/2021;Cádiz;Fallecidos;0;
@@ -4349,8 +4444,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 15/07/2021;Jaén;Hospitalizados;6;
 15/07/2021;Jaén;UCI;0;
 15/07/2021;Jaén;Fallecidos;0;
-15/07/2021;Málaga;Confirmados PDIA;1260;
-15/07/2021;Málaga;Total confirmados;1260;
+15/07/2021;Málaga;Confirmados PDIA;1261;
+15/07/2021;Málaga;Total confirmados;1261;
 15/07/2021;Málaga;Hospitalizados;31;
 15/07/2021;Málaga;UCI;2;
 15/07/2021;Málaga;Fallecidos;2;
@@ -4584,8 +4679,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 10/07/2021;Sevilla;Hospitalizados;9;
 10/07/2021;Sevilla;UCI;1;
 10/07/2021;Sevilla;Fallecidos;2;
-09/07/2021;Andalucía;Confirmados PDIA;3055;
-09/07/2021;Andalucía;Total confirmados;3057;
+09/07/2021;Andalucía;Confirmados PDIA;3056;
+09/07/2021;Andalucía;Total confirmados;3058;
 09/07/2021;Andalucía;Hospitalizados;86;
 09/07/2021;Andalucía;UCI;6;
 09/07/2021;Andalucía;Fallecidos;10;
@@ -4619,8 +4714,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 09/07/2021;Jaén;Hospitalizados;7;
 09/07/2021;Jaén;UCI;0;
 09/07/2021;Jaén;Fallecidos;0;
-09/07/2021;Málaga;Confirmados PDIA;1109;
-09/07/2021;Málaga;Total confirmados;1109;
+09/07/2021;Málaga;Confirmados PDIA;1110;
+09/07/2021;Málaga;Total confirmados;1110;
 09/07/2021;Málaga;Hospitalizados;34;
 09/07/2021;Málaga;UCI;5;
 09/07/2021;Málaga;Fallecidos;9;
@@ -5484,8 +5579,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 20/06/2021;Sevilla;Hospitalizados;11;
 20/06/2021;Sevilla;UCI;1;
 20/06/2021;Sevilla;Fallecidos;0;
-19/06/2021;Andalucía;Confirmados PDIA;666;
-19/06/2021;Andalucía;Total confirmados;667;
+19/06/2021;Andalucía;Confirmados PDIA;667;
+19/06/2021;Andalucía;Total confirmados;668;
 19/06/2021;Andalucía;Hospitalizados;34;
 19/06/2021;Andalucía;UCI;5;
 19/06/2021;Andalucía;Fallecidos;2;
@@ -5514,8 +5609,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 19/06/2021;Huelva;Hospitalizados;0;
 19/06/2021;Huelva;UCI;0;
 19/06/2021;Huelva;Fallecidos;0;
-19/06/2021;Jaén;Confirmados PDIA;48;
-19/06/2021;Jaén;Total confirmados;48;
+19/06/2021;Jaén;Confirmados PDIA;49;
+19/06/2021;Jaén;Total confirmados;49;
 19/06/2021;Jaén;Hospitalizados;5;
 19/06/2021;Jaén;UCI;0;
 19/06/2021;Jaén;Fallecidos;1;
@@ -8724,8 +8819,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 09/04/2021;Sevilla;Hospitalizados;36;
 09/04/2021;Sevilla;UCI;4;
 09/04/2021;Sevilla;Fallecidos;3;
-08/04/2021;Andalucía;Confirmados PDIA;2251;
-08/04/2021;Andalucía;Total confirmados;2252;
+08/04/2021;Andalucía;Confirmados PDIA;2250;
+08/04/2021;Andalucía;Total confirmados;2251;
 08/04/2021;Andalucía;Hospitalizados;140;
 08/04/2021;Andalucía;UCI;26;
 08/04/2021;Andalucía;Fallecidos;12;
@@ -8749,8 +8844,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 08/04/2021;Granada;Hospitalizados;41;
 08/04/2021;Granada;UCI;8;
 08/04/2021;Granada;Fallecidos;4;
-08/04/2021;Huelva;Confirmados PDIA;142;
-08/04/2021;Huelva;Total confirmados;143;
+08/04/2021;Huelva;Confirmados PDIA;141;
+08/04/2021;Huelva;Total confirmados;142;
 08/04/2021;Huelva;Hospitalizados;10;
 08/04/2021;Huelva;UCI;2;
 08/04/2021;Huelva;Fallecidos;0;
@@ -11514,13 +11609,13 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/02/2021;Sevilla;Hospitalizados;36;
 06/02/2021;Sevilla;UCI;3;
 06/02/2021;Sevilla;Fallecidos;4;
-05/02/2021;Andalucía;Confirmados PDIA;4446;
-05/02/2021;Andalucía;Total confirmados;4448;
+05/02/2021;Andalucía;Confirmados PDIA;4447;
+05/02/2021;Andalucía;Total confirmados;4449;
 05/02/2021;Andalucía;Hospitalizados;240;
 05/02/2021;Andalucía;UCI;33;
 05/02/2021;Andalucía;Fallecidos;57;
-05/02/2021;Almería;Confirmados PDIA;517;
-05/02/2021;Almería;Total confirmados;517;
+05/02/2021;Almería;Confirmados PDIA;518;
+05/02/2021;Almería;Total confirmados;518;
 05/02/2021;Almería;Hospitalizados;22;
 05/02/2021;Almería;UCI;4;
 05/02/2021;Almería;Fallecidos;6;
@@ -11874,8 +11969,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 29/01/2021;Sevilla;Hospitalizados;86;
 29/01/2021;Sevilla;UCI;9;
 29/01/2021;Sevilla;Fallecidos;19;
-28/01/2021;Andalucía;Confirmados PDIA;7049;
-28/01/2021;Andalucía;Total confirmados;7050;
+28/01/2021;Andalucía;Confirmados PDIA;7050;
+28/01/2021;Andalucía;Total confirmados;7051;
 28/01/2021;Andalucía;Hospitalizados;458;
 28/01/2021;Andalucía;UCI;35;
 28/01/2021;Andalucía;Fallecidos;103;
@@ -11884,8 +11979,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 28/01/2021;Almería;Hospitalizados;43;
 28/01/2021;Almería;UCI;4;
 28/01/2021;Almería;Fallecidos;13;
-28/01/2021;Cádiz;Confirmados PDIA;1098;
-28/01/2021;Cádiz;Total confirmados;1098;
+28/01/2021;Cádiz;Confirmados PDIA;1099;
+28/01/2021;Cádiz;Total confirmados;1099;
 28/01/2021;Cádiz;Hospitalizados;78;
 28/01/2021;Cádiz;UCI;7;
 28/01/2021;Cádiz;Fallecidos;18;
@@ -12009,9 +12104,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 26/01/2021;Sevilla;Hospitalizados;89;
 26/01/2021;Sevilla;UCI;8;
 26/01/2021;Sevilla;Fallecidos;17;
-25/01/2021;Andalucía;Confirmados PDIA;6199;
-25/01/2021;Andalucía;Total confirmados;6213;
-25/01/2021;Andalucía;Hospitalizados;458;
+25/01/2021;Andalucía;Confirmados PDIA;6201;
+25/01/2021;Andalucía;Total confirmados;6215;
+25/01/2021;Andalucía;Hospitalizados;459;
 25/01/2021;Andalucía;UCI;38;
 25/01/2021;Andalucía;Fallecidos;104;
 25/01/2021;Almería;Confirmados PDIA;624;
@@ -12019,9 +12114,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 25/01/2021;Almería;Hospitalizados;26;
 25/01/2021;Almería;UCI;4;
 25/01/2021;Almería;Fallecidos;8;
-25/01/2021;Cádiz;Confirmados PDIA;1002;
-25/01/2021;Cádiz;Total confirmados;1002;
-25/01/2021;Cádiz;Hospitalizados;68;
+25/01/2021;Cádiz;Confirmados PDIA;1004;
+25/01/2021;Cádiz;Total confirmados;1004;
+25/01/2021;Cádiz;Hospitalizados;69;
 25/01/2021;Cádiz;UCI;5;
 25/01/2021;Cádiz;Fallecidos;20;
 25/01/2021;Córdoba;Confirmados PDIA;505;
@@ -12054,8 +12149,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 25/01/2021;Sevilla;Hospitalizados;98;
 25/01/2021;Sevilla;UCI;5;
 25/01/2021;Sevilla;Fallecidos;21;
-24/01/2021;Andalucía;Confirmados PDIA;3655;
-24/01/2021;Andalucía;Total confirmados;3656;
+24/01/2021;Andalucía;Confirmados PDIA;3656;
+24/01/2021;Andalucía;Total confirmados;3657;
 24/01/2021;Andalucía;Hospitalizados;336;
 24/01/2021;Andalucía;UCI;33;
 24/01/2021;Andalucía;Fallecidos;74;
@@ -12064,8 +12159,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 24/01/2021;Almería;Hospitalizados;32;
 24/01/2021;Almería;UCI;2;
 24/01/2021;Almería;Fallecidos;7;
-24/01/2021;Cádiz;Confirmados PDIA;978;
-24/01/2021;Cádiz;Total confirmados;978;
+24/01/2021;Cádiz;Confirmados PDIA;979;
+24/01/2021;Cádiz;Total confirmados;979;
 24/01/2021;Cádiz;Hospitalizados;82;
 24/01/2021;Cádiz;UCI;10;
 24/01/2021;Cádiz;Fallecidos;13;
@@ -12324,8 +12419,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 19/01/2021;Sevilla;Hospitalizados;98;
 19/01/2021;Sevilla;UCI;2;
 19/01/2021;Sevilla;Fallecidos;19;
-18/01/2021;Andalucía;Confirmados PDIA;6395;
-18/01/2021;Andalucía;Total confirmados;6402;
+18/01/2021;Andalucía;Confirmados PDIA;6396;
+18/01/2021;Andalucía;Total confirmados;6403;
 18/01/2021;Andalucía;Hospitalizados;479;
 18/01/2021;Andalucía;UCI;48;
 18/01/2021;Andalucía;Fallecidos;138;
@@ -12334,8 +12429,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 18/01/2021;Almería;Hospitalizados;55;
 18/01/2021;Almería;UCI;10;
 18/01/2021;Almería;Fallecidos;14;
-18/01/2021;Cádiz;Confirmados PDIA;1022;
-18/01/2021;Cádiz;Total confirmados;1023;
+18/01/2021;Cádiz;Confirmados PDIA;1023;
+18/01/2021;Cádiz;Total confirmados;1024;
 18/01/2021;Cádiz;Hospitalizados;73;
 18/01/2021;Cádiz;UCI;6;
 18/01/2021;Cádiz;Fallecidos;46;
@@ -13089,9 +13184,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 02/01/2021;Sevilla;Hospitalizados;19;
 02/01/2021;Sevilla;UCI;1;
 02/01/2021;Sevilla;Fallecidos;3;
-01/01/2021;Andalucía;Confirmados PDIA;816;
-01/01/2021;Andalucía;Total confirmados;817;
-01/01/2021;Andalucía;Hospitalizados;73;
+01/01/2021;Andalucía;Confirmados PDIA;817;
+01/01/2021;Andalucía;Total confirmados;818;
+01/01/2021;Andalucía;Hospitalizados;74;
 01/01/2021;Andalucía;UCI;22;
 01/01/2021;Andalucía;Fallecidos;21;
 01/01/2021;Almería;Confirmados PDIA;107;
@@ -13099,9 +13194,9 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 01/01/2021;Almería;Hospitalizados;9;
 01/01/2021;Almería;UCI;5;
 01/01/2021;Almería;Fallecidos;2;
-01/01/2021;Cádiz;Confirmados PDIA;129;
-01/01/2021;Cádiz;Total confirmados;129;
-01/01/2021;Cádiz;Hospitalizados;4;
+01/01/2021;Cádiz;Confirmados PDIA;130;
+01/01/2021;Cádiz;Total confirmados;130;
+01/01/2021;Cádiz;Hospitalizados;5;
 01/01/2021;Cádiz;UCI;1;
 01/01/2021;Cádiz;Fallecidos;2;
 01/01/2021;Córdoba;Confirmados PDIA;88;
@@ -14304,8 +14399,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 06/12/2020;Sevilla;Hospitalizados;7;
 06/12/2020;Sevilla;UCI;1;
 06/12/2020;Sevilla;Fallecidos;3;
-05/12/2020;Andalucía;Confirmados PDIA;786;
-05/12/2020;Andalucía;Total confirmados;786;
+05/12/2020;Andalucía;Confirmados PDIA;785;
+05/12/2020;Andalucía;Total confirmados;785;
 05/12/2020;Andalucía;Hospitalizados;73;
 05/12/2020;Andalucía;UCI;7;
 05/12/2020;Andalucía;Fallecidos;15;
@@ -14334,8 +14429,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 05/12/2020;Huelva;Hospitalizados;5;
 05/12/2020;Huelva;UCI;0;
 05/12/2020;Huelva;Fallecidos;3;
-05/12/2020;Jaén;Confirmados PDIA;61;
-05/12/2020;Jaén;Total confirmados;61;
+05/12/2020;Jaén;Confirmados PDIA;60;
+05/12/2020;Jaén;Total confirmados;60;
 05/12/2020;Jaén;Hospitalizados;7;
 05/12/2020;Jaén;UCI;1;
 05/12/2020;Jaén;Fallecidos;1;
@@ -14664,8 +14759,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 28/11/2020;Sevilla;Hospitalizados;14;
 28/11/2020;Sevilla;UCI;2;
 28/11/2020;Sevilla;Fallecidos;2;
-27/11/2020;Andalucía;Confirmados PDIA;1842;
-27/11/2020;Andalucía;Total confirmados;1844;
+27/11/2020;Andalucía;Confirmados PDIA;1843;
+27/11/2020;Andalucía;Total confirmados;1845;
 27/11/2020;Andalucía;Hospitalizados;125;
 27/11/2020;Andalucía;UCI;17;
 27/11/2020;Andalucía;Fallecidos;29;
@@ -14694,8 +14789,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 27/11/2020;Huelva;Hospitalizados;12;
 27/11/2020;Huelva;UCI;1;
 27/11/2020;Huelva;Fallecidos;1;
-27/11/2020;Jaén;Confirmados PDIA;152;
-27/11/2020;Jaén;Total confirmados;153;
+27/11/2020;Jaén;Confirmados PDIA;153;
+27/11/2020;Jaén;Total confirmados;154;
 27/11/2020;Jaén;Hospitalizados;5;
 27/11/2020;Jaén;UCI;0;
 27/11/2020;Jaén;Fallecidos;3;
@@ -16374,8 +16469,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 21/10/2020;Sevilla;Hospitalizados;76;
 21/10/2020;Sevilla;UCI;11;
 21/10/2020;Sevilla;Fallecidos;23;
-20/10/2020;Andalucía;Confirmados PDIA;3760;
-20/10/2020;Andalucía;Total confirmados;3760;
+20/10/2020;Andalucía;Confirmados PDIA;3761;
+20/10/2020;Andalucía;Total confirmados;3761;
 20/10/2020;Andalucía;Hospitalizados;235;
 20/10/2020;Andalucía;UCI;15;
 20/10/2020;Andalucía;Fallecidos;55;
@@ -16404,8 +16499,8 @@ Fecha diagnóstico;Territorio;Medida;Valor;
 20/10/2020;Huelva;Hospitalizados;7;
 20/10/2020;Huelva;UCI;0;
 20/10/2020;Huelva;Fallecidos;0;
-20/10/2020;Jaén;Confirmados PDIA;349;
-20/10/2020;Jaén;Total confirmados;349;
+20/10/2020;Jaén;Confirmados PDIA;350;
+20/10/2020;Jaén;Total confirmados;350;
 20/10/2020;Jaén;Hospitalizados;21;
 20/10/2020;Jaén;UCI;2;
 20/10/2020;Jaén;Fallecidos;3;
@@ -25739,6 +25834,202 @@ Fecha diagnóstico;Territorio;Medida;Valor;
                
                     
                
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
+               
+                    
+               
+               
+                    
+               
+               
+               
+               
+               
+               
+          
+          
                
                     
                
