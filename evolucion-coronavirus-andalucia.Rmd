@@ -869,7 +869,7 @@ ggplot(camas) +
                expand = expansion(add = c(10, 100))) 
 
 camas %>% 
-  filter(Fecha >= as.Date("2021-08-01")) %>% 
+  filter(Fecha >= as.Date("2021-09-01")) %>% 
 ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
@@ -1948,7 +1948,7 @@ Esta figura representa los rangos de edad de los casos confirmados por PCR o tes
 datos.diarios.iscii.notna %>% 
   group_by(fecha, grupo_edad) %>% 
   summarise(casos = sum(casos)) %>% 
-  filter(fecha >= as.Date("2020-03-01")) %>% 
+  filter(fecha >= as.Date("2020-08-01")) %>% 
   mutate(edades = factor(grupo_edad, levels = rev(unique(grupo_edad)))) %>% 
   ggplot() +
   geom_tile(aes(x = fecha, y = edades, fill = casos)) +
@@ -2444,7 +2444,7 @@ ggplot(ing.lines) +
 # library(gghighlight)
 
 ing.lines.zoom <- ing.lines %>%
-  filter(fecha > "2021-07-01") %>%
+  filter(fecha > "2021-09-01") %>%
   filter(fecha < max(ing.lines$fecha) - 1)
 
 ggplot(data = ing.lines.zoom,
@@ -2692,7 +2692,7 @@ ggplot(uci.lines) +
 
 
 uci.lines %>% 
-  filter(fecha > as.Date("2021-08-01")) %>% 
+  filter(fecha > as.Date("2021-09-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5, alpha = 0.8) +
