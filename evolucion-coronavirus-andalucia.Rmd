@@ -1793,6 +1793,38 @@ girafe(ggobj = mapa)
 
 
 
+```{r mapavacu}
+
+vacu.muni <- read_csv2("datos/municipios.dia/vacu_muni.csv") %>% 
+  filter(Edad == "TOTAL", Medida == "% Personas", Territorio != "Provincia sin especificar") %>% 
+  select(MUNICIPIO = Territorio, Prop.vacu = Valor) %>% 
+  mutate(Prop.vacu = stringr::str_replace_all(Prop.vacu, ",", ".")) %>% 
+  mutate(Prop.vacu = as.numeric(Prop.vacu))
+
+mapa <- muni.dia %>% 
+  left_join(vacu.muni, by = "MUNICIPIO") %>% 
+  mutate(lab = paste0(MUNICIPIO, ": ", round(Prop.vacu))) %>% 
+  ggplot() +
+  geom_sf(data = Andal.border, fill = NA, colour = "grey75", size = 0.1) +
+  ggiraph::geom_sf_interactive(aes(fill = Prop.vacu, tooltip = lab), 
+                               colour = "grey85", size = 0.1) +
+  scale_fill_distiller(type = "seq", palette = "Greens", direction = 1,
+                       na.value = "white",
+                       labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  theme(axis.text = element_blank(),
+        panel.grid = element_blank(),
+        legend.title = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Porcentaje de población vacunada",
+       subtitle = "Porcentaje de población vacunada con pauta completa\nrespecto al número de habitantes censado a 1 de enero de 2020",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+
+girafe(ggobj = mapa)
+
+```
+
+
+
 ### Tabla interactiva de municipios
 
 <br>
