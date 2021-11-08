@@ -945,6 +945,23 @@ ggplot(datos.vacu) +
 ```
 
 
+```{r vacu_edades, fig.height=4}
+vacu.edades <- read_csv2("datos/vacu_edades.csv") %>% 
+  select(Fecha, Edad, Valor) %>% 
+  mutate(Fecha = as.Date(Fecha, format = "%d/%m/%Y")) %>% 
+  mutate(edades = stringr::str_remove_all(Edad, "De ")) %>% 
+  mutate(edades = stringr::str_remove_all(edades, " años"))
+
+ggplot(vacu.edades) +
+  geom_line(aes(Fecha, Valor, colour = edades), size = 1.5) +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  labs(x = "", y = "", 
+       title = "Porcentaje de vacunados con pauta completa",
+       caption = "https://tiny.cc/COVID19-Andalucia")
+```
+
+
 <br>
 
 [Aquí](https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/vacunas-COVID19.html) hay mucha más información sobre el estado de la vacunación en Andalucía.
