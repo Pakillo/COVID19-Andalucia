@@ -869,7 +869,7 @@ ggplot(camas) +
                expand = expansion(add = c(10, 100))) 
 
 camas %>% 
-  filter(Fecha >= as.Date("2021-09-01")) %>% 
+  filter(Fecha >= as.Date("2021-10-01")) %>% 
 ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
@@ -1137,26 +1137,26 @@ Durante los primeros meses de la pandemia (Marzo-Mayo 2020) solo se realizó PCR
 
 <br>
 
-Casos confirmados por PCR o test de antígeno en los últimos 14 días:
+Casos confirmados por PCR o test de antígeno en las últimas 3 semanas:
 
 <br>
 
 ```{r casos.pcr.14d, fig.height=4, out.width='100%'}
 
 datos.andal %>%
-  filter(Fecha > max(datos.andal$Fecha) - 14) %>%
+  filter(Fecha > max(datos.andal$Fecha) - 21) %>%
 ggplot() +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
   scale_y_continuous(limits = c(0, NA)) +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos diarios de COVID-19 en Andalucía",
-       subtitle = "Últimos 14 días",
+       subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
-  scale_x_date(date_breaks = "2 days", date_labels = "%d %b") +
+  scale_x_date(date_breaks = "3 days", date_labels = "%d %b") +
   geom_text(aes(Fecha, y = ConfirmadosPCR + 50, label = ConfirmadosPCR),
-            data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 14), size = 3) 
+            data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 21), size = 2.5) 
 
 ```
 
@@ -1271,24 +1271,24 @@ ggplot() +
 
 <br>
 
-Y en los últimos 14 días:
+Y en las últimas 3 semanas:
 
 <br>
 
 ```{r casos_provincias.14d, out.width = '100%', fig.height=6}
 
 datos.provs %>%
-  filter(Fecha > as.Date(Sys.Date() - 16)) %>%
+  filter(Fecha > as.Date(Sys.Date() - 21)) %>%
 ggplot() +
   facet_wrap(~Territorio, ncol = 2) +
   geom_col(aes(x = Fecha, y = ConfirmadosPCR), 
             fill = "#ff7f00") +
   labs(x = "", y = "Nuevas detecciones\n",
        title = "Casos diarios de COVID-19 en cada provincia",
-       subtitle = "Últimos 14 días",
+       subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(date_breaks = "4 days", date_labels = "%d %b") +
+  scale_x_date(date_breaks = "7 days", date_labels = "%d %b") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
 ```
@@ -2468,12 +2468,13 @@ ing.lines <- datos.diarios.iscii.notna %>%
   filter(fecha >= as.Date("2021-01-01")) %>% 
   mutate(edades = factor(grupo_edad, levels = unique(grupo_edad))) %>% 
   group_by(edades) %>% 
-  mutate(hosp_ma = zoo::rollmean(hosp, 14, fill = NA, align = "right")) %>% 
+  mutate(hosp_ma_14d = zoo::rollmean(hosp, 14, fill = NA, align = "right"),
+         hosp_ma_7d = zoo::rollmean(hosp, 7, fill = NA, align = "right")) %>% 
   ungroup() 
 
 
 ggplot(ing.lines) +
-  geom_line(aes(x = fecha, y = hosp_ma, colour = edades),
+  geom_line(aes(x = fecha, y = hosp_ma_14d, colour = edades),
             size = 1.5) +
   scale_x_date(limits = c(as.Date(NA), max(datos.diarios.iscii.notna$fecha) - 2), 
                date_breaks = "1 month", date_labels = "%b") +
@@ -2493,11 +2494,11 @@ ggplot(ing.lines) +
 # library(gghighlight)
 
 ing.lines.zoom <- ing.lines %>%
-  filter(fecha > "2021-09-01") %>%
+  filter(fecha > "2021-10-01") %>%
   filter(fecha < max(ing.lines$fecha) - 1)
 
 ggplot(data = ing.lines.zoom,
-       aes(x = fecha, y = hosp_ma)) +
+       aes(x = fecha, y = hosp_ma_7d)) +
   geom_line(aes(colour = edades),
             size = 1.5, show.legend = TRUE, alpha = 0.8) +
   geom_text_repel(data = filter(ing.lines.zoom, fecha == max(ing.lines.zoom$fecha)),
@@ -2509,7 +2510,7 @@ ggplot(data = ing.lines.zoom,
                date_minor_breaks = "1 week", expand = expansion(add = c(3, 12))) +
   labs(y = "Nº Ingresos\n", x = "",
        title = "\nIngresos diarios por franja de edad",
-       subtitle = "Para cada edad se representa el nº medio de ingresos diarios\nen los 14 días previos",
+       subtitle = "Para cada edad se representa el nº medio de ingresos diarios\nen los 7 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
   guides(color = guide_legend(override.aes = list(alpha = 1))) +
