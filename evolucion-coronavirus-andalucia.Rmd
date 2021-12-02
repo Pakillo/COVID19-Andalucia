@@ -532,7 +532,7 @@ datos.indic <- datos.indic %>%
          IA14.65yr.col = indic.color.numeric("IA14.65yr"),
          IA7.65yr.col = indic.color.numeric("IA7.65yr"),
          Positividad.col = indic.color.numeric("Positividad"),
-         Trazabilidad.col = indic.color.numeric("Trazabilidad"),
+         # Trazabilidad.col = indic.color.numeric("Trazabilidad"),
          OcupHosp.col = indic.color.numeric("CamasOcup"),
          OcupUCI.col = indic.color.numeric("UCI")
          )
@@ -542,7 +542,7 @@ datos.indic <- datos.indic %>%
 
 Las siguientes tablas y gráficas muestran la evolución de cada uno de los [indicadores](https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/Documents/2020/221020_ActuacionesrespuestaCOVID.pdf) aprobados por el Consejo Interterritorial de Salud.
 
-Los distintos colores representan [niveles crecientes de riesgo](https://twitter.com/DadosdeLaplace/status/1319326140671066113/photo/1), desde el **verde ("nueva normalidad") al morado ("riesgo extremo")**, pasando por amarillo (riesgo bajo), naranja (riesgo medio), y rojo (riesgo alto).
+Los distintos colores representan [niveles crecientes de riesgo](https://twitter.com/DadosdeLaplace/status/1319326140671066113/photo/1), desde el **verde ("nueva normalidad") al morado ("riesgo extremo")**, pasando por amarillo (riesgo bajo), naranja (riesgo medio), y rojo (riesgo alto). El 23 de Noviembre de 2021 se fijaron [nuevos umbrales](https://www.rtve.es/noticias/20211202/semaforo-coronavirus-nivel-riesgo-covid19-espana-comunidades/2059301.shtml) para algunos indicadores.
 
 <br>
 
@@ -556,6 +556,7 @@ set_flextable_defaults(digits = 0, big.mark = ".", decimal.mark = ",")
 datos.indic %>% 
   select(-Fecha, -Riesgo) %>% 
   select(Territorio, IA14:`%OcupUCI`) %>% 
+  select(-Trazabilidad) %>% 
   mutate(across(IA14:`%OcupUCI`, round)) %>% 
   flextable() %>% 
   # colformat_num(j = 3:10, digits = 0) %>% 
@@ -565,7 +566,7 @@ datos.indic %>%
   bg(j = "IA14.65yr", bg = datos.indic$IA14.65yr.col) %>% 
   bg(j = "IA7.65yr", bg = datos.indic$IA7.65yr.col) %>% 
   bg(j = "Positividad", bg = datos.indic$Positividad.col) %>% 
-  bg(j = "Trazabilidad", bg = datos.indic$Trazabilidad.col) %>% 
+  # bg(j = "Trazabilidad", bg = datos.indic$Trazabilidad.col) %>% 
   bg(j = "%OcupHosp", bg = datos.indic$OcupHosp.col) %>% 
   bg(j = "%OcupUCI", bg = datos.indic$OcupUCI.col) %>% 
   autofit() %>% 
@@ -573,7 +574,7 @@ datos.indic %>%
   
 ```
 
-Datos relativos al `r max(datos.acum$Fecha)`, salvo para 'Positividad' y 'Trazabilidad', que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
+Datos relativos al `r max(datos.acum$Fecha)`, salvo para 'Positividad', que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
 
 <br>
 
@@ -593,17 +594,31 @@ ggplot(datos.plot) +
   annotate("text", x = 10 + max(datos.plot$Fecha),
            y = datos.plot$IA14[nrow(datos.plot)],
            label = round(datos.plot$IA14[nrow(datos.plot)])) +
-  # scale_y_continuous(sec.axis = dup_axis(
-  #   breaks = datos.plot$IA14[nrow(datos.plot)],
-  #   labels = round(datos.plot$IA14[nrow(datos.plot)]))) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
-  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 150), fill = "#ff7f00", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = 250), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 250, ymax = max(IA14)), 
-              fill = "#984ea3", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 150), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = 250), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 250, ymax = max(datos.plot$IA14)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_vline(xintercept = as.Date("2021-11-23"), colour = "grey30") +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 50), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 100), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 100, ymax = 300), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 300, ymax = 500), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 500, ymax = max(datos.plot$IA14)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
   labs(x = "", y = "",
        title = "Incidencia Acumulada 14 días",
        subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
@@ -624,12 +639,29 @@ ggplot(datos.plot) +
            label = round(datos.plot$IA7[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
-  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 75), fill = "#ff7f00", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 75, ymax = 125), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 125, ymax = max(IA7)), 
-              fill = "#984ea3", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 75), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 75, ymax = 125), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 125, ymax = max(datos.plot$IA7)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_vline(xintercept = as.Date("2021-11-23"), colour = "grey30") +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 150), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = 250), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 250, ymax = max(datos.plot$IA7)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
   labs(x = "", y = "",
        title = "Incidencia Acumulada 7 días",
        subtitle = "Casos confirmados en los últimos 7 días por cada 100.000 habitantes",
@@ -652,12 +684,29 @@ ggplot(datos.plot) +
            label = round(datos.plot$Tasa.14d.65a[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
-  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 20), fill = "#4daf4a", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 20, ymax = 50), fill = "#ffff33", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 100), fill = "#ff7f00", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 100, ymax = 150), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = max(Tasa.14d.65a)), 
-              fill = "#984ea3", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 20), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 20, ymax = 50), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 100), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 100, ymax = 150), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = max(datos.plot$Tasa.14d.65a)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_vline(xintercept = as.Date("2021-11-23"), colour = "grey30") +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 25), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 150), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 150, ymax = 250), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 250, ymax = max(datos.plot$Tasa.14d.65a)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
   labs(x = "", y = "",
        title = "Incidencia Acumulada 14 días (> 65 años)",
        subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes > 65 años",
@@ -679,12 +728,29 @@ ggplot(datos.plot) +
            label = round(datos.plot$Tasa.7d.65a[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
                date_breaks = "1 month", date_labels = "%b") +
-  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ff7f00", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 75), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 75, ymax = max(Tasa.7d.65a)), 
-              fill = "#984ea3", alpha = 0.3) +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 50), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 50, ymax = 75), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 75, ymax = max(datos.plot$Tasa.7d.65a)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha < as.Date("2021-11-23"))) +
+  geom_vline(xintercept = as.Date("2021-11-23"), colour = "grey30") +
+  geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 10), fill = "#4daf4a", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 25), fill = "#ffff33", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 25, ymax = 75), fill = "#ff7f00", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 75, ymax = 125), fill = "#e41a1c", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
+  geom_ribbon(aes(x = Fecha, ymin = 125, ymax = max(datos.plot$Tasa.7d.65a)), 
+              fill = "#984ea3", alpha = 0.3,
+              data = filter(datos.plot, Fecha > as.Date("2021-11-23"))) +
   labs(x = "", y = "",
        title = "Incidencia Acumulada 7 días (> 65 años)",
        subtitle = "Casos confirmados en los últimos 7 días por cada 100.000 habitantes > 65 años",
@@ -740,7 +806,8 @@ ggplot(datos.plot) +
 ```
 
 
-```{r Trazabilidad, fig.height=4}
+```{r Trazabilidad, fig.height=4, eval=FALSE}
+# El indicador de Trazabilidad dejó de usarse a partir del 23 Nov 2021 
 
 datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Trazab_indic)) %>% 
