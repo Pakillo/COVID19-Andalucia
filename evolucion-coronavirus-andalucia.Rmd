@@ -1447,7 +1447,8 @@ mobidata %>%
        subtitle = "Medias móviles mensuales de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "top", legend.text = element_text(size = 9)) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b")
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  coord_cartesian(ylim = c(-50, 50))
 
 ```
 
