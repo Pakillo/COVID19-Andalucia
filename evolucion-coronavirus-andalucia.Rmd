@@ -592,7 +592,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA14), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha),
+  annotate("text", x = 15 + max(datos.plot$Fecha),
            y = datos.plot$IA14[nrow(datos.plot)],
            label = round(datos.plot$IA14[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
@@ -635,7 +635,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, IA7), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$IA7[nrow(datos.plot)],
            label = round(datos.plot$IA7[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
@@ -769,7 +769,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Positividad.7d), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$Positividad.7d[nrow(datos.plot)],
            label = paste(round(datos.plot$Positividad.7d[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
@@ -847,7 +847,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%CamasOcup.Minist`), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)],
            label = paste(round(datos.plot$`%CamasOcup.Minist`[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 2), fill = "#4daf4a", alpha = 0.3) +
@@ -873,7 +873,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, `%UCI.Minist`), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$`%UCI.Minist`[nrow(datos.plot)],
            label = paste(round(datos.plot$`%UCI.Minist`[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 5), fill = "#4daf4a", alpha = 0.3) +
@@ -1223,7 +1223,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "3 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 150, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 200, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 21), size = 2.5) 
 
 ```
@@ -1447,7 +1447,8 @@ mobidata %>%
        title = "Cambios en la movilidad (provincias)",
        subtitle = "Medias móviles mensuales de la diferencia en uso del espacio\nrespecto a la mediana diaria del período 3 Ene - 6 Feb 2020",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(legend.position = "top", legend.text = element_text(size = 9)) +
+  theme(legend.position = "top", legend.text = element_text(size = 9),
+        axis.text.x = element_text(size = 8)) +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
   coord_cartesian(ylim = c(-50, 50))
 
@@ -2341,12 +2342,13 @@ ggplot(datos.andal) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en Andalucía",
-       subtitle = "Últimos 14 días",
+       subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(Sys.Date() - 16, NA), 
+  scale_x_date(limits = c(Sys.Date() - 22, NA), 
                date_breaks = "2 days", date_labels = "%d %b") +
+  theme(axis.text.x = element_text(size = 8)) +
   geom_text(aes(Fecha, y = Hospitalizados + 5, label = Hospitalizados),
-            data = subset(datos.andal, Fecha > (Sys.Date() - 16))) 
+            data = subset(datos.andal, Fecha > (Sys.Date() - 22))) 
   
 
 ```
@@ -2394,10 +2396,10 @@ ggplot(datos.provs) +
             fill = "#377eb8") +
   labs(x = "", y = "Nº Ingresos\n",
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
-       subtitle = "Últimos 14 días",
+       subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8)) +
-  scale_x_date(limits = c(Sys.Date() - 16, NA), 
+  scale_x_date(limits = c(Sys.Date() - 22, NA), 
                date_breaks = "4 days", date_labels = "%d %b") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
@@ -2632,10 +2634,11 @@ ggplot(datos.andal) +
   ylim(0, NA) +
   labs(x = "", y = "Nº Ingresos UCI\n",
        title = "Ingresos diarios en UCI con COVID-19 en Andalucía",
-       subtitle = "Últimos 14 días",
+       subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_x_date(limits = c(Sys.Date() - 16, NA), 
-               date_breaks = "2 days", date_labels = "%d %b") 
+  scale_x_date(limits = c(Sys.Date() - 22, NA), 
+               date_breaks = "2 days", date_labels = "%d %b") +
+  theme(axis.text.x = element_text(size = 8))
 
 ```
 <br>
@@ -2814,7 +2817,7 @@ ggplot(uci.lines) +
 
 
 uci.lines %>% 
-  filter(fecha > as.Date("2021-10-01")) %>% 
+  filter(fecha > as.Date("2021-11-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5, alpha = 0.8) +
@@ -2862,11 +2865,12 @@ ggplot(datos.andal) +
   geom_col(aes(x = Fecha, y = Defunciones), fill = "grey40") +
   labs(x = "", y = "Nº Defunciones\n",
        title = "Defunciones diarias con COVID-19 en Andalucía",
-       subtitle = "Últimos 14 días",
+       subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_y_continuous(limits = c(0, NA)) +
-  scale_x_date(limits = c(Sys.Date() - 16, NA), 
-               date_breaks = "2 days", date_labels = "%d %b") 
+  scale_x_date(limits = c(Sys.Date() - 22, NA), 
+               date_breaks = "2 days", date_labels = "%d %b") +
+  theme(axis.text.x = element_text(size = 8))
 
 ```
 
