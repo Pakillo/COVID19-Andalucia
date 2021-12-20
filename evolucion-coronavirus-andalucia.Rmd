@@ -215,7 +215,7 @@ casos.65 <- casos.edad.fecha %>%
 
 ```{r casos.edad.provs}
 
-casos.edad.provs <- read_csv2("datos/casos_edad_provs.csv",
+casos.edad.provs.new <- read_csv2("datos/casos_edad_provs_new.csv",
                               skip_empty_rows = TRUE) %>%
   select(`Lugar de residencia`:`Valor`) %>%
   filter(Sexo == "Ambos sexos") %>% 
@@ -227,7 +227,7 @@ casos.edad.provs <- read_csv2("datos/casos_edad_provs.csv",
          IA.14d = `Tasa PDIA 14 dias`,
          IA.7d = `Tasa PDIA 7 dias`)
 
-ia.provs <- casos.edad.provs %>% 
+ia.provs <- casos.edad.provs.new %>% 
   filter(Edad == "TOTAL")  
   
 
@@ -236,8 +236,9 @@ ia.provs <- casos.edad.provs %>%
 nhab.provs <- read_csv("datos/Nhab_provincias.csv")
 
 ## IA mayores 65 años
-ia.provs.65yr <- casos.edad.provs %>% 
-  filter(Edad == "De 65 a 84 años" | Edad == "De 85 y más años") %>% 
+ia.provs.65yr <- casos.edad.provs.new %>% 
+  filter(Edad %in% c("De 65 años", "De 66 años", "De 67 años", "De 68 años", 
+                     "De 69 años", "De 70 a 79 años", "De 80 y más años")) %>% 
   group_by(Territorio) %>% 
   summarise(Casos.14d.65yr = sum(Casos.14d),
             Casos.7d.65yr = sum(Casos.7d)) %>% 
@@ -1222,7 +1223,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "3 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 50, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 150, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 21), size = 2.5) 
 
 ```
@@ -2027,8 +2028,11 @@ Número de casos e Incidencia Acumulada por franja de edad:
 <br>
 
 ```{r }
-casos.edad.provs %>% 
-  filter(Territorio == "Andalucía", Edad != "TOTAL") %>% 
+casos.edad.provs.new %>% 
+  filter(Territorio == "Andalucía", 
+         Edad != "TOTAL", 
+         !Edad %in% c("De 65 años", "De 66 años", "De 67 años", "De 68 años", 
+                     "De 69 años")) %>% 
   select(Edad, Casos.14d, IA.14d, Casos.7d, IA.7d) %>% 
   mutate(Edad = str_remove_all(Edad, "De "),
          Edad = str_remove(Edad, " años")) %>% 
@@ -2566,7 +2570,7 @@ ing.lines.zoom <- ing.lines %>%
   filter(fecha < max(ing.lines$fecha) - 1)
 
 ggplot(data = ing.lines.zoom,
-       aes(x = fecha, y = hosp_ma_7d)) +
+       aes(x = fecha, y = hosp_ma_14d)) +
   geom_line(aes(colour = edades),
             size = 1.5, show.legend = TRUE, alpha = 0.8) +
   geom_text_repel(data = filter(ing.lines.zoom, fecha == max(ing.lines.zoom$fecha)),
@@ -2578,7 +2582,7 @@ ggplot(data = ing.lines.zoom,
                date_minor_breaks = "1 week", expand = expansion(add = c(3, 12))) +
   labs(y = "Nº Ingresos\n", x = "",
        title = "\nIngresos diarios por franja de edad",
-       subtitle = "Para cada edad se representa el nº medio de ingresos diarios\nen los 7 días previos",
+       subtitle = "Para cada edad se representa el nº medio de ingresos diarios\nen los 14 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
   guides(color = guide_legend(override.aes = list(alpha = 1))) +
@@ -2810,7 +2814,7 @@ ggplot(uci.lines) +
 
 
 uci.lines %>% 
-  filter(fecha > as.Date("2021-09-01")) %>% 
+  filter(fecha > as.Date("2021-10-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5, alpha = 0.8) +
