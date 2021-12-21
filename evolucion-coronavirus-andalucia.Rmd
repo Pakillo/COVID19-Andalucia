@@ -341,7 +341,7 @@ casos.edad.fecha.iscii <- datos.diarios.iscii.notna %>%
             uci = sum(uci),
             def = sum(def)) %>% 
   group_by(grupo_edad) %>%
-  mutate(casos_ma = zoo::rollmean(casos, 7, fill = NA)) %>%
+  mutate(casos_ma = zoo::rollmean(casos, 7, fill = NA, align = "right")) %>%
   ungroup()
 
 
@@ -672,7 +672,7 @@ ggplot(datos.plot) +
 
 
 
-```{r IA14.65a, fig.height=4}
+```{r IA14.65a, fig.height=4, eval=FALSE}
 
 datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Tasa.14d.65a)) 
@@ -716,7 +716,7 @@ ggplot(datos.plot) +
 ```
 
 
-```{r IA7.65a, fig.height=4}
+```{r IA7.65a, fig.height=4, eval=FALSE}
 
 datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Tasa.7d.65a)) 
@@ -2123,7 +2123,7 @@ Aquí se representan los mismos datos (casos diarios confirmados por categoría 
 
 
 
-```{r casos.edad.lines, out.width='100%'}
+```{r casos.edad.lines, out.width='100%', eval=FALSE}
 
 casos.edad.fecha$edades <- factor(casos.edad.fecha$edades,
                                   levels = rev(levels(casos.edad.fecha$edades)))
@@ -2151,7 +2151,7 @@ casos.edad.fecha %>%
 ```
 
 
-```{r casos.edad.lines.iscii, eval=FALSE}
+```{r casos.edad.lines.iscii, eval=TRUE}
 
 ## using data from ISCII
 
@@ -2164,10 +2164,36 @@ casos.edad.fecha.iscii %>%
                date_breaks = "1 month", date_labels = "%b") +
   labs(y = "Casos\n", x = "",
        title = "Casos diarios por franja de edad",
+       subtitle = "Para cada edad se representa el nº medio de casos diarios\nen los 7 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
   theme(legend.title = element_text(hjust = 0.5))
+
+
+casos.edad.fecha.iscii %>% 
+  filter(fecha >= as.Date("2021-11-01")) %>%
+  ggplot() +
+  geom_line(aes(x = fecha, y = casos_ma, colour = grupo_edad),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3),
+               expand = c(0, 7),
+               date_breaks = "1 week", date_labels = "%d %b") +
+  ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
+                                         fecha == max(casos.edad.fecha.iscii$fecha) - 3),
+                  aes(x = fecha, y = casos_ma, 
+                      label = grupo_edad, colour = grupo_edad),
+                  min.segment.length = 0, 
+                  nudge_x = 5,
+                  show.legend = FALSE) +
+  labs(y = "Casos\n", x = "",
+       title = "Casos diarios por franja de edad",
+       subtitle = "Para cada edad se representa el nº medio de casos diarios\nen los 7 días previos",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  theme(legend.title = element_text(hjust = 0.5),
+        legend.position = "bottom")
 
 ```
 
@@ -2175,7 +2201,7 @@ casos.edad.fecha.iscii %>%
 
 La siguiente figura muestra la Incidencia Acumulada (número de casos en los últimos 14 días por cada 100.000 habitantes) teniendo en cuenta el número de personas en cada franja de edad:
 
-```{r ia14.edad}
+```{r ia14.edad, eval=FALSE}
 casos.edad.fecha %>% 
   # group_by(edades) %>% 
   # mutate(IA14_ma = zoo::rollmean(IA.14d, 7, fill = NA)) %>% 
@@ -2197,15 +2223,32 @@ ggplot() +
 ```
 
 
-```{r ia14.edad.iscii, eval = FALSE}
+```{r ia14.edad.iscii, eval = TRUE}
 
 casos.edad.fecha.iscii %>% 
   filter(fecha >= as.Date("2021-01-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = IA.14d, colour = grupo_edad),
             size = 1.5) +
-  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 1), 
+  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3), 
                date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Incidencia Acumulada\n", x = "",
+       title = "Incidencia Acumulada 14 días por franja de edad",
+       subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
+       caption = "https://tiny.cc/COVID19-Andalucia",
+       colour = "Edad") +
+  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  theme(legend.title = element_text(hjust = 0.5))
+
+
+
+casos.edad.fecha.iscii %>% 
+  filter(fecha >= as.Date("2021-11-01")) %>% 
+ggplot() +
+  geom_line(aes(x = fecha, y = IA.14d, colour = grupo_edad),
+            size = 1.5) +
+  scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3), 
+               date_breaks = "1 week", date_labels = "%d %b") +
   labs(y = "Incidencia Acumulada\n", x = "",
        title = "Incidencia Acumulada 14 días por franja de edad",
        subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
