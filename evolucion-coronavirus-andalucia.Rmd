@@ -145,7 +145,7 @@ datos.andal <- datos %>%
   
 ```
 
-```{r casos.edad.fecha}
+```{r casos.edad.fecha, eval=TRUE}
 
 library(stringr)
 
@@ -159,8 +159,8 @@ casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
   mutate(edades = str_replace(Edad, "De ", "")) %>%
   mutate(edades = str_replace(edades, " a ", " - ")) %>%
   mutate(edades = str_replace(edades, " años", "")) %>%
-  mutate(edades = factor(edades,
-                         levels = rev(c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
+  # mutate(edades = factor(edades,
+  #                        levels = rev(c("0 - 14", "15 - 29", "30 - 44", "45 - 64", "65 - 84", "85 y más")))) %>%
   rename(Casos = Valor) %>%
   mutate(Casos = ifelse(is.na(Casos), 0, Casos)) %>% 
   select(-Dia, -Mes) %>% 
@@ -168,37 +168,37 @@ casos.edad.fecha <- read_csv2("datos/confPCR_edad_fecha.csv",
 
 ## Nº de habitantes en cada categoria
 # Datos de 2020 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974) 
-nhab.edad.sexo <- data.frame(
-  Edad = sort(unique(casos.edad.fecha$Edad)),
-  nhab = c(
-    1307411, #0-14
-    1386604, #15-29
-    1843446, #30-44
-    2456137, #45-64
-    1259766, #65-84 (estimado as Casos*100000 / Tasa)
-    211048 #85+ (estimado as Casos*100000 / Tasa)
-  )
-)
+# nhab.edad.sexo <- data.frame(
+#   Edad = sort(unique(casos.edad.fecha$Edad)),
+#   nhab = c(
+#     1307411, #0-14
+#     1386604, #15-29
+#     1843446, #30-44
+#     2456137, #45-64
+#     1259766, #65-84 (estimado as Casos*100000 / Tasa)
+#     211048 #85+ (estimado as Casos*100000 / Tasa)
+#   )
+# )
 
 
 casos.edad.fecha <- casos.edad.fecha %>% 
-  left_join(nhab.edad.sexo, by = "Edad") %>% 
+  # left_join(nhab.edad.sexo, by = "Edad") %>% 
   group_by(Edad) %>% 
   arrange(Fecha) %>% 
   mutate(Casos.acum = cumsum(Casos)) %>% 
   mutate(Casos.14d = Casos.acum - lag(Casos.acum, n = 14),
          Casos.7d = Casos.acum - lag(Casos.acum, n = 7)) %>% 
-  mutate(IA.14d = Casos.14d*100000 / nhab,
-         IA.7d = Casos.7d*100000 / nhab) %>% 
+  # mutate(IA.14d = Casos.14d*100000 / nhab,
+  #        IA.7d = Casos.7d*100000 / nhab) %>% 
   ungroup()
 
 ## incidencia acumulada >65 años
 
-# Nº personas >=65 años: 1440102
+# Nº personas >=65 años: 1470813
 # Datos de 2020 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974)
 
 casos.65 <- casos.edad.fecha %>% 
-  filter(Edad == "De 65 a 84 años" | Edad == "De 85 y más años") %>% 
+  filter(edades %in% c("65", "66", "67", "68", "69", "70 - 79", "80 y más")) %>% 
   group_by(Fecha) %>% 
   # summarise(Casos = sum(Casos)) %>% 
   # mutate(Casos.acum = cumsum(Casos)) %>% 
@@ -672,7 +672,7 @@ ggplot(datos.plot) +
 
 
 
-```{r IA14.65a, fig.height=4, eval=FALSE}
+```{r IA14.65a, fig.height=4, eval=T}
 
 datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Tasa.14d.65a)) 
@@ -716,7 +716,7 @@ ggplot(datos.plot) +
 ```
 
 
-```{r IA7.65a, fig.height=4, eval=FALSE}
+```{r IA7.65a, fig.height=4, eval=T}
 
 datos.plot <- datos.acum.andal %>% 
   filter(!is.na(Tasa.7d.65a)) 
@@ -2247,15 +2247,24 @@ casos.edad.fecha.iscii %>%
 ggplot() +
   geom_line(aes(x = fecha, y = IA.14d, colour = grupo_edad),
             size = 1.5) +
+  ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
+                                         fecha == max(casos.edad.fecha.iscii$fecha) - 3),
+                  aes(x = fecha, y = IA.14d, 
+                      label = grupo_edad, colour = grupo_edad),
+                  min.segment.length = 0, 
+                  nudge_x = 5,
+                  show.legend = FALSE) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3), 
-               date_breaks = "1 week", date_labels = "%d %b") +
+               date_breaks = "1 week", date_labels = "%d %b",
+               expand = c(0, 7)) +
   labs(y = "Incidencia Acumulada\n", x = "",
        title = "Incidencia Acumulada 14 días por franja de edad",
        subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
-  theme(legend.title = element_text(hjust = 0.5))
+  theme(legend.title = element_text(hjust = 0.5),
+        legend.position = "bottom")
 
 ```
 
