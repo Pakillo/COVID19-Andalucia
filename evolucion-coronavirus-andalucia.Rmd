@@ -2217,7 +2217,8 @@ casos.edad.fecha.iscii %>%
        subtitle = "Para cada edad se representa el nº medio de casos diarios\nen los 7 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   theme(legend.title = element_text(hjust = 0.5))
 
 
@@ -2241,7 +2242,8 @@ casos.edad.fecha.iscii %>%
        subtitle = "Para cada edad se representa el nº medio de casos diarios\nen los 7 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   theme(legend.title = element_text(hjust = 0.5),
         legend.position = "bottom")
 
@@ -2287,7 +2289,8 @@ ggplot() +
        subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   theme(legend.title = element_text(hjust = 0.5))
 
 
@@ -2312,7 +2315,8 @@ ggplot() +
        subtitle = "Casos confirmados en los últimos 7 días por cada 100.000 habitantes",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   theme(legend.title = element_text(hjust = 0.5),
         legend.position = "bottom")
 
@@ -2659,7 +2663,8 @@ ggplot(ing.lines) +
        subtitle = "Para cada edad se representa el nº medio de ingresos diarios\nen los 14 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   theme(legend.title = element_text(hjust = 0.5)) 
 
 ```
@@ -2688,7 +2693,8 @@ ggplot(data = ing.lines.zoom,
        title = "\nIngresos diarios por franja de edad",
        subtitle = "Para cada edad se representa el nº medio de ingresos diarios\nen los 14 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   guides(color = guide_legend(override.aes = list(alpha = 1))) +
   theme(legend.title = element_blank(), legend.position = "bottom",
         legend.text = element_text(size = 9, colour = "grey20")) +
@@ -2914,7 +2920,8 @@ ggplot(uci.lines) +
        subtitle = "Para cada edad se representa el nº medio de ingresos en UCI\nen los 14 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   theme(legend.title = element_text(hjust = 0.5))
 
 
@@ -2930,7 +2937,8 @@ ggplot() +
        subtitle = "Para cada edad se representa el nº medio de ingresos en UCI\nen los 14 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   theme(legend.title = element_text(hjust = 0.5))
 
 
@@ -3148,7 +3156,8 @@ datos.diarios.iscii.notna %>%
        subtitle = "Para cada edad se representa el nº medio de defunciones\nen los 14 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   # scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
   #                               "#377eb8", "#4daf4a", "#999999")) +
   # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
