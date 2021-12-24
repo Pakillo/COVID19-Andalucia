@@ -2295,11 +2295,11 @@ ggplot() +
 casos.edad.fecha.iscii %>% 
   filter(fecha >= as.Date("2021-11-01")) %>% 
 ggplot() +
-  geom_line(aes(x = fecha, y = IA.14d, colour = grupo_edad),
+  geom_line(aes(x = fecha, y = IA.7d, colour = grupo_edad),
             size = 1.5) +
   ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
                                          fecha == max(casos.edad.fecha.iscii$fecha) - 3),
-                  aes(x = fecha, y = IA.14d, 
+                  aes(x = fecha, y = IA.7d, 
                       label = grupo_edad, colour = grupo_edad),
                   min.segment.length = 0, 
                   nudge_x = 5,
@@ -2308,8 +2308,8 @@ ggplot() +
                date_breaks = "1 week", date_labels = "%d %b",
                expand = c(0, 7)) +
   labs(y = "Incidencia Acumulada\n", x = "",
-       title = "Incidencia Acumulada 14 días por franja de edad",
-       subtitle = "Casos confirmados en los últimos 14 días por cada 100.000 habitantes",
+       title = "Incidencia Acumulada 7 días por franja de edad",
+       subtitle = "Casos confirmados en los últimos 7 días por cada 100.000 habitantes",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
   scale_color_brewer(type = "seq", palette = "YlGnBu") +
