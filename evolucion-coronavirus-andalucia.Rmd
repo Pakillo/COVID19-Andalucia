@@ -1550,7 +1550,7 @@ muni.dia <- muni.dia %>%
     rename(Municipio = `Lugar de residencia`) %>%
     dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$MUNICIPIO)) %>%
     dplyr::filter(!is.na(Medida)) %>%
-    dplyr::filter(Medida == "Población" | Medida == "Confirmados PDIA" | 
+    dplyr::filter(Medida == "Población media anual" | Medida == "Confirmados PDIA" | 
                     Medida == "Tasa PDIA 14 dias" |
                     Medida == "Total Confirmados" | Medida == "Fallecidos") %>%
     mutate(rownumber = 1:nrow(.)) %>%
@@ -1560,6 +1560,7 @@ muni.dia <- muni.dia %>%
     ungroup() %>%
     select(-rownumber) %>%
     tidyr::pivot_wider(names_from = "Medida", values_from = "Valor") %>%
+    rename(`Población` = `Población media anual`) %>%
     mutate(Prop.Casos.Pop = 100*`Total Confirmados`/`Población`,
            Prop.Def.Pop = 100*Fallecidos/`Población`,
            Prop.Def.Casos = 100*Fallecidos/`Total Confirmados`) %>% 
