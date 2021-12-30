@@ -1,6 +1,6 @@
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2021-12-28")
+fecha.munis <- as.Date("2021-12-29")
 
 fecha.edad <- as.Date("2021-12-26")
 
@@ -31,7 +31,7 @@ if (!fecha.munis %in% as.Date(muni.data$Fecha)) {
     #dplyr::select(-X4) %>%
     dplyr::filter(!is.na(Municipio), Municipio %in% unique(muni.data$Municipio)) %>%
     dplyr::filter(!is.na(Medida)) %>%
-    dplyr::filter(Medida != "Población") %>%
+    dplyr::filter(Medida != "Población media anual") %>%
     dplyr::filter(Medida != "Tasa PDIA") %>%
     dplyr::filter(Medida != "Confirmados PDIA 7 días") %>%
     dplyr::filter(Medida != "Tasa PDIA 7 dias") %>%
