@@ -776,7 +776,7 @@ ggplot(datos.plot) +
   geom_ribbon(aes(x = Fecha, ymin = 4, ymax = 7), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 7, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 20), 
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 30), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Positividad de las PCR + Test Antígeno",
@@ -945,7 +945,7 @@ ggplot() +
   labs(title = "\nPacientes ingresados con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "", y = "Camas ocupadas\n") +
-  annotate("text", x = max(camas.last$Fecha) + 2, y = camas.last$CamasOcup, 
+  annotate("text", x = max(camas.last$Fecha) + 1, y = camas.last$CamasOcup, 
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8",
            hjust = 0) +
   annotate("text", x = max(camas.last$Fecha) + 2, y = camas.last$CamasUCI,
@@ -1598,7 +1598,8 @@ library(ggiraph)
 ia.cambio <- muni.todo %>% 
   filter(Fecha == max(Fecha)) %>% 
   filter(Poblacion > 5000) %>% 
-  filter(IA.14d < 1000, IA.cambio < 500) %>%
+  # filter(IA.14d < 1000, IA.cambio < 500) %>%
+  filter(IA.14d < 3000, IA.cambio < 1000) %>%
   ggplot() +
   geom_point_interactive(aes(x = IA.14d, y = IA.cambio, 
                              tooltip = Municipio,
@@ -1632,7 +1633,8 @@ library(plotly)
 fig <- muni.todo %>%
   filter(Fecha > as.Date(max(muni.todo$Fecha) - 30)) %>% 
   filter(Poblacion > 5000) %>% 
-  filter(IA.14d < 1000, IA.cambio < 500) %>%
+  # filter(IA.14d < 1000, IA.cambio < 500) %>%
+  filter(IA.14d < 3000, IA.cambio < 1000) %>%
   mutate(fecha = format(Fecha, "%m/%d")) %>%
   select(fecha, IA.14d, IA.cambio, Provincia, Municipio) %>% 
   plot_ly(
