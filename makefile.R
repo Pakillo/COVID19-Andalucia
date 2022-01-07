@@ -1,6 +1,6 @@
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2022-01-03")
+fecha.munis <- as.Date("2022-01-04")
 
 fecha.edad <- as.Date("2021-12-29")
 
@@ -131,6 +131,8 @@ datos.edad.sexo <- dplyr::bind_rows(datos.edad.sexo, datos.edad.sexo.dia) %>%
 
 
 #### Descargar datos CNE ####
+
+options(timeout = max(300, getOption("timeout")))
 
 url.iscii.edad <- "https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv"
 if (!httr::http_error(url.iscii.edad)) {
