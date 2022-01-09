@@ -937,7 +937,7 @@ ggplot(camas) +
                expand = expansion(add = c(10, 100))) 
 
 camas %>% 
-  filter(Fecha >= as.Date("2021-10-01")) %>% 
+  filter(Fecha >= as.Date("2021-11-01")) %>% 
 ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
@@ -1111,7 +1111,7 @@ datos.andal.plot <- datos.andal %>%
          Hosp = zoo::rollmean(Hospitalizados, 7, fill = NA, align = "right"),
          UCIma = zoo::rollmean(UCI, 7, fill = NA, align = "right"),
          Def = zoo::rollmean(Defunciones, 7, fill = NA, align = "right")) %>% 
-  filter(Fecha >= as.Date("2021-01-01"), Fecha < max(.$Fecha) - 3)
+  filter(Fecha >= as.Date("2021-01-01"), Fecha < max(Fecha) - 4)
 
 ggplot(datos.andal.plot) +
   geom_line(aes(Fecha, Casos), colour = "#ff7f00", lwd = 2) +
@@ -1132,7 +1132,9 @@ ggplot(datos.andal.plot) +
        subtitle = "Media móvil a 7 días")
 
 
-ggplot(datos.andal.plot) +
+datos.andal.plot %>% 
+  filter(Fecha < max(Fecha) - 7) %>% 
+ggplot() +
   geom_line(aes(Fecha, Casos), colour = "#ff7f00", lwd = 2) +
   geom_line(aes(Fecha, Hosp), colour = "#377eb8", lwd = 2) +
   geom_line(aes(Fecha, Def), colour = "grey40", lwd = 2) +
@@ -1273,7 +1275,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "3 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 200, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 400, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 21), size = 2.5) 
 
 ```
@@ -2226,7 +2228,7 @@ casos.edad.fecha.iscii %>%
 
 
 casos.edad.fecha.iscii %>% 
-  filter(fecha >= as.Date("2021-11-01")) %>%
+  filter(fecha >= as.Date("2021-12-01")) %>%
   ggplot() +
   geom_line(aes(x = fecha, y = casos_ma, colour = grupo_edad),
             size = 1.5) +
@@ -2299,7 +2301,7 @@ ggplot() +
 
 
 casos.edad.fecha.iscii %>% 
-  filter(fecha >= as.Date("2021-11-01")) %>% 
+  filter(fecha >= as.Date("2021-12-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = IA.7d, colour = grupo_edad),
             size = 1.5) +
@@ -2678,7 +2680,7 @@ ggplot(ing.lines) +
 # library(gghighlight)
 
 ing.lines.zoom <- ing.lines %>%
-  filter(fecha > "2021-10-01") %>%
+  filter(fecha > "2021-12-01") %>%
   filter(fecha < max(ing.lines$fecha) - 1)
 
 ggplot(data = ing.lines.zoom,
@@ -2929,7 +2931,7 @@ ggplot(uci.lines) +
 
 
 uci.lines %>% 
-  filter(fecha > as.Date("2021-11-01")) %>% 
+  filter(fecha > as.Date("2021-12-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5, alpha = 0.8) +
