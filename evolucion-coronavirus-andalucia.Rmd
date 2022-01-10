@@ -776,7 +776,7 @@ ggplot(datos.plot) +
   geom_ribbon(aes(x = Fecha, ymin = 4, ymax = 7), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 7, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 10, ymax = 15), fill = "#e41a1c", alpha = 0.3) +
-  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 30), 
+  geom_ribbon(aes(x = Fecha, ymin = 15, ymax = 40), 
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Positividad de las PCR + Test Antígeno",
