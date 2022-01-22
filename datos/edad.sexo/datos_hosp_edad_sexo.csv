@@ -1,276 +1,85 @@
 Edad;Sexo;Medida;Valor;
-De 100 y más años;Hombres;Hospitalizados;7;
+De 100 y más años;Hombres;Hospitalizados;9;
 De 100 y más años;Hombres;% pirámide;0,01;
 De 100 y más años;Mujeres;Hospitalizados;35;
 De 100 y más años;Mujeres;% pirámide;0,06;
-De 95 a 99 años;Hombres;Hospitalizados;170;
-De 95 a 99 años;Hombres;% pirámide;0,274854084816737;
-De 95 a 99 años;Mujeres;Hospitalizados;372;
-De 95 a 99 años;Mujeres;% pirámide;0,6014454091283892;
-De 90 a 94 años;Hombres;Hospitalizados;862;
-De 90 a 94 años;Hombres;% pirámide;1,393671888894278;
-De 90 a 94 años;Mujeres;Hospitalizados;1304;
-De 90 a 94 años;Mujeres;% pirámide;2,1082925094177942;
-De 85 a 89 años;Hombres;Hospitalizados;2209;
-De 85 a 89 años;Hombres;% pirámide;3,5714863138833643;
-De 85 a 89 años;Mujeres;Hospitalizados;2735;
-De 85 a 89 años;Mujeres;% pirámide;4,421917188081034;
-De 80 a 84 años;Hombres;Hospitalizados;2692;
-De 80 a 84 años;Hombres;% pirámide;4,3523952725097415;
-De 80 a 84 años;Mujeres;Hospitalizados;2692;
-De 80 a 84 años;Mujeres;% pirámide;4,3523952725097415;
-De 75 a 79 años;Hombres;Hospitalizados;3297;
-De 75 a 79 años;Hombres;% pirámide;5,330552456710482;
-De 75 a 79 años;Mujeres;Hospitalizados;2701;
-De 75 a 79 años;Mujeres;% pirámide;4,366946371117686;
-De 70 a 74 años;Hombres;Hospitalizados;3444;
-De 70 a 74 años;Hombres;% pirámide;5,568220400640248;
-De 70 a 74 años;Mujeres;Hospitalizados;2413;
-De 70 a 74 años;Mujeres;% pirámide;3,901311215663449;
-De 65 a 69 años;Hombres;Hospitalizados;3639;
-De 65 a 69 años;Hombres;% pirámide;5,883494203812388;
-De 65 a 69 años;Mujeres;Hospitalizados;2335;
-De 65 a 69 años;Mujeres;% pirámide;3,7752016943945934;
-De 60 a 64 años;Hombres;Hospitalizados;3777;
-De 60 a 64 años;Hombres;% pirámide;6,10661104913421;
-De 60 a 64 años;Mujeres;Hospitalizados;2359;
-De 60 a 64 años;Mujeres;% pirámide;3,81400462401578;
-De 55 a 59 años;Hombres;Hospitalizados;3405;
-De 55 a 59 años;Hombres;% pirámide;5,505165640005821;
-De 55 a 59 años;Mujeres;Hospitalizados;2068;
-De 55 a 59 años;Mujeres;% pirámide;3,343519102358895;
-De 50 a 54 años;Hombres;Hospitalizados;3056;
-De 50 a 54 años;Hombres;% pirámide;4,9409063717644015;
-De 50 a 54 años;Mujeres;Hospitalizados;1744;
-De 50 a 54 años;Mujeres;% pirámide;2,8196795524728784;
-De 45 a 49 años;Hombres;Hospitalizados;2501;
-De 45 a 49 años;Hombres;% pirámide;4,0435886242744665;
-De 45 a 49 años;Mujeres;Hospitalizados;1441;
-De 45 a 49 años;Mujeres;% pirámide;2,3297925660054;
-De 40 a 44 años;Hombres;Hospitalizados;1870;
-De 40 a 44 años;Hombres;% pirámide;3,023394932984107;
-De 40 a 44 años;Mujeres;Hospitalizados;1202;
-De 40 a 44 años;Mujeres;% pirámide;1,9433800585277523;
-De 35 a 39 años;Hombres;Hospitalizados;1238;
-De 35 a 39 años;Hombres;% pirámide;2,0015844529595315;
-De 35 a 39 años;Mujeres;Hospitalizados;1076;
-De 35 a 39 años;Mujeres;% pirámide;1,7396646780165237;
-De 30 a 34 años;Hombres;Hospitalizados;832;
-De 30 a 34 años;Hombres;% pirámide;1,3451682268677954;
-De 30 a 34 años;Mujeres;Hospitalizados;974;
-De 30 a 34 años;Mujeres;% pirámide;1,5747522271264813;
-De 25 a 29 años;Hombres;Hospitalizados;598;
-De 25 a 29 años;Hombres;% pirámide;0,9668396630612278;
-De 25 a 29 años;Mujeres;Hospitalizados;728;
-De 25 a 29 años;Mujeres;% pirámide;1,1770221985093208;
-De 20 a 24 años;Hombres;Hospitalizados;363;
-De 20 a 24 años;Hombres;% pirámide;0,5868943105204443;
-De 20 a 24 años;Mujeres;Hospitalizados;470;
-De 20 a 24 años;Mujeres;% pirámide;0,759890705081567;
-De 15 a 19 años;Hombres;Hospitalizados;159;
-De 15 a 19 años;Hombres;% pirámide;0,2570694087403599;
-De 15 a 19 años;Mujeres;Hospitalizados;245;
-De 15 a 19 años;Mujeres;% pirámide;0,3961132398829445;
-De 10 a 14 años;Hombres;Hospitalizados;105;
-De 10 a 14 años;Hombres;% pirámide;0,1697628170926905;
-De 10 a 14 años;Mujeres;Hospitalizados;106;
-De 10 a 14 años;Mujeres;% pirámide;0,17137960582690662;
-De 5 a 9 años;Hombres;Hospitalizados;69;
-De 5 a 9 años;Hombres;% pirámide;0,1115584226609109;
-De 5 a 9 años;Mujeres;Hospitalizados;45;
-De 5 a 9 años;Mujeres;% pirámide;0,07;
-De 0 a 4 años;Hombres;Hospitalizados;279;
-De 0 a 4 años;Hombres;% pirámide;0,4510840568462919;
-De 0 a 4 años;Mujeres;Hospitalizados;227;
-De 0 a 4 años;Mujeres;% pirámide;0,3670110426670547;
-
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-          
-               
-                    
-               
-               
-               
-               
-               
-          
-     
+De 95 a 99 años;Hombres;Hospitalizados;179;
+De 95 a 99 años;Hombres;% pirámide;0,2824368461744797;
+De 95 a 99 años;Mujeres;Hospitalizados;385;
+De 95 a 99 años;Mujeres;% pirámide;0,6074758981965066;
+De 90 a 94 años;Hombres;Hospitalizados;894;
+De 90 a 94 años;Hombres;% pirámide;1,4106063713965633;
+De 90 a 94 años;Mujeres;Hospitalizados;1352;
+De 90 a 94 años;Mujeres;% pirámide;2,133266011329031;
+De 85 a 89 años;Hombres;Hospitalizados;2277;
+De 85 a 89 años;Hombres;% pirámide;3,592786026476482;
+De 85 a 89 años;Mujeres;Hospitalizados;2814;
+De 85 a 89 años;Mujeres;% pirámide;4,440096564999921;
+De 80 a 84 años;Hombres;Hospitalizados;2773;
+De 80 a 84 años;Hombres;% pirámide;4,375404326490682;
+De 80 a 84 años;Mujeres;Hospitalizados;2753;
+De 80 a 84 años;Mujeres;% pirámide;4,343847136973981;
+De 75 a 79 años;Hombres;Hospitalizados;3390;
+De 75 a 79 años;Hombres;% pirámide;5,348943623080928;
+De 75 a 79 años;Mujeres;Hospitalizados;2768;
+De 75 a 79 años;Mujeres;% pirámide;4,367515029111507;
+De 70 a 74 años;Hombres;Hospitalizados;3509;
+De 70 a 74 años;Hombres;% pirámide;5,536708900705303;
+De 70 a 74 años;Mujeres;Hospitalizados;2445;
+De 70 a 74 años;Mujeres;% pirámide;3,8578664184167755;
+De 65 a 69 años;Hombres;Hospitalizados;3708;
+De 65 a 69 años;Hombres;% pirámide;5,850702936396485;
+De 65 a 69 años;Mujeres;Hospitalizados;2384;
+De 65 a 69 años;Mujeres;% pirámide;3,7616169903908356;
+De 60 a 64 años;Hombres;Hospitalizados;3858;
+De 60 a 64 años;Hombres;% pirámide;6,087381857771747;
+De 60 a 64 años;Mujeres;Hospitalizados;2379;
+De 60 a 64 años;Mujeres;% pirámide;3,75372769301166;
+De 55 a 59 años;Hombres;Hospitalizados;3496;
+De 55 a 59 años;Hombres;% pirámide;5,516196727519447;
+De 55 a 59 años;Mujeres;Hospitalizados;2101;
+De 55 a 59 años;Mujeres;% pirámide;3,3150827587295075;
+De 50 a 54 años;Hombres;Hospitalizados;3101;
+De 50 a 54 años;Hombres;% pirámide;4,89294223456459;
+De 50 a 54 años;Mujeres;Hospitalizados;1776;
+De 50 a 54 años;Mujeres;% pirámide;2,8022784290831058;
+De 45 a 49 años;Hombres;Hospitalizados;2554;
+De 45 a 49 años;Hombres;% pirámide;4,029853101282799;
+De 45 a 49 años;Mujeres;Hospitalizados;1462;
+De 45 a 49 años;Mujeres;% pirámide;2,30683055367089;
+De 40 a 44 años;Hombres;Hospitalizados;1902;
+De 40 a 44 años;Hombres;% pirámide;3,0010887230383263;
+De 40 a 44 años;Mujeres;Hospitalizados;1226;
+De 40 a 44 años;Mujeres;% pirámide;1,9344557173738106;
+De 35 a 39 años;Hombres;Hospitalizados;1261;
+De 35 a 39 años;Hombres;% pirámide;1,9896807990280385;
+De 35 a 39 años;Mujeres;Hospitalizados;1136;
+De 35 a 39 años;Mujeres;% pirámide;1,7924483645486533;
+De 30 a 34 años;Hombres;Hospitalizados;843;
+De 30 a 34 años;Hombres;% pirámide;1,3301355381289741;
+De 30 a 34 años;Mujeres;Hospitalizados;1024;
+De 30 a 34 años;Mujeres;% pirámide;1,6157281032551243;
+De 25 a 29 años;Hombres;Hospitalizados;603;
+De 25 a 29 años;Hombres;% pirámide;0,9514492639285546;
+De 25 a 29 años;Mujeres;Hospitalizados;764;
+De 25 a 29 años;Mujeres;% pirámide;1,2054846395380026;
+De 20 a 24 años;Hombres;Hospitalizados;375;
+De 20 a 24 años;Hombres;% pirámide;0,5916973034381559;
+De 20 a 24 años;Mujeres;Hospitalizados;497;
+De 20 a 24 años;Mujeres;% pirámide;0,7841961594900357;
+De 15 a 19 años;Hombres;Hospitalizados;169;
+De 15 a 19 años;Hombres;% pirámide;0,26665825141612887;
+De 15 a 19 años;Mujeres;Hospitalizados;255;
+De 15 a 19 años;Mujeres;% pirámide;0,4023541663379459;
+De 10 a 14 años;Hombres;Hospitalizados;112;
+De 10 a 14 años;Hombres;% pirámide;0,1767202612935292;
+De 10 a 14 años;Mujeres;Hospitalizados;113;
+De 10 a 14 años;Mujeres;% pirámide;0,17829812076936427;
+De 5 a 9 años;Hombres;Hospitalizados;81;
+De 5 a 9 años;Hombres;% pirámide;0,12780661754264164;
+De 5 a 9 años;Mujeres;Hospitalizados;49;
+De 5 a 9 años;Mujeres;% pirámide;0,08;
+De 0 a 4 años;Hombres;Hospitalizados;305;
+De 0 a 4 años;Hombres;% pirámide;0,48124714012970005;
+De 0 a 4 años;Mujeres;Hospitalizados;253;
+De 0 a 4 años;Mujeres;% pirámide;0,39919844738627575;
