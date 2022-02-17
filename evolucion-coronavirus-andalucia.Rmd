@@ -281,25 +281,43 @@ datos.acum <- datos.acum %>%
   left_join(casos.65, by = c("Fecha", "Territorio"))
 
 
+# ## Add datos posit + trazabilidad
+# trazab.minist <- readxl::read_excel("datos/positividad_Ministerio.xlsx") %>% 
+#   # select(Fecha, Territorio, Trazab_indic) %>% 
+#   mutate(Fecha = as.Date(Fecha))
+
 ## Add datos positividad
-# TODO 
-# test.minist <- read_csv2("datos/datos_test_ministerio.csv",
-#                          locale = locale(encoding = "ISO-8859-1")) %>%
-#   filter(PROVINCIA %in% unique(datos.acum$Territorio)) %>%
-#   mutate(Fecha = parse_date(FECHA_PRUEBA, format = "%d%b%Y",
-#                             locale = locale(date_names = "en"))) %>% 
-#   mutate(N.PCR.TA = N_ANT + N_PCR,
-#          Positividad = 100*(N_ANT_POSITIVOS + N_PCR_POSITIVOS)/N.PCR.TA)
+
+test.minist <- read_csv2("datos/datos_test_ministerio.csv",
+                         locale = locale(encoding = "ISO-8859-1")) %>%
+  filter(PROVINCIA %in% unique(datos.acum$Territorio)) %>%
+  mutate(Fecha = parse_date(FECHA_PRUEBA, format = "%d%b%Y",
+                            locale = locale(date_names = "en"))) %>%
+  mutate(N.PCR.TA = N_ANT + N_PCR,
+         NPosit = N_ANT_POSITIVOS + N_PCR_POSITIVOS,
+         Positividad = round(100*NPosit/N.PCR.TA, digits = 1)) %>% 
+  rename(Territorio = PROVINCIA) %>% 
+  select(Fecha, Territorio, N.PCR.TA, NPosit, Positividad)
+
+test.minist.andal <- test.minist %>% 
+  group_by(Fecha) %>% 
+  summarise(N.PCR.TA = sum(N.PCR.TA),
+            NPosit = sum(NPosit),
+            Positividad = round(100*NPosit/N.PCR.TA, digits = 1)) %>% 
+  mutate(Territorio = "Andalucía") %>% 
+  select(Fecha, Territorio, N.PCR.TA, NPosit, Positividad)
+  
+
+test.minist <- bind_rows(test.minist, test.minist.andal) %>% 
+  arrange(Fecha, Territorio)
+
+test.minist.last.day <- test.minist %>% 
+  filter(Fecha == max(Fecha))
 
 
-
-## Add datos posit + trazabilidad
-trazab.minist <- readxl::read_excel("datos/positividad_Ministerio.xlsx") %>% 
-  # select(Fecha, Territorio, Trazab_indic) %>% 
-  mutate(Fecha = as.Date(Fecha))
 
 datos.acum <- datos.acum %>% 
-  full_join(trazab.minist, by = c("Fecha", "Territorio"))
+  full_join(test.minist, by = c("Fecha", "Territorio"))
 
 
 # Add datos camas ocupadas
@@ -516,6 +534,7 @@ datos.indic <- datos.indic %>%
          IA7 = ia.provs$IA.7d,
          IA14.65yr = ia.provs.65yr$IA.14d.65yr,
          IA7.65yr = ia.provs.65yr$IA.7d.65yr,
+         Positividad = test.minist.last.day$Positividad,
          `%OcupHosp` = datos.camas.minist.last.day$`%OcupHosp`,
          `%OcupUCI` = datos.camas.minist.last.day$`%OcupUCI`)
 ```
@@ -575,7 +594,7 @@ datos.indic %>%
   
 ```
 
-Datos relativos al `r max(datos.acum$Fecha)`, salvo para 'Positividad', que proceden del último [informe de indicadores](https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/situacionActual.htm?q=service/) del Ministerio de Sanidad. 
+Datos relativos al `r max(datos.acum$Fecha)`. 
 
 <br>
 
@@ -764,14 +783,15 @@ ggplot(datos.plot) +
 ```{r Positividad, fig.height=4}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(Positividad.7d)) %>% 
-  filter(Fecha >= as.Date("2021-01-01"))
+  filter(!is.na(Positividad)) %>% 
+  filter(Fecha >= as.Date("2021-01-01")) %>% 
+  mutate(Positividad.ma = zoo::rollmean(Positividad, 7, fill = NA, align = "right"))
 
 ggplot(datos.plot) +
-  geom_line(aes(Fecha, Positividad.7d), size = 2) +
+  geom_line(aes(Fecha, Positividad.ma), size = 2) +
   annotate("text", x = 15 + max(datos.plot$Fecha), 
-           y = datos.plot$Positividad.7d[nrow(datos.plot)],
-           label = paste(round(datos.plot$Positividad.7d[nrow(datos.plot)]), "%", sep = " ")) +
+           y = datos.plot$Positividad.ma[nrow(datos.plot)],
+           label = paste(round(datos.plot$Positividad.ma[nrow(datos.plot)]), "%", sep = " ")) +
   geom_ribbon(aes(x = Fecha, ymin = 0, ymax = 4), fill = "#4daf4a", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 4, ymax = 7), fill = "#ffff33", alpha = 0.3) +
   geom_ribbon(aes(x = Fecha, ymin = 7, ymax = 10), fill = "#ff7f00", alpha = 0.3) +
