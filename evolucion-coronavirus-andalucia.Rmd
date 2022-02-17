@@ -927,15 +927,26 @@ El pico de ingresados de la 3ª ola se alcanzó el 2 de Febrero de 2021 con 4911
 
 ```{r camas.ocupadas, fig.height=4}
 
-camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
-  mutate(Fecha = as.Date(Fecha)) %>%
-  rename(CamasUCI = UCI)
+# Datos Junta
+# camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
+#   mutate(Fecha = as.Date(Fecha)) %>%
+#   rename(CamasUCI = UCI)
 
-camas.last <- camas %>%
-  filter(!is.na(CamasOcup)) %>%
-  slice_tail()
+# camas.last <- camas %>%
+#   filter(!is.na(CamasOcup)) %>%
+#   slice_tail()
 
-pico30Marzo <- data.frame(Fecha = as.Date("2020-03-30"), CamasOcup = 2708, CamasUCI = 438)
+
+# Datos camas Minist
+camas <- datos.camas.minist %>% 
+  filter(Territorio == "Andalucía") %>% 
+  mutate(CamasOcup = covid_Convencional + covid_UCI,
+         CamasUCI = covid_UCI)
+
+camas.last <- camas %>% 
+  filter(Fecha == max(Fecha))
+
+# pico30Marzo <- data.frame(Fecha = as.Date("2020-03-30"), CamasOcup = 2708, CamasUCI = 438)
 
 ggplot(camas) +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
@@ -944,8 +955,8 @@ ggplot(camas) +
   labs(title = "Pacientes ingresados con COVID-19 en Andalucía",
        caption = "https://tiny.cc/COVID19-Andalucia",
        x = "", y = "Camas ocupadas\n") +
-  geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
-  geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
+  # geom_point(data = pico30Marzo, aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
+  # geom_point(data = pico30Marzo, aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
   annotate("text", x = max(camas.last$Fecha) + 5, y = camas.last$CamasOcup + 200, 
            label = paste0("Total ", camas.last$CamasOcup), colour = "#377eb8",
            hjust = 0) +
@@ -953,11 +964,11 @@ ggplot(camas) +
            label = paste0("UCI ", camas.last$CamasUCI), colour = "#e41a1c",
            hjust = 0) +
   scale_x_date(date_breaks = "2 months", date_labels = "%b", 
-               limits = c(as.Date("2020-04-05"), NA), 
+               limits = c(as.Date("2020-08-01"), NA), 
                expand = expansion(add = c(10, 100))) 
 
 camas %>% 
-  filter(Fecha >= as.Date("2021-12-01")) %>% 
+  filter(Fecha >= as.Date("2022-01-01")) %>% 
 ggplot() +
   geom_line(aes(Fecha, CamasOcup), colour = "#377eb8", size = 2) +
   geom_line(aes(Fecha, CamasUCI), colour = "#e41a1c", size = 2) +
