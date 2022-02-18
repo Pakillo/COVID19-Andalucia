@@ -800,7 +800,7 @@ ggplot(datos.plot) +
               fill = "#984ea3", alpha = 0.3) +
   labs(x = "", y = "",
        title = "Positividad de las PCR + Test Antígeno",
-       subtitle = "% Positivos última semana",
+       subtitle = "Media móvil a 7 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
@@ -810,17 +810,18 @@ ggplot(datos.plot) +
 ```{r Ntest, fig.height=3}
 
 datos.plot <- datos.acum.andal %>% 
-  filter(!is.na(N.PCR.TA.7d))  %>% 
-  filter(Fecha >= as.Date("2021-01-01"))
+  filter(!is.na(N.PCR.TA))  %>% 
+  filter(Fecha >= as.Date("2021-01-01")) %>% 
+  mutate(N.PCR.TA.ma = zoo::rollmean(N.PCR.TA, 7, fill = NA, align = "right"))
 
 ggplot(datos.plot) +
-  geom_line(aes(Fecha, N.PCR.TA.7d), size = 2) +
+  geom_line(aes(Fecha, N.PCR.TA.ma), size = 2) +
   annotate("text", x = 20 + max(datos.plot$Fecha), 
-           y = datos.plot$N.PCR.TA.7d[nrow(datos.plot)],
-           label = round(datos.plot$N.PCR.TA.7d[nrow(datos.plot)])) +
+           y = datos.plot$N.PCR.TA.ma[nrow(datos.plot)],
+           label = round(datos.plot$N.PCR.TA.ma[nrow(datos.plot)])) +
   labs(x = "", y = "",
-       title = "Número de pruebas realizadas",
-       subtitle = "Pruebas realizadas en la última semana (PCR + Test Antígeno)",
+       title = "Número de pruebas realizadas (PCR + Test Antígeno)",
+       subtitle = "Media móvil a 7 días",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   scale_x_date(date_breaks = "1 month", date_labels = "%b")
   
@@ -2259,7 +2260,7 @@ casos.edad.fecha.iscii %>%
 
 
 casos.edad.fecha.iscii %>% 
-  filter(fecha >= as.Date("2021-12-01")) %>%
+  filter(fecha >= as.Date("2022-01-01")) %>%
   ggplot() +
   geom_line(aes(x = fecha, y = casos_ma, colour = grupo_edad),
             size = 1.5) +
@@ -2332,7 +2333,7 @@ ggplot() +
 
 
 casos.edad.fecha.iscii %>% 
-  filter(fecha >= as.Date("2021-12-01")) %>% 
+  filter(fecha >= as.Date("2022-01-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = IA.7d, colour = grupo_edad),
             size = 1.5) +
@@ -2711,7 +2712,7 @@ ggplot(ing.lines) +
 # library(gghighlight)
 
 ing.lines.zoom <- ing.lines %>%
-  filter(fecha > "2021-12-01") %>%
+  filter(fecha > "2022-01-01") %>%
   filter(fecha < max(ing.lines$fecha) - 1)
 
 ggplot(data = ing.lines.zoom,
@@ -2962,7 +2963,7 @@ ggplot(uci.lines) +
 
 
 uci.lines %>% 
-  filter(fecha > as.Date("2021-12-01")) %>% 
+  filter(fecha > as.Date("2022-01-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5, alpha = 0.8) +
