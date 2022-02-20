@@ -196,6 +196,7 @@ casos.edad.fecha <- casos.edad.fecha %>%
 
 # Nº personas >=65 años: 1470813
 # Datos de 2020 (https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/21974?CodOper=b3_151&codConsulta=21974)
+# 2021: 1495393
 
 casos.65 <- casos.edad.fecha %>% 
   filter(edades %in% c("65", "66", "67", "68", "69", "70 - 79", "80 y más")) %>% 
@@ -204,8 +205,8 @@ casos.65 <- casos.edad.fecha %>%
   # mutate(Casos.acum = cumsum(Casos)) %>% 
   summarise(Casos.14d.65a = sum(Casos.14d),
          Casos.7d.65a = sum(Casos.7d)) %>% 
-  mutate(Tasa.14d.65a = Casos.14d.65a * 100000 / 1470813,
-         Tasa.7d.65a = Casos.7d.65a * 100000 / 1470813) %>% 
+  mutate(Tasa.14d.65a = Casos.14d.65a * 100000 / 1495393,
+         Tasa.7d.65a = Casos.7d.65a * 100000 / 1495393) %>% 
   mutate(Territorio = "Andalucía") 
   
   
@@ -364,10 +365,10 @@ casos.edad.fecha.iscii <- datos.diarios.iscii.notna %>%
 
 
 ## Numero habitantes calculated reversely from datos casos and IA from IECA
-# see nhab_edades.xls
+# see nhab_edades_2021.xls
 nhab.edad <- data.frame(
   grupo_edad = sort(unique(datos.diarios.iscii.notna$grupo_edad)),
-  nhab = c(814255L, 951088L, 928672L, 1140217L, 1385114L, 1265021L, 916147L, 650381L, 413516L))
+  nhab = c(789238L, 956010L, 923357L, 1109748L, 1386044L, 1282786L, 954242L, 649045L, 421937L))
 
 
 ## Calculate IA
