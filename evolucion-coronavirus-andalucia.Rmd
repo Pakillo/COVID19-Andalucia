@@ -1101,7 +1101,7 @@ ggplot() +
   scale_colour_manual(values = c("#ff7f00", "#377eb8", "#e41a1c", "grey40")) +
   labs(x = "", y = "Nº personas", caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b",
+  scale_x_date(date_breaks = "2 months", date_labels = "%b",
                limits = c(as.Date("2020-03-01"), max(datos.andal.long$Fecha) - 5)) +
   scale_y_continuous(sec.axis = dup_axis(name = "")) +
   theme(axis.text.x = element_text(size = 8))
@@ -1276,7 +1276,7 @@ ggplot(datos.andal) +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.andal$Fecha) - 5), 
-               date_breaks = "1 month", date_labels = "%b") +
+               date_breaks = "2 months", date_labels = "%b") +
   theme(axis.text.x = element_text(size = 8))
 
 ```
@@ -1477,6 +1477,7 @@ mobidata <- bind_rows(
 
 # library(directlabels)
 library(ggrepel)
+library(geomtextpath)
 
 ```
 
@@ -1493,7 +1494,9 @@ mobidt <- mobidata %>%
 
 ggplot(mobidt) +
   aes(x = date, y = change_ma) +
-  geom_line(aes(colour = place), size = 1.5) + 
+  geom_textline(aes(colour = place, label = place), linewidth = 1.5, 
+                straight = FALSE, text_smoothing = 40,
+                hjust = "auto") + 
   scale_colour_manual(values = c("#4DAF4A", "#984EA3", "#E41A1C", "#377EB8", "#999999"),
                       name = "", ) +
   geom_hline(yintercept = 0, colour = "black", size = 1, lty = 2) +
@@ -1502,13 +1505,11 @@ ggplot(mobidt) +
        subtitle = "Medias móviles mensuales de la diferencia en uso del espacio\nrespecto a la mediana diaria del periodo 3 Ene - 6 Feb 2020",
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "none") +
-  # geom_dl(aes(label = paste("", place), colour = place), method = "last.points",
-  #         size = 2) +
-  geom_text_repel(data = mobidt %>% filter(!is.na(change_ma)) %>% filter(date == max(date)), 
-                  mapping = aes(x = date, y = change_ma, 
-                                label = place, colour = place),
-                  min.segment.length = 0,
-                  nudge_x = 2) +
+  # geom_text_repel(data = mobidt %>% filter(!is.na(change_ma)) %>% filter(date == max(date)), 
+  #                 mapping = aes(x = date, y = change_ma, 
+  #                               label = place, colour = place),
+  #                 min.segment.length = 0,
+  #                 nudge_x = 2) +
   scale_x_date(date_breaks = "1 month", date_labels = "%b", 
                expand = expansion(add = c(0, 30)))
 
@@ -1537,7 +1538,7 @@ mobidata %>%
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(legend.position = "top", legend.text = element_text(size = 9),
         axis.text.x = element_text(size = 8)) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b") +
   coord_cartesian(ylim = c(-50, 50))
 
 ```
@@ -2170,9 +2171,10 @@ datos.diarios.iscii.notna %>%
        title = "Edad de los casos confirmados",
        caption = "https://tiny.cc/COVID19-Andalucia",
        fill = "Casos\ndiarios") +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -2266,27 +2268,27 @@ casos.edad.fecha.iscii %>%
 casos.edad.fecha.iscii %>% 
   filter(fecha >= as.Date("2022-01-01")) %>%
   ggplot() +
-  geom_line(aes(x = fecha, y = casos_ma, colour = grupo_edad),
-            size = 1.5) +
+  geom_textline(aes(x = fecha, y = casos_ma, colour = grupo_edad, label = grupo_edad),
+            linewidth = 1.5, hjust = 0.2, straight = TRUE, #text_smoothing = 60, 
+            show.legend = FALSE) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3),
                expand = c(0, 7),
                date_breaks = "1 week", date_labels = "%d %b") +
-  ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
-                                         fecha == max(casos.edad.fecha.iscii$fecha) - 3),
-                  aes(x = fecha, y = casos_ma, 
-                      label = grupo_edad, colour = grupo_edad),
-                  min.segment.length = 0, 
-                  nudge_x = 5,
-                  show.legend = FALSE) +
+  # ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
+  #                                        fecha == max(casos.edad.fecha.iscii$fecha) - 3),
+  #                 aes(x = fecha, y = casos_ma, 
+  #                     label = grupo_edad, colour = grupo_edad),
+  #                 min.segment.length = 0, 
+  #                 nudge_x = 5,
+  #                 show.legend = FALSE) +
   labs(y = "Casos\n", x = "",
        title = "Casos diarios por franja de edad",
        subtitle = "Para cada edad se representa el nº medio de casos diarios\nen los 7 días previos",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
-  scale_colour_viridis_d(direction = -1) +
-  theme(legend.title = element_text(hjust = 0.5),
-        legend.position = "bottom")
+  scale_colour_viridis_d(direction = -1)
+  # theme(legend.title = element_text(hjust = 0.5),
+  #       legend.position = "bottom")
 
 ```
 
@@ -2339,15 +2341,16 @@ ggplot() +
 casos.edad.fecha.iscii %>% 
   filter(fecha >= as.Date("2022-01-01")) %>% 
 ggplot() +
-  geom_line(aes(x = fecha, y = IA.7d, colour = grupo_edad),
-            size = 1.5) +
-  ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
-                                         fecha == max(casos.edad.fecha.iscii$fecha) - 3),
-                  aes(x = fecha, y = IA.7d, 
-                      label = grupo_edad, colour = grupo_edad),
-                  min.segment.length = 0, 
-                  nudge_x = 5,
-                  show.legend = FALSE) +
+  geom_textline(aes(x = fecha, y = IA.7d, colour = grupo_edad, label = grupo_edad),
+            linewidth = 1.5, hjust = -0.09, straight = TRUE,
+            show.legend = FALSE) +
+  # ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
+  #                                        fecha == max(casos.edad.fecha.iscii$fecha) - 3),
+  #                 aes(x = fecha, y = IA.7d, 
+  #                     label = grupo_edad, colour = grupo_edad),
+  #                 min.segment.length = 0, 
+  #                 nudge_x = 5,
+  #                 show.legend = FALSE) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3), 
                date_breaks = "1 week", date_labels = "%d %b",
                expand = c(0, 7)) +
@@ -2356,10 +2359,9 @@ ggplot() +
        subtitle = "Casos confirmados en los últimos 7 días por cada 100.000 habitantes",
        caption = "https://tiny.cc/COVID19-Andalucia",
        colour = "Edad") +
-  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
-  scale_colour_viridis_d(direction = -1) +
-  theme(legend.title = element_text(hjust = 0.5),
-        legend.position = "bottom")
+  scale_colour_viridis_d(direction = -1) 
+  # theme(legend.title = element_text(hjust = 0.5),
+  #       legend.position = "bottom")
 
 ```
 
@@ -2425,7 +2427,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 ```
 
 
@@ -2448,7 +2451,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -2494,7 +2498,7 @@ ggplot(datos.andal) +
   scale_x_date(limits = c(Sys.Date() - 22, NA), 
                date_breaks = "2 days", date_labels = "%d %b") +
   theme(axis.text.x = element_text(size = 8)) +
-  geom_text(aes(Fecha, y = Hospitalizados + 5, label = Hospitalizados),
+  geom_text(aes(Fecha, y = Hospitalizados + 10, label = Hospitalizados),
             data = subset(datos.andal, Fecha > (Sys.Date() - 22))) 
   
 
@@ -2623,7 +2627,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -2647,7 +2652,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -2671,7 +2677,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -2706,7 +2713,8 @@ ggplot(ing.lines) +
        colour = "Edad") +
   # scale_color_brewer(type = "seq", palette = "YlGnBu") +
   scale_colour_viridis_d(direction = -1) +
-  theme(legend.title = element_text(hjust = 0.5)) 
+  theme(legend.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(size = 9)) 
 
 ```
 
@@ -2721,13 +2729,16 @@ ing.lines.zoom <- ing.lines %>%
 
 ggplot(data = ing.lines.zoom,
        aes(x = fecha, y = hosp_ma_14d)) +
-  geom_line(aes(colour = edades),
-            size = 1.5, show.legend = TRUE, alpha = 0.8) +
-  geom_text_repel(data = filter(ing.lines.zoom, fecha == max(ing.lines.zoom$fecha)),
-                  aes(label = edades, colour = edades),
-                  min.segment.length = 0, 
-                  nudge_x = 5,
-                  show.legend = FALSE) +
+  geom_textline(aes(colour = edades, label = edades),
+            linewidth = 1.5, hjust = "auto", alpha = 0.8,
+            straight = TRUE,
+            # text_smoothing = 30,
+            show.legend = FALSE, ) +
+  # geom_text_repel(data = filter(ing.lines.zoom, fecha == max(ing.lines.zoom$fecha)),
+  #                 aes(label = edades, colour = edades),
+  #                 min.segment.length = 0, 
+  #                 nudge_x = 5,
+  #                 show.legend = FALSE) +
   scale_x_date(date_breaks = "1 week", date_labels = "%d %b", 
                date_minor_breaks = "1 week", expand = expansion(add = c(3, 12))) +
   labs(y = "Nº Ingresos\n", x = "",
@@ -2882,7 +2893,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -2906,7 +2918,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -2930,7 +2943,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -3121,7 +3135,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
@@ -3145,7 +3160,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 ```
 
 
@@ -3168,7 +3184,8 @@ datos.diarios.iscii.notna %>%
   scale_x_date(date_breaks = "2 months", date_labels = "%b",
                date_minor_breaks = "1 month") +
   theme(legend.title = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 9))
 
 ```
 
