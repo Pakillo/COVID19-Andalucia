@@ -1456,11 +1456,14 @@ Variación de la movilidad según los [datos de Google](https://www.google.com/c
 ```{r mobidata}
 if (! file.exists("datos/2021_ES_Region_Mobility_Report.csv")) {
   unzip("datos/Region_Mobility_Report_CSVs.zip", 
-        files = "2021_ES_Region_Mobility_Report.csv", 
+        files = c("2021_ES_Region_Mobility_Report.csv", 
+                  "2022_ES_Region_Mobility_Report.csv"),
         exdir = "datos")
 }
 
-mobidata <- read_csv("datos/2021_ES_Region_Mobility_Report.csv") %>% 
+mobidata <- bind_rows(
+  read_csv("datos/2021_ES_Region_Mobility_Report.csv"),
+  read_csv("datos/2022_ES_Region_Mobility_Report.csv")) %>% 
   filter(sub_region_1 == "Andalusia") %>% 
   select(-"grocery_and_pharmacy_percent_change_from_baseline") %>% 
   rename("tiendas y ocio" = "retail_and_recreation_percent_change_from_baseline",
@@ -1483,7 +1486,7 @@ library(ggrepel)
 mobidt <- mobidata %>% 
   filter(is.na(sub_region_2)) %>% 
   group_by(place) %>% 
-  mutate(change_ma = zoo::rollmean(change, k = 30, fill = NA)) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 30, fill = NA, align = "right")) %>% 
   ungroup() %>% 
   filter(date > as.Date("2021-01-06"))
 
@@ -1517,7 +1520,7 @@ ggplot(mobidt) +
 mobidata %>% 
   filter(!is.na(sub_region_2)) %>% 
   group_by(sub_region_2, place) %>% 
-  mutate(change_ma = zoo::rollmean(change, k = 30, fill = NA)) %>% 
+  mutate(change_ma = zoo::rollmean(change, k = 30, fill = NA, align = "right")) %>% 
   ungroup() %>% 
   filter(date > as.Date("2021-01-06")) %>% 
   ggplot() +
