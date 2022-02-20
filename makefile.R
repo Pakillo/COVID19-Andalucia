@@ -1,11 +1,13 @@
 
 ## Especificar fecha de datos
-fecha.munis <- as.Date("2022-02-16")
+fecha.munis <- as.Date("2022-02-17")
 fecha.edad <- fecha.munis
 # fecha.edad <- as.Date("2022-02-16")
 
 
 #### Descarga datos IECA ####
+
+library(jsonlite)
 
 ## Datos diarios según fecha de diagnóstico por provincia
 download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/intranet/admin/rest/v.1.0/consulta/export/39409?type=3",
@@ -14,6 +16,7 @@ download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycart
 ## Consulta personalizable por grupos de edad, sexo y territorio
 download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/intranet/admin/rest/v1.0/consulta/40402?D_TERRITORIO_0=3143,2352,2402,2482,2713,2797,2911,3023,3142&D_SEXO_0=3691&D_EDAD_0=4306,4159,4165,4178,4184,4190,4203,4222,4234,4236,4237,4238,4239,4240,4247,4304",
               destfile = "datos/casos_edad_provs_new.json")
+
 
 ## Histórico de datos acumulados de COVID-19 por fecha de notificación
 download.file(url = "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/intranet/admin/rest/v.1.0/consulta/export/38228?type=3",
