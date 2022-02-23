@@ -700,7 +700,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.14d.65a), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.14d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.14d.65a[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
@@ -744,7 +744,7 @@ datos.plot <- datos.acum.andal %>%
 
 ggplot(datos.plot) +
   geom_line(aes(Fecha, Tasa.7d.65a), size = 2) +
-  annotate("text", x = 10 + max(datos.plot$Fecha), 
+  annotate("text", x = 15 + max(datos.plot$Fecha), 
            y = datos.plot$Tasa.7d.65a[nrow(datos.plot)],
            label = round(datos.plot$Tasa.7d.65a[nrow(datos.plot)])) +
   scale_x_date(limits = c(as.Date("2021-01-01"), NA), 
@@ -2269,7 +2269,7 @@ casos.edad.fecha.iscii %>%
   filter(fecha >= as.Date("2022-01-01")) %>%
   ggplot() +
   geom_textline(aes(x = fecha, y = casos_ma, colour = grupo_edad, label = grupo_edad),
-            linewidth = 1.5, hjust = 0.2, straight = TRUE, #text_smoothing = 60, 
+            linewidth = 1.5, hjust = 0.18, straight = TRUE, #text_smoothing = 60, 
             show.legend = FALSE) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3),
                expand = c(0, 7),
