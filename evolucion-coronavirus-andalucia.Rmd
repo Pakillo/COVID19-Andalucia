@@ -321,17 +321,7 @@ datos.acum <- datos.acum %>%
   full_join(test.minist, by = c("Fecha", "Territorio"))
 
 
-# Add datos camas ocupadas
-camas <- readxl::read_excel("datos/camas_ocupadas.xlsx") %>%
-  mutate(Fecha = as.Date(Fecha)) %>%
-  rename(CamasUCI = UCI)
 
-datos.acum <- datos.acum %>%
-  left_join(camas, by = c("Fecha", "Territorio")) %>% 
-  arrange(Fecha)
-
-datos.acum.andal <- datos.acum %>% 
-  filter(Territorio == "Andalucía")
 
 ```
 
@@ -421,6 +411,21 @@ datos.camas.minist.last.day <- datos.camas.minist %>%
   filter(Fecha == max(Fecha))
 
 
+# Add datos camas ocupadas to datos.acum
+
+camas2join <- datos.camas.minist %>%
+  select(Fecha, Territorio,
+         CamasOcup = covid_Convencional, 
+         CamasUCI = covid_UCI,
+         `%CamasOcup.Minist` = `%OcupHosp`,
+         `%UCI.Minist` = `%OcupUCI`) 
+
+datos.acum <- datos.acum %>% 
+  left_join(camas2join, by = c("Fecha", "Territorio")) %>% 
+  arrange(Fecha)
+
+datos.acum.andal <- datos.acum %>% 
+  filter(Territorio == "Andalucía")
 ```
 
 
