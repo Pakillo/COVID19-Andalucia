@@ -2271,10 +2271,10 @@ casos.edad.fecha.iscii %>%
 
 
 casos.edad.fecha.iscii %>% 
-  filter(fecha >= as.Date("2022-01-01")) %>%
+  filter(fecha >= as.Date("2022-02-01")) %>%
   ggplot() +
   geom_textline(aes(x = fecha, y = casos_ma, colour = grupo_edad, label = grupo_edad),
-            linewidth = 1.5, hjust = 0.18, straight = TRUE, #text_smoothing = 60, 
+            linewidth = 1.5, hjust = 0.05, straight = TRUE, #text_smoothing = 60, 
             show.legend = FALSE) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3),
                expand = c(0, 7),
@@ -2344,11 +2344,11 @@ ggplot() +
 
 
 casos.edad.fecha.iscii %>% 
-  filter(fecha >= as.Date("2022-01-01")) %>% 
+  filter(fecha >= as.Date("2022-02-01")) %>% 
 ggplot() +
   geom_textline(aes(x = fecha, y = IA.7d, colour = grupo_edad, label = grupo_edad),
-            linewidth = 1.5, hjust = -0.09, straight = TRUE,
-            show.legend = FALSE) +
+            linewidth = 1.5, #hjust = 0.30, 
+            straight = TRUE, show.legend = FALSE) +
   # ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
   #                                        fecha == max(casos.edad.fecha.iscii$fecha) - 3),
   #                 aes(x = fecha, y = IA.7d, 
@@ -2729,7 +2729,7 @@ ggplot(ing.lines) +
 # library(gghighlight)
 
 ing.lines.zoom <- ing.lines %>%
-  filter(fecha > "2022-01-01") %>%
+  filter(fecha > "2022-02-01") %>%
   filter(fecha < max(ing.lines$fecha) - 1)
 
 ggplot(data = ing.lines.zoom,
@@ -2986,7 +2986,7 @@ ggplot(uci.lines) +
 
 
 uci.lines %>% 
-  filter(fecha > as.Date("2022-01-01")) %>% 
+  filter(fecha > as.Date("2022-02-01")) %>% 
 ggplot() +
   geom_line(aes(x = fecha, y = uci_ma, colour = edades),
             size = 1.5, alpha = 0.8) +
