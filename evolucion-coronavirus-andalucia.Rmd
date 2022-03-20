@@ -1047,7 +1047,8 @@ ggplot(datos.vacu) +
   labs(x = "", y = "% población vacunada\n", 
        title = "Porcentaje de población vacunada", 
        subtitle = "Personas con vacunación completa",
-       caption = "https://tiny.cc/COVID19-Andalucia") 
+       caption = "https://tiny.cc/COVID19-Andalucia") +
+  theme(axis.text.x = element_text(size = 10))
 ```
 
 
@@ -1056,11 +1057,17 @@ vacu.edades <- read_csv2("datos/vacu_edades.csv") %>%
   select(Fecha, Edad, Valor) %>% 
   mutate(Fecha = as.Date(Fecha, format = "%d/%m/%Y")) %>% 
   mutate(edades = stringr::str_remove_all(Edad, "De ")) %>% 
-  mutate(edades = stringr::str_remove_all(edades, " años"))
-
+  mutate(edades = stringr::str_remove_all(edades, " años")) %>% 
+  filter(!is.na(edades)) %>% 
+  mutate(edades = factor(edades, 
+                         levels = c("5 a 11", "12 a 19", "20 a 29", "30 a 39",
+                                    "40 a 49", "50 a 59", "60 a 69", "70 a 79",
+                                    "80 y más")))
+                                    
 ggplot(vacu.edades) +
   geom_line(aes(Fecha, Valor, colour = edades), size = 1.5) +
-  scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  # scale_color_brewer(type = "seq", palette = "YlGnBu") +
+  scale_colour_viridis_d(direction = -1) +
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
   labs(x = "", y = "", 
        title = "Porcentaje de vacunados con pauta completa",
@@ -1313,7 +1320,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(panel.grid.minor.y = element_line(size = rel(0.5))) +
   scale_x_date(date_breaks = "3 days", date_labels = "%d %b") +
-  geom_text(aes(Fecha, y = ConfirmadosPCR + 400, label = ConfirmadosPCR),
+  geom_text(aes(Fecha, y = ConfirmadosPCR + 100, label = ConfirmadosPCR),
             data = subset(datos.andal, Fecha > max(datos.andal$Fecha) - 21), size = 2.5) 
 
 ```
@@ -1421,7 +1428,7 @@ ggplot() +
        caption = "https://tiny.cc/COVID19-Andalucia") +
   theme(axis.text.x = element_text(size = 8),
         plot.subtitle = element_text(size = 9),
-        axis.text.y = element_text(size = 10)) +
+        axis.text.y = element_text(size = 8)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
 
 ```
@@ -1445,7 +1452,7 @@ ggplot() +
        title = "Casos diarios de COVID-19 en cada provincia",
        subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8)) +
+  theme(axis.text = element_text(size = 8)) +
   scale_x_date(date_breaks = "7 days", date_labels = "%d %b") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
 
@@ -1678,7 +1685,7 @@ fig <- muni.todo %>%
   filter(Fecha > as.Date(max(muni.todo$Fecha) - 30)) %>% 
   filter(Poblacion > 5000) %>% 
   # filter(IA.14d < 1000, IA.cambio < 500) %>%
-  filter(IA.14d < 3000, IA.cambio < 1000) %>%
+  filter(IA.14d < 3000, IA.cambio < 500) %>%
   mutate(fecha = format(Fecha, "%m/%d")) %>%
   select(fecha, IA.14d, IA.cambio, Provincia, Municipio) %>% 
   plot_ly(
@@ -2267,25 +2274,28 @@ casos.edad.fecha.iscii %>%
        colour = "Edad") +
   # scale_color_brewer(type = "seq", palette = "YlGnBu") +
   scale_colour_viridis_d(direction = -1) +
-  theme(legend.title = element_text(hjust = 0.5))
+  theme(legend.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(size = 10))
 
 
 casos.edad.fecha.iscii %>% 
   filter(fecha >= as.Date("2022-02-01")) %>%
   ggplot() +
-  geom_textline(aes(x = fecha, y = casos_ma, colour = grupo_edad, label = grupo_edad),
-            linewidth = 1.5, hjust = 0.05, straight = TRUE, #text_smoothing = 60, 
-            show.legend = FALSE) +
+  # geom_textline(aes(x = fecha, y = casos_ma, colour = grupo_edad, label = grupo_edad),
+  #           linewidth = 1.5, hjust = 0.05, straight = TRUE, #text_smoothing = 60, 
+  #           show.legend = FALSE) +
+  geom_line(aes(x = fecha, y = casos_ma, colour = grupo_edad), 
+            size = 1.5, show.legend = FALSE) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3),
                expand = c(0, 7),
                date_breaks = "1 week", date_labels = "%d %b") +
-  # ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
-  #                                        fecha == max(casos.edad.fecha.iscii$fecha) - 3),
-  #                 aes(x = fecha, y = casos_ma, 
-  #                     label = grupo_edad, colour = grupo_edad),
-  #                 min.segment.length = 0, 
-  #                 nudge_x = 5,
-  #                 show.legend = FALSE) +
+  ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii,
+                                         fecha == max(casos.edad.fecha.iscii$fecha) - 3),
+                  aes(x = fecha, y = casos_ma,
+                      label = grupo_edad, colour = grupo_edad),
+                  min.segment.length = 0,
+                  nudge_x = 5, 
+                  show.legend = FALSE) +
   labs(y = "Casos\n", x = "",
        title = "Casos diarios por franja de edad",
        subtitle = "Para cada edad se representa el nº medio de casos diarios\nen los 7 días previos",
@@ -2339,23 +2349,26 @@ ggplot() +
        colour = "Edad") +
   # scale_color_brewer(type = "seq", palette = "YlGnBu") +
   scale_colour_viridis_d(direction = -1) +
-  theme(legend.title = element_text(hjust = 0.5))
+  theme(legend.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(size = 10))
 
 
 
 casos.edad.fecha.iscii %>% 
   filter(fecha >= as.Date("2022-02-01")) %>% 
 ggplot() +
-  geom_textline(aes(x = fecha, y = IA.7d, colour = grupo_edad, label = grupo_edad),
-            linewidth = 1.5, #hjust = 0.30, 
-            straight = TRUE, show.legend = FALSE) +
-  # ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii, 
-  #                                        fecha == max(casos.edad.fecha.iscii$fecha) - 3),
-  #                 aes(x = fecha, y = IA.7d, 
-  #                     label = grupo_edad, colour = grupo_edad),
-  #                 min.segment.length = 0, 
-  #                 nudge_x = 5,
-  #                 show.legend = FALSE) +
+  # geom_textline(aes(x = fecha, y = IA.7d, colour = grupo_edad, label = grupo_edad),
+  #           linewidth = 1.5, #hjust = 0.30, 
+  #           straight = TRUE, show.legend = FALSE) +
+  geom_line(aes(x = fecha, y = IA.7d, colour = grupo_edad),
+            size = 1.5, show.legend = FALSE) +
+  ggrepel::geom_text_repel(data = filter(casos.edad.fecha.iscii,
+                                         fecha == max(casos.edad.fecha.iscii$fecha) - 3),
+                  aes(x = fecha, y = IA.7d,
+                      label = grupo_edad, colour = grupo_edad),
+                  min.segment.length = 0,
+                  nudge_x = 5,
+                  show.legend = FALSE) +
   scale_x_date(limits = c(as.Date(NA), max(casos.edad.fecha.iscii$fecha) - 3), 
                date_breaks = "1 week", date_labels = "%d %b",
                expand = c(0, 7)) +
@@ -2535,7 +2548,7 @@ ggplot() +
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
        subtitle = "Para facilitar la visualización de tendencias la escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8)) +
+  theme(axis.text = element_text(size = 8)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
 
 ```
@@ -2554,7 +2567,7 @@ ggplot(datos.provs) +
        title = "Hospitalizaciones diarias con COVID-19 en cada provincia",
        subtitle = "Últimas 3 semanas",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8)) +
+  theme(axis.text = element_text(size = 8)) +
   scale_x_date(limits = c(Sys.Date() - 22, NA), 
                date_breaks = "4 days", date_labels = "%d %b") +
   scale_y_continuous(limits = c(0, NA), sec.axis = dup_axis(name = ""))
@@ -2599,7 +2612,7 @@ hosp.edad <- hosp.edad %>%
 ggplot(hosp.edad) +
   coord_flip() +
   geom_col(aes(x = edades.f, y = n), fill = "#377eb8") + 
-  geom_text(aes(x = edades.f, y = n + 180, label = n), size = 3) +
+  geom_text(aes(x = edades.f, y = n + 200, label = n), size = 3) +
   labs(x = "Edad (años)", y = "", 
        title = "Número de ingresos por rango de edad",
        subtitle = paste0("Total de ingresados: ", sum(hosp.edad$n), " (con fecha ", fecha.edad, ")"),
@@ -3066,7 +3079,7 @@ ggplot() +
        title = "Defunciones diarias con COVID-19 en cada provincia",
        subtitle = "La escala del eje vertical es diferente en cada provincia",
        caption = "https://tiny.cc/COVID19-Andalucia") +
-  theme(axis.text.x = element_text(size = 8)) +
+  theme(axis.text = element_text(size = 8)) +
   scale_x_date(limits = c(as.Date("2020-03-01"), max(datos.provs$Fecha) - 5))
 
 ```
@@ -3110,7 +3123,7 @@ def.edad <- def.edad %>%
 ggplot(def.edad) +
   coord_flip() +
   geom_col(aes(x = edades.f, y = n), fill = "grey40") + 
-  geom_text(aes(x = edades.f, y = n + 60, label = n), size = 3) +
+  geom_text(aes(x = edades.f, y = n + 80, label = n), size = 3) +
   labs(x = "Edad (años)", y = "", 
        title = "Defunciones por rango de edad",
        subtitle = paste0("Defunciones acumuladas: ", sum(def.edad$n), " (con fecha ", fecha.edad, ")"),
@@ -3224,7 +3237,8 @@ datos.diarios.iscii.notna %>%
   # scale_color_manual(values = c("#ffff33", "#e41a1c", "#984ea3",
   #                               "#377eb8", "#4daf4a", "#999999")) +
   # geom_text(data = casos.edad.last, aes(Fecha - 20, Casos, label = edades)) +
-  theme(legend.title = element_text(hjust = 0.5))
+  theme(legend.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(size = 10))
 
 ```
 

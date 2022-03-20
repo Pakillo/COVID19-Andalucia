@@ -65,7 +65,7 @@ provs <- c("Almería", "Cádiz", "Córdoba", "Granada",
 ui <- pageWithSidebar(
     headerPanel('COVID-19 en Andalucía: datos por municipio'),
     sidebarPanel(
-        selectInput('prov', 'Provincia', provs, selected = "Córdoba"),
+        selectInput('prov', 'Provincia', provs, selected = "Almería"),
         uiOutput('muni'),
         dateRangeInput('dateRange',
                        label = 'Periodo:',
@@ -93,7 +93,7 @@ server <- function(input, output, session) {
     output$muni <- renderUI({
         selectInput('muni', 'Municipio',
                     choices = sort(unique(datos.muni$Municipio[datos.muni$Provincia == input$prov])),
-                    selected = "Montilla")
+                    selected = "Abla")
     })
 
 
